@@ -1,8 +1,13 @@
 # Compiled class file
 *.class
 
-# Log file
+# Logs and Temporary Files
+logs/
 *.log
+*.tmp
+
+# Generated Files
+/generated/
 
 # BlueJ files
 *.ctxt
@@ -19,6 +24,38 @@
 *.tar.gz
 *.rar
 
+# Dependency Management
+/target/
+/build/
+/out/
+/src/test/
+/.mvn/
+
+# exclude IDE related files
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Configuration files
+HELP.md
+mvnw
+mvnw.cmd
+pom.xml
+qodana.yaml
+Ruby.iml
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+*~
+
+# Sensitive Information
+application.properties
+application.yml
