@@ -8,10 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Home</title>
+    <title>Food</title>
 </head>
 <body>
-Landing Page
-<a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
+    Food Here
 </body>
 </html>
