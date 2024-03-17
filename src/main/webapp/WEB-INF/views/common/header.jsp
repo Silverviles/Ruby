@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: USER
+  User: Migara
   Date: 3/16/2024
   Time: 8:42 PM
   To change this template use File | Settings | File Templates.
@@ -35,5 +35,6 @@
         </ul>
     </div>
 </section>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
