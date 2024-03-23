@@ -8,9 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <footer class="footer">
-    <center>
-        <h1>Happy Man Village</h1>
-    </center>
+    <h1>Happy Man Village</h1>
     <div class="footer-nav">
         <a href="">Home</a>
         <a href="">Gallery</a>
