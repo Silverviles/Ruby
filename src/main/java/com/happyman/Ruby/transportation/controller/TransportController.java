@@ -12,8 +12,13 @@ public class TransportController {
 
     private static final Logger log = LoggerFactory.getLogger(TransportController.class);
 
-    @GetMapping("/save")
-    public void saveTransport() {
-        log.info("Transport details saving started.");
+    @GetMapping("/login")
+    public String getLogin() {
+        return "transportation/driver_login";
+    }
+
+    @GetMapping("/portal")
+    public String authenticate() {
+        return "transportation/driver_portal";
     }
 }

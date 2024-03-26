@@ -22,10 +22,12 @@ body {
 
 .content {
     padding: 20px;
+    width: 100%;
 }
 
 .jobs {
     margin-bottom: 30px;
+    width: 100%;
 }
 
 table {

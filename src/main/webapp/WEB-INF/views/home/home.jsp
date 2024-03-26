@@ -13,5 +13,23 @@
 <body>
 Landing Page
 <a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
+<form method="get" id="transportForm">
+    <button data-action="transport/login">Transportation Login</button>
+    <button data-action="transport/portal">Transportation Portal</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const transportForm = document.getElementById("transportForm");
+        const buttons = transportForm.querySelectorAll("button");
+
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                transportForm.action = this.getAttribute("data-action");
+            });
+        });
+    });
+
+</script>
 </body>
 </html>

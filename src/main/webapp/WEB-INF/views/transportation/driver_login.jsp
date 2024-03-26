@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Register Portal</title>
-    <link rel="stylesheet" href="../../../styles/transportation/driver_login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/transportation/driver_login.css">
 </head>
 <body>
 <div id="login-page" class="login-page">
@@ -41,6 +41,6 @@
     </form>
 </div>
 
-<script src="driver_login.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/transportation/driver_login.js"></script>
 </body>
 </html>

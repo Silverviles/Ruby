@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Portal</title>
-    <link rel="stylesheet" href="../../../styles/transportation/driver_portal.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/transportation/driver_portal.css">
 </head>
 <body>
 <div class="sidebar">
@@ -93,6 +93,6 @@
     </div>
 </div>
 
-<script src="../../../scripts/transportation/driver_portal.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/transportation/driver_portal.js"></script>
 </body>
 </html>
