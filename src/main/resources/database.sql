@@ -1,375 +1,237 @@
-CREATE TABLE
-    add_on
+CREATE TABLE add_on
 (
-    AddonID
-                      int
-                                  NOT
-                                      NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    AddonName
-                      varchar(45) NOT NULL,
-    AddonPrescription varchar(45) NOT NULL,
-    AddonPrice        int         NOT NULL,
-    AddonQuantity     int         NOT NULL
+    addonId           int         NOT NULL AUTO_INCREMENT,
+    addonName         varchar(45) NOT NULL,
+    addonPrescription varchar(45) NOT NULL,
+    addonPrice        int         NOT NULL,
+    addonQuantity     int         NOT NULL,
+    PRIMARY KEY (addonId)
 );
+
 CREATE TABLE addon_to_event
 (
-    PackageID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY,
-    EventID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY
+    packageId int NOT NULL,
+    eventId   int NOT NULL,
+    PRIMARY KEY (packageId, eventId),
+    CONSTRAINT fkPackage FOREIGN KEY (packageId) REFERENCES package (packageId),
+    CONSTRAINT fkEvent FOREIGN KEY (eventId) REFERENCES event (eventId)
 );
+
 CREATE TABLE addon_to_package
 (
-    PackageID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY,
-    AddonID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY
+    packageId int NOT NULL,
+    addonId   int NOT NULL,
+    PRIMARY KEY (packageId, addonId),
+    CONSTRAINT fkPackageAddon FOREIGN KEY (packageId) REFERENCES package (packageId),
+    CONSTRAINT fkAddon FOREIGN KEY (addonId) REFERENCES add_on (addonId)
 );
+
 CREATE TABLE complaints
 (
-    ComplainID     int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    BookingID      int         NOT NULL,
-    INDEX (BookingID),
-    RelatedDetails varchar(45) NOT NULL,
-    Status         varchar(45) NOT NULL
+    complainId     int         NOT NULL AUTO_INCREMENT,
+    bookingId      int         NOT NULL,
+    relatedDetails varchar(45) NOT NULL,
+    status         varchar(45) NOT NULL,
+    PRIMARY KEY (complainId),
+    CONSTRAINT fkBookingComplaint FOREIGN KEY (bookingId) REFERENCES reservation (bookingId)
 );
+
 CREATE TABLE custom_event
 (
-    CustomeventID
-                int
-                            NOT
-                                NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    EventID
-                int
-                            NOT
-                                NULL,
-    INDEX
-        (
-         EventID
-            ),
-    Addon       varchar(45) NOT NULL,
-    CustomPrice int         NOT NULL
+    customEventId int         NOT NULL AUTO_INCREMENT,
+    eventId       int         NOT NULL,
+    addon         varchar(45) NOT NULL,
+    customPrice   int         NOT NULL,
+    PRIMARY KEY (customEventId),
+    CONSTRAINT fkEventCustom FOREIGN KEY (eventId) REFERENCES event (eventId)
 );
+
 CREATE TABLE driver
 (
-    DriverID    int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    AddonID     int         NOT NULL,
-    INDEX (AddonID),
-    Fname       varchar(45) NOT NULL,
-    Lname       varchar(45) NOT NULL,
-    VehicleType varchar(45) NOT NULL,
-    Capacity    int         NOT NULL
+    driverId    int         NOT NULL AUTO_INCREMENT,
+    addonId     int         NOT NULL,
+    fname       varchar(45) NOT NULL,
+    lname       varchar(45) NOT NULL,
+    vehicleType varchar(45) NOT NULL,
+    capacity    int         NOT NULL,
+    PRIMARY KEY (driverId),
+    CONSTRAINT fkAddonDriver FOREIGN KEY (addonId) REFERENCES add_on (addonId)
 );
+
 CREATE TABLE employee
 (
-    empID      int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    CategoryID int         NOT NULL,
-    INDEX (CategoryID),
-    Fname      varchar(45) NOT NULL,
-    Lname      varchar(45) NOT NULL,
-    ContactNo  int         NOT NULL,
-    email      varchar(45) NOT NULL
+    empId      int         NOT NULL AUTO_INCREMENT,
+    categoryId int         NOT NULL,
+    fname      varchar(45) NOT NULL,
+    lname      varchar(45) NOT NULL,
+    contactNo  int         NOT NULL,
+    email      varchar(45) NOT NULL,
+    PRIMARY KEY (empId),
+    CONSTRAINT fkCategoryEmployee FOREIGN KEY (categoryId) REFERENCES shift_catagory (categoryId)
 );
+
+CREATE TABLE shift_catagory (
+                                categoryId     int NOT NULL AUTO_INCREMENT,
+                                categoryName   varchar(45) NOT NULL,
+                                location       varchar(45) NOT NULL,
+                                shiftDuration  int         NOT NULL,
+                                shiftSalary    float       NOT NULL,
+                                PRIMARY KEY (categoryId)
+);
+
 CREATE TABLE event
 (
-    EventID            int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    EventLocation      varchar(45) NOT NULL,
-    EventParticipation varchar(45) NOT NULL,
-    AddonID            int         NOT NULL,
-    EventImg           varchar(45) NOT NULL
+    eventId            int         NOT NULL AUTO_INCREMENT,
+    eventLocation      varchar(45) NOT NULL,
+    eventParticipation varchar(45) NOT NULL,
+    addonId            int         NOT NULL,
+    eventImg           varchar(45) NOT NULL,
+    PRIMARY KEY (eventId),
+    CONSTRAINT fkAddonEvent FOREIGN KEY (addonId) REFERENCES add_on (addonId)
 );
+
 CREATE TABLE feedback
 (
-    FeedbackID   int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    BookingID    int         NOT NULL,
-    INDEX (BookingID),
-    ProviderName varchar(45) NOT NULL,
-    Description  varchar(45) NOT NULL,
-    Rating       varchar(45) NOT NULL
+    feedbackId   int         NOT NULL AUTO_INCREMENT,
+    bookingId    int         NOT NULL,
+    providerName varchar(45) NOT NULL,
+    description  varchar(45) NOT NULL,
+    rating       varchar(45) NOT NULL,
+    PRIMARY KEY (feedbackId),
+    CONSTRAINT fkBookingFeedback FOREIGN KEY (bookingId) REFERENCES reservation (bookingId)
 );
+
 CREATE TABLE food
 (
-    FoodID           int         NOT NULL PRIMARY KEY,
-    FoodType         varchar(45) NOT NULL,
-    FoodPrice        double      NOT NULL,
-    FoodAvailability tinyint     NOT NULL,
-    Foodimg          varchar(45) NOT NULL
+    foodId           int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    foodType         varchar(45) NOT NULL,
+    foodPrice        double      NOT NULL,
+    foodAvailability tinyint     NOT NULL,
+    foodImg          varchar(45) NOT NULL
 );
+
 CREATE TABLE food_to_menu
 (
-    MenuID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY,
-    FoodID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY
+    menuId int NOT NULL,
+    foodId int NOT NULL,
+    PRIMARY KEY (menuId, foodId)
 );
-CREATE TABLE foodorder
+
+CREATE TABLE food_order
 (
-    FoodorderID int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    foodOrderId int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     price       int         NOT NULL,
     date        datetime(1) NOT NULL
 );
-CREATE TABLE foodorder_to_food
+
+CREATE TABLE food_order_to_food
 (
-    FoodID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY,
-    FoodorderID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY
+    foodId        int NOT NULL,
+    foodOrderId int NOT NULL,
+    PRIMARY KEY (foodId, foodOrderId),
+    CONSTRAINT fkFoodOrder FOREIGN KEY (foodId) REFERENCES food (foodId),
+    CONSTRAINT fkFoodOrderOrder FOREIGN KEY (foodOrderId) REFERENCES food_order (foodOrderId)
 );
+
 CREATE TABLE menu
 (
-    MenuID          int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    MenuAvaiability varchar(45) NOT NULL,
-    MenuValid       varchar(45) NOT NULL,
-    MenuName        varchar(45) NOT NULL,
-    MenuPrice       int         NOT NULL
+    menuId          int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    menuAvailability varchar(45) NOT NULL,
+    menuValid       varchar(45) NOT NULL,
+    menuName        varchar(45) NOT NULL,
+    menuPrice       int         NOT NULL
 );
-CREATE TABLE menuorder
+
+CREATE TABLE menu_order
 (
-    MorderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    MenuID   int NOT NULL,
-    INDEX (MenuID),
-    Quantity int NOT NULL,
-    Price    int NOT NULL
+    menuOrderId int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    menuId      int         NOT NULL,
+    quantity    int         NOT NULL,
+    price       int         NOT NULL,
+    CONSTRAINT fkMenuOrder FOREIGN KEY (menuId) REFERENCES menu (menuId)
 );
+
 CREATE TABLE package
 (
-    PackageID         int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    EffectiveDate     date        NOT NULL,
-    DisconnectiveDate date        NOT NULL,
-    MaxValidUsers     int         NOT NULL,
-    MinValidUsers     int         NOT NULL,
+    packageId         int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    effectiveDate     date        NOT NULL,
+    disconnectiveDate date        NOT NULL,
+    maxValidUsers     int         NOT NULL,
+    minValidUsers     int         NOT NULL,
     basePrice         int         NOT NULL,
-    PackageImg        varchar(45) NOT NULL
+    packageImg        varchar(45) NOT NULL
 );
+
 CREATE TABLE reservation
 (
-    BookingID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    PackageID int NOT NULL,
-    INDEX (PackageID),
-    EventID   int NOT NULL,
-    INDEX (EventID),
-    TripID    int NOT NULL,
-    PaymentID int NOT NULL,
-    RoomID    int NOT NULL,
-    INDEX (RoomID)
+    bookingId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    packageId int NOT NULL,
+    eventId   int NOT NULL,
+    tripId    int NOT NULL,
+    paymentId int NOT NULL,
+    roomId    int NOT NULL,
+    CONSTRAINT fkPackageReservation FOREIGN KEY (packageId) REFERENCES package (packageId),
+    CONSTRAINT fkEventReservation FOREIGN KEY (eventId) REFERENCES event (eventId),
+    CONSTRAINT fkRoomReservation FOREIGN KEY (roomId) REFERENCES room (roomId)
 );
+
 CREATE TABLE reserve_to_room
 (
-    ReservedRoomID
-                  int
-                      NOT
-                          NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    RoomID
-                  int
-                      NOT
-                          NULL,
-    INDEX
-        (
-         RoomID
-            ),
-    PeopleCount   int NOT NULL,
-    TotalOccupied int NOT NULL,
-    CostPerDay    int NOT NULL,
-    NoOfDays      int NOT NULL
+    reservedRoomId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    roomId         int NOT NULL,
+    peopleCount    int NOT NULL,
+    totalOccupied  int NOT NULL,
+    costPerDay     int NOT NULL,
+    noOfDays       int NOT NULL,
+    CONSTRAINT fkRoomReserved FOREIGN KEY (roomId) REFERENCES room (roomId)
 );
+
 CREATE TABLE reserved_to_event
 (
-    ReserveEventID
-          int
-              NOT
-                  NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    EventID
-          int
-              NOT
-                  NULL,
-    INDEX
-        (
-         EventID
-            ),
-    Price int NOT NULL
+    reservedEventId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    eventId         int NOT NULL,
+    price           int NOT NULL,
+    CONSTRAINT fkEventReserved FOREIGN KEY (eventId) REFERENCES event (eventId)
 );
+
 CREATE TABLE reserved_to_package
 (
-    ReservePackageID
-          int
-              NOT
-                  NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    PackageID
-          int
-              NOT
-                  NULL,
-    INDEX
-        (
-         PackageID
-            ),
-    Price int NOT NULL
+    reservedPackageId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    packageId         int NOT NULL,
+    price             int NOT NULL,
+    CONSTRAINT fkPackageReserved FOREIGN KEY (packageId) REFERENCES package (packageId)
 );
+
 CREATE TABLE room
 (
-    RoomID      int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    MaxCapacity int         NOT NULL,
-    MinCapacity int         NOT NULL,
-    RoomType    varchar(45) NOT NULL,
-    RoomCost    int         NOT NULL,
-    RoomImg     varchar(45) NOT NULL,
-    RoomName    varchar(45) NOT NULL
+    roomId      int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    maxCapacity int         NOT NULL,
+    minCapacity int         NOT NULL,
+    roomType    varchar(45) NOT NULL,
+    roomCost    int         NOT NULL,
+    roomImg     varchar(45) NOT NULL,
+    roomName    varchar(45) NOT NULL
 );
+
 CREATE TABLE seat_booking
 (
-    SeatbookingID     int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    SeatCount         int         NOT NULL,
-    EffectiveDate     datetime    NOT NULL,
-    DisconnectiveDate datetime(1) NOT NULL
+    seatBookingId     int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    seatCount         int         NOT NULL,
+    effectiveDate     datetime    NOT NULL,
+    disconnectiveDate datetime(1) NOT NULL
 );
+
 CREATE TABLE seatmap
 (
-    BlockID int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    Status  varchar(45) NOT NULL
+    blockId int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    status  varchar(45) NOT NULL
 );
+
 CREATE TABLE seatmap_to_seatbooking
 (
-    SeatBookingID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    BlockID
-        int
-        NOT
-            NULL
-        PRIMARY
-            KEY
-);
-CREATE TABLE shiftassignment
-(
-    ShiftID    int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    empID      int NOT NULL,
-    INDEX (empID),
-    CategoryID int NOT NULL,
-    startTime  int NOT NULL
-);
-CREATE TABLE shiftcatagory
-(
-    CatagoryID    int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    CatagoryName  varchar(45) NOT NULL,
-    Location      varchar(45) NOT NULL,
-    ShiftDuration int         NOT NULL,
-    ShiftSalary   double      NOT NULL
-);
-CREATE TABLE temp_reservation
-(
-    TempBokkingID
-           int
-                       NOT
-                           NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    Field1
-           varchar(45) NOT NULL,
-    Field2 varchar(45) NOT NULL
-);
-CREATE TABLE trip
-(
-    TripID       int         NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    DriverID     int         NOT NULL,
-    INDEX (DriverID),
-    StartTime    time        NOT NULL,
-    EndTime      time        NOT NULL,
-    TripStatus   varchar(45) NOT NULL,
-    VisitorCount int         NOT NULL,
-    Destination  varchar(45) NOT NULL
-);
-CREATE TABLE trip_history
-(
-    TriphistoryID
-                int
-                       NOT
-                           NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    TripID
-                int
-                       NOT
-                           NULL,
-    DriverID
-                int
-                       NOT
-                           NULL,
-    INDEX
-        (
-         DriverID
-            ),
-    RouteLength double NOT NULL,
-    TripTime    time   NOT NULL,
-    TripCost    float  NOT NULL
-);
-CREATE TABLE trip_request
-(
-    TriprequestID
-               int
-                           NOT
-                               NULL
-        PRIMARY
-            KEY
-        AUTO_INCREMENT,
-    DriverID
-               int
-                           NOT
-                               NULL,
-    INDEX
-        (
-         DriverID
-            ),
-    TripStatus varchar(45) NOT NULL
+    seatBookingId int NOT NULL,
+    blockId       int NOT NULL,
+    PRIMARY KEY (seatBookingId, blockId),
+    CONSTRAINT fkSeatBooking FOREIGN KEY (seatBookingId) REFERENCES seat_booking (seatBookingId),
+    CONSTRAINT fkBlock FOREIGN KEY (blockId) REFERENCES seatmap (blockId)
 );
