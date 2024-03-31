@@ -71,12 +71,12 @@ CREATE TABLE employee
 );
 
 CREATE TABLE shift_catagory (
-                                categoryId     int NOT NULL AUTO_INCREMENT,
-                                categoryName   varchar(45) NOT NULL,
-                                location       varchar(45) NOT NULL,
-                                shiftDuration  int         NOT NULL,
-                                shiftSalary    float       NOT NULL,
-                                PRIMARY KEY (categoryId)
+    categoryId     int NOT NULL AUTO_INCREMENT,
+    categoryName   varchar(45) NOT NULL,
+    location       varchar(45) NOT NULL,
+    shiftDuration  int         NOT NULL,
+    shiftSalary    float       NOT NULL,
+    PRIMARY KEY (categoryId)
 );
 
 CREATE TABLE event
