@@ -180,6 +180,7 @@ CREATE TABLE reservation
     paymentId         int,
     discontinueDate   date,
     constraint reservation_pk_1 primary key (bookingId),
+    constraint reservation_fk_room_reservation foreign key (roomReservationId) references room_reservation (roomReservationId),
     constraint reservation_fk_trip foreign key (tripId) references trip (tripId),
     constraint reservation_fk_event foreign key (eventId) references event (eventId),
     constraint reservation_fk_package foreign key (packageId) references package (packageId),
