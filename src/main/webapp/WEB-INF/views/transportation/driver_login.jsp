@@ -26,7 +26,7 @@
 
 <div id="register-page" class="register-page">
     <h2>Register</h2>
-    <form id="register-form">
+    <form id="register-form" method="post" action="${pageContext.request.contextPath}/transport/signup">
         <input aria-label="first_name" type="text" placeholder="First Name" required>
         <input aria-label="last_name" type="text" placeholder="Last Name" required>
         <input aria-label="v_type" type="text" placeholder="Vehicle Type" required>

@@ -9,15 +9,8 @@ function showLogin() {
 }
 
 document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission for demonstration
-    // Add your login logic here
+    event.preventDefault();
     console.log('Login submitted');
-});
-
-document.getElementById('register-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission for demonstration
-    // Add your registration logic here
-    console.log('Registration submitted');
 });
 
 window.onload(() => {
