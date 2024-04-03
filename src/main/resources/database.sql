@@ -42,6 +42,7 @@ CREATE TABLE vehicle
 (
     vehicleId   int         NOT NULL auto_increment,
     vehicleType varchar(50) NOT NULL,
+    vehicleNumber varchar(20) NOT NULL UNIQUE,
     maxCount    int         NOT NULL,
     CONSTRAINT vehicle_pk_1 PRIMARY KEY (vehicleId)
 );
@@ -53,6 +54,7 @@ CREATE TABLE driver
     email     varchar(100) NOT NULL,
     mobileNo  char(10)     NOT NULL,
     vehicle   int          NOT NULL,
+    password  varchar(50)  NOT NULL,
     CONSTRAINT driver_pk_1 PRIMARY KEY (driverId),
     CONSTRAINT driver_fk_vehicle FOREIGN KEY (vehicle) REFERENCES vehicle (vehicleId)
 );

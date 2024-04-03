@@ -27,6 +27,8 @@ public class Driver {
 
 	@Column(name = "mobileNo", nullable = false, length = 10) private String mobileNo;
 
+	@Column(name = "password", nullable = false, length = 50) private String password;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "vehicle", nullable = false) private Vehicle vehicle;
 
 }

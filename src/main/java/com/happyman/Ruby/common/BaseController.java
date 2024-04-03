@@ -10,9 +10,9 @@ import com.happyman.Ruby.masterService.MasterServiceImpl;
 
 @Controller
 public class BaseController {
-	private static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
+	protected static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
 
-	MasterService masterService;
+	protected MasterService masterService;
 
 	@Autowired
 	public BaseController(MasterService masterService){
