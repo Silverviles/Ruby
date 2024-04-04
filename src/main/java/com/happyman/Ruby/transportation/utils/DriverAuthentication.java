@@ -9,25 +9,27 @@ import org.slf4j.LoggerFactory;
 import com.happyman.Ruby.masterService.MasterService;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Vehicle;
+import com.happyman.Ruby.transportation.dto.DriverDTO;
 
 public class DriverAuthentication {
 	private static final Logger LOG = LoggerFactory.getLogger(DriverAuthentication.class);
-	public static Boolean verifySignup(HttpServletRequest request, MasterService masterService){
+	public static Boolean verifySignup(DriverDTO driverDTO, MasterService masterService){
 		Driver driver = new Driver();
 		Vehicle vehicle = new Vehicle();
 
-		vehicle.setVehicleType(request.getParameter("vehicleType"));
-		vehicle.setMaxCount(Integer.parseInt(request.getParameter("seatCount")));
-		vehicle.setVehicleNumber(request.getParameter("vehicleNumber"));
+		vehicle.setVehicleType(driverDTO.getVehicleType());
+		vehicle.setMaxCount(driverDTO.getSeatCount());
+		vehicle.setVehicleNumber(driverDTO.getVehicleNumber());
 
-		driver.setFirstName(request.getParameter("firstName"));
-		driver.setLastName(request.getParameter("lastName"));
+		driver.setFirstName(driverDTO.getFirstName());
+		driver.setLastName(driverDTO.getLastName());
 		driver.setVehicle(vehicle);
-		driver.setEmail(request.getParameter("email"));
-		driver.setMobileNo(request.getParameter("mobileNumber"));
-		driver.setPassword(encodePassword(request.getParameter("password")));
+		driver.setEmail(driverDTO.getEmail());
+		driver.setMobileNo(driver.getMobileNo());
+		driver.setPassword(encodePassword(driverDTO.getPassword()));
 
 		try{
+			masterService.saveVehicle(vehicle);
 			masterService.addDriver(driver);
 		} catch (Exception e){
 			LOG.error("Error saving driver: " + driver.getFirstName() + " " + driver.getLastName());

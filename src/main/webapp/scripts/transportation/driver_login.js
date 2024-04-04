@@ -50,8 +50,3 @@ function registerDriver() {
         }
     });
 }
-
-
-window.onload(() => {
-    
-})

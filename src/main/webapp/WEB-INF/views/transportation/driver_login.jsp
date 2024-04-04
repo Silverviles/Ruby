@@ -17,7 +17,7 @@
 <body>
 <div id="login-page" class="login-page">
     <h2>Login</h2>
-    <form id="login-form">
+    <form id="login-form" method="post" action="${pageContext.request.contextPath}/transport/login">
         <input aria-label="username" type="text" placeholder="Username" required>
         <input aria-label="password" type="password" placeholder="Password" required>
         <button type="submit">Login</button>
