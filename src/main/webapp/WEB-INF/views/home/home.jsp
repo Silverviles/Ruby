@@ -5,18 +5,25 @@
   Time: 22:26
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%--    Use this tag to include the header and the footer in your html page.--%>
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/header.css">
 </head>
 <body>
-Landing Page
+<jsp:include page="../common/header.jsp"/>
+
 <a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
 <form method="get" id="transportForm">
     <button data-action="transport/login">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
 </form>
+
+<jsp:include page="../common/footer.jsp"/>
+Landing Page
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
