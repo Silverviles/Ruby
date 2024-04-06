@@ -1,14 +1,12 @@
 package com.happyman.Ruby.transportation.utils;
 
-import jakarta.servlet.http.HttpServletRequest;
-
-import org.mindrot.jbcrypt.BCrypt;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.happyman.Ruby.masterService.MasterService;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Vehicle;
+import jakarta.servlet.http.HttpServletRequest;
+import org.mindrot.jbcrypt.BCrypt;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DriverAuthentication {
 	private static final Logger LOG = LoggerFactory.getLogger(DriverAuthentication.class);
