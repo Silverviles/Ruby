@@ -1,15 +1,9 @@
 package com.happyman.Ruby.transportation.utils;
 
-import jakarta.servlet.http.HttpServletRequest;
-
-import java.util.Objects;
-
-import org.hibernate.Transaction;
+import org.apache.commons.lang3.StringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionStatus;
 
 import com.happyman.Ruby.masterService.MasterService;
 import com.happyman.Ruby.masterService.dao.Driver;
@@ -18,7 +12,8 @@ import com.happyman.Ruby.transportation.dto.DriverDTO;
 
 public class DriverAuthentication {
 	private static final Logger LOG = LoggerFactory.getLogger(DriverAuthentication.class);
-	public static Boolean verifySignup(DriverDTO driverDTO, MasterService masterService){
+
+	public static Boolean verifySignup(DriverDTO driverDTO, MasterService masterService) {
 		Driver driver = new Driver();
 		Vehicle vehicle = new Vehicle();
 
@@ -32,14 +27,22 @@ public class DriverAuthentication {
 		driver.setMobileNo(driverDTO.getMobileNumber());
 		driver.setPassword(encodePassword(driverDTO.getPassword()));
 
-		try{
+		try {
 			masterService.addDriverAndVehicle(driver, vehicle);
-		} catch (Exception e){
+		} catch (Exception e) {
 			LOG.error("Error saving driver: " + driver.getFirstName() + " " + driver.getLastName());
 			return false;
 		}
 
 		return true;
+	}
+
+	public static Boolean verifyLogin(DriverDTO driverDTO, MasterService masterService) {
+		if (StringUtils.isEmpty(driverDTO.getPassword()) || StringUtils.isEmpty(driverDTO.getEmail())) {
+			LOG.error("Cannot process null inputs.");
+			return false;
+		}
+		return checkPassword(driverDTO.getPassword(), masterService.getDriverByEmail(driverDTO.getEmail()).getEmail());
 	}
 
 	public static String encodePassword(String password) {
