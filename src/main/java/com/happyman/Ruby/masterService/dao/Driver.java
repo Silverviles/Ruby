@@ -1,5 +1,6 @@
 package com.happyman.Ruby.masterService.dao;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -8,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,8 +29,8 @@ public class Driver {
 
 	@Column(name = "mobileNo", nullable = false, length = 10) private String mobileNo;
 
-	@Column(name = "password", nullable = false, length = 50) private String password;
+	@Column(name = "password", nullable = false, length = 100) private String password;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "vehicle", nullable = false) private Vehicle vehicle;
+	@OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL) @JoinColumn(name = "vehicle", nullable = false) private Vehicle vehicle;
 
 }

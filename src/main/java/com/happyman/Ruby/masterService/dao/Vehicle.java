@@ -20,6 +20,6 @@ public class Vehicle {
 
 	@Column(name = "maxCount", nullable = false) private Integer maxCount;
 
-	@Column(name = "vehicleNumber", nullable = false) private String vehicleNumber;
+	@Column(name = "vehicleNumber", nullable = false, unique = true) private String vehicleNumber;
 
 }

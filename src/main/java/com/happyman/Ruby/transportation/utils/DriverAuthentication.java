@@ -2,9 +2,14 @@ package com.happyman.Ruby.transportation.utils;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.util.Objects;
+
+import org.hibernate.Transaction;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
 
 import com.happyman.Ruby.masterService.MasterService;
 import com.happyman.Ruby.masterService.dao.Driver;
@@ -23,14 +28,12 @@ public class DriverAuthentication {
 
 		driver.setFirstName(driverDTO.getFirstName());
 		driver.setLastName(driverDTO.getLastName());
-		driver.setVehicle(vehicle);
 		driver.setEmail(driverDTO.getEmail());
-		driver.setMobileNo(driver.getMobileNo());
+		driver.setMobileNo(driverDTO.getMobileNumber());
 		driver.setPassword(encodePassword(driverDTO.getPassword()));
 
 		try{
-			masterService.saveVehicle(vehicle);
-			masterService.addDriver(driver);
+			masterService.addDriverAndVehicle(driver, vehicle);
 		} catch (Exception e){
 			LOG.error("Error saving driver: " + driver.getFirstName() + " " + driver.getLastName());
 			return false;
