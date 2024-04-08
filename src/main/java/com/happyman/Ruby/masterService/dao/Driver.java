@@ -31,6 +31,6 @@ public class Driver {
 
 	@Column(name = "password", nullable = false, length = 100) private String password;
 
-	@OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL) @JoinColumn(name = "vehicle", nullable = false) private Vehicle vehicle;
+	@OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REMOVE) @JoinColumn(name = "vehicle", nullable = false) private Vehicle vehicle;
 
 }

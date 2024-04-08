@@ -42,7 +42,7 @@ public class DriverAuthentication {
 			LOG.error("Cannot process null inputs.");
 			return false;
 		}
-		return checkPassword(driverDTO.getPassword(), masterService.getDriverByEmail(driverDTO.getEmail()).getEmail());
+		return checkPassword(driverDTO.getPassword(), masterService.getDriverByEmail(driverDTO.getEmail()).getPassword());
 	}
 
 	public static String encodePassword(String password) {

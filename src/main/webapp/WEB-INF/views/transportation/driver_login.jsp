@@ -18,8 +18,8 @@
 <div id="login-page" class="login-page">
     <h2>Login</h2>
     <form id="login-form" method="post" action="${pageContext.request.contextPath}/transport/login">
-        <input aria-label="username" type="text" placeholder="Username" required>
-        <input aria-label="password" type="password" placeholder="Password" required>
+        <input id="loginEmail" name="email" aria-label="email" type="text" placeholder="Email" required>
+        <input id="loginPassword" name="password" aria-label="password" type="password" placeholder="Password" required>
         <button type="submit">Login</button>
         <p>Don't have an account? <a href="#" onclick="showRegister()">Sign Up</a></p>
     </form>
@@ -33,9 +33,9 @@
         <input id="v_type" name="v_type" aria-label="Vehicle Type" type="text" placeholder="Vehicle Type" required>
         <input id="v_number" name="v_number" aria-label="Vehicle Number" type="text" placeholder="Vehicle Number" required>
         <input id="seat_count" name="seat_count" aria-label="Seat Count" type="number" placeholder="Seat Count" required>
-        <input id="email" name="email" aria-label="Email" type="email" placeholder="Email" required>
+        <input id="signupEmail" name="email" aria-label="Email" type="email" placeholder="Email" required>
         <input id="mobile_no" name="mobile_no" aria-label="Mobile Number" type="tel" placeholder="Mobile Number" required>
-        <input id="password" name="password" aria-label="Password" type="password" placeholder="Password" required>
+        <input id="signupPassword" name="password" aria-label="Password" type="password" placeholder="Password" required>
         <input id="confirm_password" name="confirm_password" aria-label="Confirm Password" type="password" placeholder="Confirm Password" required>
         <button type="submit">Register</button>
         <p>Already have an account? <a id="show_login" href="#" onclick="showLogin()">Login</a></p>
