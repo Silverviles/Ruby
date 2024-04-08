@@ -17,6 +17,7 @@
 <form method="get" id="transportForm">
     <button data-action="transport/login">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
+    <button data-action="packages/packHome">Packages</button>
 </form>
 
 <jsp:include page="../common/footer.jsp"/>
