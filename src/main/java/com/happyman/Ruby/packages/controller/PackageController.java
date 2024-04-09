@@ -22,6 +22,6 @@ public class PackageController extends BaseController {
 
     @GetMapping("/packHome")
     public String goPackages() {
-        return "/packages/package";
+        return "packages/package";
     }
 }

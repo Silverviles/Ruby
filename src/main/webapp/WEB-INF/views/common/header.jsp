@@ -25,7 +25,7 @@
 <body>
 <div id="header">
     <div id="logoNname">
-        <h3><span id="happyMan">Happy Man</span> <br> <span id="village">VILLAGE</span></h3>
+        <h3 style="text-align: center"><span id="happyMan">Happy Man</span> <br> <span id="village">VILLAGE</span></h3>
     </div>
 
     <section>
