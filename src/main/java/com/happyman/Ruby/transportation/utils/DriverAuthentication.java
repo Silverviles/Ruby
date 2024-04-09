@@ -1,38 +1,48 @@
 package com.happyman.Ruby.transportation.utils;
 
-import com.happyman.Ruby.masterService.MasterService;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Vehicle;
-import jakarta.servlet.http.HttpServletRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.happyman.Ruby.masterService.MasterService;
+import com.happyman.Ruby.masterService.dao.Driver;
+import com.happyman.Ruby.masterService.dao.Vehicle;
+import com.happyman.Ruby.transportation.dto.DriverDTO;
+
 public class DriverAuthentication {
 	private static final Logger LOG = LoggerFactory.getLogger(DriverAuthentication.class);
-	public static Boolean verifySignup(HttpServletRequest request, MasterService masterService){
+
+	public static Boolean verifySignup(DriverDTO driverDTO, MasterService masterService) {
 		Driver driver = new Driver();
 		Vehicle vehicle = new Vehicle();
 
-		vehicle.setVehicleType(request.getParameter("vehicleType"));
-		vehicle.setMaxCount(Integer.parseInt(request.getParameter("seatCount")));
-		vehicle.setVehicleNumber(request.getParameter("vehicleNumber"));
+		vehicle.setVehicleType(driverDTO.getVehicleType());
+		vehicle.setMaxCount(driverDTO.getSeatCount());
+		vehicle.setVehicleNumber(driverDTO.getVehicleNumber());
 
-		driver.setFirstName(request.getParameter("firstName"));
-		driver.setLastName(request.getParameter("lastName"));
-		driver.setVehicle(vehicle);
-		driver.setEmail(request.getParameter("email"));
-		driver.setMobileNo(request.getParameter("mobileNumber"));
-		driver.setPassword(encodePassword(request.getParameter("password")));
+		driver.setFirstName(driverDTO.getFirstName());
+		driver.setLastName(driverDTO.getLastName());
+		driver.setEmail(driverDTO.getEmail());
+		driver.setMobileNo(driverDTO.getMobileNumber());
+		driver.setPassword(encodePassword(driverDTO.getPassword()));
 
-		try{
-			masterService.addDriver(driver);
-		} catch (Exception e){
+		try {
+			masterService.addDriverAndVehicle(driver, vehicle);
+		} catch (Exception e) {
 			LOG.error("Error saving driver: " + driver.getFirstName() + " " + driver.getLastName());
 			return false;
 		}
 
 		return true;
+	}
+
+	public static Boolean verifyLogin(DriverDTO driverDTO, MasterService masterService) {
+		if (StringUtils.isEmpty(driverDTO.getPassword()) || StringUtils.isEmpty(driverDTO.getEmail())) {
+			LOG.error("Cannot process null inputs.");
+			return false;
+		}
+		return checkPassword(driverDTO.getPassword(), masterService.getDriverByEmail(driverDTO.getEmail()).getPassword());
 	}
 
 	public static String encodePassword(String password) {
