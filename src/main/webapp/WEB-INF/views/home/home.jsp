@@ -19,9 +19,10 @@
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="packages/packHome">Packages</button>
+    <button data-action="admin/temp1">Admin Template 01</button>
 </form>
 
-<a href="${pageContext.request.contextPath}/WEB-INF/views/admin/admin_temp1.jsp" >Go TO Admin template 01</a>
+
 <jsp:include page="../common/footer.jsp"/>
 
 
