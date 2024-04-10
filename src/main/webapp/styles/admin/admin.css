@@ -24,13 +24,14 @@ body{
     top: 0;
     margin-right: 2dvw;
     padding: 20px;
-    color: #432818;
     font-weight: 600;
 }
+
 
 .admin_pro a {
     text-decoration: none;
     text-shadow: 0.0520833333vw 0.1041666667vw 0.2083333333vw rgba(50, 50, 50, 0.64);
+    color: #432818;
 }
 
 
@@ -41,7 +42,7 @@ body{
 .topic{
     font-size: 25px;
     font-weight: 700;
-    padding: 10px;
+    padding: 10px 10px 10px 30px;
     color: #432818;
     text-shadow: 0.0520833333vw 0.1041666667vw 0.2083333333vw rgba(48, 48, 48, 0.64);
 }
@@ -53,7 +54,7 @@ hr{
 }
 
 .middle{
-    padding: 10px 2dvw 2dvh 3dvw;
+    padding: 20px;
 }
 
 .subTopic{
@@ -93,43 +94,6 @@ textarea {
 .lastrow{
     position: relative;
 }
-
-.submitbtn {
-    --c:  #432818; /* the color*/
-
-    box-shadow: 0 0 0 .1em inset var(--c);
-    --_g: linear-gradient(var(--c) 0 0) no-repeat;
-    background:
-            var(--_g) calc(var(--_p,0%) - 100%) 0%,
-            var(--_g) calc(200% - var(--_p,0%)) 0%,
-            var(--_g) calc(var(--_p,0%) - 100%) 100%,
-            var(--_g) calc(200% - var(--_p,0%)) 100%;
-    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-    outline-offset: .1em;
-    transition: background-size .4s, background-position 0s .4s;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 10px;
-    padding: 10px 20px;
-    color: 250542;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.submitbtn:hover {
-    --_p: 100%;
-    transition: background-position .4s, background-size 0s;
-    color: rgb(218, 218, 218);
-}
-
-.submitbtn:active{
-    box-shadow: 0 0 9e9q inset #0009;
-    background-color: var(--c);
-    color: rgb(218, 218, 218);
-}
-
 
 
 .sidebar.active + .content {

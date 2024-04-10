@@ -1,5 +1,6 @@
 package com.happyman.Ruby.admin.controller;
 
+import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.packages.controller.PackageController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminController {
+
+public class AdminController extends BaseController {
+
     private static final Logger log = LoggerFactory.getLogger(PackageController.class);
 
 
