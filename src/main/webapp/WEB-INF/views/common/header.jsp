@@ -25,7 +25,7 @@
 <body>
 <div id="header">
     <div id="logoNname">
-        <h3 style="text-align: center"><span id="happyMan">Happy Man</span> <br> <span id="village">VILLAGE</span></h3>
+        <div id="logo" style="text-align: center"><span id="happyMan">Happy Man</span> <br> <span id="village">VILLAGE</span></div>
     </div>
 
     <section>
@@ -41,6 +41,17 @@
         </div>
     </section>
 </div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        var header = document.getElementById('header');
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
 <%--<div id="header">--%>

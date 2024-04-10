@@ -13,13 +13,15 @@
 <body>
 <jsp:include page="../common/header.jsp"/>
 
-<a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
+<div style="margin-top: 80px"></div>
+<a href="${pageContext.request.contextPath}/restaurant/food" >Go TO Food Page</a>
 <form method="get" id="transportForm">
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="packages/packHome">Packages</button>
 </form>
 
+<a href="${pageContext.request.contextPath}/WEB-INF/views/admin/admin_temp1.jsp" >Go TO Admin template 01</a>
 <jsp:include page="../common/footer.jsp"/>
 
 
