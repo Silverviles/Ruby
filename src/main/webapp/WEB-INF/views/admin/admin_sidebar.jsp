@@ -58,6 +58,13 @@
         </li>
         <li>
             <a href="#">
+                <i class='bx bx-book-add' ></i>
+                <span class="nav-item">Addons</span>
+            </a>
+            <span class="tooltip">Addons</span>
+        </li>
+        <li>
+            <a href="#">
                 <i class='bx bxs-hotel' ></i>
                 <span class="nav-item">Rooms</span>
             </a>
@@ -73,6 +80,13 @@
 
     </ul>
 </div>
+<script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
 
+    btn.onclick = function(){
+        sidebar.classList.toggle('active');
+    };
+</script>
 </body>
 </html>
