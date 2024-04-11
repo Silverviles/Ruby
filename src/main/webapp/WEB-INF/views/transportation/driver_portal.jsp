@@ -16,10 +16,9 @@
 <body>
 <div class="sidebar">
     <div class="driver-info">
-        <img src="../../../images/transportation/" alt="Driver Image">
-        <h3>Driver Name</h3>
-        <p>Email: driver@example.com</p>
-        <p>Mobile No: +94 71 112 2234</p>
+        <h3>Driver Name<br>${driver.firstName} ${driver.lastName}</h3>
+        <p>Email: ${driver.email}</p>
+        <p>Mobile No: ${driver.mobileNo}</p>
     </div>
     <div class="driver_portal_navigate">
         <p id="available_jobs_show">Available Jobs</p>

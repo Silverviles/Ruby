@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.happyman.Ruby.masterService.dao.Driver;
+import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
 
 
@@ -30,6 +31,14 @@ public interface MasterService {
 	public Vehicle getVehicleByNumber(String vehicleNumber);
 
 	public void saveVehicle(Vehicle vehicle);
+
+	// Implementation for Trip
+	public void saveTrip(Trip trip);
+	public Trip getTripById(Integer tripId);
+	public List<Trip> getAllTrips();
+	public List<Trip> getAllTripsByVehicleType(String type);
+	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber);
+	public List<Trip> getAllTripsByDriverId(Integer driverId);
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();

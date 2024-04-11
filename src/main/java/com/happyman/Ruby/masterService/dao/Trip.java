@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +20,11 @@ import lombok.Setter;
 public class Trip {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "tripId", nullable = false) private Integer id;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "driverId", nullable = false) private Driver driver;
+	@OneToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "driverId", nullable = false) private Driver driver;
 
 	@Column(name = "tripStatus", nullable = false) private Byte tripStatus;
 
+	@Column(name = "tripDestination", nullable = false) private String tripDestination;
+
+	@Column(name = "totalCost", nullable = false) private Long totalCost;
 }

@@ -8,6 +8,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.happyman.Ruby.masterService.dao.Driver;
+import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
 import com.happyman.Ruby.masterService.service.DriverService;
 import com.happyman.Ruby.masterService.service.VehicleService;
@@ -82,6 +83,36 @@ public class MasterServiceImpl implements MasterService{
 	@Override
 	public void saveVehicle(Vehicle vehicle) {
 		vehicleService.saveVehicle(vehicle);
+	}
+
+	@Override
+	public void saveTrip(Trip trip) {
+
+	}
+
+	@Override
+	public Trip getTripById(Integer tripId) {
+		return null;
+	}
+
+	@Override
+	public List<Trip> getAllTrips() {
+		return List.of();
+	}
+
+	@Override
+	public List<Trip> getAllTripsByVehicleType(String type) {
+		return List.of();
+	}
+
+	@Override
+	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber) {
+		return List.of();
+	}
+
+	@Override
+	public List<Trip> getAllTripsByDriverId(Integer driverId) {
+		return List.of();
 	}
 
 	@Override
