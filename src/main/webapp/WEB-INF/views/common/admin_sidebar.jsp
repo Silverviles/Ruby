@@ -15,7 +15,14 @@
     <title>Happy Man Village</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../../styles/common/admin_sidebar.css">
+    <script>
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
 
+        btn.onclick = function(){
+            sidebar.classList.toggle('active');
+        };
+    </script>
 </head>
 <body>
 
@@ -87,12 +94,5 @@
 
 </body>
 
-<script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
 
-    btn.onclick = function(){
-        sidebar.classList.toggle('active');
-    };
-</script>
 </html>
