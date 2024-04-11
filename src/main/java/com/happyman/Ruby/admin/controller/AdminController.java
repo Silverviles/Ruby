@@ -20,4 +20,9 @@ public class AdminController extends BaseController {
     public String goTemp1() {
         return "admin/admin_temp1";
     }
+
+    @GetMapping("/adminPack")
+    public String adminPackage() {
+        return "admin/admin_package";
+    }
 }

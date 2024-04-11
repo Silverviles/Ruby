@@ -112,14 +112,6 @@
         </div>
     </div>
 </div>
-<script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
-
-    btn.onclick = function(){
-        sidebar.classList.toggle('active');
-    };
-</script>
 
 <script src="${pageContext.request.contextPath}/scripts/admin/admin.js"></script>
 </body>

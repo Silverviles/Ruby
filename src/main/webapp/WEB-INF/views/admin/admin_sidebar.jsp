@@ -43,7 +43,7 @@
             <span class="tooltip">Restaurant</span>
         </li>
         <li>
-            <a href="#">
+            <a href="admin/adminPack">
                 <i class='bx bxs-category' ></i>
                 <span class="nav-item">Packages</span>
             </a>
@@ -80,13 +80,13 @@
 
     </ul>
 </div>
-<script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
+<%--<script>--%>
+<%--    let btn = document.querySelector('#btn');--%>
+<%--    let sidebar = document.querySelector('.sidebar');--%>
 
-    btn.onclick = function(){
-        sidebar.classList.toggle('active');
-    };
-</script>
+<%--    btn.onclick = function(){--%>
+<%--        sidebar.classList.toggle('active');--%>
+<%--    };--%>
+<%--</script>--%>
 </body>
 </html>

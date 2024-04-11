@@ -32,9 +32,9 @@
 
     <div class="content">
         <div class="top2">
-            <div class="topic">Topic_Name</div>
+            <div class="topic">Packages</div>
             <div class="admin_pro">
-                <a href="">
+                <a href="#">
                     <i class="fa-solid fa-user-tie"></i>
                     Admin
                     <hr>
@@ -45,7 +45,7 @@
         <hr style="margin: 0 10px 0 10px;">
 
         <div class="middle">
-            <div class="subTopic" style="text-align: center;">Function_Name</div>
+            <%--            <div class="subTopic" style="text-align: center;">Function_Name</div>--%>
             <div class="container">
                 <table>
                     <tr>
@@ -87,6 +87,7 @@
         </div>
     </div>
 </div>
+<script src="${pageContext.request.contextPath}/scripts/admin/admin.js"></script>
 
 </body>
 </html>
