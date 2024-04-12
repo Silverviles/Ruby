@@ -28,11 +28,11 @@
 
 <body>
 <div class="whole">
-        <jsp:include page="admin_sidebar.jsp"/>
+    <jsp:include page="admin_sidebar.jsp"/>
 
     <div class="content">
         <div class="top2">
-            <div class="topic">Topic_Name</div>
+            <div class="topic">Packages</div>
             <div class="admin_pro">
                 <a href="">
                     <i class="fa-solid fa-user-tie"></i>
@@ -45,7 +45,7 @@
         <hr style="margin: 0 10px 0 10px;">
 
         <div class="middle">
-            <div class="subTopic" style="text-align: center;">Function_Name</div>
+            <div class="subTopic" style="text-align: center;">Add New Package</div>
             <div class="container">
                 <form>
                     <div class="form-group">
@@ -93,11 +93,10 @@
                         <input type="radio" id="radio-input2" name="radio-input" value="option2">
                         <label for="radio-input2">Option 2</label>
                     </div>
-                    <div class="form-group drop-area" id="drop-area">
-                        <label for="file-input">Drag and drop files here or click to upload:</label>
-                        <input type="file" id="file-input" name="file-input" multiple>
+                    <div class="form-group">
+                        <label for="file-input">File Input:</label>
+                        <input type="file" id="file-input" name="file-input">
                     </div>
-
                     <div class="form-group">
                         <label for="tel-input">Tel Input:</label>
                         <input type="tel" id="tel-input" name="tel-input" placeholder="Enter phone number">
@@ -115,7 +114,5 @@
 </div>
 
 <script src="${pageContext.request.contextPath}/scripts/admin/admin.js"></script>
-<script src="${pageContext.request.contextPath}/scripts/admin/dragAndDrop.js"></script>
-
 </body>
 </html>

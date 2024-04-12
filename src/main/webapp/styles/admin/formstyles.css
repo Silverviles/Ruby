@@ -72,3 +72,15 @@ input[type="radio"] {
     color: #bb9557;
     box-shadow: 0px 4px 8px #bb95578d;
 }
+
+.drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.drop-area:hover {
+    background-color: rgba(113, 99, 74, 0.1);
+}
