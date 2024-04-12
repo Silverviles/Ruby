@@ -93,9 +93,11 @@
                         <input type="radio" id="radio-input2" name="radio-input" value="option2">
                         <label for="radio-input2">Option 2</label>
                     </div>
-                    <div class="form-group drop-area" id="drop-area">
+                    <div class="form-group">
                         <label for="file-input">Drag and drop files here or click to upload:</label>
-                        <input type="file" id="file-input" name="file-input" multiple>
+                        <div class="drop-area" id="drop-area">
+                            <input type="file" id="file-input" name="file-input">
+                        </div>
                     </div>
 
                     <div class="form-group">

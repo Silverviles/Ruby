@@ -84,3 +84,9 @@ input[type="radio"] {
 .drop-area:hover {
     background-color: rgba(113, 99, 74, 0.1);
 }
+
+.drop-area.dropped-file {
+    /* Styles for dropped files */
+    border: 2px dashed green; /* Example styling */
+    background-color: #e0ffe0; /* Example styling */
+}

@@ -47,63 +47,45 @@
         <div class="middle">
             <div class="subTopic" style="text-align: center;">Add New Package</div>
             <div class="container">
-                <form>
+                <form method="post" action="#">
                     <div class="form-group">
-                        <label for="text-input">Text Input:</label>
-                        <input type="text" id="text-input" name="text-input">
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name" required><br><br>
                     </div>
+
                     <div class="form-group">
-                        <label for="email-input">Email Input:</label>
-                        <input type="email" id="email-input" name="email-input">
+                        <label for="description">Description:</label><br>
+                        <textarea id="description" name="description" rows="4" required></textarea><br><br>
                     </div>
+
                     <div class="form-group">
-                        <label for="password-input">Password Input:</label>
-                        <input type="password" id="password-input" name="password-input">
+                        <label for="price">Price:</label><br>
+                        <input type="number" id="price" name="price" step="0.01" required><br><br>
                     </div>
+
                     <div class="form-group">
-                        <label for="date">Date Input:</label>
-                        <input type="date" id="date" name="date">
+                        <label for="discontinueDate">Discontinue Date:</label><br>
+                        <input type="date" id="discontinueDate" name="discontinueDate"><br><br>
                     </div>
+
                     <div class="form-group">
-                        <label for="number-input">Number Input:</label>
-                        <input type="number" id="number-input" name="number-input">
+                        <label for="availability">Availability (1 for available, 0 for unavailable):</label><br>
+                        <input type="number" id="availability" name="availability" min="0" max="1" required><br><br>
                     </div>
+
                     <div class="form-group">
-                        <label for="textarea-input">Textarea Input:</label>
-                        <textarea id="textarea-input" name="textarea-input"></textarea>
+                        <label for="type">Type:</label><br>
+                        <select id="type" name="type" required>
+                            <option value="Family">Family</option>
+                            <option value="Couple">Couple</option>
+                            <option value="Business">Business</option>
+                            <option value="Large Group">Large Group</option>
+                        </select><br><br>
                     </div>
+
                     <div class="form-group">
-                        <label for="select-input">Select Input:</label>
-                        <select id="select-input" name="select-input">
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="checkbox-input">Checkbox Input:</label>
-                        <input type="checkbox" id="checkbox-input" name="checkbox-input">
-                    </div>
-                    <div class="form-group">
-                        <label >Radio Input:</label>
-                        <br>
-                        <input type="radio" id="radio-input1" name="radio-input" value="option1">
-                        <label for="radio-input2">Option 1</label>
-                        <br>
-                        <input type="radio" id="radio-input2" name="radio-input" value="option2">
-                        <label for="radio-input2">Option 2</label>
-                    </div>
-                    <div class="form-group">
-                        <label for="file-input">File Input:</label>
-                        <input type="file" id="file-input" name="file-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="tel-input">Tel Input:</label>
-                        <input type="tel" id="tel-input" name="tel-input" placeholder="Enter phone number">
-                    </div>
-                    <div class="form-group">
-                        <label for="url-input">URL Input:</label>
-                        <input type="url" id="url-input" name="url-input" placeholder="Enter URL">
+                        <label for="maxAdults">Maximum Adults:</label><br>
+                        <input type="number" id="maxAdults" name="maxAdults">
                     </div>
                     <br><br>
                     <button class="subbtn" type="submit">Submit</button>
