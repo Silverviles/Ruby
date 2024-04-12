@@ -3,6 +3,13 @@ package com.happyman.Ruby.common;
 import lombok.Getter;
 
 public class DomainConstants {
+	/*
+	Trip Status,
+		0 = available
+		1 = in progress
+		2 = completed
+	*/
+
 	@Getter
 	public enum PackageType {
 		FAMILY("Family"),

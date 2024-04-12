@@ -1,10 +1,20 @@
-<%--
+<%@ page import="com.happyman.Ruby.transportation.dto.TripDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: silverviles
   Date: 22/03/2024
   Time: 11:36
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%
+    @SuppressWarnings("unchecked")
+    Map<String, List<TripDTO>> allJobs = (Map<String, List<TripDTO>>) request.getAttribute("allJobs");
+
+    List<TripDTO> availableTrips = allJobs.get("available");
+    List<TripDTO> inProgressTrips = allJobs.get("inProgress");
+    List<TripDTO> completedTrips = allJobs.get("completed");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,63 +41,88 @@
     <div id="available-jobs" class="jobs">
         <h2>Available Jobs</h2>
         <table>
-            <!-- Table for available jobs -->
-            <!-- Sample data -->
             <tr>
                 <th>Trip ID</th>
-                <th>Start Location</th>
-                <th>End Location</th>
-                <th>Time</th>
+                <th>Driver Name</th>
+                <th>Trip Destination</th>
+                <th>Total Pay</th>
+                <th>Action</th>
             </tr>
-            <!-- Sample data rows -->
+            <% for (TripDTO job : availableTrips) { %>
             <tr>
-                <td>1</td>
-                <td>Location A</td>
-                <td>Location B</td>
-                <td>10:00 AM</td>
+                <td><%= job.getId() %>
+                </td>
+                <td><%= job.getDriver().getFirstName() + " " + job.getDriver().getLastName() %>
+                </td>
+                <td><%= job.getTripDestination() %>
+                </td>
+                <td><%= job.getTotalCost() %>
+                </td>
+                <td>
+                    <form action="processJob.jsp" method="post">
+                        <input type="hidden" name="jobId" value="<%= job.getId() %>">
+                        <button type="submit">Action</button>
+                    </form>
+                </td>
             </tr>
+            <% } %>
         </table>
     </div>
 
     <div id="in-progress-jobs" class="jobs">
         <h2>In Progress Jobs</h2>
         <table>
-            <!-- Table for in-progress jobs -->
-            <!-- Sample data -->
             <tr>
                 <th>Trip ID</th>
-                <th>Start Location</th>
-                <th>End Location</th>
-                <th>Time</th>
+                <th>Driver Name</th>
+                <th>Trip Destination</th>
+                <th>Total Pay</th>
+                <th>Action</th>
             </tr>
-            <!-- Sample data rows -->
+            <% for (TripDTO job : inProgressTrips) { %>
             <tr>
-                <td>2</td>
-                <td>Location C</td>
-                <td>Location D</td>
-                <td>12:00 PM</td>
+                <td><%= job.getId() %>
+                </td>
+                <td><%= job.getDriver().getFirstName() + " " + job.getDriver().getLastName() %>
+                </td>
+                <td><%= job.getTripDestination() %>
+                </td>
+                <td><%= job.getTotalCost() %>
+                </td>
+                <td>
+                    <form action="processJob.jsp" method="post">
+                        <input type="hidden" name="jobId" value="<%= job.getId() %>">
+                        <button type="submit">Action</button>
+                    </form>
+                </td>
             </tr>
+            <% } %>
         </table>
     </div>
 
     <div id="history" class="jobs">
         <h2>History</h2>
         <table>
-            <!-- Table for trip history -->
-            <!-- Sample data -->
             <tr>
                 <th>Trip ID</th>
-                <th>Start Location</th>
-                <th>End Location</th>
-                <th>Time</th>
+                <th>Driver Name</th>
+                <th>Trip Destination</th>
+                <th>Total Pay</th>
+                <th>Completed Date</th>
             </tr>
-            <!-- Sample data rows -->
+            <% for (TripDTO job : completedTrips) { %>
             <tr>
-                <td>3</td>
-                <td>Location E</td>
-                <td>Location F</td>
-                <td>2:00 PM</td>
+                <td><%= job.getId() %>
+                </td>
+                <td><%= job.getDriver().getFirstName() + " " + job.getDriver().getLastName() %>
+                </td>
+                <td><%= job.getTripDestination() %>
+                </td>
+                <td><%= job.getTotalCost() %>
+                </td>
+                <td><%= job.getFinishedDate() %></td>
             </tr>
+            <% } %>
         </table>
     </div>
 </div>

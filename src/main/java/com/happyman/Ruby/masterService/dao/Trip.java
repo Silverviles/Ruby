@@ -13,6 +13,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @Entity
@@ -27,4 +29,6 @@ public class Trip {
 	@Column(name = "tripDestination", nullable = false) private String tripDestination;
 
 	@Column(name = "totalCost", nullable = false) private Long totalCost;
+
+	@Column(name = "finishedDate", nullable = true) private Date finishedDate;
 }
