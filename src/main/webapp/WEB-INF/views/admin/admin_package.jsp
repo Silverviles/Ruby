@@ -60,9 +60,9 @@
                     </tr>
 
                     <div class="tbody">
-                    <c:forEach var="package" items="${package}">
+                    <c:forEach var="package" items="${packages}">
                         <tr>
-                            <td>${package.packageId}</td>
+                            <td>${package.id}</td>
                             <td>${package.name}</td>
                             <td>${package.description}</td>
                             <td>${package.price}</td>
