@@ -1,26 +1,26 @@
 <%--
   Created by IntelliJ IDEA.
   User: User
-  Date: 4/12/2024
-  Time: 9:41 PM
+  Date: 4/13/2024
+  Time: 12:25 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- ICONS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Shift Management</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/shiftManagement.css">
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
-            integrity = "sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
-            crossorigin = "anonymous"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/Registration.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+            integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
@@ -213,50 +213,86 @@
 
     </div> <!-- End of sidebar -->
 
-
-
     <div class="xxx">
         <h2>Employee Management</h2>
         <header class="section_container header_container">
-            <h2 class="shift_heading">Employee Shift Management</h2>
-            <div class="shift_container">
-                <!-- Shift management form -->
-                <div class="shift_form_container">
-                    <form id="shiftForm" class="shift_form">
+            <h2 class="registration_heading">Employee Registration</h2>
 
-                        <div class="form-group">
-                            <label for="employeeNo">Employee No:</label>
-                            <input type="text" id="employeeNo" name="employeeNo" required>
+            <div class="registration_container">
+                <form>
+
+                    <div class="form_group">
+                        <div class="input_group">
+                            <input type="text" name="empID" id="empID" readonly>
+                            <label>Employee Id</label>
                         </div>
-                        <div class="form-group">
-                            <label for="employeeName">Employee Name:</label>
-                            <input type="text" id="employeeName" name="employeeName" required>
+
+                    </div>
+
+
+                    <div class="form_group">
+                        <div class="input_group">
+                            <input type="text" name="Employee Fname">
+                            <label>Employee First Name</label>
                         </div>
-                        <div class="form-group">
-                            <label for="morningShift">Shift:</label><br>
-                            <input type="radio" id="morningShift" name="shift" value="Morning Shift" required>
-                            <label for="morningShift">Morning Shift</label><br>
-                            <input type="radio" id="afternoonShift" name="shift" value="Afternoon Shift">
-                            <label for="afternoonShift">Afternoon Shift</label><br>
-                            <input type="radio" id="nightShift" name="shift" value="Night Shift">
-                            <label for="nightShift">Night Shift</label>
+                        <!-- <p>Type of the shifts</p>-->
+                    </div>
+
+                    <div class="form_group">
+                        <div class="input_group">
+                            <input type="text" name="Employee Lname">
+                            <label>Employee Last Name</label>
                         </div>
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-                <!-- Image container -->
-                <div class="shift_image_container">
-                    <div class="header_content">
-                        <div class="popular_card">
-                            <img class="shift_image" src="${pageContext.request.contextPath}/images/employeeManagement/shift.png" alt="Employee shifts">
+                        <!-- <p>Type of the shifts</p>-->
+                    </div>
+
+
+                    <div class="form_group">
+                        <div class="input_group">
+                            <input type="text" name="emali">
+                            <label>Email</label>
                         </div>
+
+                    </div>
+
+                    <div class="form_group">
+                        <div class="input_group">
+                            <input type="text" name="contact ">
+                            <label>Contact No</label>
+                        </div>
+
+                    </div>
+
+                    <div class="form_group">
+                        <div class="input_group">
+                            <input type="text" name="salary ">
+                            <label>Salary</label>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+                    <button class="btn">Add</button>
+                </form>
+                <div class="header_content">
+                    <div class="popular_card">
+                        <img src="${pageContext.request.contextPath}/images/employeeManagement/reg.jpeg" alt="villa ">
+
                     </div>
                 </div>
             </div>
+
         </header>
+
+
     </div>
+
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous"></script>
 
 <script src="${pageContext.request.contextPath}/scripts/employeeManagement/Registration.js"></script>
 </body>
