@@ -20,10 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fjalla+One&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_sidebar.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/formstyles.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/admin_sidebar.css">
 </head>
 
 <body>
