@@ -5,7 +5,10 @@ import java.util.List;
 import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Driver;
+import com.happyman.Ruby.masterService.dao.Food;
+import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
 
 
@@ -30,6 +33,22 @@ public interface MasterService {
 	public Vehicle getVehicleByNumber(String vehicleNumber);
 
 	public void saveVehicle(Vehicle vehicle);
+
+	// Implementation for Trip
+	public void saveTrip(Trip trip);
+	public Trip getTripById(Integer tripId);
+	public List<Trip> getAllTrips();
+	public List<Trip> getAllTripsByVehicleType(String type);
+	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber);
+	public List<Trip> getAllTripsByDriverId(Integer driverId);
+
+	// Implementation for Food
+	public void saveFood(Food food);
+	public Food findFoodById(Integer foodId);
+	public List<Food> getAllFoods();
+	public List<Food> getAllFoodByCategory(DomainConstants.FoodCategory category);
+	public List<Food> getAllFoodByAvailability(Byte availability);
+	public List<Food> getAllFoodByCategoryAndAvailability(DomainConstants.FoodCategory category, Byte availability);
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();
