@@ -21,7 +21,6 @@ public class PackageController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(PackageController.class);
 
-    @Autowired
     private PackageService packageService;
 
     @GetMapping("/packHome")

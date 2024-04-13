@@ -42,11 +42,12 @@
             </a>
             <span class="tooltip">Restaurant</span>
         </li>
-        <li>
-            <a href="admin/adminPack">
+        <li><form action="admin/adminPack">
+            <button id="package">
                 <i class='bx bxs-category' ></i>
                 <span class="nav-item">Packages</span>
-            </a>
+            </button>
+        </form>
             <span class="tooltip">Packages</span>
         </li>
         <li>
@@ -80,6 +81,7 @@
 
     </ul>
 </div>
+
 <%--<script>--%>
 <%--    let btn = document.querySelector('#btn');--%>
 <%--    let sidebar = document.querySelector('.sidebar');--%>
