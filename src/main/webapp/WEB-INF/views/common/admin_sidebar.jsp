@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/20733750a5.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
@@ -255,7 +256,7 @@
         </div>
 
         <div id="new_package" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+            <jsp:include page="../packages/add_package.jsp"/>
         </div>
 
         <div id="remove_package" class="sub-contents">
