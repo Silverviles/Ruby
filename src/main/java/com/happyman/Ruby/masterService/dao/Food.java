@@ -2,12 +2,16 @@ package com.happyman.Ruby.masterService.dao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+
+import com.happyman.Ruby.common.DomainConstants;
 
 @Getter
 @Setter
@@ -16,7 +20,7 @@ import lombok.Setter;
 public class Food {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "foodId", nullable = false) private Integer id;
 
-	@Column(name = "foodCategory", nullable = false, length = 45) private String foodCategory;
+	@Enumerated(EnumType.STRING) @Column(name = "foodCategory", nullable = false, length = 45) private DomainConstants.FoodCategory foodCategory;
 
 	@Column(name = "foodPrice", nullable = false) private Double foodPrice;
 

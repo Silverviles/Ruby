@@ -13,13 +13,6 @@ body {
     height: 100vh;
 }
 
-.sidebar img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-}
-
 .content {
     padding: 20px;
     width: 100%;

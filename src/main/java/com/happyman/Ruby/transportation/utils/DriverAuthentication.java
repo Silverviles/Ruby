@@ -1,10 +1,13 @@
 package com.happyman.Ruby.transportation.utils;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.apache.commons.lang3.StringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.MasterService;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Vehicle;

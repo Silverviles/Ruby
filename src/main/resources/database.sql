@@ -20,7 +20,7 @@ CREATE TABLE room
 CREATE TABLE food
 (
     foodId           int          NOT NULL AUTO_INCREMENT,
-    foodCategory     varchar(45)  NOT NULL,
+    foodCategory     enum('Drinks', 'Vegan Meals', 'Non-Vegan Meals', 'Short-eats', 'Sweets'),
     foodPrice        double       NOT NULL,
     foodAvailability tinyint      NOT NULL,
     foodImg          varchar(100) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE employee
     lastName   varchar(45) NOT NULL,
     email      varchar(100),
     mobileNo   char(10)    NOT NULL,
-    shiftType  int         NOT NULL,
+    shiftType  int         NOT NULL, -- TODO: Add enum types for employees. Discuss with Nethaki --
     baseSalary float       NOT NULL,
     CONSTRAINT employee_pk_1 PRIMARY KEY (employeeId),
     CONSTRAINT employee_fk_shift_category FOREIGN KEY (shiftType) REFERENCES shift_category (categoryId)
@@ -41,7 +41,7 @@ CREATE TABLE employee
 CREATE TABLE vehicle
 (
     vehicleId   int         NOT NULL auto_increment,
-    vehicleType varchar(50) NOT NULL,
+    vehicleType enum('Car', 'Van', 'Bus', 'MotorCycle', 'Three-Wheel', 'Jeep'),
     vehicleNumber varchar(20) NOT NULL UNIQUE,
     maxCount    int         NOT NULL,
     CONSTRAINT vehicle_pk_1 PRIMARY KEY (vehicleId)
@@ -63,6 +63,8 @@ CREATE TABLE trip
     tripId     int     NOT NULL auto_increment,
     driverId   int     NOT NULL,
     tripStatus tinyint NOT NULL DEFAULT 0,
+    totalCost  bigint  NOT NULL,
+    tripDestination varchar(255) NOT NULL,
     CONSTRAINT trip_pk_1 PRIMARY KEY (tripId),
     CONSTRAINT trip_fk_driver FOREIGN KEY (driverId) REFERENCES driver (driverId)
 );
