@@ -58,7 +58,7 @@
                                     <span class="text">Update Room</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="remove_room_button">
                                 <a href="#">
                                     <span class="text">Remove Room</span>
                                 </a>
@@ -93,14 +93,14 @@
                             <i class='arrow bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li id="new_package_button">
                                 <a href="#">
-                                    <span class="text">P1</span>
+                                    <span class="text">Add New Package</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="remove_package_button">
                                 <a href="#">
-                                    <span class="text">P2</span>
+                                    <span class="text">Remove Package</span>
                                 </a>
                             </li>
                         </ul>
@@ -113,14 +113,35 @@
                             <i class='arrow bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li id="new_event_button">
                                 <a href="#">
-                                    <span class="text">E1</span>
+                                    <span class="text">Add New Event</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="remove_event_button">
                                 <a href="#">
-                                    <span class="text">E2</span>
+                                    <span class="text">Remove Event</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- addons -->
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span class="text">Addons</span>
+                            <i class='arrow bx bx-chevron-down'></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="new_addon_button">
+                                <a href="#">
+                                    <span class="text">Add New Addon</span>
+                                </a>
+                            </li>
+                            <li id="remove_addon_button">
+                                <a href="#">
+                                    <span class="text">Remove Addon</span>
                                 </a>
                             </li>
                         </ul>
@@ -133,17 +154,17 @@
                             <i class='arrow bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li id="shift_management_button">
                                 <a href="#">
                                     <span class="text">Employee shift management</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="emp_registration_button">
                                 <a href="#">
                                     <span class="text">Employee registration </span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="emp_updateDelete_button">
                                 <a href="#">
                                     <span class="text">Employee Update /Delete </span>
                                 </a>
@@ -224,9 +245,51 @@
 
     <!--content-->
     <div class="contents">
+
         <div id="update_room" class="sub-contents">
             <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
         </div>
+
+        <div id="remove_room" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="new_package" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="remove_package" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="new_event" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="remove_event" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="new_addon" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="remove_addon" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="shift_management" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="emp_registration" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
+        <div id="emp_updateDelete" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+
         <!-- TODO: Add other divs as needed. follow the id and class formats -->
     </div>
 </div>
