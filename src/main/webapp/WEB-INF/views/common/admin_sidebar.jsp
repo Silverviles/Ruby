@@ -16,7 +16,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="sidebarcss.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/admin_sidebar.css">
 
     <title>Sidebar</title>
 </head>
@@ -283,6 +283,6 @@
         integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
         crossorigin="anonymous"
 ></script>
-<script src="src/main/webapp/styles/common/sidebar.js"></script>
+<script src="${pageContext.request.contextPath}/styles/common/sidebar.js"></script>
 </body>
 </html>
