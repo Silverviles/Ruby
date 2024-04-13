@@ -28,7 +28,7 @@
 
 <body>
 <div class="whole">
-        <jsp:include page="admin_sidebar.jsp"/>
+    <jsp:include page="${pageContext.request.contextPath}/common/admin_sidebar.jsp"/>
 
     <div class="content">
         <div class="top2">

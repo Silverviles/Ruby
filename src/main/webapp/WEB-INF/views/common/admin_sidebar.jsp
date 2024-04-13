@@ -284,4 +284,5 @@
         sidebar.classList.toggle('active');
     };
 </script>
+<script src="${pageContext.request.contextPath}/scripts/common/sidebar.js"></script>
 </html>
