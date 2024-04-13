@@ -21,8 +21,4 @@ public class AdminController extends BaseController {
         return "admin/admin_temp1";
     }
 
-    @GetMapping("/adminPack")
-    public String adminPackage() {
-        return "admin/admin_package";
-    }
 }

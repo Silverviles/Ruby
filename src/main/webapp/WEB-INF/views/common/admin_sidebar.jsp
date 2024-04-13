@@ -87,7 +87,7 @@
                     </li>
                     <!-- package -->
                     <li>
-                        <a href="#">
+                        <a href="${pageContext.request.contextPath}/packages/displayPackages">
                             <i class='bx bxs-category'></i>
                             <span class="text">Packages</span>
                             <i class='arrow bx bx-chevron-down'></i>
@@ -223,58 +223,58 @@
     </div> <!-- End of sidebar -->
 
     <!--content-->
-    <div class="contents">
-        <header class="section_container header_container">
-            <h2 class="booking_heading">Add a new room to the hotel</h2>
-            <div class="booking_container">
-                <form>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="roomType">
-                            <label>Room Type</label>
-                        </div>
-                        <p>Type of the room</p>
-                    </div>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="checkInDate">
-                            <label>Price</label>
-                        </div>
-                        <p>priceof the room</p>
-                    </div>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="guests">
-                            <label>Guests</label>
-                        </div>
-                        <p>No of guests can added</p>
-                    </div>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="checkOutDate">
-                            <label>Info</label>
-                        </div>
-                        <p>Description about the room</p>
-                    </div>
-                    <button class="btn">Add</button>
-                </form>
-                <div class="header_content">
-                    <div class="popular_card">
-                        <img src=".vscode/room1_double_luxe.jpg" alt="popular room">
-                        <div class="popular_content">
-                            <div class="popular_card_header">
-                                <h4>Pinky Room</h4>
-                                <h4>$1000</h4>
-                            </div>
-                            <hr>
-                            <p>Double Luxury room, Ocean view</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-    </div>
-</div>
+<%--    <div class="contents">--%>
+<%--        <header class="section_container header_container">--%>
+<%--            <h2 class="booking_heading">Add a new room to the hotel</h2>--%>
+<%--            <div class="booking_container">--%>
+<%--                <form>--%>
+<%--                    <div class="form_group">--%>
+<%--                        <div class="input_group">--%>
+<%--                            <input type="text" name="roomType">--%>
+<%--                            <label>Room Type</label>--%>
+<%--                        </div>--%>
+<%--                        <p>Type of the room</p>--%>
+<%--                    </div>--%>
+<%--                    <div class="form_group">--%>
+<%--                        <div class="input_group">--%>
+<%--                            <input type="text" name="checkInDate">--%>
+<%--                            <label>Price</label>--%>
+<%--                        </div>--%>
+<%--                        <p>priceof the room</p>--%>
+<%--                    </div>--%>
+<%--                    <div class="form_group">--%>
+<%--                        <div class="input_group">--%>
+<%--                            <input type="text" name="guests">--%>
+<%--                            <label>Guests</label>--%>
+<%--                        </div>--%>
+<%--                        <p>No of guests can added</p>--%>
+<%--                    </div>--%>
+<%--                    <div class="form_group">--%>
+<%--                        <div class="input_group">--%>
+<%--                            <input type="text" name="checkOutDate">--%>
+<%--                            <label>Info</label>--%>
+<%--                        </div>--%>
+<%--                        <p>Description about the room</p>--%>
+<%--                    </div>--%>
+<%--                    <button class="btn">Add</button>--%>
+<%--                </form>--%>
+<%--                <div class="header_content">--%>
+<%--                    <div class="popular_card">--%>
+<%--                        <img src=".vscode/room1_double_luxe.jpg" alt="popular room">--%>
+<%--                        <div class="popular_content">--%>
+<%--                            <div class="popular_card_header">--%>
+<%--                                <h4>Pinky Room</h4>--%>
+<%--                                <h4>$1000</h4>--%>
+<%--                            </div>--%>
+<%--                            <hr>--%>
+<%--                            <p>Double Luxury room, Ocean view</p>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </header>--%>
+<%--    </div>--%>
+<%--</div>--%>
 </body>
 <script>
     let btn = document.querySelector('#btn');
