@@ -283,6 +283,6 @@
         integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
         crossorigin="anonymous"
 ></script>
-<script src="${pageContext.request.contextPath}/styles/common/sidebar.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/common/sidebar.js"></script>
 </body>
 </html>
