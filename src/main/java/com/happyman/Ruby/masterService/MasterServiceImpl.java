@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Food;
+import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
 import com.happyman.Ruby.masterService.service.DriverService;
@@ -153,6 +154,31 @@ public class MasterServiceImpl implements MasterService{
 	@Override
 	public List<Food> getAllFoodByCategoryAndAvailability(DomainConstants.FoodCategory category, Byte availability) {
 		return foodService.getAllFoodByCategoryAndAvailability(category, availability);
+	}
+
+	@Override
+	public void saveSeat(Seat seat) {
+
+	}
+
+	@Override
+	public Seat findSeatById(Integer seatId) {
+		return null;
+	}
+
+	@Override
+	public List<Seat> getAllSeats() {
+		return List.of();
+	}
+
+	@Override
+	public List<Seat> getAllSeatsByAvailability(Byte availability) {
+		return List.of();
+	}
+
+	@Override
+	public Seat findSeatByLocation(String location) {
+		return null;
 	}
 
 	@Override
