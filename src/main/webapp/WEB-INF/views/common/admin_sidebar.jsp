@@ -9,9 +9,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- ICONS -->
     <script src="https://kit.fontawesome.com/20733750a5.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -41,7 +41,7 @@
                 <ul>
                     <li class="active">
                         <a href="#">
-                            <i class='bx bx-home-alt-2' ></i>
+                            <i class='bx bx-home-alt-2'></i>
                             <span class="text">Dashboard</span>
                         </a>
                     </li>
@@ -49,9 +49,9 @@
                     <!-- Rooms -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-hotel' ></i>
+                            <i class='bx bxs-hotel'></i>
                             <span class="text">Rooms</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="update_room_button">
@@ -69,9 +69,9 @@
                     <!-- restaurant -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-bowl-hot' ></i>
+                            <i class='bx bxs-bowl-hot'></i>
                             <span class="text">Restaurant</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -89,9 +89,9 @@
                     <!-- package -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-category' ></i>
+                            <i class='bx bxs-category'></i>
                             <span class="text">Packages</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="new_package_button">
@@ -109,9 +109,9 @@
                     <!-- events -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-calendar-event' ></i>
+                            <i class='bx bxs-calendar-event'></i>
                             <span class="text">Events</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="new_event_button">
@@ -150,9 +150,9 @@
                     <!-- employee management -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-network-chart' ></i>
+                            <i class='bx bxs-network-chart'></i>
                             <span class="text">Employee Management</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="shift_management_button">
@@ -177,7 +177,7 @@
                         <a href="#">
                             <i class='bx bxs-car'></i>
                             <span class="text">Transport</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -197,7 +197,7 @@
                         <a href="#">
                             <i class='bx bx-dna'></i>
                             <span class="text">Feedbacks</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -217,7 +217,7 @@
                         <a href="#">
                             <i class='bx bx-credit-card'></i>
                             <span class="text">Billing & Payment</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>

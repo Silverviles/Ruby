@@ -6,7 +6,7 @@ var yyyy = today.getFullYear();
 
 today = yyyy + '-' + mm + '-' + dd;
 
-document.getElementById('date').value = today;
+document.getElementById('discontinueDate').value = today;
 
 
 let btn = document.querySelector('#btn');
