@@ -30,7 +30,7 @@
             </div>
             <div class="user-details">
                 <p class="title">Happy Man Village</p>
-                <p class="name">Tashini</p>
+                <p class="name"></p>
             </div>
         </div>
         <div class="nav">
@@ -53,8 +53,8 @@
                             <i class='arrow bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
-                                <a href=".vscode/addANewRoom.html">
+                            <li id="update_room_button">
+                                <a href="#">
                                     <span class="text">Update Room</span>
                                 </a>
                             </li>
@@ -224,55 +224,10 @@
 
     <!--content-->
     <div class="contents">
-        <header class="section_container header_container">
-            <h2 class="booking_heading">Add a new room to the hotel</h2>
-            <div class="booking_container">
-                <form>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="roomType">
-                            <label>Room Type</label>
-                        </div>
-                        <p>Type of the room</p>
-                    </div>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="checkInDate">
-                            <label>Price</label>
-                        </div>
-                        <p>priceof the room</p>
-                    </div>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="guests">
-                            <label>Guests</label>
-                        </div>
-                        <p>No of guests can added</p>
-                    </div>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="checkOutDate">
-                            <label>Info</label>
-                        </div>
-                        <p>Description about the room</p>
-                    </div>
-                    <button class="btn">Add</button>
-                </form>
-                <div class="header_content">
-                    <div class="popular_card">
-                        <img src=".vscode/room1_double_luxe.jpg" alt="popular room">
-                        <div class="popular_content">
-                            <div class="popular_card_header">
-                                <h4>Pinky Room</h4>
-                                <h4>$1000</h4>
-                            </div><hr>
-                            <p>Double Luxury room, Ocean view</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </header>
+        <div id="update_room" class="sub-contents">
+            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+        <!-- TODO: Add other divs as needed. follow the id and class formats -->
     </div>
 </div>
 <!-- End of container -->

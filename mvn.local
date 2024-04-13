@@ -1,0 +1,2 @@
+.mvn/maven.config
+-Dmaven.home=/home/user/.sdkman/candidates/maven/3.9.6
