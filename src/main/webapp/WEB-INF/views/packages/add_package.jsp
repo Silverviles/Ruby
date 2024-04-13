@@ -1,7 +1,7 @@
 <header class="section_container header_container">
         <h2 class="booking_heading">Add New Package</h2>
         <div class="booking_container">
-            <form>
+            <form method="post" action="packages/addPackage">
                 <div class="form_group">
                     <div class="input_group">
                         <label for="packgeName">Package Name</label><br>
