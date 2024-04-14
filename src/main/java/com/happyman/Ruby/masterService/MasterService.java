@@ -2,14 +2,11 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.*;
 import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.Trip;
-import com.happyman.Ruby.masterService.dao.Vehicle;
 
 
 public interface MasterService {
@@ -52,4 +49,6 @@ public interface MasterService {
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();
+
+	public Addon getAddonById(Integer addonId);
 }

@@ -2,44 +2,41 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.masterService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.Trip;
-import com.happyman.Ruby.masterService.dao.Vehicle;
-import com.happyman.Ruby.masterService.service.DriverService;
-import com.happyman.Ruby.masterService.service.FoodService;
-import com.happyman.Ruby.masterService.service.TripService;
-import com.happyman.Ruby.masterService.service.VehicleService;
 
 @Service
-public class MasterServiceImpl implements MasterService{
+	public class MasterServiceImpl implements MasterService{
 	private final DriverService driverService;
 	private final VehicleService vehicleService;
 	private final TripService tripService;
 	private final FoodService foodService;
 	private final PlatformTransactionManager platformTransactionManager;
+	private final AddonService addonService;
 
 	@Autowired
 	public MasterServiceImpl(
-		DriverService driverService,
-		VehicleService vehicleService,
-		TripService tripService,
-		FoodService foodService,
-		PlatformTransactionManager platformTransactionManager
-	) {
+            DriverService driverService,
+            VehicleService vehicleService,
+            TripService tripService,
+            FoodService foodService,
+            PlatformTransactionManager platformTransactionManager, AddonService addonService
+    ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
 		this.foodService = foodService;
 		this.platformTransactionManager = platformTransactionManager;
+		this.addonService = addonService;
 		// TODO: add all the other services here. Declare them as variables above first.
-	}
+
+    }
 
 	@Override
 	public void addDriver(Driver driver) {
@@ -159,4 +156,11 @@ public class MasterServiceImpl implements MasterService{
 	public PlatformTransactionManager getTransactionManager() {
 		return this.platformTransactionManager;
 	}
+
+	@Override
+	public Addon getAddonById(Integer addonId) {
+		return addonService.getAddonById(addonId);
+	}
+
+
 }
