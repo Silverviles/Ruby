@@ -1,9 +1,13 @@
 package com.happyman.Ruby.masterService.service;
 
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface PackageToAddonService {
-    List<PackageToAddon> getAddonsForPackage(Integer packageId);
+    List<PackageToAddon> getAddonsByPackageId(Integer packageId);
+
+
 }
