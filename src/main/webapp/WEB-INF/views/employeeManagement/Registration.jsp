@@ -219,7 +219,7 @@
             <h2 class="registration_heading">Employee Registration</h2>
 
             <div class="registration_container">
-                <form>
+                <form action="${pageContext.request.contextPath}/employeeManagement/registerEmployee" method="post">
 
                     <div class="form_group">
                         <div class="input_group">

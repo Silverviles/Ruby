@@ -480,6 +480,28 @@ nav{
 .btn:active {
     transform: scale(0.95);
 
+    .xxx {
+        display: flex;
+        align-items: center;
+    }
+
+    .xxx .registration_container {
+        flex: 1; /* Allow the form to take up remaining space */
+        margin-left: 2rem; /* Add some space between the image and the form */
+    }
+
+    .xxx .registration_container form {
+        position: relative; /* Make the form container relative for absolute positioning */
+    }
+
+    .xxx .registration_container .header_content {
+        position: absolute;
+        top: 50%; /* Position the image in the middle vertically */
+        left: -5rem; /* Adjust the position of the image to the left */
+        transform: translateY(-50%);
+    }
+
+
 /---------------------------end of the header part------------------------/
 
 .popular_grid {
@@ -489,14 +511,17 @@ nav{
     gap: 3.5rem;
 }
 
+
 .popular_card {
     overflow: hidden;
     border-radius: 1rem;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+
 }
 
 .popular_card img {
     width: 100%;
+    height: auto;
 }
 .popular_content {
     padding: 1rem;
