@@ -7,6 +7,8 @@ import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.repository.PackageRepository;
 import com.happyman.Ruby.masterService.service.PackageService;
 import com.happyman.Ruby.masterService.service.PackageToAddonService;
+import com.happyman.Ruby.packages.dto.PackageDTO;
+import com.happyman.Ruby.packages.utils.PackageAndAddonList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.ComponentScan;
@@ -34,21 +36,11 @@ public class PackageController extends BaseController {
     }
 
     @GetMapping("/displayPackages")
-    public String displayData(Model model) {
-        List<Package> packages = packageService.getAllPackages();
+    public String displayPackageData(Model model) {
+        List<PackageDTO> packages = PackageAndAddonList.packageDTOList();
         model.addAttribute("packages", packages);
         return "packages/packages_updateDelete";
     }
-
-//    @GetMapping("/{id}")
-//    public String getPackageDetails(@PathVariable("id") Integer packageId, Model model) {
-//        Package packages = packageService.getPackageById(packageId);
-//        List<PackageToAddon> addons = packageToAddonService.getAddonsForPackage(packageId);
-//        model.addAttribute("packages", packages);
-//        model.addAttribute("addons", addons);
-//        return "packages/packages_updateDelete";
-//    }
-
 
     @PostMapping("/addPackage")
     public String addPackage(@ModelAttribute Package newPackage) {

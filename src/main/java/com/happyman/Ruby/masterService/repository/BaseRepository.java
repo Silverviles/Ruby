@@ -13,4 +13,8 @@ public interface BaseRepository<T, ID extends Serializable> extends CrudReposito
 	@Override
 	@NonNull
 	List<T> findAll();
+
+	@Override
+	@NonNull
+	List<T> findAllById(@NonNull Iterable<ID> ids);
 }

@@ -1,8 +1,10 @@
 package com.happyman.Ruby.masterService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.masterService.repository.PackageToAddonRepository;
 import com.happyman.Ruby.masterService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ import com.happyman.Ruby.common.DomainConstants;
 	private final FoodService foodService;
 	private final PlatformTransactionManager platformTransactionManager;
 	private final AddonService addonService;
+	private final PackageToAddonRepository pkgToAddonRepository;
 
 	@Autowired
 	public MasterServiceImpl(
@@ -26,15 +29,17 @@ import com.happyman.Ruby.common.DomainConstants;
             VehicleService vehicleService,
             TripService tripService,
             FoodService foodService,
-            PlatformTransactionManager platformTransactionManager, AddonService addonService
-    ) {
+            PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageToAddonRepository pkgToAddonRepository
+            ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
 		this.foodService = foodService;
 		this.platformTransactionManager = platformTransactionManager;
 		this.addonService = addonService;
+        this.pkgToAddonRepository = pkgToAddonRepository;
 		// TODO: add all the other services here. Declare them as variables above first.
+
 
     }
 
@@ -160,6 +165,16 @@ import com.happyman.Ruby.common.DomainConstants;
 	@Override
 	public Addon getAddonById(Integer addonId) {
 		return addonService.getAddonById(addonId);
+	}
+
+	@Override
+	public List<Addon> getAddonByPackageId(Integer id) {
+		List<Addon> addons = new ArrayList<Addon>();
+		List<PackageToAddon> packageToAddons = pkgToAddonRepository.findAllById_PackageId(id);
+		for (PackageToAddon packageToAddon : packageToAddons) {
+			addons.add(packageToAddon.getAddon());
+		}
+		return addons;
 	}
 
 

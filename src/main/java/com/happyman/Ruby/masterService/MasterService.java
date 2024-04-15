@@ -50,5 +50,9 @@ public interface MasterService {
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();
 
+	//implementations for Addons
 	public Addon getAddonById(Integer addonId);
+
+	//implementation for Packages
+    public List<Addon> getAddonByPackageId(Integer id);
 }
