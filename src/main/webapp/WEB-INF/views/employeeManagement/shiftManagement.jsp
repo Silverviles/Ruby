@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 4/12/2024
-  Time: 9:41 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -225,12 +219,14 @@
                     <form id="shiftForm" class="shift_form">
 
                         <div class="form-group">
-                            <label for="employeeNo">Employee No:</label>
-                            <input type="text" id="employeeNo" name="employeeNo" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="employeeName">Employee Name:</label>
-                            <input type="text" id="employeeName" name="employeeName" required>
+                            <label for="employeeNo">Employee ID:</label>
+                            <select id="employeeNo" name="employeeNo" required>
+                                <option value="">Select Employee No</option>
+                                <%-- JSTL code to dynamically populate dropdown options --%>
+                                <c:forEach var="employee" items="${employees}">
+                                    <option value="${employee.empID}">${employee.empID}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="morningShift">Shift:</label><br>

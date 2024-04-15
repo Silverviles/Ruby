@@ -223,7 +223,8 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="empID" id="empID" readonly>
+                            <input type="text" name="id">
+<%--                            <input type="text" name="empID" id="empID" readonly>--%>
                             <label>Employee Id</label>
                         </div>
 
@@ -232,7 +233,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="Employee Fname">
+                            <input type="text" name="firstName">
                             <label>Employee First Name</label>
                         </div>
                         <!-- <p>Type of the shifts</p>-->
@@ -240,7 +241,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="Employee Lname">
+                            <input type="text" name="lastName">
                             <label>Employee Last Name</label>
                         </div>
                         <!-- <p>Type of the shifts</p>-->
@@ -249,7 +250,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="emali">
+                            <input type="text" name="email">
                             <label>Email</label>
                         </div>
 
@@ -257,19 +258,18 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="contact ">
+                            <input type="text" name="contactNo">
                             <label>Contact No</label>
                         </div>
 
                     </div>
-
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="salary ">
+                            <input type="number" name="salary" step="0.01" required>
                             <label>Salary</label>
                         </div>
-
                     </div>
+
 
 
 
@@ -278,6 +278,8 @@
 
 
                     <button class="btn">Add</button>
+
+
                 </form>
                 <div class="header_content">
                     <div class="popular_card">
@@ -285,6 +287,7 @@
 
                     </div>
                 </div>
+
             </div>
 
         </header>
