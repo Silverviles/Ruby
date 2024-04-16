@@ -2,19 +2,17 @@ package com.happyman.Ruby.packages.utils;
 
 import com.happyman.Ruby.masterService.MasterService;
 import com.happyman.Ruby.masterService.dao.Package;
-import com.happyman.Ruby.masterService.repository.PackageRepository;
 import com.happyman.Ruby.packages.dto.PackageDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PackageAndAddonList {
-    private static PackageRepository packageRepository;
 
-    public static List<PackageDTO> packageDTOList(MasterService masterService)
+    public  List<PackageDTO> packageDTOList(MasterService masterService)
     {
         List<PackageDTO> packageDTOList = new ArrayList<PackageDTO>();
-        List<Package> packages = packageRepository.findAll();
+        List<Package> packages = masterService.getAllPackages();
         for(Package p : packages)
         {
             PackageDTO packageDTO = new PackageDTO();

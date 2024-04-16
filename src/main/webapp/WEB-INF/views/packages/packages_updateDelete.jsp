@@ -1,7 +1,7 @@
 <%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
-<% List<PackageDTO> packageList = (List<PackageDTO>) request.getAttribute("packages"); %>
+<% List<PackageDTO> packageList = (List<PackageDTO>) request.getAttribute("allPackages"); %>
 
 <header class="section_container header_container">
     <h2 class="booking_heading">Packages</h2>

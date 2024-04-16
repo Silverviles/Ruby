@@ -31,10 +31,15 @@ public class PackageController extends BaseController {
         return "packages/package";
     }
 
-    public String displayPackageData(Model model) {
-        List<PackageDTO> packages = PackageAndAddonList.packageDTOList(masterService);
-        model.addAttribute("packages", packages);
-        return "packages/packages_updateDelete";
+    @GetMapping("/packages")
+    public String displayPackageData(Model model, PackageAndAddonList packageAndAddonList) {
+        try {
+            List<PackageDTO> packages = packageAndAddonList.packageDTOList(masterService);
+            model.addAttribute("allPackages", packages);
+            return "packages/packages_updateDelete";
+        } catch (Exception e) {
+            return "error";
+        }
     }
 
     @PostMapping("/addPackage")
