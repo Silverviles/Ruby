@@ -20,11 +20,10 @@ public class EmployeeService {
     private JdbcTemplate jdbcTemplate;
 
 
-
     public void addEmployee(EmployeeDTO employee) {
         log.info("Adding employee: {}", employee);
         String sql = "INSERT INTO employees (employee_id,first_name, last_name, email, mobile_no, base_salary) VALUES (?,?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, employee.getEmployeeId(),employee.getFirstName(), employee.getLastName(), employee.getEmail(), employee.getContactNo(), employee.getSalary());
+        jdbcTemplate.update(sql, employee.getEmployeeId(), employee.getFirstName(), employee.getLastName(), employee.getEmail(), employee.getContactNo(), employee.getSalary());
         log.info("Employee added: {}", employee);
     }
 
@@ -57,5 +56,33 @@ public class EmployeeService {
             return Optional.of(maxEmployeeId + 1);
         }
     }
+
 }
 
+//
+//
+//
+//
+//    /////////////////////////
+//
+////    public void updateEmployee(EmployeeDTO employee) {
+////        log.info("Editing employee: {}", employee);
+////        String sql = "UPDATE employees SET first_name = ?, last_name = ?, email = ?, mobile_no = ?, base_salary = ? WHERE employee_id = ?";
+////        jdbcTemplate.update(sql, employee.getFirstName(), employee.getLastName(), employee.getEmail(), employee.getContactNo(), employee.getSalary(), employee.getEmployeeId());
+////        log.info("Employee edited: {}", employee);
+////    }
+////
+////    public void deleteEmployee(Integer employeeId) {
+////        log.info("Deleting employee with ID: {}", employeeId);
+////        String sql = "DELETE FROM employees WHERE employee_id = ?";
+////        jdbcTemplate.update(sql, employeeId);
+////        log.info("Employee with ID {} deleted", employeeId);
+////    }
+//
+//
+//    public EmployeeDTO getEmployeeById(Integer employeeId) {
+//        String sql = "SELECT * FROM employees WHERE employee_id = ?";
+//        return jdbcTemplate.queryForObject(sql, new Object[]{employeeId}, new BeanPropertyRowMapper<>(EmployeeDTO.class));
+//    }
+//}
+//

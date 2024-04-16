@@ -22,7 +22,7 @@
     <button data-action="admin/temp1">Admin Template 01</button>
     <button data-action="employeeManagement/shiftHome">EmployeeShift Management</button>
     <button data-action="employeeManagement/registerHome">Employee Registration</button>
-    <!--<button data-action="employeeManagement/managementHome">Employee Management</button>-->
+   <button data-action="employeeManagement/managementHome">Employee Management</button>
 </form>
 
 
