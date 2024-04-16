@@ -1,20 +1,25 @@
 package com.happyman.Ruby.masterService.service;
 
 import com.happyman.Ruby.masterService.dao.Addon;
+import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.repository.AddonRepository;
+import com.happyman.Ruby.masterService.repository.PackageToAddonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AddonServiceImpl implements AddonService {
 
     private final AddonRepository addonRepository;
+    private final PackageToAddonRepository pkgToAddonRepository;
 
     @Autowired
-    public AddonServiceImpl(AddonRepository addonRepository) {
+    public AddonServiceImpl(AddonRepository addonRepository, PackageToAddonRepository pkgToAddonRepository) {
         this.addonRepository = addonRepository;
+        this.pkgToAddonRepository = pkgToAddonRepository;
     }
 
     @Override
@@ -44,6 +49,16 @@ public class AddonServiceImpl implements AddonService {
             if (addon.getAvailability().equals(availability)) {
                 addons.add(addon);
             }
+        }
+        return addons;
+    }
+
+    @Override
+    public List<Addon> getAddonByPackageId(Integer id) {
+        List<Addon> addons = new ArrayList<Addon>();
+        List<PackageToAddon> packageToAddons = pkgToAddonRepository.findAllById_PackageId(id);
+        for (PackageToAddon packageToAddon : packageToAddons) {
+            addons.add(packageToAddon.getAddon());
         }
         return addons;
     }

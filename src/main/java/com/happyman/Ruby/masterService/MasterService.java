@@ -1,5 +1,6 @@
 package com.happyman.Ruby.masterService;
 
+import java.lang.Package;
 import java.util.List;
 
 import com.happyman.Ruby.masterService.dao.*;
@@ -52,7 +53,15 @@ public interface MasterService {
 
 	//implementations for Addons
 	public Addon getAddonById(Integer addonId);
+	public void saveAddon(Addon addon);
+	public void deleteAddon(Addon addon);
+	public List<Addon> getAllAddons();
+	public List<Addon> grtAddonByAvailability(Byte availability);
+	public List<Addon> getAddonByPackageId(Integer id);
 
 	//implementation for Packages
-    public List<Addon> getAddonByPackageId(Integer id);
+	public List<Package> getAllPackages();
+
+
+
 }

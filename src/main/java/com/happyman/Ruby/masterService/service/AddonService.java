@@ -17,4 +17,5 @@ public interface AddonService {
 
      List<Addon> getAddonByAvailability(Byte availability);
 
+      List<Addon> getAddonByPackageId(Integer id);
 }
