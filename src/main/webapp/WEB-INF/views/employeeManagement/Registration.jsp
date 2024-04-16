@@ -223,8 +223,10 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="id">
-<%--                            <input type="text" name="empID" id="empID" readonly>--%>
+                            <input type="text" name="employeeId" id="employeeId" value="${nextEmployeeId}" readonly>
+                            <label>Employee Id</label>
+
+                        <%--                            <input type="text" name="empID" id="empID" readonly>--%>
                             <label>Employee Id</label>
                         </div>
 

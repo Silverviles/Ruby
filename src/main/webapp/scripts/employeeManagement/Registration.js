@@ -14,31 +14,3 @@ $(".menu > ul > li").click(function (e) {
 $(".menu-btn").click(function () {
     $(".sidebar").toggleClass("active");
 });
-
-//     // Function to generate and display the next employee ID
-//     function generateEmployeeID() {
-//     // Get the input field for employee ID
-//     var empIDInput = document.getElementById('empID');
-//
-//     // Get the last generated employee ID (if any) from local storage
-//     var lastEmpID = localStorage.getItem('lastEmpID');
-//
-//     // If no previous ID found, start from 1
-//     var nextEmpID = 1;
-//
-//     // If lastEmpID exists, parse it to integer and increment
-//     if (lastEmpID) {
-//     nextEmpID = parseInt(lastEmpID) + 1;
-// }
-//
-//     // Update the input field with the next employee ID
-//     empIDInput.value = nextEmpID;
-//
-//     // Save the last generated employee ID to local storage for future use
-//     localStorage.setItem('lastEmpID', nextEmpID);
-// }
-
-    // Call the function to generate employee ID when the page loads
-    window.onload = generateEmployeeID;
-
-
