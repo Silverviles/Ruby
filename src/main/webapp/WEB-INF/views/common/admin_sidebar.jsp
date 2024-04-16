@@ -255,7 +255,7 @@
         </div>
 
         <div id="new_package" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+<%--            <jsp:include page="../packages/add_package.jsp"/>--%>
         </div>
 
         <div id="remove_package" class="sub-contents">
