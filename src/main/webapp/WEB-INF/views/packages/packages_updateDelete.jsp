@@ -1,3 +1,8 @@
+<%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
+<% List<PackageDTO> packageList = (List<PackageDTO>) request.getAttribute("packages"); %>
+
 <header class="section_container header_container">
     <h2 class="booking_heading">Packages</h2>
     <div class="booking_container">
@@ -15,20 +20,25 @@
             </tr>
 
             <div class="tbody">
-                <c:forEach var="package" items="${package}">
+                <% for (PackageDTO packageDTO : packageList) {%>
                     <tr>
-                        <td>${package.id}</td>
-                        <td>${package.name}</td>
-                        <td>${package.description}</td>
-                        <td>${package.price}</td>
-                        <td>${package.discontinueDate}</td>
-                        <td>${package.availability}</td>
-                        <td>${package.type}</td>
-                        <td>${package.maxAdults}</td>
+                        <td><%= packageDTO.getId()%>></td>
+                        <td><%= packageDTO.getName()%>
+                        </td>
+                        <td><%= packageDTO.getDescription()%>></td>
+                        <td><%= packageDTO.getPrice()%>></td>
+                        <td><%= packageDTO.getDiscontinueDate()%>></td>
+                        <td><%= packageDTO.getAvailability()%>
+                        </td>
+                        <td><%= packageDTO.getType()%>></td>
+                        <td><%= packageDTO.getMaxAdults()%>
+                        </td>
                         <td>
-                            <c:forEach var="addons" items="${addons}">
-                                <div>${addons.addonName}</div><br>
-                            </c:forEach>
+                            <% for (Addon addon : packageDTO.getAddonList()) {%>
+                            <div><%= addon.getAddonName()%>
+                            </div>
+                            <br>
+                            <% } %>
                         </td>
                     </tr>
 
@@ -39,7 +49,7 @@
                     <div class="delete" title="Delete">
                         <i class="fa-solid fa-trash"></i>
                     </div>
-                </c:forEach>
+                <% } %>
             </div>
 
         </table>

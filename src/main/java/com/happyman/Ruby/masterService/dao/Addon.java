@@ -1,11 +1,6 @@
 package com.happyman.Ruby.masterService.dao;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,5 +20,6 @@ public class Addon {
 	@Column(name = "availability", nullable = false) private Byte availability;
 
 	@Column(name = "image", length = 100) private String image;
+
 
 }

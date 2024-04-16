@@ -9,10 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PackageAndAddonList {
-    private static MasterService masterService;
     private static PackageRepository packageRepository;
 
-    public static List<PackageDTO> packageDTOList()
+    public static List<PackageDTO> packageDTOList(MasterService masterService)
     {
         List<PackageDTO> packageDTOList = new ArrayList<PackageDTO>();
         List<Package> packages = packageRepository.findAll();

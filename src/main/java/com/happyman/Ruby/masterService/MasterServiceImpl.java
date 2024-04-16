@@ -1,44 +1,41 @@
 package com.happyman.Ruby.masterService;
 
-import java.util.List;
-
+import com.happyman.Ruby.common.DomainConstants;
+import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.*;
-import com.happyman.Ruby.masterService.repository.PackageToAddonRepository;
 import com.happyman.Ruby.masterService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.happyman.Ruby.common.DomainConstants;
+import java.util.List;
 
 @Service
 	public class MasterServiceImpl implements MasterService{
 	private final DriverService driverService;
 	private final VehicleService vehicleService;
-	private final TripService tripService;
 	private final FoodService foodService;
 	private final PlatformTransactionManager platformTransactionManager;
 	private final AddonService addonService;
+	private final PackageService packageService;
 
 	@Autowired
 	public MasterServiceImpl(
             DriverService driverService,
             VehicleService vehicleService,
-            TripService tripService,
             FoodService foodService,
-            PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageToAddonRepository pkgToAddonRepository
-            ) {
+			PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageService packageService
+	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
-		this.tripService = tripService;
 		this.foodService = foodService;
 		this.platformTransactionManager = platformTransactionManager;
 		this.addonService = addonService;
+		this.packageService = packageService;
 		// TODO: add all the other services here. Declare them as variables above first.
 
-
-    }
+	}
 
 	@Override
 	public void addDriver(Driver driver) {
@@ -165,8 +162,68 @@ import com.happyman.Ruby.common.DomainConstants;
 	}
 
 	@Override
+	public void saveAddon(Addon addon) {
+		addonService.saveAddon(addon);
+	}
+
+	@Override
+	public void deleteAddon(Integer addonId) {
+		addonService.deleteAddon(addonId);
+	}
+
+	@Override
+	public List<Addon> getAllAddons() {
+		return addonService.getAllAddon();
+	}
+
+	@Override
+	public List<Addon> grtAddonByAvailability(Byte availability) {
+		return addonService.getAddonByAvailability(availability);
+	}
+
+	@Override
 	public List<Addon> getAddonByPackageId(Integer id){
 		return addonService.getAddonByPackageId(id);
+	}
+
+	@Override
+	public List<Package> getAllPackages() {
+		return packageService.getAllPackages();
+	}
+
+	@Override
+	public Package getPackageById(Integer packageId) {
+		return packageService.getPackageById(packageId);
+	}
+
+	@Override
+	public Package getPackageByName(String packageName) {
+		return packageService.getPackageByName(packageName);
+	}
+
+	@Override
+	public List<Package> getPackageByAvailability(Byte availability) {
+		return packageService.getPackageByAvailability(availability);
+	}
+
+	@Override
+	public List<Package> getPackageByType(DomainConstants.PackageType type) {
+		return packageService.getPackageByType(type);
+	}
+
+	@Override
+	public List<Package> getPackageByMaxAdults(int maxAdults) {
+		return packageService.getPackageByMaxAdults(maxAdults);
+	}
+
+	@Override
+	public void addPackage(Package pkg) {
+		packageService.addPackage(pkg);
+	}
+
+	@Override
+	public void deletePackage(Integer packageId) {
+		packageService.deletePackage(packageId);
 	}
 
 

@@ -1,7 +1,6 @@
 package com.happyman.Ruby.masterService.service;
 
 import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.MasterService;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.repository.PackageRepository;
 import org.springframework.stereotype.Service;
@@ -12,12 +11,9 @@ import java.util.List;
 public class PackageServiceImpl implements PackageService {
 
     private final PackageRepository packageRepository;
-    private final MasterService masterService;
 
-
-    public PackageServiceImpl(PackageRepository packageRepository, MasterService masterService) {
+    public PackageServiceImpl(PackageRepository packageRepository) {
         this.packageRepository = packageRepository;
-        this.masterService = masterService;
     }
 
     @Override
@@ -86,21 +82,5 @@ public class PackageServiceImpl implements PackageService {
         packageRepository.deleteById(packageId);
     }
 
-
-//    @Override
-//    public List<Addon> getAddonsByPackageId(Integer packageId) {
-//        List<PackageToAddonId> packageToAddonIdList = (List<PackageToAddonId>) packageToAddonIdRepository.findAllById();
-//        List<Addon> addons = new ArrayList<>();
-//        for (PackageToAddonId packageToAddonId : packageToAddonIdList) {
-//            if (packageId.equals(packageToAddonId.getPackageId())) {
-//                int addonId = packageToAddonId.getAddonId();
-//                Addon addon = masterService.getAddonById(addonId);
-//                if (addon != null) {
-//                    addons.add(addon);
-//                }
-//            }
-//        }
-//        return addons;
-//    }
 }
 

@@ -26,9 +26,7 @@
     <div class="sidebar">
         <div class="head">
             <!-- User information -->
-            <div class="user-img">
-                <img src="img1.png" alt="">
-            </div>
+
             <div class="user-details">
                 <p class="title">Happy Man Village</p>
                 <p class="name"></p>
@@ -260,7 +258,7 @@
         </div>
 
         <div id="remove_package" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+            <jsp:include page="../packages/packages_updateDelete.jsp"/>
         </div>
 
         <div id="new_event" class="sub-contents">

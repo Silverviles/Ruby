@@ -20,7 +20,6 @@
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="packages/packHome">Packages</button>
     <button data-action="admin/temp1">Admin Template 01</button>
-    <button data-action="packages/displayPackages">Admin_packages</button>
 </form>
 
 
