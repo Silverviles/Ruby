@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PackageAndAddonList {
 
-    public  List<PackageDTO> packageDTOList(MasterService masterService)
+    public static List<PackageDTO> packageDTOList(MasterService masterService)
     {
         List<PackageDTO> packageDTOList = new ArrayList<PackageDTO>();
         List<Package> packages = masterService.getAllPackages();
