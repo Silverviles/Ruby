@@ -32,9 +32,9 @@ public class PackageController extends BaseController {
     }
 
     @GetMapping("/packages")
-    public String displayPackageData(Model model, PackageAndAddonList packageAndAddonList) {
+    public String displayPackageData(Model model) {
         try {
-            List<PackageDTO> packages = packageAndAddonList.packageDTOList(masterService);
+            List<PackageDTO> packages = PackageAndAddonList.packageDTOList(masterService);
             model.addAttribute("allPackages", packages);
             return "packages/packages_updateDelete";
         } catch (Exception e) {
@@ -43,8 +43,8 @@ public class PackageController extends BaseController {
     }
 
     @PostMapping("/addPackage")
-    public String addPackage(@ModelAttribute Package newPackage) {
-        masterService.addPackage(newPackage);
+    public String addPackage(@ModelAttribute PackageDTO packageDTO) {
+        masterService.addPackageWithAddon(packageDTO);
         return "redirect:/success";
     }
 }
