@@ -11,7 +11,7 @@ public class PackageAndAddonList {
 
     public static List<PackageDTO> packageDTOList(MasterService masterService)
     {
-        List<PackageDTO> packageDTOList = new ArrayList<PackageDTO>();
+        List<PackageDTO> packageDTOList = new ArrayList<>();
         List<Package> packages = masterService.getAllPackages();
         for(Package p : packages)
         {
