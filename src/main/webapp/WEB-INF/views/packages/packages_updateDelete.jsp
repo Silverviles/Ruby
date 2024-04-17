@@ -1,7 +1,10 @@
 <%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
-<% List<PackageDTO> packageList = (List<PackageDTO>) request.getAttribute("allPackages"); %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%
+    List<PackageDTO> packageList = (List<PackageDTO>) request.getAttribute("allPackages");
+%>
 
 <header class="section_container header_container">
     <h2 class="booking_heading">Packages</h2>
@@ -20,17 +23,18 @@
             </tr>
 
             <div class="tbody">
-                <% for (PackageDTO packageDTO : packageList) {%>
+                <% if (packageList != null && !packageList.isEmpty()) {
+                    for (PackageDTO packageDTO : packageList) {%>
                     <tr>
                         <td><%= packageDTO.getId()%>></td>
-                        <td><%= packageDTO.getName()%>
+                        <td><%= packageDTO.getPackageName()%>
                         </td>
-                        <td><%= packageDTO.getDescription()%>></td>
-                        <td><%= packageDTO.getPrice()%>></td>
-                        <td><%= packageDTO.getDiscontinueDate()%>></td>
-                        <td><%= packageDTO.getAvailability()%>
+                        <td><%= packageDTO.getPackageDescription()%>></td>
+                        <td><%= packageDTO.getPackagePrice()%>></td>
+                        <td><%= packageDTO.getPackageDiscontinueDate()%>></td>
+                        <td><%= packageDTO.getPackageAvailability()%>
                         </td>
-                        <td><%= packageDTO.getType()%>></td>
+                        <td><%= packageDTO.getPackageType()%>></td>
                         <td><%= packageDTO.getMaxAdults()%>
                         </td>
                         <td>
@@ -133,6 +137,13 @@
                             </div>
                         </td>
                     </tr>
+                <%
+                        }
+                    } else {
+                %>
+                    <tr>
+                        <td colspan="9" style="text-align: center"> No Records Available.</td>
+                    </tr>
                 <% } %>
             </div>
 
@@ -163,4 +174,3 @@
     }
 
 </script>
-<script src="${pageContext.request.contextPath}/scripts/admin/admin.js"></script>

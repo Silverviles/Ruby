@@ -17,12 +17,12 @@ public class PackageAndAddonList {
         {
             PackageDTO packageDTO = new PackageDTO();
             packageDTO.setId(p.getId());
-            packageDTO.setName(p.getName());
-            packageDTO.setDescription(p.getDescription());
-            packageDTO.setPrice(p.getPrice());
-            packageDTO.setDiscontinueDate(p.getDiscontinueDate());
-            packageDTO.setAvailability(p.getAvailability());
-            packageDTO.setType(p.getType());
+            packageDTO.setPackageName(p.getName());
+            packageDTO.setPackageDescription(p.getDescription());
+            packageDTO.setPackagePrice(p.getPrice());
+            packageDTO.setPackageDiscontinueDate(p.getDiscontinueDate());
+            packageDTO.setPackageAvailability(p.getAvailability());
+            packageDTO.setPackageType(p.getType().toString());
             packageDTO.setMaxAdults(p.getMaxAdults());
             packageDTO.setAddonList(masterService.getAddonByPackageId(p.getId()));
             packageDTOList.add(packageDTO);
