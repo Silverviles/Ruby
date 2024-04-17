@@ -41,6 +41,9 @@ public class PackageController extends BaseController {
 
     @PostMapping("/addPackage")
     public String addPackage(@ModelAttribute PackageDTO packageDTO) {
+        if (packageDTO.getPackageAvailability() == null) {
+            packageDTO.setPackageAvailability(false);
+        }
         masterService.addPackageWithAddon(packageDTO);
         return "redirect:/success";
     }

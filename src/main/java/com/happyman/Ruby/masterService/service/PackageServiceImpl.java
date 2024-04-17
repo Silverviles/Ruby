@@ -40,7 +40,7 @@ public class PackageServiceImpl implements PackageService {
 
 
     @Override
-    public List<Package> getPackageByAvailability(Byte availability) {
+    public List<Package> getPackageByAvailability(Boolean availability) {
         List<Package> packages = packageRepository.findAll();
         for (Package p : packages) {
             if (p.getAvailability().equals(availability)) {

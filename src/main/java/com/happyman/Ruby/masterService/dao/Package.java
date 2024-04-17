@@ -31,7 +31,7 @@ public class Package {
 
 	@Column(name = "discontinueDate") private LocalDate discontinueDate;
 
-	@Column(name = "availability", nullable = false) private Byte availability;
+	@Column(name = "availability", nullable = false) private Boolean availability;
 
 	@Enumerated(EnumType.STRING) @Column(name = "type") private DomainConstants.PackageType type;
 

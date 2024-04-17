@@ -1,6 +1,5 @@
 package com.happyman.Ruby.packages.dto;
 
-import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +15,7 @@ public class PackageDTO {
     private String packageDescription;
     private Float packagePrice;
     private LocalDate packageDiscontinueDate;
-    private Byte packageAvailability;
+    private Boolean packageAvailability;
     private String packageType;
     private Integer maxAdults;
     private List<Addon> addonList;

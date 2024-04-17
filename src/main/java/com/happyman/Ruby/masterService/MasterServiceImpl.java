@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -206,7 +205,7 @@ import java.util.List;
 	}
 
 	@Override
-	public List<Package> getPackageByAvailability(Byte availability) {
+	public List<Package> getPackageByAvailability(Boolean availability) {
 		return packageService.getPackageByAvailability(availability);
 	}
 

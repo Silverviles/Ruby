@@ -56,7 +56,8 @@ public interface MasterService {
 	public List<Package> getAllPackages();
 	public Package getPackageById(Integer packageId);
 	public Package getPackageByName(String packageName);
-	public List<Package> getPackageByAvailability(Byte availability);
+
+	public List<Package> getPackageByAvailability(Boolean availability);
 	public List<Package> getPackageByType(DomainConstants.PackageType type);
 	public List<Package> getPackageByMaxAdults(int maxAdults);
 	public void addPackage(Package pkg);

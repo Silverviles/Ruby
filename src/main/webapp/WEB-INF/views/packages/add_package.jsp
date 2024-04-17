@@ -32,7 +32,7 @@
                 </div>
                 <div class="form_group">
                     <div class="input_group">
-                        <input type="checkbox" id="packageAvailability" name="packageAvailability" value="1">
+                        <input type="checkbox" id="packageAvailability" name="packageAvailability" value="true">
                         <label for="packageAvailability">: Availability</label>
                     </div>
                     <p>1 for available, 0 for unavailable</p>

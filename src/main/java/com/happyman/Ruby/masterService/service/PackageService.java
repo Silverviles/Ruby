@@ -15,7 +15,7 @@ public interface PackageService {
 
     Package getPackageByName(String packageName);
 
-    List<Package> getPackageByAvailability(Byte availability);
+    List<Package> getPackageByAvailability(Boolean availability);
 
     List<Package> getPackageByType(DomainConstants.PackageType type);
 
