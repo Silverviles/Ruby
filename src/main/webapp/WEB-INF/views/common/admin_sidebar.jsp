@@ -18,6 +18,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/admin_sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/packages/add_package.css">
 
     <title>Sidebar</title>
 </head>
