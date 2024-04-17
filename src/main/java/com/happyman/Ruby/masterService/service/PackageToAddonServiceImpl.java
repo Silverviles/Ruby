@@ -14,4 +14,9 @@ public class PackageToAddonServiceImpl implements PackageToAddonService {
     public List<PackageToAddon> getAddonsByPackageId(Integer packageId) {
         return packageToAddonRepository.findAllById_PackageId(packageId);
     }
+
+    @Override
+    public void addPackageToAddon(PackageToAddon packageToAddon) {
+        packageToAddonRepository.save(packageToAddon);
+    }
 }

@@ -9,5 +9,6 @@ import java.util.List;
 public interface PackageToAddonService {
     List<PackageToAddon> getAddonsByPackageId(Integer packageId);
 
+    void addPackageToAddon(PackageToAddon packageToAddon);
 
 }
