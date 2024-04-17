@@ -3,6 +3,7 @@ package com.happyman.Ruby.masterService;
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.packages.dto.PackageDTO;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import java.util.List;
@@ -60,5 +61,7 @@ public interface MasterService {
 	public List<Package> getPackageByMaxAdults(int maxAdults);
 	public void addPackage(Package pkg);
 	public void deletePackage(Integer packageId);
+	public void addPackageToAddon(PackageToAddon packageToAddon);
+	public void addPackageWithAddon(PackageDTO packageDTO);
 
 }

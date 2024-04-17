@@ -4,11 +4,13 @@ import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.*;
 import com.happyman.Ruby.masterService.service.*;
+import com.happyman.Ruby.packages.dto.PackageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,23 +21,25 @@ import java.util.List;
 	private final PlatformTransactionManager platformTransactionManager;
 	private final AddonService addonService;
 	private final PackageService packageService;
+	private final PackageToAddonService packageToAddonService;
 
 	@Autowired
 	public MasterServiceImpl(
             DriverService driverService,
             VehicleService vehicleService,
             FoodService foodService,
-			PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageService packageService
-	) {
+            PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageService packageService, PackageToAddonService packageToAddonService
+    ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.foodService = foodService;
 		this.platformTransactionManager = platformTransactionManager;
 		this.addonService = addonService;
 		this.packageService = packageService;
+		this.packageToAddonService = packageToAddonService;
 		// TODO: add all the other services here. Declare them as variables above first.
 
-	}
+    }
 
 	@Override
 	public void addDriver(Driver driver) {
@@ -224,6 +228,40 @@ import java.util.List;
 	@Override
 	public void deletePackage(Integer packageId) {
 		packageService.deletePackage(packageId);
+	}
+
+	@Override
+	public void addPackageToAddon(PackageToAddon packageToAddon) {
+		packageToAddonService.addPackageToAddon(packageToAddon);
+	}
+
+
+	@Override
+	public void addPackageWithAddon(PackageDTO packageDTO) {
+		Package pkg = new Package();
+
+		pkg.setName(packageDTO.getName());
+		pkg.setDescription(packageDTO.getDescription());
+		pkg.setPrice(packageDTO.getPrice());
+		pkg.setDiscontinueDate(packageDTO.getDiscontinueDate());
+		pkg.setAvailability(packageDTO.getAvailability());
+		pkg.setType(packageDTO.getType());
+		pkg.setMaxAdults(packageDTO.getMaxAdults());
+
+		packageService.addPackage(pkg);
+
+		List<Addon> addons = packageDTO.getAddonList();
+
+		for(Addon addon : addons){
+			PackageToAddonId packageToAddonId = new PackageToAddonId();
+			packageToAddonId.setPackageId(pkg.getId());
+			packageToAddonId.setAddonId(addon.getId());
+
+			PackageToAddon packageToAddon = new PackageToAddon();
+			packageToAddon.setId(packageToAddonId);
+
+			packageToAddonService.addPackageToAddon(packageToAddon);
+		}
 	}
 
 
