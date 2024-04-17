@@ -12,12 +12,12 @@ import java.util.List;
 @Setter
 public class PackageDTO {
     private Integer id;
-    private String name;
-    private String description;
-    private Float price;
-    private LocalDate discontinueDate;
-    private Byte availability;
-    private DomainConstants.PackageType type;
+    private String packageName;
+    private String packageDescription;
+    private Float packagePrice;
+    private LocalDate packageDiscontinueDate;
+    private Byte packageAvailability;
+    private String packageType;
     private Integer maxAdults;
     private List<Addon> addonList;
 

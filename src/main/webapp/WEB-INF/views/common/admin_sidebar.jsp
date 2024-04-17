@@ -302,5 +302,6 @@
         crossorigin="anonymous"
 ></script>
 <script src="${pageContext.request.contextPath}/scripts/common/sidebar.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/admin/admin.js"></script>
 </body>
 </html>

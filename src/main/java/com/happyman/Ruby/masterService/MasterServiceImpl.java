@@ -240,27 +240,28 @@ import java.util.List;
 	public void addPackageWithAddon(PackageDTO packageDTO) {
 		Package pkg = new Package();
 
-		pkg.setName(packageDTO.getName());
-		pkg.setDescription(packageDTO.getDescription());
-		pkg.setPrice(packageDTO.getPrice());
-		pkg.setDiscontinueDate(packageDTO.getDiscontinueDate());
-		pkg.setAvailability(packageDTO.getAvailability());
-		pkg.setType(packageDTO.getType());
+		pkg.setName(packageDTO.getPackageName());
+		pkg.setDescription(packageDTO.getPackageDescription());
+		pkg.setPrice(packageDTO.getPackagePrice());
+		pkg.setDiscontinueDate(packageDTO.getPackageDiscontinueDate());
+		pkg.setAvailability(packageDTO.getPackageAvailability());
+		pkg.setType(DomainConstants.PackageType.valueOf(packageDTO.getPackageType().toUpperCase()));
 		pkg.setMaxAdults(packageDTO.getMaxAdults());
 
 		packageService.addPackage(pkg);
 
 		List<Addon> addons = packageDTO.getAddonList();
+		if (!addons.isEmpty()) {
+			for(Addon addon : addons){
+				PackageToAddonId packageToAddonId = new PackageToAddonId();
+				packageToAddonId.setPackageId(pkg.getId());
+				packageToAddonId.setAddonId(addon.getId());
 
-		for(Addon addon : addons){
-			PackageToAddonId packageToAddonId = new PackageToAddonId();
-			packageToAddonId.setPackageId(pkg.getId());
-			packageToAddonId.setAddonId(addon.getId());
+				PackageToAddon packageToAddon = new PackageToAddon();
+				packageToAddon.setId(packageToAddonId);
 
-			PackageToAddon packageToAddon = new PackageToAddon();
-			packageToAddon.setId(packageToAddonId);
-
-			packageToAddonService.addPackageToAddon(packageToAddon);
+				packageToAddonService.addPackageToAddon(packageToAddon);
+			}
 		}
 	}
 

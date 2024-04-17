@@ -28,7 +28,7 @@ public class PackageController extends BaseController {
         return "packages/package";
     }
 
-    @GetMapping("/packages")
+    @GetMapping("/getPackages")
     public String displayPackageData(Model model) {
         try {
             List<PackageDTO> packages = PackageAndAddonList.packageDTOList(masterService);
