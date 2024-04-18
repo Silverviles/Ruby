@@ -1,13 +1,48 @@
+//package com.happyman.Ruby.employeeManagement.controller;
+//
+//import com.happyman.Ruby.employeeManagement.dto.EmployeeDTO;
+//import com.happyman.Ruby.masterService.service.EmployeeService;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//
+//import java.util.List;
+//
+//@Controller
+//@RequestMapping("/employeeManagement")
+//public class EmployeeManagementController {
+//
+//    private static final Logger log = LoggerFactory.getLogger(EmployeeManagementController.class);
+//
+////    @Autowired
+////    private EmployeeService employeeService;
+//
+//    @GetMapping("/managementHome")
+//    public String showManagementHome(Model model) {
+//        // Retrieve all employees
+////        List<EmployeeDTO> employees = employeeService.getAllEmployees();
+//
+//        // Add the list of employees to the model
+////        model.addAttribute("employees", employees);
+//
+//        // Return the name of the JSP file
+//        return "employeeManagement/EmployeeManagement"; // Assuming you have a JSP file named "EmployeeManagement.jsp" under "WEB-INF/views/employeeManagement/"
+//    }
+//}
 package com.happyman.Ruby.employeeManagement.controller;
 
 import com.happyman.Ruby.employeeManagement.dto.EmployeeDTO;
-import com.happyman.Ruby.employeeManagement.utils.EmployeeService;
+import com.happyman.Ruby.masterService.dao.Employee;
+import com.happyman.Ruby.masterService.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,29 +58,22 @@ public class EmployeeManagementController {
     private EmployeeService employeeService;
 
     @GetMapping("/managementHome")
-    public ResponseEntity<List<EmployeeDTO>> showManagementHome() {
+    public String showManagementHome(Model model) {
         // Retrieve all employees
-        List<EmployeeDTO> employees = employeeService.getAllEmployees();
+        List<Employee> employees = employeeService.getAllEmployees();
 
-        // Log all employee records
-        logAllEmployeeRecords(employees);
+        // Add the list of employees to the model
+        model.addAttribute("employees", employees);
 
-        // Return the list of employees as JSON response
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        // Return the name of the JSP file
+        return "employeeManagement/EmployeeManagement"; // Assuming you have a JSP file named "EmployeeManagement.jsp" under "WEB-INF/views/employeeManagement/"
     }
-
-    private void logAllEmployeeRecords(List<EmployeeDTO> employees) {
-        // Log all employee records
-        for (EmployeeDTO employee : employees) {
-            log.info("Employee ID: {}", employee.getEmployeeId());
-            log.info("First Name: {}", employee.getFirstName());
-            log.info("Last Name: {}", employee.getLastName());
-            log.info("Email: {}", employee.getEmail());
-            log.info("Contact No: {}", employee.getContactNo());
-            log.info("Salary: {}", employee.getSalary());
-        }
+    @GetMapping("/getAllEmployees")
+    public List<Employee> getAllEmployees() {
+        System.out.print("came");
+        System.out.println(employeeService.getAllEmployees());
+        return employeeService.getAllEmployees();
     }
 
 
 }
-

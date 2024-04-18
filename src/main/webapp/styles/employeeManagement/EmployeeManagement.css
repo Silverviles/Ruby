@@ -20,8 +20,6 @@ h1 {
     color: #333;
 }
 
-
-
 #searchContainer {
     text-align: center; /* Align search bar to the center */
     margin-bottom: 20px;
@@ -87,7 +85,6 @@ button:hover {
     width: 100%;
     left: 0;
 }
-
 
 
 
