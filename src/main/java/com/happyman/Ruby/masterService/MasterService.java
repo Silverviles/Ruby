@@ -7,6 +7,11 @@ import com.happyman.Ruby.packages.dto.PackageDTO;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import java.util.List;
+import com.happyman.Ruby.masterService.dao.Driver;
+import com.happyman.Ruby.masterService.dao.Food;
+import com.happyman.Ruby.masterService.dao.Seat;
+import com.happyman.Ruby.masterService.dao.Trip;
+import com.happyman.Ruby.masterService.dao.Vehicle;
 
 
 public interface MasterService {
@@ -19,7 +24,7 @@ public interface MasterService {
 	public List<Driver> getAllDrivers();
 	public List<Driver> getAllDriversByVehicleType(String type);
 
-	// methods Implementation for Vehicle
+	// Implementation for Vehicle
 	public Vehicle getVehicle(Integer vehicleId);
 	public Vehicle getVehicleByNumber(String vehicleNumber);
 	public void saveVehicle(Vehicle vehicle);
@@ -39,6 +44,13 @@ public interface MasterService {
 	public List<Food> getAllFoodByCategory(DomainConstants.FoodCategory category);
 	public List<Food> getAllFoodByAvailability(Byte availability);
 	public List<Food> getAllFoodByCategoryAndAvailability(DomainConstants.FoodCategory category, Byte availability);
+
+	// Implementation for Seat
+	public void saveSeat(Seat seat);
+	public Seat findSeatById(Integer seatId);
+	public List<Seat> getAllSeats();
+	public List<Seat> getAllSeatsByAvailability(Byte availability);
+	public Seat findSeatByLocation(String location);
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();
