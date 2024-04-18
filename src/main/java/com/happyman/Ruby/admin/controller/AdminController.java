@@ -18,7 +18,7 @@ public class AdminController extends BaseController {
 
     @GetMapping("/temp1")
     public String goTemp1() {
-        return "admin/admin_temp1";
+        return "common/admin_sidebar";
     }
 
     @GetMapping("/adminPack")

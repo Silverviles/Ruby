@@ -16,7 +16,12 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/admin_sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/Registration.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/EmployeeManagement.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_sidebar.css">
+
+
+
 
     <title>Sidebar</title>
 </head>
@@ -154,11 +159,6 @@
                             <i class='arrow bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li id="shift_management_button">
-                                <a href="#">
-                                    <span class="text">Employee shift management</span>
-                                </a>
-                            </li>
                             <li id="emp_registration_button">
                                 <a href="#">
                                     <span class="text">Employee registration </span>
@@ -278,16 +278,13 @@
             <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
         </div>
 
-        <div id="shift_management" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
-        </div>
 
         <div id="emp_registration" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+            <jsp:include page="../employeeManagement/Registration.jsp" />
         </div>
 
         <div id="emp_updateDelete" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+            <jsp:include page="../employeeManagement/EmployeeManagement.jsp" />
         </div>
 
         <!-- TODO: Add other divs as needed. follow the id and class formats -->

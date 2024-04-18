@@ -7,12 +7,6 @@
 	employeeList = (List<Employee>) request.getAttribute("employees");
 %>
 
-<html>
-<head>
-    <title>Employee Management</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/EmployeeManagement.css">
-</head>
-<body>
 <h1>Employee Management</h1>
 
 <div id="searchContainer">
@@ -58,6 +52,3 @@
     </tbody>
 </table>
 
-<script src="${pageContext.request.contextPath}/scripts/employeeManagement/EmployeeManagement.js"></script>
-</body>
-</html>
