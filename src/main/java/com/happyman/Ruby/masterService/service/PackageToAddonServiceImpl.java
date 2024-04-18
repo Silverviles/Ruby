@@ -8,7 +8,12 @@ import java.util.List;
 
 @Service
 public class PackageToAddonServiceImpl implements PackageToAddonService {
-    private PackageToAddonRepository packageToAddonRepository;
+
+    private final PackageToAddonRepository packageToAddonRepository;
+
+    public PackageToAddonServiceImpl(PackageToAddonRepository packageToAddonRepository) {
+        this.packageToAddonRepository = packageToAddonRepository;
+    }
 
     @Override
     public List<PackageToAddon> getAddonsByPackageId(Integer packageId) {
@@ -20,3 +25,4 @@ public class PackageToAddonServiceImpl implements PackageToAddonService {
         packageToAddonRepository.save(packageToAddon);
     }
 }
+
