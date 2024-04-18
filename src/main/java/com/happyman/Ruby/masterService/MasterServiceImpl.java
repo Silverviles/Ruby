@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -264,5 +265,25 @@ import java.util.List;
 		}
 	}
 
+	public  List<PackageDTO> getPackageDTOList()
+	{
+		List<PackageDTO> packageDTOList = new ArrayList<>();
+		List<Package> packages = packageService.getAllPackages();
+		for(Package p : packages)
+		{
+			PackageDTO packageDTO = new PackageDTO();
+			packageDTO.setId(p.getId());
+			packageDTO.setPackageName(p.getName());
+			packageDTO.setPackageDescription(p.getDescription());
+			packageDTO.setPackagePrice(p.getPrice());
+			packageDTO.setPackageDiscontinueDate(p.getDiscontinueDate());
+			packageDTO.setPackageAvailability(p.getAvailability());
+			packageDTO.setPackageType(p.getType().toString());
+			packageDTO.setMaxAdults(p.getMaxAdults());
+			packageDTO.setAddonList(addonService.getAddonByPackageId(p.getId()));
+			packageDTOList.add(packageDTO);
+		}
+		return packageDTOList;
+	}
 
 }

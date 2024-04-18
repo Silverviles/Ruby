@@ -64,5 +64,6 @@ public interface MasterService {
 	public void deletePackage(Integer packageId);
 	public void addPackageToAddon(PackageToAddon packageToAddon);
 	public void addPackageWithAddon(PackageDTO packageDTO);
+	public  List<PackageDTO> getPackageDTOList();
 
 }
