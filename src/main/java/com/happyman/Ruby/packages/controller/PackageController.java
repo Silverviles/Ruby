@@ -3,7 +3,6 @@ package com.happyman.Ruby.packages.controller;
 
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.packages.dto.PackageDTO;
-import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -29,7 +28,7 @@ public class PackageController extends BaseController {
     }
 
     @GetMapping("/getPackages")
-    public String displayPackageData(HttpServletRequest request, Model model) {
+    public String displayPackageData(Model model) {
             List<PackageDTO> packages = masterService.getPackageDTOList();
             model.addAttribute("allPackages", packages);
             return "packages/packages_updateDelete";

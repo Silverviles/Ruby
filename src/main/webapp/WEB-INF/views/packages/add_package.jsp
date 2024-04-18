@@ -1,3 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
+<%List<Addon> addons = (List<Addon>) request.getAttribute("addons");%>
+
 <header class="section_container header_container">
         <h2 class="booking_heading">Add New Package</h2>
         <div class="booking_container">
@@ -55,6 +59,22 @@
                         <input type="number" id="maxAdults" name="maxAdults">
                     </div>
                     <p>The maximum number of adults allowed</p>
+                </div>
+
+                <div class="form_group">
+                    <div class="input_group">
+                        <label>Addons:</label>
+                        <% if (addons != null && !addons.isEmpty()) {
+                            for (Addon addon : addons) { %>
+                        <input type="checkbox" id="addonList<%= addon.getId() %>" name="addonList"
+                               value="<%= addon.getId() %>">
+                        <label for="addonList<%= addon.getId() %>"><%= addon.getAddonName() %>
+                        </label>
+                        <br>
+                        <% }
+                        }%>
+
+                    </div>
                 </div>
 
                 <button class="btn">Add</button>
