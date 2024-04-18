@@ -26,7 +26,7 @@
                 <% if (packageList != null && !packageList.isEmpty()) {
                     for (PackageDTO packageDTO : packageList) {%>
                     <tr>
-                        <td><%= packageDTO.getId()%>></td>
+                        <td><%= packageDTO.getId()%></td>
                         <td><%= packageDTO.getPackageName()%>
                         </td>
                         <td><%= packageDTO.getPackageDescription()%>></td>
@@ -38,11 +38,16 @@
                         <td><%= packageDTO.getMaxAdults()%>
                         </td>
                         <td>
-                            <% for (Addon addon : packageDTO.getAddonList()) {%>
+                            <% if (packageDTO.getAddonList() != null && !packageDTO.getAddonList().isEmpty()) {
+                                for (Addon addon : packageDTO.getAddonList()) {%>
                             <div><%= addon.getAddonName()%>
                             </div>
                             <br>
-                            <% } %>
+                            <% }
+                            }
+                                else{ %>
+                                    <div>No addon available</div>
+                                <% }%>
                         </td>
 
                         <td>
@@ -139,11 +144,11 @@
                     </tr>
                 <%
                         }
-                    } else {
+                    } else{
                 %>
-                    <tr>
-                        <td colspan="9" style="text-align: center"> No Records Available.</td>
-                    </tr>
+                <tr>
+                    <td colspan="9" style="text-align: center"> No Records Available.</td>
+                </tr>
                 <% } %>
             </div>
 
