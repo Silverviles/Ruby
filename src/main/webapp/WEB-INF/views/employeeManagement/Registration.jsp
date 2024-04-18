@@ -9,7 +9,7 @@
 <div class="container">
 
     <div class="xxx">
-        <h2>Employee Management</h2>
+        <h1 class="Topic">Employee Management</h1>
         <header class="section_container header_container">
             <h2 class="registration_heading">Employee Registration</h2>
 
@@ -21,7 +21,7 @@
                             <input type="text" name="employeeId" id="employeeId" value="${nextEmployeeId}" readonly>
                             <label>Employee Id</label>
 
-                        <%--                            <input type="text" name="empID" id="empID" readonly>--%>
+
                             <label>Employee Id</label>
                         </div>
 
