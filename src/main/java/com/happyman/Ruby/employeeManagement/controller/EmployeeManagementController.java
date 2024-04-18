@@ -35,6 +35,7 @@
 //}
 package com.happyman.Ruby.employeeManagement.controller;
 
+import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.employeeManagement.dto.EmployeeDTO;
 import com.happyman.Ruby.masterService.dao.Employee;
 import com.happyman.Ruby.masterService.service.EmployeeService;
@@ -50,30 +51,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/employeeManagement")
-public class EmployeeManagementController {
+public class EmployeeManagementController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(EmployeeManagementController.class);
 
-    @Autowired
-    private EmployeeService employeeService;
-
     @GetMapping("/managementHome")
     public String showManagementHome(Model model) {
-        // Retrieve all employees
-        List<Employee> employees = employeeService.getAllEmployees();
-
-        // Add the list of employees to the model
+        List<Employee> employees = masterService.getAllEmployees();
         model.addAttribute("employees", employees);
-
-        // Return the name of the JSP file
-        return "employeeManagement/EmployeeManagement"; // Assuming you have a JSP file named "EmployeeManagement.jsp" under "WEB-INF/views/employeeManagement/"
+        return "employeeManagement/EmployeeManagement";
     }
-    @GetMapping("/getAllEmployees")
-    public List<Employee> getAllEmployees() {
-        System.out.print("came");
-        System.out.println(employeeService.getAllEmployees());
-        return employeeService.getAllEmployees();
-    }
-
-
 }

@@ -1,7 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
-
+<%@ page import="java.util.List" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Employee" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%
+    List<Employee> employeeList = new ArrayList<>();
+	employeeList = (List<Employee>) request.getAttribute("employees");
+%>
 
 <html>
 <head>
@@ -30,7 +34,27 @@
     </tr>
     </thead>
     <tbody id="employeeBody">
-    <!-- Sample data will be added dynamically by JavaScript -->
+    <% if (employeeList != null && !employeeList.isEmpty()) { %>
+        <% for (Employee employee : employeeList) { %>
+        <tr>
+            <td><%= employee.getId()%></td>
+            <td><%= employee.getFirstName()%></td>
+            <td><%= employee.getLastName()%></td>
+            <td><%= employee.getEmail()%></td>
+            <td><%= employee.getMobileNo()%></td>
+            <td><%= employee.getShiftCategory()%></td>
+            <td><%= employee.getBaseSalary()%></td>
+            <td>
+                <form>
+                    <input type="submit" value="<%= employee.getId()%>" name="delete">
+                </form>
+                <form>
+                    <input type="submit" value="<%= employee.getId()%>" name="update">
+                </form>
+            </td>
+        </tr>
+        <% } %>
+    <% } %>
     </tbody>
 </table>
 

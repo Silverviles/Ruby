@@ -39,9 +39,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean deleteEmployee(int employeeID) {
-        Optional<Employee> byId = employeeRepository.findById(employeeID);
-        if (byId.isPresent()){
-            employeeRepository.delete(byId.get());
+        Employee byId = employeeRepository.findById(employeeID).orElse(null);
+        if (byId != null){
+            employeeRepository.delete(byId);
             return  true;
         }else {
             return false;

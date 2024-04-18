@@ -17,12 +17,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "employees")
-
-@AllArgsConstructor()
-@NoArgsConstructor
+@Table(name = "employee")
 public class Employee {
-	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE) @Column(name = "employeeId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "employeeId", nullable = false) private Integer id;
 
 	@Column(name = "firstName", nullable = false, length = 45) private String firstName;
 
@@ -32,7 +29,6 @@ public class Employee {
 
 	@Column(name = "mobileNo", nullable = false, length = 10) private String mobileNo;
 
-//	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "shiftType", nullable = false) private ShiftCategory shiftType;
     @Column(name = "shiftType", nullable = false) private Integer ShiftCategory;
 
 	@Column(name = "baseSalary", nullable = false) private double baseSalary;
