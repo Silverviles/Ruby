@@ -17,7 +17,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/Registration.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/EmployeeManagement.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/EmployeeManagementTest.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_sidebar.css">
 
 
