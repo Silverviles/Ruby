@@ -49,4 +49,10 @@ public class PackageController extends BaseController {
         masterService.deletePackageToAddonByPackageId(packageDTO.getId());
         return "redirect:/success";
     }
+
+    @PostMapping("/updatePackage")
+    public String updatePackage(@ModelAttribute PackageDTO packageDTO) {
+        masterService.updatePackageDTO(packageDTO);
+        return "redirect:/success";
+    }
 }
