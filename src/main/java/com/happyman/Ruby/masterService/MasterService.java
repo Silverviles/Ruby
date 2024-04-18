@@ -68,7 +68,6 @@ public interface MasterService {
 	public List<Package> getAllPackages();
 	public Package getPackageById(Integer packageId);
 	public Package getPackageByName(String packageName);
-
 	public List<Package> getPackageByAvailability(Boolean availability);
 	public List<Package> getPackageByType(DomainConstants.PackageType type);
 	public List<Package> getPackageByMaxAdults(int maxAdults);
@@ -77,5 +76,11 @@ public interface MasterService {
 	public void addPackageToAddon(PackageToAddon packageToAddon);
 	public void addPackageWithAddon(PackageDTO packageDTO);
 	public  List<PackageDTO> getPackageDTOList();
+	public void deletePackageToAddonByPackageId(Integer packageId);
+	public void updatePackageByPackageDTO(PackageDTO pkg);
+	public void updatePackageDTO(PackageDTO packageDTO);
+
+	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO);
+	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
 
 }

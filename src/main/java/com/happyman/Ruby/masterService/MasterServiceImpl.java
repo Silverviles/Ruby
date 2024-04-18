@@ -12,16 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.Seat;
-import com.happyman.Ruby.masterService.dao.Trip;
-import com.happyman.Ruby.masterService.dao.Vehicle;
-import com.happyman.Ruby.masterService.service.DriverService;
-import com.happyman.Ruby.masterService.service.FoodService;
-import com.happyman.Ruby.masterService.service.TripService;
-import com.happyman.Ruby.masterService.service.VehicleService;
 
 @Service
 	public class MasterServiceImpl implements MasterService{
@@ -294,7 +284,8 @@ import com.happyman.Ruby.masterService.service.VehicleService;
 
 				PackageToAddon packageToAddon = new PackageToAddon();
 				packageToAddon.setId(packageToAddonId);
-
+				packageToAddon.setPackageField(pkg);
+				packageToAddon.setAddon(addon);
 				packageToAddonService.addPackageToAddon(packageToAddon);
 			}
 		}
@@ -319,6 +310,69 @@ import com.happyman.Ruby.masterService.service.VehicleService;
 			packageDTOList.add(packageDTO);
 		}
 		return packageDTOList;
+	}
+
+	@Override
+	public void deletePackageToAddonByPackageId(Integer packageId) {
+		packageToAddonService.deletePackageToAddonByPackageId(packageId);
+	}
+
+	@Override
+	public void updatePackageByPackageDTO(PackageDTO pkg) {
+		packageService.updatePackageByPackageDTO(pkg);
+	}
+
+	@Override
+	public List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId) {
+		return packageToAddonService.getPackageToAddonsByPackageId(packageId);
+	}
+
+	@Override
+	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
+		List<Addon> addons = packageDTO.getAddonList();
+		List<Integer> list1 = new ArrayList<>();
+		for (Addon addon : addons) {
+			list1.add(addon.getId());
+		}
+
+		List<PackageToAddon> addons1 = this.getPackageToAddonsByPackageId(packageDTO.getId());
+		List<Integer> list2 = new ArrayList<>();
+		for (PackageToAddon addon : addons1) {
+			PackageToAddonId packageToAddonId = addon.getId();
+			list2.add(packageToAddonId.getAddonId());
+		}
+
+		for (Integer addonId : list1) {
+			if (!list2.contains(addonId)) {
+				PackageToAddon packageToAddon = new PackageToAddon();
+				PackageToAddonId packageToAddonId = new PackageToAddonId();
+				packageToAddonId.setAddonId(addonId);
+				packageToAddonId.setPackageId(addonId);
+				packageToAddon.setId(packageToAddonId);
+				packageToAddon.setPackageField(packageService.getPackageById(packageDTO.getId()));
+				packageToAddon.setAddon(addonService.getAddonById(addonId));
+				packageToAddonService.addPackageToAddon(packageToAddon);
+			}
+		}
+
+		for (Integer addonId : list2) {
+			if (!list1.contains(addonId)) {
+				PackageToAddon packageToAddon = new PackageToAddon();
+				PackageToAddonId packageToAddonId = new PackageToAddonId();
+				packageToAddonId.setAddonId(addonId);
+				packageToAddonId.setPackageId(addonId);
+				packageToAddon.setId(packageToAddonId);
+				packageToAddonService.addPackageToAddon(packageToAddon);
+			}
+		}
+
+	}
+
+
+	@Override
+	public void updatePackageDTO(PackageDTO packageDTO) {
+		this.updatePackageToAddonByPackageDTO(packageDTO);
+		this.updatePackageByPackageDTO(packageDTO);
 	}
 
 }

@@ -42,4 +42,11 @@ public class PackageController extends BaseController {
         masterService.addPackageWithAddon(packageDTO);
         return "redirect:/success";
     }
+
+    @PostMapping("/deletePackage")
+    public String deletePackage(@ModelAttribute PackageDTO packageDTO) {
+        masterService.deletePackage(packageDTO.getId());
+        masterService.deletePackageToAddonByPackageId(packageDTO.getId());
+        return "redirect:/success";
+    }
 }

@@ -3,6 +3,7 @@ package com.happyman.Ruby.masterService.service;
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.repository.PackageRepository;
+import com.happyman.Ruby.packages.dto.PackageDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -81,6 +82,20 @@ public class PackageServiceImpl implements PackageService {
     public void deletePackage(Integer packageId) {
         packageRepository.deleteById(packageId);
     }
+
+    @Override
+    public void updatePackageByPackageDTO(PackageDTO pkg) {
+        Package p = this.getPackageById(pkg.getId());
+        p.setName(pkg.getPackageName());
+        p.setDescription(pkg.getPackageDescription());
+        p.setPrice(pkg.getPackagePrice());
+        p.setDiscontinueDate(pkg.getPackageDiscontinueDate());
+        p.setAvailability(pkg.getPackageAvailability());
+        p.setType(DomainConstants.PackageType.valueOf(pkg.getPackageType()));
+        p.setMaxAdults(pkg.getMaxAdults());
+        packageRepository.save(p);
+    }
+
 
 }
 
