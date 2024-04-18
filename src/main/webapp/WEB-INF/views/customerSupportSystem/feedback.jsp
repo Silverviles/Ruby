@@ -13,7 +13,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback form</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}src/main/webapp/WEB-INF/views/customerSupportSystem/feedbackCSS.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/feedbackCSS.css">
 
     <script
             src="https://kit.fontawesome.com/64d58efce2.js"
@@ -23,7 +23,6 @@
 <body>
 <div class="container">
     <span class="big-circle"></span>
-    <img src="${pageContext.request.contextPath}src/main/webapp/WEB-INF/views/customerSupport/shape.png" alt="">
     <div class="form">
         <div class="contact-info">
             <h3 class="title">We Want to Hear from You</h3>
@@ -33,15 +32,15 @@
 
             <div class="info">
                 <div class="information">
-                    <img src="${pageContext.request.contextPath}src/main/webapp/WEB-INF/views/customerSupport/location.png" alt="">
+                    <img src="${pageContext.request.contextPath}/images/location-pin.png" alt="">
                     <p>92 Cherry Drive Uniondale, NY 11553</p>
                 </div>
                 <div class="information">
-                    <img src="${pageContext.request.contextPath}src/main/webapp/WEB-INF/views/customerSupport/email.png" alt="">
+                    <img src="${pageContext.request.contextPath}/images/email-2.png" alt="">
                     <p>lorem@ipsum.com</p>
                 </div>
                 <div class="information">
-                    <img src="${pageContext.request.contextPath}src/main/webapp/WEB-INF/views/customerSupport/phone.png" alt="">
+                    <img src="${pageContext.request.contextPath}/images/telephone.png" alt="">
                     <p>123-456-789</p>
                 </div>
             </div>
@@ -98,7 +97,6 @@
         </div>
     </div>
 </div>
-<script src="${pageContext.request.contextPath}src/main/webapp/WEB-INF/views/customerSupport/feedbackJS.js"></script>
+<script src="${pageContext.request.contextPath}/script/feedbackJS.js"></script>
 </body>
 </html>
-
