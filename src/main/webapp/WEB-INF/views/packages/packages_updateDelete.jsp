@@ -25,36 +25,26 @@
                 <th>Addons</th>
             </tr>
 
-            <div class="tbody">
-                <% if (packageList != null && !packageList.isEmpty()) {
-                    for (PackageDTO packageDTO : packageList) {%>
-                <tr>
-                    <td><%= packageDTO.getId()%>
-                    </td>
-                    <td><%= packageDTO.getPackageName()%>
-                    </td>
-                    <td><%= packageDTO.getPackageDescription()%>
-                    </td>
-                    <td><%= packageDTO.getPackagePrice()%></td>
-                    <td><%= packageDTO.getPackageDiscontinueDate()%>
-                    </td>
-                    <td><%= packageDTO.getPackageAvailability()%>
-                    </td>
-                    <td><%= packageDTO.getPackageType()%>
-                    </td>
-                    <td><%= packageDTO.getMaxAdults()%>
-                    </td>
-                    <td>
-                        <% if (packageDTO.getAddonList() != null && !packageDTO.getAddonList().isEmpty()) {
-                            for (Addon addon : packageDTO.getAddonList()) {%>
-                        <div><%= addon.getAddonName()%>
-                        </div>
-                        <br>
-                        <% }
-                        } else { %>
-                        <div>No addon available</div>
-                        <% }%>
-                    </td>
+            <% if (packageList != null && !packageList.isEmpty()) {
+                for (PackageDTO packageDTO : packageList) {%>
+            <tr>
+                <td><%= packageDTO.getId()%></td>
+                <td><%= packageDTO.getPackageName()%></td>
+                <td><%= packageDTO.getPackageDescription()%></td>
+                <td><%= packageDTO.getPackagePrice()%></td>
+                <td><%= packageDTO.getPackageDiscontinueDate()%></td>
+                <td><%= packageDTO.getPackageAvailability()%></td>
+                <td><%= packageDTO.getPackageType()%></td>
+                <td><%= packageDTO.getMaxAdults()%></td>
+                <td>
+                    <% if (packageDTO.getAddonList() != null && !packageDTO.getAddonList().isEmpty()) {
+                        for (Addon addon : packageDTO.getAddonList()) {%>
+                    <div><%= addon.getAddonName()%></div>
+                    <% }
+                    } else { %>
+                    <div>No addon available</div>
+                    <% }%>
+                </td>
 
                     <td>
                         <div class="editdeleteIcon" title="update" onclick="showUpdatePopup()">
