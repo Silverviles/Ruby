@@ -47,7 +47,6 @@ replay_pid*
 HELP.md
 mvnw
 mvnw.cmd
-pom.xml
 qodana.yaml
 Ruby.iml
 
@@ -59,3 +58,4 @@ Thumbs.db
 # Sensitive Information
 application.properties
 application.yml
+mvn.local
