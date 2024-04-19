@@ -1,12 +1,17 @@
 package com.happyman.Ruby.restaurant.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.happyman.Ruby.common.BaseController;
+import com.happyman.Ruby.masterService.MasterServiceImpl;
+
 @Controller
 @RequestMapping(value = "/restaurant")
-public class RestaurantController {
+public class RestaurantController extends BaseController {
+
     @GetMapping(value = "/restaurantHome")
     public String getStartBooking(){
         return "/restaurant/startBooking";
@@ -23,7 +28,8 @@ public class RestaurantController {
     }
 
     @GetMapping(value = "/meal")
-    public String getMeal(){
+    public String getMeal(Model model){
+        model.addAttribute("foodList", masterService.getAllFoods());
         return "/restaurant/meal";
     }
 
