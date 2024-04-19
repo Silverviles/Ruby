@@ -36,4 +36,10 @@ public class AddonController extends BaseController {
         return "packages/add_package";
     }
 
+    @GetMapping("/getAddonNames")
+    public String getAddonNamesToUpdatePackage(Model model) {
+        List<Addon> addons = masterService.getAllAddons();
+        model.addAttribute("addons", addons);
+        return "packages/packages_updateDelete";
+    }
 }
