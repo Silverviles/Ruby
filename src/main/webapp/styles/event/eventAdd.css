@@ -87,21 +87,6 @@ nav{
 .header_container{
     padding: 1rem 1rem 5rem 1rem;
 }
-/*
-.header_image_container{
-    position: relative;
-    min-height: 500px;
-    background-image: linear-gradient(
-        to right,
-        rgba(44,56,85,.9),
-        rgba(100,125,187,.1)
-        ),
-    url("header.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 2rem;
-}*/
 
 .header_content{
     max-width: 600px;
@@ -119,7 +104,6 @@ nav{
     text-align: center;
     margin-top: 10px;
 }
-
 
 .registration_container input {
     width: 100%;
@@ -163,7 +147,7 @@ nav{
     left: 60%;                 /*change to move the form*/
     transform: translateX(-50%);
     width: calc(100% - 20rem);
-    height: 77%;
+    height: 85%;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -222,7 +206,8 @@ nav{
 
 .registration_container form label {
     position: absolute;
-    top: 27%;
+    top: 20%;
+    bottom: 10%;
     left: 0;
     transform: translateY(-50%);
     font-size: 1.2rem;
@@ -234,6 +219,7 @@ nav{
 
 .registration_container input {
     width: 100%;
+    top: 10px;
     padding: 10px 0;
     font-size: 1rem;
     outline: none;
@@ -343,7 +329,12 @@ nav{
     cursor: pointer;
     transition: 0.3s;
 }
-
+.registration_heading {
+    margin-left: 14%;
+}
+.check {
+    margin-left: -20%;
+}
 .reard_btn:hover{
     background-color: var(--primary-color-dark);
 }

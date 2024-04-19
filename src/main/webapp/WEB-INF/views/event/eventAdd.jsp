@@ -17,7 +17,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <label>Event Name :</label>
+                            <label>Event Name :</label><br>
                             <input type="text" name="eventName" id="eventName" required>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="form_group">
                         <div class="input_group">
                             <label>Availability :</label>
-                            <input type="checkbox" id="availability" name="availability" value="true" required>
+                            <div class="check"><input type="checkbox" id="availability" name="availability" value="true" required></div>
                             <br>
                         </div>
                     </div>
@@ -33,30 +33,24 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <label>Discription :</label>
-                            <input type="text" name="description" id="description" required>
+                            <label>Discription :</label><br>
+                            <div class="chech"><input type="text" name="description" id="description" required></div>
                         </div>
 
                     </div>
-
-                    <div class="form-group">
-                        <label for="eventImage">Image Topic:</label>
-                        <input type="file" id="image" name="image" accept="image/*" required>
+                    <div class="form_group">
+                        <div class="input_group">
+                            <label>Image Type :</label><br>
+                            <input type="file" id="image" name="image" accept="image/* required">
+                        </div>
                     </div>
 
                     <div class="form_group">
                         <div class="input_group">
-                            <label>Price :</label>
+                            <label>Price :</label><br>
                             <input type="text" name="price" id="price" pattern="[0-9]+(\.[0-9]+)?" required>
                         </div>
                     </div>
-
-
-
-
-
-
-
 
                     <button class="btn">Submit</button>
 
@@ -71,5 +65,3 @@
     </div>
 
 </div>
-
-
