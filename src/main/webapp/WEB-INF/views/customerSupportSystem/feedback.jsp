@@ -32,15 +32,15 @@
 
             <div class="info">
                 <div class="information">
-                    <img src="${pageContext.request.contextPath}/images/location-pin.png" alt="">
+                    <img src="${pageContext.request.contextPath}/images/customerSupport/location-pin.png" alt="">
                     <p>92 Cherry Drive Uniondale, NY 11553</p>
                 </div>
                 <div class="information">
-                    <img src="${pageContext.request.contextPath}/images/email-2.png" alt="">
+                    <img src="${pageContext.request.contextPath}/images/customerSupport/email-2.png" alt="">
                     <p>lorem@ipsum.com</p>
                 </div>
                 <div class="information">
-                    <img src="${pageContext.request.contextPath}/images/telephone.png" alt="">
+                    <img src="${pageContext.request.contextPath}/images/customerSupport/telephone.png" alt="">
                     <p>123-456-789</p>
                 </div>
             </div>
