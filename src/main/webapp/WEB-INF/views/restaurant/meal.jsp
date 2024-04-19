@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Pick your Meal</h1>
+    <h1>Pick Your Meal</h1>
     <div class="filter-buttons">
         <button id="breakfast-btn" class="filter-btn">Breakfast</button>
         <button id="launch-btn" class="filter-btn">Launch</button>

@@ -1058,7 +1058,7 @@
 <div>
     <p
             id="selectedTableDisplay"
-            style="font-size: large; font-weight: bold"
+            style="font-size: large; font-weight: bold; text-align: center"
     ></p>
     <form method="get" action="${pageContext.request.contextPath}/restaurant/meal">
         <button class="btn btn-primary">
