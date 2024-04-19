@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -33,7 +34,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void updateEmployee(Employee employee) {
-        employeeRepository.save(employee);
+//        employeeRepository.save(employee);
+        Optional<Employee> optionalEmployee = employeeRepository.findById(employee.getId());
+        if (optionalEmployee.isPresent()){
+            Employee exitingEmployee = optionalEmployee.get();
+            exitingEmployee.setFirstName(employee.getFirstName());
+            exitingEmployee.setLastName(employee.getLastName());
+            exitingEmployee.setEmail(employee.getEmail());
+            exitingEmployee.setMobileNo(employee.getMobileNo());
+            exitingEmployee.setShiftCategory(employee.getShiftCategory());
+            exitingEmployee.setBaseSalary(employee.getBaseSalary());
+
+            employeeRepository.save(exitingEmployee);
+        }
     }
 
     @Override
