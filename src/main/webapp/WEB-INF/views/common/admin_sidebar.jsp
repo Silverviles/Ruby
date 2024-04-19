@@ -195,18 +195,18 @@
                     <li>
                         <a href="#">
                             <i class='bx bx-dna'></i>
-                            <span class="text">Feedbacks</span>
+                            <span class="text">Customer support</span>
                             <i class='arrow bx bx-chevron-down' ></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li id="feedback_button">
                                 <a href="#">
-                                    <span class="text">E1</span>
+                                    <span class="text">Feedback</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="text">E2</span>
+                                    <span class="text">Complaints</span>
                                 </a>
                             </li>
                         </ul>
@@ -288,6 +288,10 @@
 
         <div id="emp_updateDelete" class="sub-contents">
             <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+        </div>
+        
+        <div id="feedback" class="sub-contents">
+            <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/customerSupportSystem/feedbackAdmin.jsp" />
         </div>
 
         <!-- TODO: Add other divs as needed. follow the id and class formats -->

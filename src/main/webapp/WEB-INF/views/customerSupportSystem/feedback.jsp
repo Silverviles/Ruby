@@ -98,6 +98,6 @@
         </div>
     </div>
 </div>
-<script src="${pageContext.request.contextPath}/script/feedbackJS.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/customerSupportSystem/feedbackJS.js"></script>
 </body>
 </html>
