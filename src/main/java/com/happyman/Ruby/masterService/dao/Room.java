@@ -30,5 +30,4 @@ public class Room {
 	@Column(name = "roomPrice", nullable = false) private Float roomPrice;
 
 	@Column(name = "roomStatus", nullable = false) private Boolean roomStatus;
-
 }

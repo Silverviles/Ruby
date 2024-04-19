@@ -278,7 +278,9 @@
         </div>
 
         <div id="new_addon" class="sub-contents">
+<%--
             <jsp:include page="../addons/add_addon.jsp" />
+--%>
         </div>
 
         <div id="remove_addon" class="sub-contents">
