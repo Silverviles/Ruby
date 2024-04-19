@@ -9,9 +9,11 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/header.css">
 </head>
 <body>
-Landing Page
+<jsp:include page="../common/header.jsp"/>
+
 <a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
 <form method="get" id="transportForm">
     <button data-action="transport/loginForm">Transportation Login</button>
@@ -32,5 +34,7 @@ Landing Page
     });
 
 </script>
+
+<jsp:include page="../common/footer.jsp"/>
 </body>
 </html>
