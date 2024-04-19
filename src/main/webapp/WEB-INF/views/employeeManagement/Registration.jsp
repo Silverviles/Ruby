@@ -16,9 +16,9 @@
             <div class="registration_container">
                 <form action="${pageContext.request.contextPath}/employeeManagement/registerEmployee" method="post">
 
-                    <div class="form_group">
+                    <div class="form_group" style="display: none">
                         <div class="input_group">
-                            <input type="text" name="employeeId" id="employeeId" value="${nextEmployeeId}" readonly>
+                            <input type="text" name="employeeId" id="employeeId"  readonly>
                             <label>Employee Id</label>
 
 

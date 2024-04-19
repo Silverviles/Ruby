@@ -16,6 +16,10 @@ public class AdminController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(PackageController.class);
 
-
+    @GetMapping("/temp1")
+    public String goTemp1(Model model) {
+        model.addAttribute("employees", masterService.getAllEmployees());
+        return "common/admin_sidebar";
+    }
 
 }
