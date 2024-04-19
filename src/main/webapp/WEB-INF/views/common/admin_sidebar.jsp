@@ -263,7 +263,7 @@
         </div>
 
         <div id="new_event" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+            <jsp:include page="../event/eventAdd.jsp"/>
         </div>
 
         <div id="remove_event" class="sub-contents">
