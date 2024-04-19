@@ -44,8 +44,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -61,4 +60,27 @@ public class EmployeeManagementController extends BaseController {
         model.addAttribute("employees", employees);
         return "employeeManagement/EmployeeManagement";
     }
+
+
+
+    /*delete mapping changed to post mapping*/
+    @PostMapping("/delete")
+    public String deleteEmployee(@RequestParam("employeeId") Integer employeeId, Model model) {
+        masterService.deleteEmployee(employeeId);
+        List<Employee> employees = masterService.getAllEmployees();
+        model.addAttribute("employees", employees);
+       /* return "employeeManagement/EmployeeManagement";*/
+        return "common/admin_sidebar";
+
+    }
+
+    @PostMapping("/update")
+    public String updateEmployeeDetails(@RequestParam("employeeId") Integer employeeId, Model model) {
+        model.addAttribute("editEmployee", masterService.getEmployeeById(employeeId));
+      return "employeeManagement/Registration";
+        //return "common/admin_sidebar";
+    }
+
 }
+
+

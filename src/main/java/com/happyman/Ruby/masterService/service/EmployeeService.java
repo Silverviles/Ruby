@@ -9,7 +9,5 @@ public interface EmployeeService {
     public List<Employee> getAllEmployees();
     public void updateEmployee(Employee employee);
     public Boolean deleteEmployee(Integer employeeID);
-
-//    /*new*/
-//    public Employee getEmployeeById(Integer employeeID);
+    public Employee getEmployeeById(Integer employeeID);
 }

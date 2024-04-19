@@ -57,6 +57,7 @@ public interface MasterService {
 	public List<Employee> getAllEmployees();
 	public void updateEmployee(Employee employee);
 	public Boolean deleteEmployee(Integer employeeID);
+	public Employee getEmployeeById(Integer employeeID);
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();

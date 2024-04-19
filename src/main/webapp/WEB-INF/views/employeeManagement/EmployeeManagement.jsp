@@ -47,11 +47,11 @@
 <%--                </form>--%>
 
 
-                    <form action="${pageContext.request.contextPath}/employeeManagement/deleteEmployee" method="post">
+                    <form action="${pageContext.request.contextPath}/employeeManagement/delete" method="post">
                          <input type="hidden" name="employeeId" value="<%= employee.getId()%>">
                                   <button type="submit" name="delete">Delete</button>
                    </form>
-                   <form action="${pageContext.request.contextPath}/employeeManagement/updateEmployeeDetails" method="post">
+                   <form action="${pageContext.request.contextPath}/employeeManagement/update" method="post">
                          <input type="hidden" name="employeeId" value="<%= employee.getId()%>">
                                    <button type="submit" name="update">Update</button>
                    </form>

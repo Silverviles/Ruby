@@ -66,14 +66,6 @@
                             <label>Salary</label>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
                     <button class="btn">Add</button>
 
 

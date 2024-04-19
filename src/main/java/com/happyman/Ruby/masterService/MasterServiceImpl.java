@@ -207,6 +207,11 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
+	public Employee getEmployeeById(Integer employeeID) {
+		return employeeService.getEmployeeById(employeeID);
+	}
+
+	@Override
 	public PlatformTransactionManager getTransactionManager() {
 		return this.platformTransactionManager;
 	}

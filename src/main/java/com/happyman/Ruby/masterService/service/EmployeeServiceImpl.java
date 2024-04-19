@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -40,23 +39,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Boolean deleteEmployee(Integer employeeID) {
         Employee byId = employeeRepository.findById(employeeID).orElse(null);
-        if (byId != null){
+        if (byId != null) {
             employeeRepository.delete(byId);
-            return  true;
-        }else {
+            return true;
+        } else {
             return false;
         }
     }
-//
-//    @Override
-//    public Employee getEmployeeById(Integer employeeID) {
-//        return null;
-//    }
 
 
-//    /*new */
-//    @Override
-//    public Employee getEmployeeById(Integer employeeID) {
-//        return EmployeeRepository.findById(employeeID).orElse(null);
-//    }
+    @Override
+    public Employee getEmployeeById(Integer employeeID) {
+        return employeeRepository.findById(employeeID).orElse(null);
+    }
 }

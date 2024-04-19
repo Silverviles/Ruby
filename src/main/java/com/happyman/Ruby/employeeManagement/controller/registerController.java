@@ -57,18 +57,6 @@ public class registerController extends BaseController {
         return "employeeManagement/Registration";
     }
 
-    /*delete mapping changed to post mapping*/
-    @PostMapping("/employeeManagement/delete/{employeeID}")
-    public boolean deleteEmployee(@PathVariable int employeeID) {
-        return  employeeService.deleteEmployee(employeeID);
-
-    }
-
-    @PostMapping("/employeeManagement/update")
-    public void updateEmployeeDetails(@RequestBody Employee employee) {
-        employeeService.updateEmployee(employee);
-    }
-
 ///*new*/
 //    @PostMapping("/employeeManagement/delete/{employeeID}")
 //    public String deleteEmployee(@PathVariable Integer employeeID) {
