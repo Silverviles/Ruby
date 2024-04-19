@@ -16,123 +16,7 @@
             referrerpolicy="no-referrer"
     ></script>
     <title>Reservation Card</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        /* Card container */
-        .card {
-            width: 400px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin: 20px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Title */
-        .card h2 {
-            margin: 0 0 20px 0;
-            color: #333;
-            font-size: 28px;
-        }
-
-        /* Content container */
-        .content {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* Content labels */
-        .label {
-            color: #555;
-            font-size: 18px;
-        }
-
-        /* Content values */
-        .value {
-            color: #333;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        /* Button */
-        .card button {
-            padding: 12px 24px;
-            border: none;
-            background-color: #6366f1;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            align-self: flex-end;
-        }
-
-        .card button:hover {
-            background-color: #4f52b3;
-        }
-
-        /* Dishes container */
-        .dishes {
-            margin-bottom: 20px;
-        }
-
-        /* Dish item */
-        .dish {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        /* Dish details */
-        .dish .name,
-        .dish .quantity,
-        .dish .price {
-            font-size: 18px;
-            color: #333;
-        }
-
-        /* Service charge and total price */
-        .service-charge,
-        .total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            font-weight: 400;
-            color: #fff;
-            text-align: center;
-            vertical-align: middle;
-            user-select: none;
-            background-color: #6366f1;
-            border: 1px solid transparent;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 0.375rem;
-            transition: all 0.15s ease-in-out;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn-primary {
-            background-color: #6366f1;
-        }
-
-        .btn-primary:hover {
-            background-color: #4f52b3;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/restaurant/summary.css">
 </head>
 <body>
 <div>
@@ -157,7 +41,9 @@
             <div class="label">Table Number:</div>
             <div class="value" id="secTable"></div>
         </div>
-        <button onclick="window.location.href='DateTime.html'">Edit Reservation</button>
+        <form method="post" action="${pageContext.request.contextPath}/restaurant/dateTime">
+            <button>Edit Reservation</button>
+        </form>
     </div>
 
     <div class="card">
@@ -176,7 +62,9 @@
             <div id="total-price">$5.00</div>
         </div>
 
-        <button onclick="window.location.href='Meal.html'">Edit Order</button>
+        <form action="${pageContext.request.contextPath}/restaurant/meal">
+            <button>Edit Order</button>
+        </form>
     </div>
 </div>
 
@@ -184,66 +72,11 @@
     <div>
         <button class="btn" id="pdfButton">Download a copy of summary</button>
     </div>
-    <div><button class="btn">Procced to Payment</button></div>
+    <div><button class="btn">Proceed to Payment</button></div>
 </div>
 <div>
     <h1>Footer</h1>
 </div>
-
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-		// Retrieve the number of guests from localStorage
-		var selDate = localStorage.getItem("selectedDate");
-		var selTime = localStorage.getItem("selectedTime");
-		var selTable = localStorage.getItem("selectedTable");
-
-		// Update the value of the guests element with the retrieved value
-		document.getElementById("date").textContent = selDate;
-		document.getElementById("secTime").textContent = selTime;
-		document.getElementById("secTable").textContent = selTable;
-
-		// Retrieve saved food items from localStorage
-		const savedItems = JSON.parse(localStorage.getItem("selectedFoods"));
-
-		// Get the dish list container
-		const dishList = document.getElementById("dish-list");
-
-		// Initialize total price to 0
-		let totalPrice = 0;
-
-		// Loop through saved items and create HTML for each dish
-		savedItems.forEach((item) => {
-			const dishDiv = document.createElement("div");
-			dishDiv.classList.add("dish");
-			dishDiv.innerHTML = `
-      <div class="name">${item.name}</div>
-      <div class="quantity">${item.quantity}</div>
-      <div class="price">$${item.totalPrice}</div>
-    `;
-			dishList.appendChild(dishDiv);
-
-			// Add the price of the dish to the total price
-			totalPrice += parseFloat(item.totalPrice);
-		});
-
-		// Get the total price element
-		const totalPriceElement = document.getElementById("total-price");
-
-		// Add the service charge to the total price
-		totalPrice += 5.0; // Assuming a service charge of $5.00
-		totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
-
-		function download_pdf(id) {
-			html2pdf().from(id).save();
-		}
-
-		document
-			.getElementById("pdfButton")
-			.addEventListener("click", function () {
-				const d = document.getElementById('card-holder')
-				download_pdf(d);
-			});
-	});
-</script>
+<script src="${pageContext.request.contextPath}/scripts/restaurant/summary.js"></script>
 </body>
 </html>
