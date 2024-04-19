@@ -16,5 +16,7 @@ public class EventAddDTO {
     private String adminDescription;
     private String imageInput;
     private Float priceInput;
+    private Boolean eventAvailability;
+    private List<Addon> addonList;
 
 }

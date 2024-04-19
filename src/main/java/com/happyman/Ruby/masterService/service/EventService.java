@@ -24,4 +24,6 @@ public interface EventService {
     void updateEvent(EventAddDTO event);
 
     void updateEventByEventDTO(EventAddDTO eve);
+
+
 }

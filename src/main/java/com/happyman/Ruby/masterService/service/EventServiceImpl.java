@@ -37,13 +37,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<Event> getEventByAvailability(Byte availability) {
-        List<Event> events = eventRepository.findAll();
-        for (Event eve : events) {
-            if (eve.getAvailability().equals(availability)) {
-                events.add(eve);
-            }
-        }
-        return null;
+        return eventRepository.findAll().stream().filter(event -> event.getAvailability().equals(availability)).toList();
     }
 
     @Override

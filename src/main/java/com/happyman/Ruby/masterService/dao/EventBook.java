@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -20,9 +21,9 @@ public class EventBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "booking_ID", nullable = false) private Integer id;
 
-    @Column(name = "custoerName", nullable = false, length = 50) private String customerName;
+    @Column(name = "customerName", nullable = false, length = 50) private String customerName;
 
-    @Column(name = "date") private Date date;
+    @Column(name = "date") private LocalDate date;
 
     @Column(name = "eventType", nullable = false, length = 50) private String eventType;
 

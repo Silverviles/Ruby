@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.happyman.Ruby.events.dto.EventAddDTO;
 import com.happyman.Ruby.masterService.dao.Event;
+import com.happyman.Ruby.masterService.dao.EventToAddon;
 import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -73,4 +74,18 @@ public interface MasterService {
 	void updateEventByEventDTO(EventAddDTO eve);
 
 	//Implement for Event
+
+	List<EventToAddon> getEventToAddonsByEventId(Integer eventId);
+
+	void addEventToAddon(EventToAddon eventToAddon);
+
+	void deleteEventToAddonByEventId(Integer eventId);
+
+	void deleteEventToAddon(EventToAddon eventToAddon);
+
+	List<EventAddDTO> getEventDTOList();
+
+	void updateEventAddDTO(EventAddDTO eventAddDTO);
+
+	//Implement for EventAddon
 }
