@@ -81,4 +81,9 @@ public class TransportController extends BaseController {
 	public String getLoginForm() {
 		return "transportation/driver_login";
 	}
+
+	@GetMapping("/transportForm")
+	public String getTransportForm(){
+		return "transportation/transportForm";
+	}
 }
