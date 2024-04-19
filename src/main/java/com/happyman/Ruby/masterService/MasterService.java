@@ -2,6 +2,8 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.events.dto.EventAddDTO;
+import com.happyman.Ruby.masterService.dao.Event;
 import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -33,4 +35,22 @@ public interface MasterService {
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();
+
+	List<Event> getAllEvents();
+
+	Event getEventById(Integer eventId);
+
+	Event getEventByName(String eventName);
+
+	List<Event> getEventByAvailability(Byte availability);
+
+	void addEvent(Event event);
+
+	void deleteEvent(Integer eventId);
+
+	void updateEvent(EventAddDTO event);
+
+	void updateEventByEventDTO(EventAddDTO eve);
+
+	//Implement for Event
 }
