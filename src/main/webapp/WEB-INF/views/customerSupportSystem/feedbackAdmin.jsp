@@ -40,9 +40,11 @@
         <td><%= feedback.getMessage()%></td>
 
         <td>
-            <form>
-                <button class="accept-button" name="accept_button" value="<%= feedback.getId()%>">Accept</button>
-                <button class="delete-button" name="delete_button" value="<%= feedback.getId()%>">Delete</button>
+            <form method="post" action="">
+                <button class="accept-button" name="feedbackId" value="<%= feedback.getId()%>">Accept</button>
+            </form>
+            <form method="post" action="${pageContext.request.contextPath}/customerSupport/deleteFeedback">
+                <button class="delete-button" name="feedbackId" value="<%= feedback.getId()%>">Delete</button>
             </form>
         </td>
     </tr>

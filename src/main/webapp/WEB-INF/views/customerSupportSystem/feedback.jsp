@@ -23,7 +23,8 @@
 </head>
 <body>
 <div class="container">
-    <span class="big-circle"></span>
+    <span class="big-circle one"></span>
+    <span class="big-circle two"></span>
     <div class="form">
         <div class="contact-info">
             <h3 class="title">We Want to Hear from You</h3>
