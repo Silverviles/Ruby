@@ -39,12 +39,22 @@
             <td><%= employee.getShiftCategory()%></td>
             <td><%= employee.getBaseSalary()%></td>
             <td>
-                <form>
-                    <input type="submit" value="<%= employee.getId()%>" name="delete">
-                </form>
-                <form>
-                    <input type="submit" value="<%= employee.getId()%>" name="update">
-                </form>
+<%--                <form action="${pageContext.request.contextPath}/employeeManagement/deleteEmployee" method="post">--%>
+<%--                    <input type="submit"  value="<%= employee.getId()%>" name="delete">--%>
+<%--                </form>--%>
+<%--                <form action="${pageContext.request.contextPath}/employeeManagement/updateEmployeeDetails" method="post">--%>
+<%--                    <input type="submit" value="<%= employee.getId()%>" name="update">--%>
+<%--                </form>--%>
+
+
+                    <form action="${pageContext.request.contextPath}/employeeManagement/deleteEmployee" method="post">
+                         <input type="hidden" name="employeeId" value="<%= employee.getId()%>">
+                                  <button type="submit" name="delete">Delete</button>
+                   </form>
+                   <form action="${pageContext.request.contextPath}/employeeManagement/updateEmployeeDetails" method="post">
+                         <input type="hidden" name="employeeId" value="<%= employee.getId()%>">
+                                   <button type="submit" name="update">Update</button>
+                   </form>
             </td>
         </tr>
         <% } %>

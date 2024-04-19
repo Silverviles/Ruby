@@ -202,7 +202,7 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public boolean deleteEmployee(int employeeID) {
+	public Boolean deleteEmployee(Integer employeeID) {
 		return employeeService.deleteEmployee(employeeID);
 	}
 

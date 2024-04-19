@@ -57,10 +57,11 @@ public class registerController extends BaseController {
         return "employeeManagement/Registration";
     }
 
-
-    @DeleteMapping("/employeeManagement/delete/{employeeID}")
+    /*delete mapping changed to post mapping*/
+    @PostMapping("/employeeManagement/delete/{employeeID}")
     public boolean deleteEmployee(@PathVariable int employeeID) {
         return  employeeService.deleteEmployee(employeeID);
+
     }
 
     @PostMapping("/employeeManagement/update")
@@ -68,47 +69,30 @@ public class registerController extends BaseController {
         employeeService.updateEmployee(employee);
     }
 
-
-
-
-
-
-
-
-//
-//    @PostMapping("/employeeManagement/registerEmployee")
-//    public String registerEmployee(EmployeeDTO employee) {
-//        // Log employee data obtained from getters
-//        System.out.println("Employee ID: " + employee.getEmployeeId());
-//        System.out.println("First Name: " + employee.getFirstName());
-//        System.out.println("Last Name: " + employee.getLastName());
-//        System.out.println("Email: " + employee.getEmail());
-//        System.out.println("Contact No: " + employee.getContactNo());
-//        System.out.println("Salary: " + employee.getSalary());
-//
-//        // Save the employee data to the database
-//        employeeService.addEmployee(employee);
-//        log.info("Employee registered: {}", employee.toString());
-//        // Redirect to a confirmation page or back to the registration page with a success message
-//        return "redirect:/employeeManagement/registerHome?success=true";
+///*new*/
+//    @PostMapping("/employeeManagement/delete/{employeeID}")
+//    public String deleteEmployee(@PathVariable Integer employeeID) {
+//       Boolean deleted = employeeService.deleteEmployee(employeeID);
+//        if(deleted) {
+//            // Redirect to a success page or back to the employee management page with a success message
+//            return "redirect:/employeeManagement/registerHome?deleteSuccess=true";
+//        } else {
+//            // Redirect to a failure page or back to the employee management page with an error message
+//            return "redirect:/employeeManagement/registerHome?deleteError=true";
+//        }
 //    }
 //
-//    /*delete if not necessary*/
-//    /*added new*/
-////    @GetMapping("/employeeManagement/getAllEmployees")
-////    public ModelAndView getAllEmployees() {
-////        List<EmployeeDTO> employees = employeeService.getAllEmployees();
-////        ModelAndView modelAndView = new ModelAndView("employeeManagement/getAllEmployees");
-////        modelAndView.addObject("employees", employees);
-////        return modelAndView;
-////    }
-//
-//    @GetMapping("/employeeManagement/getAllEmployees")
-//    public String getAllEmployees(Model model) {
-//        List<EmployeeDTO> employees = employeeService.getAllEmployees();
-//        model.addAttribute("employees", employees);
-//        return "employeeManagement/getAllEmployees";
+//    @PostMapping("/employeeManagement/update")
+//    public String updateEmployeeDetails(@RequestParam("employeeId") Integer employeeId, Model model) {
+//        // Fetch the employee details by ID and pass them to the update form
+//        Employee employee = employeeService.getEmployeeById(employeeId);
+//        model.addAttribute("employee", employee);
+//        return "employeeManagement/UpdateEmployee"; // Assuming you have an update employee page
 //    }
+
+
+
+
 
 
 

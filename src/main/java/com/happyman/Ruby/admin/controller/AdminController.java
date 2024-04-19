@@ -5,6 +5,7 @@ import com.happyman.Ruby.packages.controller.PackageController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,13 +17,5 @@ public class AdminController extends BaseController {
     private static final Logger log = LoggerFactory.getLogger(PackageController.class);
 
 
-    @GetMapping("/temp1")
-    public String goTemp1() {
-        return "common/admin_sidebar";
-    }
 
-    @GetMapping("/adminPack")
-    public String adminPackage() {
-        return "admin/admin_package";
-    }
 }

@@ -38,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean deleteEmployee(int employeeID) {
+    public Boolean deleteEmployee(Integer employeeID) {
         Employee byId = employeeRepository.findById(employeeID).orElse(null);
         if (byId != null){
             employeeRepository.delete(byId);
@@ -47,4 +47,16 @@ public class EmployeeServiceImpl implements EmployeeService {
             return false;
         }
     }
+//
+//    @Override
+//    public Employee getEmployeeById(Integer employeeID) {
+//        return null;
+//    }
+
+
+//    /*new */
+//    @Override
+//    public Employee getEmployeeById(Integer employeeID) {
+//        return EmployeeRepository.findById(employeeID).orElse(null);
+//    }
 }
