@@ -35,7 +35,7 @@
                     </td>
                     <td><%= packageDTO.getPackageDescription()%>
                     </td>
-                    <td><%= packageDTO.getPackagePrice()%>></td>
+                    <td><%= packageDTO.getPackagePrice()%></td>
                     <td><%= packageDTO.getPackageDiscontinueDate()%>
                     </td>
                     <td><%= packageDTO.getPackageAvailability()%>

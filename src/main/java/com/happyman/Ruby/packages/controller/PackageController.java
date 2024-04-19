@@ -55,4 +55,10 @@ public class PackageController extends BaseController {
         masterService.updatePackageDTO(packageDTO);
         return "redirect:/success";
     }
+
+    @GetMapping("/pack")
+    public String goPackagesUpdateDelete() {
+        return "packages/packages_updateDelete";
+    }
+
 }
