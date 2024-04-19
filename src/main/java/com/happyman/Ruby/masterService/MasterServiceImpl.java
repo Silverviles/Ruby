@@ -2,21 +2,15 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
+import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.masterService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.Seat;
-import com.happyman.Ruby.masterService.dao.Trip;
-import com.happyman.Ruby.masterService.dao.Vehicle;
-import com.happyman.Ruby.masterService.service.DriverService;
-import com.happyman.Ruby.masterService.service.FoodService;
-import com.happyman.Ruby.masterService.service.TripService;
-import com.happyman.Ruby.masterService.service.VehicleService;
 
 @Service
 public class MasterServiceImpl implements MasterService{
@@ -25,13 +19,14 @@ public class MasterServiceImpl implements MasterService{
 	private final TripService tripService;
 	private final FoodService foodService;
 	private final PlatformTransactionManager platformTransactionManager;
+	private final PaymentService paymentService;
 
 	@Autowired
 	public MasterServiceImpl(
 		DriverService driverService,
 		VehicleService vehicleService,
 		TripService tripService,
-		FoodService foodService,
+		FoodService foodService,PaymentService paymentService,
 		PlatformTransactionManager platformTransactionManager
 	) {
 		this.driverService = driverService;
@@ -39,6 +34,7 @@ public class MasterServiceImpl implements MasterService{
 		this.tripService = tripService;
 		this.foodService = foodService;
 		this.platformTransactionManager = platformTransactionManager;
+		this.paymentService = paymentService;
 		// TODO: add all the other services here. Declare them as variables above first.
 	}
 
@@ -184,5 +180,45 @@ public class MasterServiceImpl implements MasterService{
 	@Override
 	public PlatformTransactionManager getTransactionManager() {
 		return this.platformTransactionManager;
+	}
+
+	@Override
+	public List<Payment> getAllPayments() {
+		return List.of();
+	}
+
+	@Override
+	public Payment getPaymentById(Integer paymentId) {
+		return null;
+	}
+
+	@Override
+	public void UpdatePayment(Payment pay) {
+
+	}
+
+	@Override
+	public Payment getPaymentByAmount(Float Amount) {
+		return null;
+	}
+
+	@Override
+	public List<Payment> getPaymentStatus(Byte Status) {
+		return List.of();
+	}
+
+	@Override
+	public void addPayment(Payment payment) {
+
+	}
+
+	@Override
+	public void deletePayment(Integer paymentId) {
+
+	}
+
+	@Override
+	public void updatePaymentByPaymentDTO(PaymentsDTO payment) {
+
 	}
 }
