@@ -2,21 +2,14 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.masterService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.Seat;
-import com.happyman.Ruby.masterService.dao.Trip;
-import com.happyman.Ruby.masterService.dao.Vehicle;
-import com.happyman.Ruby.masterService.service.DriverService;
-import com.happyman.Ruby.masterService.service.FoodService;
-import com.happyman.Ruby.masterService.service.TripService;
-import com.happyman.Ruby.masterService.service.VehicleService;
 
 @Service
 public class MasterServiceImpl implements MasterService{
@@ -26,21 +19,24 @@ public class MasterServiceImpl implements MasterService{
 	private final FoodService foodService;
 	private final PlatformTransactionManager platformTransactionManager;
 
+	private final FeedbackService feedbackService;
+
 	@Autowired
 	public MasterServiceImpl(
-		DriverService driverService,
-		VehicleService vehicleService,
-		TripService tripService,
-		FoodService foodService,
-		PlatformTransactionManager platformTransactionManager
-	) {
+            DriverService driverService,
+            VehicleService vehicleService,
+            TripService tripService,
+            FoodService foodService,
+            PlatformTransactionManager platformTransactionManager, FeedbackService feedbackService
+    ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
 		this.foodService = foodService;
 		this.platformTransactionManager = platformTransactionManager;
 		// TODO: add all the other services here. Declare them as variables above first.
-	}
+        this.feedbackService = feedbackService;
+    }
 
 	@Override
 	public void addDriver(Driver driver) {
@@ -184,5 +180,40 @@ public class MasterServiceImpl implements MasterService{
 	@Override
 	public PlatformTransactionManager getTransactionManager() {
 		return this.platformTransactionManager;
+	}
+
+	@Override
+	public List<Feedback> getAllFeedbacks() {
+		return feedbackService.getAllFeedbacks();
+	}
+
+	@Override
+	public Feedback getFeedbackById(Integer feedbackId) {
+		return feedbackService.getFeedbackById(feedbackId);
+	}
+
+	@Override
+	public Feedback getFeedbackByBookingId(String bookingId) {
+		return feedbackService.getFeedbackByBookingId(bookingId);
+	}
+
+	@Override
+	public void addFeedback(Feedback feedback) {
+		feedbackService.addFeedback(feedback);
+	}
+
+	@Override
+	public void deleteFeedbackById(Integer feedbackId) {
+		feedbackService.deleteFeedbackById(feedbackId);
+	}
+
+	@Override
+	public void deleteFeedbackByBookingId(String bookingId) {
+		feedbackService.deleteFeedbackByBookingId(bookingId);
+	}
+
+	@Override
+	public void updateFeedback(String bookingId) {
+		feedbackService.updateFeedback(bookingId);
 	}
 }

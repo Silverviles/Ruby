@@ -27,7 +27,7 @@ public class Employee {
 
 	@Column(name = "mobileNo", nullable = false, length = 10) private String mobileNo;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "shiftType", nullable = false) private ShiftCategory shiftType;
+	@Column(name = "shiftType", nullable = false) private String shiftType;
 
 	@Column(name = "baseSalary", nullable = false) private Float baseSalary;
 

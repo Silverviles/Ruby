@@ -5,7 +5,7 @@
   Time: 2:16 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +18,7 @@
     <script
             src="https://kit.fontawesome.com/64d58efce2.js"
             crossorigin="anonymous"
+            defer
     ></script>
 </head>
 <body>
@@ -65,11 +66,11 @@
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form action="index.html" autocomplete="off">
+            <form action="${pageContext.request.contextPath}/customerSupport/addFeedback"  method="post" autocomplete="off">
                 <h3 class="title">Your feedback</h3>
 
                 <div class="input-container">
-                    <input type="text" name="name" class="input" />
+                    <input type="text" name="userName" class="input" />
                     <label>Username</label>
                     <span>Username</span>
                 </div>

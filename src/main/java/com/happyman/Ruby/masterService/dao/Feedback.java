@@ -17,4 +17,10 @@ public class Feedback {
 
     @Column(name = "bookingID", nullable = false) private String bookingID;
 
+    @Column(name = "message", nullable = false) private String message;
+
+    @Column(name = "isActive", nullable = false, columnDefinition = "boolean default false")
+    private boolean isActive;
+
+
 }
