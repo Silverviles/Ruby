@@ -80,12 +80,11 @@
     </div>
 
     <div>
-        <button
-                class="btn btn-primary"
-                onclick="window.location.href='testing.html'"
-        >
-            Book a table
-        </button>
+        <form method="get" action="${pageContext.request.contextPath}/restaurant/seatMap">
+            <button class="btn btn-primary">
+                Book a table
+            </button>
+        </form>
     </div>
 </div>
 

@@ -16,4 +16,19 @@ public class RestaurantController {
     public String getDateTime(){
         return "/restaurant/dateTime";
     }
+
+    @GetMapping(value = "/seatMap")
+    public String getSeatMap(){
+        return "/restaurant/seatMap";
+    }
+
+    @GetMapping(value = "/meal")
+    public String getMeal(){
+        return "/restaurant/meal";
+    }
+
+    @GetMapping(value = "/summary")
+    public String getSummary(){
+        return "/restaurant/summary";
+    }
 }
