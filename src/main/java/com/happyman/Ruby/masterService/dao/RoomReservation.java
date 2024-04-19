@@ -27,4 +27,6 @@ public class RoomReservation {
 
 	@Column(name = "endDate", nullable = false) private LocalDate endDate;
 
+	@Column(name = "guest", nullable = false) private Integer noGuest;
+
 }

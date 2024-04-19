@@ -2,6 +2,8 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.Room;
+import com.happyman.Ruby.masterService.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -19,17 +21,21 @@ public class MasterServiceImpl implements MasterService{
 	private final VehicleService vehicleService;
 	private final PlatformTransactionManager platformTransactionManager;
 
-	@Autowired
+	private final RoomService roomService;
+
+    @Autowired
 	public MasterServiceImpl(
-		DriverService driverService,
-		VehicleService vehicleService,
-		PlatformTransactionManager platformTransactionManager
-	) {
+            DriverService driverService,
+            VehicleService vehicleService,
+            PlatformTransactionManager platformTransactionManager,
+            RoomService roomService
+    ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.platformTransactionManager = platformTransactionManager;
 		// TODO: add all the other services here. Declare them as variables above first.
-	}
+        this.roomService = roomService;
+    }
 
 	@Override
 	public void addDriver(Driver driver) {
@@ -118,5 +124,50 @@ public class MasterServiceImpl implements MasterService{
 	@Override
 	public PlatformTransactionManager getTransactionManager() {
 		return this.platformTransactionManager;
+	}
+
+	@Override
+	public void saveRoom(Room room) {
+
+	}
+
+	@Override
+	public Room getRoomById(Integer roomId) {
+		return null;
+	}
+
+	@Override
+	public List<Room> getAllRoom() {
+		return roomService.getAllRoom();
+	}
+
+	@Override
+	public List<Room> getAllRoomByRoomType(String roomType) {
+		return roomService.getAllRoomByRoomType(roomType);
+	}
+
+	@Override
+	public List<Room> getAllRoomByStatus(Boolean status) {
+		return roomService.getAllRoomByStatus(status);
+	}
+
+	@Override
+	public List<Room> getAllRoomByGuests(Integer guests) {
+		return roomService.getAllRoomByGuests(guests);
+	}
+
+	@Override
+	public void addRoom(Room room) {
+		roomService.addRoom(room);
+	}
+
+	@Override
+	public void updateRoom(Room room) {
+		roomService.updateRoom(room);
+	}
+
+	@Override
+	public void deleteRoom(Room room) {
+		roomService.deleteRoom(room);
 	}
 }

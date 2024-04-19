@@ -23,12 +23,12 @@ public class Room {
 
 	@Column(name = "roomName", nullable = false, length = 45) private String roomName;
 
-	@Enumerated(EnumType.STRING) @Column(name = "roomType", nullable = false) private DomainConstants.RoomType roomType;
+	@Column(name = "roomType", nullable = false) private String roomType;
 
 	@Column(name = "roomCapacity", nullable = false) private Integer roomCapacity;
 
 	@Column(name = "roomPrice", nullable = false) private Float roomPrice;
 
-	@Column(name = "roomStatus", nullable = false) private Byte roomStatus;
+	@Column(name = "roomStatus", nullable = false) private Boolean roomStatus;
 
 }

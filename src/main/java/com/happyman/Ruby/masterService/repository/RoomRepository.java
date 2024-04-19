@@ -1,7 +1,10 @@
 package com.happyman.Ruby.masterService.repository;
 
 import com.happyman.Ruby.masterService.dao.Room;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public abstract class RoomRepository implements BaseRepository<Room, Integer> {
+import java.util.List;
+
+public interface RoomRepository extends BaseRepository<Room, Integer> {
 
 }
