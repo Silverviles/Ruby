@@ -22,4 +22,7 @@ public class Menu {
 
 	@Column(name = "price", nullable = false) private Float price;
 
+	@Column(name = "dishType", nullable = false, length = 20) private String dishType;
+
+	@Column(name = "mealType", nullable = false, length = 20) private String mealType;
 }
