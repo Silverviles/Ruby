@@ -16,7 +16,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Description</th>
+                <th style="width:10%">Description</th>
                 <th>Price</th>
                 <th>Discontinue Date</th>
                 <th>Availability</th>
