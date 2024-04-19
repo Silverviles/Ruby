@@ -291,7 +291,7 @@
         </div>
         
         <div id="feedback" class="sub-contents">
-            <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/customerSupportSystem/feedbackAdmin.jsp" />
+            <jsp:include page="../customerSupportSystem/feedbackAdmin.jsp" />
         </div>
 
         <!-- TODO: Add other divs as needed. follow the id and class formats -->

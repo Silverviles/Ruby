@@ -9,7 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "feedback")
 public class Feedback {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "feedbackId", nullable = false) private Integer id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "feedbackID", nullable = false) private Integer id;
 
     @Column(name = "userName", nullable = false) private String userName;
 

@@ -1,3 +1,6 @@
+<%@ page import="com.happyman.Ruby.masterService.dao.Feedback" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dhanuka
@@ -5,7 +8,11 @@
   Time: 11:59 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%
+    List<Feedback> feedbackList = new ArrayList<Feedback>();
+    feedbackList = (List<Feedback>) request.getAttribute("feedbacks");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,18 +29,27 @@
         <th>Email</th>
         <th>Booking ID</th>
         <th>Message</th>
+        <th>Action</th>
     </tr>
+    <% if (feedbackList != null && !feedbackList.isEmpty()) { %>
+    <% for (Feedback feedback : feedbackList) { %>
     <tr>
-        <td>John Clark</td>
-        <td>johnclark@gmail.com</td>
-        <td>B11052</td>
-        <td>Had a wonderful dining experience at your restaurant. The ambiance was great, and the staff were friendly and attentive.</td>
+        <td><%= feedback.getUserName()%></td>
+        <td><%= feedback.getEmail()%></td>
+        <td><%= feedback.getBookingID()%></td>
+        <td><%= feedback.getMessage()%></td>
 
         <td>
-            <button class="accept-button">Accept</button>
-            <button class="delete-button">Delete</button>
+            <form>
+                <button class="accept-button" name="accept_button" value="<%= feedback.getId()%>">Accept</button>
+                <button class="delete-button" name="delete_button" value="<%= feedback.getId()%>">Delete</button>
+            </form>
         </td>
     </tr>
+    <% } %>
+    <% } else { %>
+    <tr><td colspan="5">No Records</td></tr>
+    <% } %>
 </table>
 </body>
 </html>
