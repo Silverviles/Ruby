@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	let correctedTime = hours + ":" + minutes + ":00";
-	console.log("Corrected time:", correctedTime);
+	$("#bookedDate").val(selDate + correctedTime);
+	$("#tableName").val("Table " + selTable);
+	$("#tableCount").val()
 
 	// Update the value of the guests element with the retrieved value
 	document.getElementById("date").textContent = selDate;
@@ -45,13 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		// Add the price of the dish to the total price
 		totalPrice += parseFloat(item.totalPrice);
 	});
-
-	// Get the total price element
-	const totalPriceElement = document.getElementById("total-price");
-
-	// Add the service charge to the total price
-	totalPrice += 5.0; // Assuming a service charge of $5.00
-	totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
 
 	function download_pdf(id) {
 		html2pdf().from(id).save();

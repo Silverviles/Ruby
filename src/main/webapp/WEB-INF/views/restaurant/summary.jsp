@@ -45,34 +45,20 @@
             <button>Edit Reservation</button>
         </form>
     </div>
-
-    <div class="card">
-        <h2>Order Details</h2>
-
-        <!-- Dishes -->
-        <div class="dishes" id="dish-list"></div>
-
-        <!-- Service charge and total price -->
-        <div class="service-charge">
-            <div>Service Charge:</div>
-            <div>$5.00</div>
-        </div>
-        <div class="total">
-            <div>Total:</div>
-            <div id="total-price">$5.00</div>
-        </div>
-
-        <form action="${pageContext.request.contextPath}/restaurant/meal">
-            <button>Edit Order</button>
-        </form>
-    </div>
 </div>
 
 <div style="display: flex; justify-content: center; gap: 2rem">
     <div>
         <button class="btn" id="pdfButton">Download a copy of summary</button>
     </div>
-    <div><button class="btn">Proceed to Payment</button></div>
+    <div>
+        <form action="">
+            <input type="hidden" id="bookedDate" name="bookedDate">
+            <input type="hidden" id="tableName" name="tableName">
+            <input type="hidden" id="tableCount" name="tableCount">
+            <button class="btn">Proceed to Payment</button>
+        </form>
+    </div>
 </div>
 <div>
     <h1>Footer</h1>

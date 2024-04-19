@@ -2,13 +2,12 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
-import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.Seat;
+import com.happyman.Ruby.masterService.dao.RestaurantTable;
 import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
 
@@ -44,12 +43,10 @@ public interface MasterService {
 	public List<Food> getAllFoodByAvailability(Byte availability);
 	public List<Food> getAllFoodByCategoryAndAvailability(DomainConstants.FoodCategory category, Byte availability);
 
-	// Implementation for Seat
-	public void saveSeat(Seat seat);
-	public Seat findSeatById(Integer seatId);
-	public List<Seat> getAllSeats();
-	public List<Seat> getAllSeatsByAvailability(Byte availability);
-	public Seat findSeatByLocation(String location);
+	RestaurantTable save(RestaurantTable restaurantTable);
+	List<RestaurantTable> findAll();
+	RestaurantTable findById(Integer id);
+	void deleteById(Integer id);
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();

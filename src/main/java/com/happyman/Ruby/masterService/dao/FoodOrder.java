@@ -23,8 +23,6 @@ public class FoodOrder {
 
 	@Column(name = "orderPrice", nullable = false) private Float orderPrice;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "seatId") private Seat seat;
-
 	@Column(name = "paymentStatus", nullable = false) private Byte paymentStatus;
 
 }

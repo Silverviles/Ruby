@@ -1060,7 +1060,7 @@
             id="selectedTableDisplay"
             style="font-size: large; font-weight: bold; text-align: center"
     ></p>
-    <form method="get" action="${pageContext.request.contextPath}/restaurant/meal">
+    <form method="get" action="${pageContext.request.contextPath}/restaurant/summary">
         <button class="btn btn-primary">
             Continue
         </button>

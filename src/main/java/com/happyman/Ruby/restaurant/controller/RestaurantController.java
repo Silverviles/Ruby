@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.masterService.MasterServiceImpl;
 import com.happyman.Ruby.masterService.dao.Food;
+import com.happyman.Ruby.masterService.dao.RestaurantTable;
 
 @Controller
 @RequestMapping(value = "/restaurant")
@@ -47,5 +48,11 @@ public class RestaurantController extends BaseController {
     @GetMapping(value = "/summary")
     public String getSummary(){
         return "/restaurant/summary";
+    }
+
+    @PostMapping("/reserveTable")
+    public String addTableReservation(RestaurantTable restaurantTable){
+        masterService.save(restaurantTable);
+        return "/restaurant/startBooking";
     }
 }

@@ -54,6 +54,6 @@
     </form>
 </div>
 <script src="${pageContext.request.contextPath}/scripts/restaurant/meal.js"></script>
-<script src="${pageContext.request.contextPath}/scripts/"></script>
+<script src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
 </body>
 </html>
