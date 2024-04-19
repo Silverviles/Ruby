@@ -16,6 +16,7 @@ Landing Page
 <form method="get" id="transportForm">
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
+    <button data-action="restaurant/restaurantHome">Restaurant</button>
 </form>
 
 <script>
