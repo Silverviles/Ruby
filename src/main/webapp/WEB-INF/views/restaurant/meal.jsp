@@ -4,11 +4,7 @@
   Date: 19/04/2024
   Time: 09:13
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.happyman.Ruby.masterService.dao.Food" %>
-<%@ page import="java.util.List" %><%
-    List<Food> foodList = (List<Food>) request.getAttribute("foodList");
-%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,17 +54,6 @@
     </form>
 </div>
 <script src="${pageContext.request.contextPath}/scripts/restaurant/meal.js"></script>
-<script>
-	<% for (Food food : foodList) { %>
-	foodItems.push({
-		name: "<%= food.getFoodName() %>",
-		category: "<%= food.getFoodCategory() %>",
-		suitableFor: "<%= food.getFoodCategory() %>",
-		imgSrc: "<%= food.getFoodImg() %>",
-		price: "<%= food.getFoodPrice() %>",
-		quantity: "1"
-	});
-	<% } %>
-</script>
+<script src="${pageContext.request.contextPath}/scripts/"></script>
 </body>
 </html>

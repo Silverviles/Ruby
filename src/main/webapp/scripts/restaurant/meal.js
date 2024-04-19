@@ -2,6 +2,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Sample food items data for demonstration
 	let foodItems;
 
+	$.ajax({
+		type : "POST",
+		url : "Ruby/restaurant/getMeals",
+		dataType : "json",
+		success : function(response) {
+			// Assuming the response is an array of food items
+			foodItems = response;
+			console.log("Food items:", foodItems);
+			// Now you can manipulate the foodItems array as needed
+		},
+		error : function(xhr, status, error) {
+			console.error("Error fetching food items:", error);
+		}
+	});
+
 	const foodList = document.getElementById("food-list");
 	const selectedFoodList = document.getElementById("selected-food-list");
 	const test = localStorage.getItem("selectedHour");
@@ -13,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		// Filter food items based on both categories
 		const filteredItems = foodItems.filter(
 			(item) =>
-				item.category === category && item.suitableFor === suitableFor
+				item.category === category && item.category === suitableFor
 		);
 
 		// Create table rows for filtered food items
