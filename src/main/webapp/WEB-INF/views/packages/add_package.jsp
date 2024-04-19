@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <button class="btn">Add</button>
+                <button type="submit" class="btn">Add</button>
             </form>
         </div>
     </header>
