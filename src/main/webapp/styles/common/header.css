@@ -63,6 +63,7 @@ header div1{
     backdrop-filter: blur(1px);
 }
 .footer h1{
+    text-align: center;
     margin:center;
     margin-top:3%;
     color:#000;

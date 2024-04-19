@@ -3,22 +3,14 @@
   User: Migara
   Date: 3/16/2024
   Time: 8:42 PM
-  To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentgit baranchType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" href="../../../styles/common/header.css">
-</head>
-<body>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
     <h5>Happy Man Village</h5>
     <div class="div1">
-        <a href=""><img src="images/.png"></a>
+        <a href=""><img src="images/.png" alt="logo_image"></a>
     </div>
 </header>
-
 
 <section>
 
@@ -35,6 +27,3 @@
         </ul>
     </div>
 </section>
-<%@ include file="footer.jsp" %>
-</body>
-</html>
