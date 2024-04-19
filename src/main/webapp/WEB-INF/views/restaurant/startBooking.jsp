@@ -22,22 +22,26 @@
 <div class="hero">
     <div class="hero-content">
         <div class="max-w-md">
-            <h1 class="text-5xl font-bold">Best food for your taste</h1>
+            <h1 class="text-5xl font-bold">Best Food For Your Taste</h1>
             <p class="py-6">
                 Our world-class chefs have created a wonderful dining experience
                 catered to any and all tastes.
             </p>
             <form action="${pageContext.request.contextPath}/restaurant/dateTime" method="get">
+               <div class="seperateBtn">
                 <button type="submit" class="btn btn-primary">
                     Book a table
                 </button>
+               </div>
             </form>
+            <div class="seperateBtn">
             <button
                     class="btn btn-primary"
                     onclick="window.location.href='Menu.html'"
             >
                 Explore Menu
             </button>
+            </div>
         </div>
     </div>
 </div>

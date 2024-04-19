@@ -18,6 +18,9 @@ html {
 
 .hero-content {
     text-align: center;
+    background-color: rgba( 255, 255, 255, 0.7 );
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .max-w-md {
@@ -60,4 +63,8 @@ html {
 
 .btn-primary:hover {
     background-color: #4f52b3;
+}
+
+.seperateBtn{
+    margin: 20px;
 }
