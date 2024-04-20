@@ -14,15 +14,14 @@ import lombok.Setter;
 @Entity
 @Table(name = "payment")
 public class Payment {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "bID", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "paymentId", nullable = false) private Integer id;
 
 	@Column(name = "customerName", nullable = false) private String customerName;
 
 	@Column(name = "customerEmail", nullable = false) private String customerEmail;
 
-	@Column(name = "amount", nullable = false) private Double billAmount;
+	@Column(name = "amount", nullable = false) private Float billAmount;
 
 	@Column(name = "paymentStatus") private Byte paymentStatus;
-
 
 }

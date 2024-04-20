@@ -2,6 +2,7 @@ package com.happyman.Ruby.billingAndReporting.controller;
 
 import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
 import com.happyman.Ruby.common.BaseController;
+import com.happyman.Ruby.masterService.dao.Payment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -45,16 +46,19 @@ public class PaymentController extends BaseController {
     }
 
     @PostMapping("/deletePayment")
-    public String deletePayment(@ModelAttribute PaymentsDTO paymentsDTO) {
-        masterService.deletePayment(paymentsDTO.getBID());
-        masterService.deletePaymentBypaymentId(paymentsDTO.getBID());
-        return "redirect:/success";
+    public String deletePayment(Integer paymentId, Model model) {
+        masterService.deletePayment(paymentId);
+        model.addAttribute("payments", masterService.getAllPayments());
+        return "billingAndReporting/paymentsAdmin";
     }
 
     @PostMapping("/updatePayment")
-    public String updatePayment(@ModelAttribute PaymentsDTO paymentsDTO) {
-        masterService.updatePaymentByPaymentDTO(paymentsDTO);
-        return "redirect:/success";
+    public String updatePayment(Byte paymentStatus, Integer paymentId, Model model) {
+        Payment payment = masterService.getPaymentById(paymentId);
+        payment.setPaymentStatus(payment.getPaymentStatus() == 0 ? (byte) 1 : (byte) 0);
+        masterService.addPayment(payment);
+        model.addAttribute("payments", masterService.getAllPayments());
+        return "billingAndReporting/paymentsAdmin";
     }
 
     @PostMapping("/generateBill")
@@ -79,7 +83,7 @@ public class PaymentController extends BaseController {
         advance.put(999, totalBill * 15 / 100);
         records.put("Advance", advance);
         // Save the total bill to the PaymentsDTO
-        paymentsDTO.setAmount(totalBill);
+        paymentsDTO.setAmount(Float.parseFloat(String.valueOf(totalBill)));
 
         paymentsDTO.setRecords(records);
 
@@ -88,6 +92,10 @@ public class PaymentController extends BaseController {
     }
 
 
+    @GetMapping("/billing")
+    public String billing(Model model) {
+        model.addAttribute("payments", masterService.getAllPayments());
+        return "billingAndReporting/paymentsAdmin";
+    }
 }
-
 

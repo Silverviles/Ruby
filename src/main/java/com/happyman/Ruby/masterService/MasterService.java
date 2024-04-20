@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
 import com.happyman.Ruby.masterService.dao.*;
-import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.happyman.Ruby.common.DomainConstants;
@@ -86,6 +85,8 @@ public interface MasterService {
 	List<Payment> getPaymentStatus(Byte Status);
 
 	void addPayment(PaymentsDTO paymentsDTO);
+
+	void addPayment(Payment payment);
 
 	void deletePayment(Integer paymentId);
 

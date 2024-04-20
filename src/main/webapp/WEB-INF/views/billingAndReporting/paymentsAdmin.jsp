@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Payment" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: ASUS TUF
   Date: 4/20/2024
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% List<Payment> paymentList = (List<Payment>) request.getAttribute("payments"); %>
 <!DOCTYPE>
 <html lang="en">
 
@@ -14,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head><title>Billing & Payment</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/billingAndPayments/paymentAdmin1CSS.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/billingAndPayments/paymentAdmin2CSS.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/billingAndPayments/paymentAdminCSS.css">
 </head>
 
 <body>
@@ -41,19 +43,41 @@
                 <th>Delete</th>
             </tr>
             <!-- Sample data rows -->
+            <tbody id="mealBody">
+            <% if (paymentList != null && !paymentList.isEmpty()) {%>
+            <% for (Payment payment : paymentList) { %>
             <tr>
-                <td>1</td>
-                <td>Jerome</td>
-                <td>jeromee@gmail.com</td>
-                <td>Rs.24 500</td>
-                <td><select id="status" name="status">
-                    <option value="status">Pending</option>
-                    <option value="status">Completed</option>
-                </select></td>
-                <td> <button type="submit" class="update-button">update</button></td>
-                <td> <button type="submit" class="Delete-button">Delete</button></td>
-
+                <td><%= payment.getId()%></td>
+                <td><%= payment.getCustomerName()%></td>
+                <td><%= payment.getCustomerEmail()%></td>
+                <td><%= payment.getBillAmount()%></td>
+                <td>
+                <select id="paymentStatus" name="paymentStatus">
+                    <option value="1" <%= payment.getPaymentStatus() == 1 ? "selected" : "" %>>Completed</option>
+                    <option value="0" <%= payment.getPaymentStatus() == 0 ? "selected" : "" %>>Pending</option>
+                </select>
+                </td>
+                <td>
+                    <form id="submitForm" method="post" action="${pageContext.request.contextPath}/payments/updatePayment">
+                        <input type="hidden" id="hiddenStatus" name="paymentStatus" value="">
+                        <button class="edit-button" onclick="" name="paymentId" value="<%= payment.getId()%>">Edit</button>
+                    </form>
+                    <script>
+                        function setPayment(event) {
+                            event.preventDefault();
+                            var form = document.getElementById("submitForm");
+                            document.getElementById("hiddenStatus").value = document.getElementById("paymentStatus").value;
+                            form.submit();
+                        }
+                    </script>
+                    <form method="post" action="${pageContext.request.contextPath}/payments/deletePayment">
+                        <button class="delete-button" name="paymentId" value="<%= payment.getId()%>">Delete</button>
+                    </form>
+                </td>
             </tr>
+            <% }%>
+            <% } %>
+            </tbody>
         </table>
     </div>
 

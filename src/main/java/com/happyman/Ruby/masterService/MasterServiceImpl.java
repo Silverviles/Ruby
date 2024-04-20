@@ -184,27 +184,28 @@ public class MasterServiceImpl implements MasterService{
 
 	@Override
 	public List<Payment> getAllPayments() {
-		return List.of();
+		return paymentService.getAllPayments();
 	}
 
 	@Override
 	public Payment getPaymentById(Integer paymentId) {
-		return null;
+		return paymentService.getPaymentById(paymentId);
 	}
 
 	@Override
 	public void UpdatePayment(Payment pay) {
-
+		paymentService.addPayment(pay);
 	}
 
 	@Override
 	public Payment getPaymentByAmount(Float Amount) {
-		return null;
+		return paymentService.getPaymentByAmount(Amount);
 	}
 
 	@Override
 	public List<Payment> getPaymentStatus(Byte Status) {
-		return List.of();
+		return paymentService.getAllPayments().stream().filter(payment ->
+				payment.getPaymentStatus().equals(Status)).toList();
 	}
 
 	@Override
@@ -218,20 +219,25 @@ public class MasterServiceImpl implements MasterService{
 		paymentService.addPayment(payment);
 	}
 
+	@Override
+	public void addPayment(Payment payment) {
+		paymentService.addPayment(payment);
+	}
+
 
 	@Override
 	public void deletePayment(Integer paymentId) {
-
+		paymentService.deletePayment(paymentId);
 	}
 
 	@Override
 	public void updatePaymentByPaymentDTO(PaymentsDTO payment) {
-
+		paymentService.updatePaymentByPaymentDTO(payment);
 	}
 
 	@Override
 	public List<PaymentsDTO> getPaymentsDTOList() {
-		return List.of();
+		return null;
 	}
 
 	@Override

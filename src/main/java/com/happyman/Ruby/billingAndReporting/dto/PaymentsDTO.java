@@ -15,6 +15,6 @@ public class PaymentsDTO {
     private String customerName;
     private String customerEmail;
     private Map<String, Map<Integer, Double>> records;
-    private Double amount;
+    private Float amount;
     private Byte paymentStatus;
 }
