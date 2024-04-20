@@ -9,7 +9,7 @@
 <div class="container">
 
     <div class="xxx">
-        <h1 class="Topic">Employee Management</h1>
+        <h1 class="Topic">Edit Employee Details</h1>
         <header class="section_container header_container">
             <h2 class="registration_heading"> Update Employee </h2>
 
@@ -18,11 +18,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="employeeId" id="employeeId" value="${nextEmployeeId}" readonly>
-                            <label>Employee Id</label>
-
-
-                            <label>Employee Id</label>
+                            <input type="hidden" name="employeeId" id="employeeId" value="${employeeId}" >
                         </div>
 
                     </div>
@@ -30,7 +26,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="firstName">
+                            <input type="text" name="firstName" required>
                             <label>Employee First Name</label>
                         </div>
                         <!-- <p>Type of the shifts</p>-->
@@ -38,7 +34,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="lastName">
+                            <input type="text" name="lastName" required>
                             <label>Employee Last Name</label>
                         </div>
                         <!-- <p>Type of the shifts</p>-->
@@ -47,7 +43,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="email">
+                            <input type="text" name="email" required>
                             <label>Email</label>
                         </div>
 
@@ -55,7 +51,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="contactNo">
+                            <input type="text" name="contactNo" required>
                             <label>Contact No</label>
                         </div>
 
@@ -68,7 +64,7 @@
                     </div>
 
 
-                    <button class="btn">Add</button>
+                    <button class="btn">Update</button>
 
 
                 </form>

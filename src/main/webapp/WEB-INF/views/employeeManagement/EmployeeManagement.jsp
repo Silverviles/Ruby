@@ -49,16 +49,37 @@
 
                     <form action="${pageContext.request.contextPath}/employeeManagement/delete" method="post">
                          <input type="hidden" name="employeeId" value="<%= employee.getId()%>">
-                                  <button type="submit" name="delete">Delete</button>
+                                  <button  type="submit" name="delete">Delete</button>
                    </form>
-                   <form action="${pageContext.request.contextPath}/employeeManagement/update" method="post">
+                   <form action="${pageContext.request.contextPath}/employeeManagement/navigatetoupdate" method="get">
                          <input type="hidden" name="employeeId" value="<%= employee.getId()%>">
-                                   <button type="submit" name="update">Update</button>
+                                   <button  type="submit" name="update">Update</button>
                    </form>
             </td>
         </tr>
         <% } %>
     <% } %>
+    <script>
+        function searchEmployee() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("employeeTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1]; // Index 1 for first name column
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
     </tbody>
 </table>
 

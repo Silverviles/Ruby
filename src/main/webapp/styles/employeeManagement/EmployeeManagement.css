@@ -60,6 +60,22 @@ tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/*button {*/
+/*    padding: 10px 20px;*/
+/*    cursor: pointer;*/
+/*    background-color: #007bff;*/
+/*    color: #fff;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    transition: background-color 0.3s;*/
+/*    !*background-color: #4CAF50;*!*/
+/*    !*color: white;*!*/
+/*    !*padding: 10px 20px;*!*/
+/*    !*border: none;*!*/
+/*    !*border-radius: 5px;*!*/
+/*    !*cursor: pointer;*!*/
+/*    !*margin-right: 10px;*!*/
+/*}*/
 button {
     padding: 10px 20px;
     cursor: pointer;
@@ -68,8 +84,15 @@ button {
     border: none;
     border-radius: 4px;
     transition: background-color 0.3s;
+    margin-right: 10px; /* Add margin between buttons */
 }
 
+button:first-child {
+    margin-right: 0; /* Remove margin for the first button */
+}
+/*button:first-child {*/
+/*    margin-right: 10px; !* add this line to increase the distance between the two buttons *!*/
+/*}*/
 button:hover {
     background-color: #0056b3;
 }

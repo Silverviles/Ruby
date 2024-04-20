@@ -61,8 +61,6 @@ public class EmployeeManagementController extends BaseController {
         return "employeeManagement/EmployeeManagement";
     }
 
-
-
     /*delete mapping changed to post mapping*/
     @PostMapping("/delete")
     public String deleteEmployee(@RequestParam("employeeId") Integer employeeId, Model model) {
@@ -74,12 +72,41 @@ public class EmployeeManagementController extends BaseController {
 
     }
 
-    @PostMapping("/update")
-    public String updateEmployeeDetails(@RequestParam("employeeId") Integer employeeId, Model model) {
+    @GetMapping("/navigatetoupdate")
+    public String navigateToUpdate(@RequestParam("employeeId") Integer employeeId, Model model) {
+        model.addAttribute("employeeId", employeeId); // Pass employeeId to the view
         model.addAttribute("editEmployee", masterService.getEmployeeById(employeeId));
-      return "employeeManagement/Registration";
-        //return "common/admin_sidebar";
+        return "employeeManagement/UpdateEmployee";
     }
+
+
+    @PostMapping("/update")
+    public String updateEmployeeDetails(@RequestParam("employeeId") Integer employeeId,
+                                        @ModelAttribute("editEmployee") EmployeeDTO updatedEmployeeDTO,
+                                        Model model) {
+        // Retrieve the existing employee from the database
+        Employee existingEmployee = masterService.getEmployeeById(employeeId);
+
+        if (existingEmployee != null) {
+            // Update the existing employee with the data from the form
+            existingEmployee.setFirstName(updatedEmployeeDTO.getFirstName());
+            existingEmployee.setLastName(updatedEmployeeDTO.getLastName());
+            existingEmployee.setEmail(updatedEmployeeDTO.getEmail());
+            existingEmployee.setMobileNo(updatedEmployeeDTO.getContactNo());
+            existingEmployee.setBaseSalary(updatedEmployeeDTO.getSalary());
+
+            // Save the updated employee to the database
+            masterService.updateEmployee(existingEmployee);
+
+            // Redirect to the employee management page
+            return "redirect:/employeeManagement/managementHome";
+        } else {
+            // Handle error, maybe show a message indicating the employee was not found
+            return "errorPage"; // Redirect to an error page
+        }
+    }
+
+
 
 }
 
