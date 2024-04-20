@@ -39,14 +39,14 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <label for="roomCapacity">Capacity:</label><br>
+                    <label for="roomCapacity">Capacity :</label><br>
                     <input type="number" id="roomCapacity" name="roomCapacity" required>
                 </div>
                 <p>Capacity of the room</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <label for="roomPrice">Price:</label><br>
+                    <label for="roomPrice">Price :</label><br>
                     <input type="number" id="roomPrice" name="roomPrice" step="0.01" required>
                 </div>
                 <p>Price of the room</p>
@@ -54,7 +54,7 @@
             <div class="form_group">
                 <div class="input_group">
                     <input type="checkbox" id="roomStatus" name="roomStatus" value="true">
-                    <label for="roomStatus">: Status</label>
+                    <label for="roomStatus">Status :</label>
                 </div>
                 <p>1 for available, 0 for unavailable</p>
             </div>
