@@ -1,9 +1,7 @@
 package com.happyman.Ruby.masterService.service;
 
-import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.repository.PackageToAddonRepository;
-import com.happyman.Ruby.packages.dto.PackageDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,9 +28,7 @@ public class PackageToAddonServiceImpl implements PackageToAddonService {
     @Override
     public void deletePackageToAddonByPackageId(Integer packageId) {
         List<PackageToAddon> packageToAddons = packageToAddonRepository.findAllById_PackageId(packageId);
-        for (PackageToAddon packageToAddon : packageToAddons) {
-            packageToAddonRepository.delete(packageToAddon);
-        }
+        packageToAddonRepository.deleteAll(packageToAddons);
     }
 
     @Override

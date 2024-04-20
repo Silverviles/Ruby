@@ -64,6 +64,7 @@
                 <div class="form_group">
                     <div class="input_group">
                         <label>Addons:</label>
+                        <br>
                         <% if (addons != null && !addons.isEmpty()) {
                             for (Addon addon : addons) { %>
                         <input type="checkbox" id="addonList<%= addon.getId() %>" name="addonList"

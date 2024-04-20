@@ -196,7 +196,6 @@
         updatePopup.classList.toggle("show");
     }
 
-    // Function to show the delete popup
     function showDeletePopup(event, id) {
         event.preventDefault();
         event.stopPropagation();
@@ -211,7 +210,6 @@
         deletePopup.classList.toggle("show");
     }
 
-    // Function to hide the popup
     function hidePopup(popupId) {
         var popup = document.getElementById(popupId);
         popup.classList.remove("show");
