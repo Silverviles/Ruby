@@ -44,14 +44,14 @@ public class PackageController extends BaseController {
     }
 
     @PostMapping("/deletePackage")
-    public String deletePackage(@ModelAttribute PackageDTO packageDTO) {
+    public String deletePackage(@ModelAttribute("packageDTO") PackageDTO packageDTO) {
         masterService.deletePackage(packageDTO.getId());
         masterService.deletePackageToAddonByPackageId(packageDTO.getId());
         return "redirect:/success";
     }
 
     @PostMapping("/updatePackage")
-    public String updatePackage(@ModelAttribute PackageDTO packageDTO) {
+    public String updatePackage(@ModelAttribute("packageDTO") PackageDTO packageDTO) {
         masterService.updatePackageDTO(packageDTO);
         return "redirect:/success";
     }

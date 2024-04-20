@@ -11,18 +11,18 @@
 
 <header class="section_container header_container">
     <h2 class="booking_heading">Packages</h2>
-    <div class="booking_container">
-        <table style="width: 800px; table-layout: fixed;">
+    <div class="booking_container" style="width: 80vw;">
+        <table style="width: 80vw; table-layout: fixed;">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th style="width: 200px">Description</th>
+                <th style="width: 15%">Name</th>
+                <th style="width: 20%">Description</th>
                 <th>Price</th>
-                <th>Discontinue Date</th>
+                <th style="width: 10%">Discontinue Date</th>
                 <th>Availability</th>
                 <th>Type</th>
                 <th>No of Max Adults</th>
-                <th>Addons</th>
+                <th style="width: 13%">Addons</th>
             </tr>
 
             <% if (packageList != null && !packageList.isEmpty()) {
@@ -47,10 +47,9 @@
                 </td>
 
                     <td>
-                        <div class="editdeleteIcon" title="update" onclick="showUpdatePopup()">
-                            <i class="fa-solid fa-pen-to-square" id="update_btn"></i>
+                            <i class="fa-solid fa-pen-to-square" id="update_btn<%= packageDTO.getId()%>"></i>
 
-                            <div class="popup_background popup" id="popup_update_package">
+                            <div class="popup_background popup" id="popup_update_package<%= packageDTO.getId()%>">
 
                                 <div class="popup_container">
                                     <div class="popup_close">
@@ -149,26 +148,23 @@
                                     </form>
                                 </div>
 
-                            </div>
                         </div>
                     </td>
                     <td>
-                        <div class="editdeleteIcon" title="Delete" onclick="showDeletePopup()">
-                            <i class="fa-solid fa-trash" id="delete_btn"></i>
-                            <div class="popup_background popup" id="popup_delete_package">
-                                <div class="popup_close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
+                            <i class="fa-solid fa-trash" id="delete_btn<%= packageDTO.getId()%>"></i>
+                            <div class="popup_background popup" id="popup_delete_package<%= packageDTO.getId()%>">
                                 <div class="popup_container">
+                                    <div class="popup_close">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </div>
                                     <p>Are you sure want to delete the package?</p>
                                     <br>
                                     <form action="packages/deletePackage" method="post">
-                                        <button type="submit">Yes</button>
-                                        <button>No</button>
+                                        <button class="btn" type="submit">Yes</button>
+                                        <button class="btn" >No</button>
                                     </form>
                                 </div>
                             </div>
-                        </div>
                     </td>
                 </tr>
                 <%
@@ -179,18 +175,19 @@
                     <td colspan="9" style="text-align: center"> No Records Available.</td>
                 </tr>
                 <% } %>
-            </div>
+
 
         </table>
     </div>
 </header>
 <script>
-    function showUpdatePopup(event) {
+    // Function to show the update popup
+    function showUpdatePopup(event, id) {
         event.preventDefault();
-        event.stopPropagation(); // Optional: Stop event bubbling
+        event.stopPropagation();
 
-        var updatePopup = document.getElementById("popup_update_package");
-        var deletePopup = document.getElementById("popup_delete_package");
+        var updatePopup = document.getElementById("popup_update_package" + id);
+        var deletePopup = document.getElementById("popup_delete_package" + id);
 
         if (deletePopup.classList.contains("show")) {
             deletePopup.classList.remove("show");
@@ -199,12 +196,13 @@
         updatePopup.classList.toggle("show");
     }
 
-    function showDeletePopup(event) {
+    // Function to show the delete popup
+    function showDeletePopup(event, id) {
         event.preventDefault();
-        event.stopPropagation(); // Optional: Stop event bubbling
+        event.stopPropagation();
 
-        var updatePopup = document.getElementById("popup_update_package");
-        var deletePopup = document.getElementById("popup_delete_package");
+        var updatePopup = document.getElementById("popup_update_package" + id);
+        var deletePopup = document.getElementById("popup_delete_package" + id);
 
         if (updatePopup.classList.contains("show")) {
             updatePopup.classList.remove("show");
@@ -213,4 +211,36 @@
         deletePopup.classList.toggle("show");
     }
 
+    // Function to hide the popup
+    function hidePopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.classList.remove("show");
+    }
+
+    // Add event listeners to each update and delete icon
+    var updateIcons = document.querySelectorAll('.fa-pen-to-square');
+    var deleteIcons = document.querySelectorAll('.fa-trash');
+    var closeButtons = document.querySelectorAll('.popup_close');
+
+    updateIcons.forEach(function(icon) {
+        icon.addEventListener('click', function(event) {
+            var id = icon.getAttribute('id').replace('update_btn', '');
+            showUpdatePopup(event, id);
+        });
+    });
+
+    deleteIcons.forEach(function(icon) {
+        icon.addEventListener('click', function(event) {
+            var id = icon.getAttribute('id').replace('delete_btn', '');
+            showDeletePopup(event, id);
+        });
+    });
+
+    closeButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            var popupId = button.parentElement.parentElement.getAttribute('id');
+            hidePopup(popupId);
+        });
+    });
 </script>
+
