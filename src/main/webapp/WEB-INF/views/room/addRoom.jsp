@@ -7,11 +7,22 @@
 --%>
 
 <%@ page import="java.util.List" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/roomReservation/addroom.css">
+    <title>Room Booking</title>
+</head>
+
+<body>
 
 <header class="section_container header_container">
     <h2 class="booking_heading">Add New Package</h2>
     <div class="booking_container">
-        <form method="post" action="${pageContext.request.contextPath}/room/addroom">
+        <form method="post" action="${pageContext.request.contextPath}room/displayRoom">
             <div class="form_group">
                 <div class="input_group">
                     <label for="roomName">Room Name</label><br>
@@ -52,3 +63,6 @@
         </form>
     </div>
 </header>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Foldit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Workbench&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Dancing+Script:wght@400..700&family=Foldit:wght@100..900&family=Great+Vibes&family=Lobster&family=Merienda:wght@300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik+Scribble&family=Workbench&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Dancing+Script:wght@400..700&family=Foldit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Workbench&display=swap');
+:root{
+    --primary-color:#2c3855;
+    --primary-color-dark:#435681;
+    --text-dark:#333333;
+    --text-light:#767268;
+    --white:#ffffff;
+    --max-width:1200px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section_container{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+
+}
+
+.section_header{
+    font-size: 2.2rem;
+    font-weight: 600;
+    color:var(--text-dark);
+    text-align: center;
+}
+.booking_heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #323367;
+    margin-top: 1rem;
+}
+.a{
+    text-transform: none;
+}
+
+.img{
+    width: 100%;
+    display: flex;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #c0cffd;
+}
+
+nav{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.nav_logo{
+    font-family: "Bungee Spice", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.nav_link{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link a{
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link a:hover {
+    color: var(--primary-color);
+}
+
+.header_container{
+    padding: 1rem 1rem 5rem 1rem;
+}
+
+.header_image_container{
+    position: relative;
+    min-height: 500px;
+    background-image: linear-gradient(
+            to right,
+            rgba(44,56,85,.9),
+            rgba(100,125,187,.1)
+    ),
+    url("../../images/roomReservation/header.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+}
+
+.header_content{
+    max-width: 600px;
+    padding: 5rem 2rem;
+
+}
+
+.header_content h4 {
+    font-size:6rem;
+    font-weight: 660;
+    color: var(--white);
+}
+
+.header_content p {
+    font-size: 1.2rem;
+    color:  rgba(8, 7, 89, 0.7);
+}
+
+.booking_container {
+    margin-top: 1.8rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40rem);
+    height: 84%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255,0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
+}
+
+.booking_container form {
+    width: 100%;
+    flex: 1;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.booking_container .form_group .input_group {
+    width: 100%;
+    position: relative;
+}
+
+.booking_container form label {
+    position: absolute;
+    top: 27%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.booking_container input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid var(--primary-color);
+    color: var(--text-dark);
+}
+
+.booking_container input:focus ~ label {
+    font-size: .8rem;
+    top: 0;
+}
+
+.booking_container form .form_group p {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.booking_container .btn{
+    display: block;
+    width: 50%;
+    height: 50px;
+    border-radius: 25px;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #5985ea, #4940c9, #3648ec);
+    cursor: pointer;
+    color: #fff;
+    background-size: 200%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.booking_container .btn:hover{
+    transform: scale(1.2);
+}
+.btn:active {
+    transform: scale(0.95);
+}
+/*---------------------------end of the header part------------------------*/
+
+.popular_grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+}
+
+.popular_card {
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.popular_card img {
+    width: 100%;
+}
+.popular_content {
+    padding: 1rem;
+}
+
+.popular_card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.popular_card_header h4{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+.aaa{
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+}
+/*--------------end of rooms grid----------*/
+
+.reward_container{
+    margin-top: 35rem;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 2rem;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+.reward_container p{
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.reward_container h4{
+    max-width: 500px;
+    margin: auto auto 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.reard_btn{
+    padding: 1rem 2rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reard_btn:hover{
+    background-color: var(--primary-color-dark);
+}
+
+.footer_bar{
+    background-color:rgb(171, 171, 170);
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color:#4d4c4a;
+    text-align: right;
+    overflow: hidden;
+}
+
+.footer_bar::before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 10rem;
+    transform: translateY(-50%);
+    width: 20rem;
+    height: 2px;
+    background-color: #656463;
+}

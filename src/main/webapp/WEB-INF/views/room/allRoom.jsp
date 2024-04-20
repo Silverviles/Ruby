@@ -7,7 +7,17 @@
 --%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.happyman.Ruby.masterService.dao.Room" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/roomReservation/addroom.css">
+    <title>Room Booking</title>
+</head>
 
+<body>
 
 <%
     @SuppressWarnings("unchecked")
@@ -31,74 +41,68 @@
                 <% if (roomList != null && !roomList.isEmpty()) {
                     for (Room room : roomList) {%>
                 <tr>
-                    <td><%= room.getId()%>
-                    </td>
-                    <td><%= room.getRoomName()%>
-                    </td>
-                    <td><%= room.getRoomType()%>
-                    </td>
-                    <td><%= room.getRoomCapacity()%></td>
-                    <td><%= room.getRoomPrice()%>
-                    </td>
-                    <td><%= room.getRoomStatus()%>
-                    </td>
+                    <div class="aaa">
+                        <td><%= room.getId()%>
 
+                        <td>
+                            <div class="editdeleteIcon" title="update" onclick="showUpdatePopup()">
+                                <i class="fa-solid fa-pen-to-square" id="update_btn"></i>
 
-                    <td>
-                        <div class="editdeleteIcon" title="update" onclick="showUpdatePopup()">
-                            <i class="fa-solid fa-pen-to-square" id="update_btn"></i>
+                                <div class="popup_background popup" id="popup_update_package">
 
-                            <div class="popup_background popup" id="popup_update_package">
+                                    <div class="popup_container">
+                                        <div class="popup_close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div>
+                                        <form method="post" action="${pageContext.request.contextPath}/room/updateRoom">
+                                            <div class="form_group">
+                                                <div class="input_group">
+                                                    <label for="roomName">Room Name</label><br>
+                                                    <input type="text" id="roomName" name="roomName" value="<%= room.getRoomName()%>">
+                                                </div>
+                                                <p>Name of the room</p>
+                                            </div>
+                                            <div class="form_group">
+                                                <div class="input_group">
+                                                    <label for="roomType">Room Type</label><br>
+                                                    <input type="text" id="roomType" name="roomType" value="<%= room.getRoomType()%>">
+                                                </div>
+                                                <p>Type of the room</p>
+                                            </div>
+                                            <div class="form_group">
+                                                <div class="input_group">
+                                                    <label for="roomCapacity">Capacity:</label><br>
+                                                    <input type="number" id="roomCapacity" name="roomCapacity" value="<%= room.getRoomCapacity()%>" required>
+                                                </div>
+                                                <p>Capacity of the room</p>
+                                            </div>
+                                            <div class="form_group">
+                                                <div class="input_group">
+                                                    <label for="roomPrice">Price:</label><br>
+                                                    <input type="number" id="roomPrice" name="roomPrice" step="0.01" value="<%= room.getRoomPrice()%>" required>
+                                                </div>
+                                                <p>Price of the room</p>
+                                            </div>
+                                            <div class="form_group">
+                                                <div class="input_group">
+                                                    <input type="checkbox" id="roomStatus" name="roomStatus" value="<%= room.getRoomStatus()%>">
+                                                    <label for="roomStatus">Status :</label>
+                                                </div>
+                                                <p>1 for available, 0 for unavailable</p>
+                                            </div>
 
-                                <div class="popup_container">
-                                    <div class="popup_close">
-                                        <i class="fa-solid fa-xmark"></i>
+                                            <button type="submit" class="btn">Update</button>
+                                            <button type="reset" class="btn">Reset</button>
+                                        </form>
                                     </div>
-                                    <form method="post" action="${pageContext.request.contextPath}/room/updateRoom">
-                                        <div class="form_group">
-                                            <div class="input_group">
-                                                <label for="roomName">Room Name</label><br>
-                                                <input type="text" id="roomName" name="roomName" value="<%= room.getRoomName()%>">
-                                            </div>
-                                            <p>Name of the room</p>
-                                        </div>
-                                        <div class="form_group">
-                                            <div class="input_group">
-                                                <label for="roomType">Room Type</label><br>
-                                                <input type="text" id="roomType" name="roomType" value="<%= room.getRoomType()%>">
-                                            </div>
-                                            <p>Type of the room</p>
-                                        </div>
-                                        <div class="form_group">
-                                            <div class="input_group">
-                                                <label for="roomCapacity">Price:</label><br>
-                                                <input type="number" id="roomCapacity" name="roomCapacity" value="<%= room.getRoomCapacity()%>" required>
-                                            </div>
-                                            <p>Capacity of the room</p>
-                                        </div>
-                                        <div class="form_group">
-                                            <div class="input_group">
-                                                <label for="roomPrice">Price:</label><br>
-                                                <input type="number" id="roomPrice" name="roomPrice" step="0.01" value="<%= room.getRoomPrice()%>" required>
-                                            </div>
-                                            <p>Price of the room</p>
-                                        </div>
-                                        <div class="form_group">
-                                            <div class="input_group">
-                                                <input type="checkbox" id="roomStatus" name="roomStatus" value="<%= room.getRoomStatus()%>">
-                                                <label for="roomStatus">: Status</label>
-                                            </div>
-                                            <p>1 for available, 0 for unavailable</p>
-                                        </div>
 
-                                        <button type="submit" class="btn">Update</button>
-                                        <button type="reset" class="btn">Reset</button>
-                                    </form>
                                 </div>
-
                             </div>
-                        </div>
-                    </td>
+                        </td>
+                    </div>
+
+                </tr>
+                <tr>
                     <td>
                         <div class="editdeleteIcon" title="Delete" onclick="showDeletePopup()">
                             <i class="fa-solid fa-trash" id="delete_btn"></i>
@@ -118,6 +122,8 @@
                         </div>
                     </td>
                 </tr>
+
+
                 <%
                     }
                 } else {
@@ -155,3 +161,5 @@
     }
 
 </script>
+</body>
+</html>
