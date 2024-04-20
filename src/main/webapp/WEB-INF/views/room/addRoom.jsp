@@ -39,7 +39,7 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <label for="roomCapacity">Price:</label><br>
+                    <label for="roomCapacity">Capacity:</label><br>
                     <input type="number" id="roomCapacity" name="roomCapacity" required>
                 </div>
                 <p>Capacity of the room</p>
