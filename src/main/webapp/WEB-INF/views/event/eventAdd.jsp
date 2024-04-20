@@ -21,7 +21,7 @@
             <h2 class="registration_heading">Add Events</h2>
 
             <div class="registration_container">
-                <form action="${pageContext.request.contextPath}/event/eventAdd" method="post">
+                <form action="${pageContext.request.contextPath}/event/addEvents" method="post">
 
                     <div class="form_group">
                         <div class="input_group">
@@ -33,7 +33,7 @@
                     <div class="form_group">
                         <div class="input_group">
                             <label>Availability :</label>
-                            <div class="check"><input type="checkbox" id="availability" name="availability" value="true" required></div>
+                            <div class="check"><input type="checkbox" id="availability" name="availability" value="true" ></div>
                             <br>
                         </div>
                     </div>
@@ -41,8 +41,10 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <label>Description :</label><br>
-                            <div class="check"><input type="text" name="description" id="description" required></div>
+                            <div class="input_group">
+                                <label>Description :</label><br>
+                                <input type="text" name="description" id="description" required>
+                            </div>
                         </div>
 
                     </div>
