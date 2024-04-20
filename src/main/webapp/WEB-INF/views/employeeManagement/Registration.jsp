@@ -21,8 +21,6 @@
                             <input type="text" name="employeeId" id="employeeId"  readonly>
                             <label>Employee Id</label>
 
-
-                            <label>Employee Id</label>
                         </div>
 
                     </div>
@@ -30,7 +28,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="firstName">
+                            <input type="text" name="firstName" required>
                             <label>Employee First Name</label>
                         </div>
                         <!-- <p>Type of the shifts</p>-->
@@ -38,7 +36,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="lastName">
+                            <input type="text" name="lastName" required>
                             <label>Employee Last Name</label>
                         </div>
                         <!-- <p>Type of the shifts</p>-->
@@ -47,7 +45,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="email">
+                            <input type="text" name="email" required>
                             <label>Email</label>
                         </div>
 
@@ -55,7 +53,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="contactNo">
+                            <input type="text" name="contactNo" required>
                             <label>Contact No</label>
                         </div>
 

@@ -54,7 +54,7 @@ public class registerController extends BaseController {
         // Retrieve the next employee ID
 //        Long nextEmployeeId = employeeService.getNextEmployeeId().orElse(1L); // Default to ID 1 if not found
         model.addAttribute("employees", masterService.getAllEmployees());
-        return "employeeManagement/Registration";
+        return "employeeManagement/EmployeeManagement";
     }
 
 ///*new*/
