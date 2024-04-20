@@ -282,6 +282,7 @@
         </div>
         <div id="payment" class="sub-contents">
             <jsp:include page="../billingAndReporting/paymentsAdmin.jsp"/>
+        </div>
         <!-- TODO: Add other divs as needed. follow the id and class formats -->
     </div>
 </div>
