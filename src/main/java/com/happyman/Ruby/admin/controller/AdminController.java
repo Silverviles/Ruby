@@ -18,7 +18,7 @@ public class AdminController extends BaseController {
 
     @GetMapping("/temp1")
     public String goTemp1(Model model) {
-        model.addAttribute("Menu", masterService.getAllMenus());
+        model.addAttribute("menu", masterService.getAllMenus());
         return "common/admin_sidebar";
     }
 

@@ -59,11 +59,11 @@
             <button class="delete-button" name="menuId" value="<%= food.getId()%>">Delete</button>
         </form>
     </td>
+    <% }%>
+    <% } %>
     </tbody>
 </table>
-<form method="get" action="${pageContext.request.contextPath}restaurant/getMeals">
-    <button class="add-button" name="addMenu" value="<%= food.getId()%>">Add Menu</button>
-</form>
+
 </body>
 </html>
 
