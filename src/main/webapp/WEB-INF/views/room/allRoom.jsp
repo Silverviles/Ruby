@@ -40,7 +40,7 @@
             <div class="tbody">
                 <% if (roomList != null && !roomList.isEmpty()) {
                     for (Room room : roomList) {%>
-                <tr.
+                <tr>
 
                     <div class="aaa">
                         <td><%= room.getId()%>
@@ -71,9 +71,6 @@
                             </div>
                         </td>
                     </div>
-
-                </tr>
-                <tr>
                     <td>
                         <div class="editdeleteIcon" title="Delete" onclick="showDeletePopup()">
                             <i class="fa-solid fa-trash" id="delete_btn"></i>
