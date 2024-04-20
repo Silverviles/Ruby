@@ -73,7 +73,7 @@ public class EventServiceImpl implements EventService {
     public void updateEventByEventDTO(EventAddDTO eve) {
         Event e = this.getEventById(eve.getEventId());
         e.setEventName(eve.getEventName());
-        e.setAvailability(eve.getAvailable());
+        e.setAvailability(eve.getAvailability());
         e.setDescription(eve.getDescription());
         e.setPrice(eve.getPrice());
         e.setImage(eve.getImage());

@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     List<Event> eventList = new ArrayList<>();
-    eventList = (List<Event>) request.getAttribute("events");
+    eventList = (List<Event>) request.getAttribute("allEvent");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,6 @@
         <th>Event Name</th>
         <th>Description</th>
         <th>Availability</th>
-        <th>Image</th>
         <th>Price</th>
         <th>Actions</th>
     </tr>
@@ -41,16 +40,15 @@
         <td><%= event.getEventName()%></td>
         <td><%= event.getDescription()%></td>
         <td><%= event.getAvailability()%></td>
-        <td>Image eka</td>
         <td><%= event.getPrice()%></td>
         <td>
 
-            <form action="${pageContext.request.contextPath}/employeeManagement/delete" method="post">
-                <input type="hidden" name="employeeId" value="<%= event.getId()%>">
+            <form action="${pageContext.request.contextPath}/event/delete" method="post">
+                <input type="hidden" name="eventId" value="<%= event.getId()%>">
                 <button type="submit" name="delete">Delete</button>
             </form>
-            <form action="${pageContext.request.contextPath}/employeeManagement/update" method="post">
-                <input type="hidden" name="employeeId" value="<%= event.getId()%>">
+            <form action="${pageContext.request.contextPath}/event/updateForm" method="post">
+                <input type="hidden" name="eventId" value="<%= event.getId()%>">
                 <button type="submit" name="update">Update</button>
             </form>
         </td>

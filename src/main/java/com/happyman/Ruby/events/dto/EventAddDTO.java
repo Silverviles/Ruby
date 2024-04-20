@@ -12,7 +12,6 @@ public class EventAddDTO {
 
     private Integer eventId;
     private String eventName;
-    private Byte available;
     private String description;
     private String image;
     private Double price;

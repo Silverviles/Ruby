@@ -6,6 +6,7 @@ import com.happyman.Ruby.masterService.dao.Event;
 import jakarta.servlet.ServletContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -20,18 +21,10 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/events")
-
-public class EventController extends BaseController implements ServletContextAware {
+@RequestMapping("/event")
+public class EventController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(EventController.class);
-
-    private ServletContext servletContext;
-
-    @Override
-    public void setServletContext(ServletContext servletContext) {
-        this.servletContext = servletContext;
-    }
 
     @GetMapping("/eventHome")
     public String goEvents() {
@@ -46,7 +39,7 @@ public class EventController extends BaseController implements ServletContextAwa
             EventAddDTO eventAddDTO = new EventAddDTO();
             eventAddDTO.setEventId(event.getId());
             eventAddDTO.setEventName(event.getEventName());
-            eventAddDTO.setAvailable(event.getAvailability());
+            eventAddDTO.setAvailability(event.getAvailability());
             eventAddDTO.setDescription(event.getDescription());
             eventAddDTO.setPrice(event.getPrice());
             eventAddDTO.setImage(event.getImage());
@@ -58,56 +51,41 @@ public class EventController extends BaseController implements ServletContextAwa
     }
 
     @PostMapping("/addEvents")
-    public String addEvents(@ModelAttribute EventAddDTO eventAddDTO, @RequestParam("image") MultipartFile file) {
+    public String addEvents(@ModelAttribute EventAddDTO eventAddDTO, Model model) {
         Event event = new Event();
-        if (!file.isEmpty()) {
-            try {
-                // Define the directory to save the file
-                String uploadDir = servletContext.getRealPath("/images/events/");
-                File directory = new File(uploadDir);
-                if (!directory.exists()) {
-                    directory.mkdirs();
-                }
-
-                // Get the original filename
-                String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-
-                // Save the file to the specified directory
-                String filePath = uploadDir + fileName;
-                file.transferTo(new File(filePath));
-
-                // Set the filename to the DTO
-                event.setImage(fileName);
-                event.setEventName(eventAddDTO.getEventName());
-                event.setPrice(eventAddDTO.getPrice());
-                event.setAvailability(eventAddDTO.getAvailable());
-                event.setDescription(eventAddDTO.getDescription());
-            } catch (IOException e) {
-                log.error("Failed to upload file: " + e.getMessage());
-            }
-        }
-
-        // Now you can save the DTO to the database
-        masterService.addEvent(event);
-
-        return "event/eventUpdate";
-    }
-
-    @PostMapping("/deleteEvent")
-    public String deletePackage(@ModelAttribute EventAddDTO eventAddDTO) {
-        masterService.deleteEvent(eventAddDTO.getEventId());
-        return "event/eventUpdate";
-    }
-
-    @PostMapping("/updateEvent")
-    public String updateEvent(@ModelAttribute EventAddDTO eventAddDTO) {
-        Event event = new Event();
-        event.setImage(eventAddDTO.getImage());
+        event.setId(eventAddDTO.getEventId() != null ? eventAddDTO.getEventId() : null);
         event.setEventName(eventAddDTO.getEventName());
         event.setPrice(eventAddDTO.getPrice());
-        event.setAvailability(eventAddDTO.getAvailable());
+        event.setAvailability(eventAddDTO.getAvailability() != null ? eventAddDTO.getAvailability() : false);
+        event.setDescription(eventAddDTO.getDescription());
+
+        masterService.addEvent(event);
+        model.addAttribute("allEvent", masterService.getAllEvents());
+        return "event/eventUpdate";
+    }
+
+    @PostMapping("/delete")
+    public String deletePackage(Integer eventId, Model model) {
+        masterService.deleteEvent(eventId);
+        model.addAttribute("allEvent", masterService.getAllEvents());
+        return "event/eventUpdate";
+    }
+
+    @PostMapping("/updateForm")
+    public String goToUpdate(Integer eventId, Model model) {
+        model.addAttribute("event", masterService.getEventById(eventId));
+        return "event/eventAdd";
+    }
+
+    @PostMapping("/update")
+    public String updateEvent(@ModelAttribute EventAddDTO eventAddDTO, Model model) {
+        Event event = new Event();
+        event.setEventName(eventAddDTO.getEventName());
+        event.setPrice(eventAddDTO.getPrice());
+        event.setAvailability(eventAddDTO.getAvailability());
         event.setDescription(eventAddDTO.getDescription());
         masterService.addEvent(event);
+        model.addAttribute("allEvent", masterService.getAllEvents());
         return "event/eventUpdate";
     }
 }
