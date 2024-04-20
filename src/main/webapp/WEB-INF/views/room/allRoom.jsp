@@ -40,9 +40,19 @@
             <div class="tbody">
                 <% if (roomList != null && !roomList.isEmpty()) {
                     for (Room room : roomList) {%>
-                <tr>
+                <tr.
+
                     <div class="aaa">
                         <td><%= room.getId()%>
+                        <td><%= room.getRoomName()%>
+                        </td>
+                        <td><%= room.getRoomType()%>
+                        </td>
+                        <td><%= room.getRoomCapacity()%></td>
+                        <td><%= room.getRoomPrice()%>
+                        </td>
+                        <td><%= room.getRoomStatus()%>
+                        </td>
 
                         <td>
                             <div class="editdeleteIcon" title="update" onclick="showUpdatePopup()">
@@ -54,46 +64,7 @@
                                         <div class="popup_close">
                                             <i class="fa-solid fa-xmark"></i>
                                         </div>
-                                        <form method="post" action="${pageContext.request.contextPath}/room/updateRoom">
-                                            <div class="form_group">
-                                                <div class="input_group">
-                                                    <label for="roomName">Room Name</label><br>
-                                                    <input type="text" id="roomName" name="roomName" value="<%= room.getRoomName()%>">
-                                                </div>
-                                                <p>Name of the room</p>
-                                            </div>
-                                            <div class="form_group">
-                                                <div class="input_group">
-                                                    <label for="roomType">Room Type</label><br>
-                                                    <input type="text" id="roomType" name="roomType" value="<%= room.getRoomType()%>">
-                                                </div>
-                                                <p>Type of the room</p>
-                                            </div>
-                                            <div class="form_group">
-                                                <div class="input_group">
-                                                    <label for="roomCapacity">Capacity:</label><br>
-                                                    <input type="number" id="roomCapacity" name="roomCapacity" value="<%= room.getRoomCapacity()%>" required>
-                                                </div>
-                                                <p>Capacity of the room</p>
-                                            </div>
-                                            <div class="form_group">
-                                                <div class="input_group">
-                                                    <label for="roomPrice">Price:</label><br>
-                                                    <input type="number" id="roomPrice" name="roomPrice" step="0.01" value="<%= room.getRoomPrice()%>" required>
-                                                </div>
-                                                <p>Price of the room</p>
-                                            </div>
-                                            <div class="form_group">
-                                                <div class="input_group">
-                                                    <input type="checkbox" id="roomStatus" name="roomStatus" value="<%= room.getRoomStatus()%>">
-                                                    <label for="roomStatus">Status :</label>
-                                                </div>
-                                                <p>1 for available, 0 for unavailable</p>
-                                            </div>
 
-                                            <button type="submit" class="btn">Update</button>
-                                            <button type="reset" class="btn">Reset</button>
-                                        </form>
                                     </div>
 
                                 </div>
