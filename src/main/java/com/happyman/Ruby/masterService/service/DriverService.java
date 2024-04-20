@@ -12,6 +12,8 @@ public interface DriverService {
 
 	public Driver getDriverById(Integer driverId);
 
+	public void deleteDriver(Driver driver);
+
 	public Driver getDriverByEmail(String email);
 
 	public Driver getDriverByMobileNo(String mobileNo);

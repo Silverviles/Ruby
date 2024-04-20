@@ -20,7 +20,7 @@ import com.happyman.Ruby.common.DomainConstants;
 public class Vehicle {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "vehicleId", nullable = false) private Integer id;
 
-	@Enumerated(EnumType.STRING) @Column(name = "vehicleType", nullable = false, length = 50) private DomainConstants.VehicleType vehicleType;
+	@Column(name = "vehicleType", nullable = false) private String vehicleType;
 
 	@Column(name = "maxCount", nullable = false) private Integer maxCount;
 

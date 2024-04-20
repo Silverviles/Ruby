@@ -9,6 +9,8 @@ public interface TripService {
 
 	public Trip getTripById(Integer tripId);
 
+	public void deleteTrip(Trip trip);
+
 	public List<Trip> getAllTrips();
 
 	public List<Trip> getAllTripsByVehicleType(String type);

@@ -1,6 +1,7 @@
 <%@ page import="com.happyman.Ruby.transportation.dto.TripDTO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Map" %><%--
+<%@ page import="java.util.Map" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Driver" %><%--
   Created by IntelliJ IDEA.
   User: silverviles
   Date: 22/03/2024
@@ -10,6 +11,7 @@
 <%
     @SuppressWarnings("unchecked")
     Map<String, List<TripDTO>> allJobs = (Map<String, List<TripDTO>>) request.getAttribute("allJobs");
+    Driver driver = (Driver) request.getAttribute("driver");
 
     List<TripDTO> availableTrips = allJobs.get("available");
     List<TripDTO> inProgressTrips = allJobs.get("inProgress");
@@ -26,9 +28,9 @@
 <body>
 <div class="sidebar">
     <div class="driver-info">
-        <h3>Driver Name<br>${driver.firstName} ${driver.lastName}</h3>
-        <p>Email: ${driver.email}</p>
-        <p>Mobile No: ${driver.mobileNo}</p>
+        <h3>Driver Name: <br><%=driver.getFirstName() + " " + driver.getLastName()%></h3>
+        <p>Email: <%= driver.getEmail()%></p>
+        <p>Mobile No: <%= driver.getMobileNo()%></p>
     </div>
     <div class="driver_portal_navigate">
         <p id="available_jobs_show">Available Jobs</p>
@@ -43,7 +45,6 @@
         <table>
             <tr>
                 <th>Trip ID</th>
-                <th>Driver Name</th>
                 <th>Trip Destination</th>
                 <th>Total Pay</th>
                 <th>Action</th>
@@ -52,16 +53,15 @@
             <tr>
                 <td><%= job.getId() %>
                 </td>
-                <td><%= job.getDriver().getFirstName() + " " + job.getDriver().getLastName() %>
-                </td>
                 <td><%= job.getTripDestination() %>
                 </td>
                 <td><%= job.getTotalCost() %>
                 </td>
                 <td>
-                    <form action="processJob.jsp" method="post">
+                    <form action="${pageContext.request.contextPath}/transport/accept" method="post">
                         <input type="hidden" name="jobId" value="<%= job.getId() %>">
-                        <button type="submit">Action</button>
+                        <input type="hidden" name="driverId" value="<%= driver.getId()%>">
+                        <button type="submit">Accept</button>
                     </form>
                 </td>
             </tr>
@@ -90,9 +90,15 @@
                 <td><%= job.getTotalCost() %>
                 </td>
                 <td>
-                    <form action="processJob.jsp" method="post">
+                    <form action="${pageContext.request.contextPath}/transport/complete" method="post">
                         <input type="hidden" name="jobId" value="<%= job.getId() %>">
-                        <button type="submit">Action</button>
+                        <input type="hidden" name="driverId" value="<%= driver.getId()%>">
+                        <button type="submit">Complete</button>
+                    </form>
+                    <form action="${pageContext.request.contextPath}/transport/cancel" method="post">
+                        <input type="hidden" name="jobId" value="<%= job.getId() %>">
+                        <input type="hidden" name="driverId" value="<%= driver.getId()%>">
+                        <button type="submit">Cancel</button>
                     </form>
                 </td>
             </tr>

@@ -11,7 +11,7 @@ public class DriverDTO {
 	private Integer driverId;
 	private String firstName;
 	private String lastName;
-	private DomainConstants.VehicleType vehicleType;
+	private String vehicleType;
 	private String vehicleNumber;
 	private int seatCount;
 	private String email;

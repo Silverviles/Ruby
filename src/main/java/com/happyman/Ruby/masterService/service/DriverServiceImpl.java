@@ -28,6 +28,11 @@ public class DriverServiceImpl implements DriverService {
 	}
 
 	@Override
+	public void deleteDriver(Driver driver) {
+		driverRepository.delete(driver);
+	}
+
+	@Override
 	public Driver getDriverByEmail(String email) {
 		return getAllDrivers().stream().filter(driver -> driver.getEmail().equals(email)).findFirst().orElse(null);
 	}

@@ -22,7 +22,7 @@ import java.util.Date;
 public class Trip {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "tripId", nullable = false) private Integer id;
 
-	@OneToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "driverId", nullable = false) private Driver driver;
+	@OneToOne(fetch = FetchType.LAZY, optional = true) @JoinColumn(name = "driverId", nullable = false) private Driver driver;
 
 	@Column(name = "tripStatus", nullable = false) private Byte tripStatus;
 

@@ -18,7 +18,7 @@ public class DriverJobList {
 		List<TripDTO> inProgressTrips = new ArrayList<>();
 		List<TripDTO> completedTrips = new ArrayList<>();
 
-		allTrips.forEach(trip -> {
+		for (Trip trip : allTrips) {
 			TripDTO tripDTO = new TripDTO();
 			tripDTO.setId(trip.getId());
 			tripDTO.setDriver(trip.getDriver());
@@ -39,12 +39,14 @@ public class DriverJobList {
 				case 2:
 					if(trip.getDriver().getId().equals(driverId)) {
 						tripDTO.setTripStatus((byte) 2);
-						tripDTO.setFinishedDate(trip.getFinishedDate().toString());
+						if (trip.getFinishedDate() != null) {
+							tripDTO.setFinishedDate(trip.getFinishedDate().toString());
+						}
 						completedTrips.add(tripDTO);
 					}
 					break;
 			}
-		});
+		}
 
 		differentiatedTrips.put("available", availableTrips);
 		differentiatedTrips.put("inProgress", inProgressTrips);
