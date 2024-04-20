@@ -312,7 +312,7 @@ nav{
 .registration_container {
     margin-top: 2rem;
     position: absolute;
-    left: 60%;                 /*change to move the form*/
+    left: 50%;                 /*change to move the form*/
     transform: translateX(-50%);
     width: calc(100% - 20rem);
     height: 77%;
