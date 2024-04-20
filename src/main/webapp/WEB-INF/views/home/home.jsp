@@ -9,14 +9,21 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/header.css">
 </head>
 <body>
+<jsp:include page="../common/header.jsp"/>
+
+<%--Your page content--%>
+
 Landing Page
 <a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
 <form method="get" id="transportForm">
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
 </form>
+<jsp:include page="../common/footer.jsp"/>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
