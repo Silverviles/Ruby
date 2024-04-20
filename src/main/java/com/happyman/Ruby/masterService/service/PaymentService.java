@@ -10,14 +10,19 @@ public interface PaymentService {
 
     List<Payment> getAllPayments();
 
+    List<Payment> getPaymentStatus(Byte Status);
+
     Payment getPaymentById(Integer paymentId);
 
     void UpdatePayment(Payment pay);
-   Payment getPaymentByAmount(Float Amount);
+
+    Payment getPaymentByAmount(Float Amount);
 
     void addPayment(Payment payment);
 
     void deletePayment(Integer paymentId);
+
+    void deletePaymentBypaymentId(Integer bId);
 
     void updatePaymentByPaymentDTO(PaymentsDTO payment);
 }

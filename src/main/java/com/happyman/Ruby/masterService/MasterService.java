@@ -85,9 +85,13 @@ public interface MasterService {
 
 	List<Payment> getPaymentStatus(Byte Status);
 
-	void addPayment(Payment payment);
+	void addPayment(PaymentsDTO paymentsDTO);
 
 	void deletePayment(Integer paymentId);
 
 	void updatePaymentByPaymentDTO(PaymentsDTO payment);
+
+    List<PaymentsDTO> getPaymentsDTOList();
+
+	void deletePaymentBypaymentId(Integer bid);
 }

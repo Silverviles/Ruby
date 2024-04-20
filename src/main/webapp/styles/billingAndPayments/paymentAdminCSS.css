@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display:flex;
+}
+
+h1{
+    text-align: center;
+}
+
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    width: 250px;
+    height: 100vh;
+
+}
+
+.content {
+    padding: 20px;
+    width: calc(100% - 250px);
+}
+
+
+.section_container{
+    --max-width:1200px;
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+
+}
+
+.update-button{
+    background-color: #ecedea;
+    border: none;
+    color: rgb(12, 1, 1);
+    padding: 10px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+}
+.update-button:hover {
+    background-color: #45a049;
+}
+
+.Delete-button{
+    background-color: #ecedea;
+    border: none;
+    color: rgb(12, 1, 1);
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+}
+.Delete-button:hover {
+    background-color: #45a049;
+}
+
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+th, td {
+    border: 1px solid #821919;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #d6b9b9;
+}
+
+.payments {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+.Payment_portal_navigate{
+    margin-top: 50px;
+    list-style-type: none;
+    text-align: center;
+}
+
+.Payment_portal_navigate p {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.Payment_portal_navigate p:hover {
+    background-color: #a5a5a5;
+    color: black;
+}

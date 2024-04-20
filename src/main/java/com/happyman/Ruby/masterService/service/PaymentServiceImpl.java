@@ -67,6 +67,10 @@ public class PaymentServiceImpl implements PaymentService {
         paymentRepository.deleteById(paymentId);
     }
 
+    @Override
+    public void deletePaymentBypaymentId(Integer bId) {
+
+    }
 
 
     @Override
@@ -79,7 +83,7 @@ public class PaymentServiceImpl implements PaymentService {
 
         paymentRepository.save(py);
     }
-
-
 }
+
+
 

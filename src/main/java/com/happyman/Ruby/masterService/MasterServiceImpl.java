@@ -21,22 +21,22 @@ public class MasterServiceImpl implements MasterService{
 	private final PlatformTransactionManager platformTransactionManager;
 	private final PaymentService paymentService;
 
-	@Autowired
+    @Autowired
 	public MasterServiceImpl(
-		DriverService driverService,
-		VehicleService vehicleService,
-		TripService tripService,
-		FoodService foodService,PaymentService paymentService,
-		PlatformTransactionManager platformTransactionManager
-	) {
+            DriverService driverService,
+            VehicleService vehicleService,
+            TripService tripService,
+            FoodService foodService, PaymentService paymentService,
+            PlatformTransactionManager platformTransactionManager, PaymentService paymentService1
+    ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
 		this.foodService = foodService;
 		this.platformTransactionManager = platformTransactionManager;
-		this.paymentService = paymentService;
-		// TODO: add all the other services here. Declare them as variables above first.
-	}
+        // TODO: add all the other services here. Declare them as variables above first.
+        this.paymentService = paymentService1;
+    }
 
 	@Override
 	public void addDriver(Driver driver) {
@@ -208,9 +208,16 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public void addPayment(Payment payment) {
-
+	public void addPayment(PaymentsDTO paymentsDTO) {
+		Payment payment = new Payment();
+		payment.setCustomerName(paymentsDTO.getCustomerName());
+		payment.setCustomerEmail(paymentsDTO.getCustomerEmail());
+		payment.setBillAmount(paymentsDTO.getAmount());
+		payment.setPaymentStatus(paymentsDTO.getPaymentStatus());
+		//TODO:
+		paymentService.addPayment(payment);
 	}
+
 
 	@Override
 	public void deletePayment(Integer paymentId) {
@@ -220,5 +227,15 @@ public class MasterServiceImpl implements MasterService{
 	@Override
 	public void updatePaymentByPaymentDTO(PaymentsDTO payment) {
 
+	}
+
+	@Override
+	public List<PaymentsDTO> getPaymentsDTOList() {
+		return List.of();
+	}
+
+	@Override
+	public void deletePaymentBypaymentId(Integer bid) {
+		paymentService.deletePaymentBypaymentId(bid);
 	}
 }
