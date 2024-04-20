@@ -101,7 +101,7 @@ nav{
 }
 .Topic{
 
-    text-align: center;
+    margin-left: 50%;
     margin-top: 10px;
 }
 
@@ -330,7 +330,7 @@ nav{
     transition: 0.3s;
 }
 .registration_heading {
-    margin-left: 10%;
+    margin-left: 50%;
 }
 .check {
     margin-left: -20%;

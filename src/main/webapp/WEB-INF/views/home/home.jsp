@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/header.css">
 </head>
 <body>
-Landing Page
 <jsp:include page="../common/header.jsp"/>
 
 <a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>

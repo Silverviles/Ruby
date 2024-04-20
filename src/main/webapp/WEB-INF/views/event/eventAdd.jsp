@@ -16,9 +16,8 @@
 <div class="container">
 
     <div class="xxx">
-        <h1 class="Topic">Events</h1>
+        <h1 class="Topic">Add Events</h1>
         <header class="section_container header_container">
-            <h2 class="registration_heading">Add Events</h2>
 
             <div class="registration_container">
                 <form action="${pageContext.request.contextPath}/event/addEvents" method="post">
