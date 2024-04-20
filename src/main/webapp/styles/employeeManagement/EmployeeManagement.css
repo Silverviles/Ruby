@@ -82,13 +82,15 @@ button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: background-color 0.3s;
-    margin-right: 10px; /* Add margin between buttons */
+    margin-right: 10px;
+    margin-top: 5px/* Add margin between buttons */
+
 }
 
 button:first-child {
-    margin-right: 0; /* Remove margin for the first button */
+    margin-right: 5px; /* Remove margin for the first button */
 }
 /*button:first-child {*/
 /*    margin-right: 10px; !* add this line to increase the distance between the two buttons *!*/
