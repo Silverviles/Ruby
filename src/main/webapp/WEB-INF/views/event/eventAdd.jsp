@@ -5,6 +5,14 @@
   Time: 2:04 AM
   To change this template use File | Settings | File Templates.
 --%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.o">
+    <title>Add events</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/event/eventAdd.css">
+</head>
 <div class="container">
 
     <div class="xxx">
@@ -65,3 +73,4 @@
     </div>
 
 </div>
+</html>

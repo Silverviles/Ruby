@@ -13,7 +13,14 @@
     List<Event> eventList = new ArrayList<>();
     eventList = (List<Event>) request.getAttribute("events");
 %>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.o">
+    <title>Add events</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/event/eventUpdate.css">
+</head>
 <h1>Events</h1>
 
 <table id="employeeTable">
@@ -52,3 +59,4 @@
     <% } %>
     </tbody>
 </table>
+</html>
