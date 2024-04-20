@@ -12,11 +12,11 @@
 <header class="section_container header_container">
     <h2 class="booking_heading">Packages</h2>
     <div class="booking_container">
-        <table>
+        <table style="width: 800px; table-layout: fixed;">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th style="width:10%">Description</th>
+                <th style="width: 200px">Description</th>
                 <th>Price</th>
                 <th>Discontinue Date</th>
                 <th>Availability</th>
@@ -185,7 +185,10 @@
     </div>
 </header>
 <script>
-    function showUpdatePopup() {
+    function showUpdatePopup(event) {
+        event.preventDefault();
+        event.stopPropagation(); // Optional: Stop event bubbling
+
         var updatePopup = document.getElementById("popup_update_package");
         var deletePopup = document.getElementById("popup_delete_package");
 
@@ -196,7 +199,10 @@
         updatePopup.classList.toggle("show");
     }
 
-    function showDeletePopup() {
+    function showDeletePopup(event) {
+        event.preventDefault();
+        event.stopPropagation(); // Optional: Stop event bubbling
+
         var updatePopup = document.getElementById("popup_update_package");
         var deletePopup = document.getElementById("popup_delete_package");
 

@@ -1,6 +1,7 @@
 package com.happyman.Ruby.admin.controller;
 
 import com.happyman.Ruby.common.BaseController;
+import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.packages.controller.PackageController;
 import com.happyman.Ruby.packages.dto.PackageDTO;
 import org.slf4j.Logger;
@@ -24,6 +25,9 @@ public class AdminController extends BaseController {
     public String goTemp1(Model model) {
         List<PackageDTO> packages = masterService.getPackageDTOList();
         model.addAttribute("allPackages", packages);
+
+        List<Addon> addons = masterService.getAllAddons();
+        model.addAttribute("addons", addons);
         return "common/admin_sidebar";
     }
 
