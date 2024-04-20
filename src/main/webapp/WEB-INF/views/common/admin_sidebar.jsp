@@ -220,18 +220,9 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
+                            <li id="payment_button">
                                 <a href="#">
-                                    <span class="text">b1</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="text">b2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="text">b3</span>
+                                    <span class="text">Billing</span>
                                 </a>
                             </li>
                         </ul>
@@ -289,7 +280,8 @@
         <div id="emp_updateDelete" class="sub-contents">
             <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
         </div>
-
+        <div id="payment" class="sub-contents">
+            <jsp:include page="../billingAndReporting/paymentsAdmin.jsp"/>
         <!-- TODO: Add other divs as needed. follow the id and class formats -->
     </div>
 </div>
