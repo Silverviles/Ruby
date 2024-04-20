@@ -20,7 +20,7 @@
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="restaurant/restaurantHome">Restaurant</button>
     <button data-action="transport/transportForm">Transportation Form</button>
-    <button data-action="admin/temp1">Admin</button>
+    <button data-action="restaurant/adminMenuPlanShow">Admin Menu Manage</button>
 </form>
 
 <script>

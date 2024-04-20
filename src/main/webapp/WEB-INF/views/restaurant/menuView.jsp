@@ -46,24 +46,28 @@
     <tbody id="mealBody">
     <% if (foodList != null && !foodList.isEmpty()) {%>
     <% for (Menu food : foodList) { %>
+    <tr>
     <td>Image URL</td>
     <td><%= food.getMenuName()%></td>
     <td><%= food.getMealType()%></td>
     <td><%= food.getDishType()%></td>
     <td><%= food.getPrice()%></td>
     <td>
-        <form method="post" action="${pageContext.request.contextPath}">
+        <form method="post" action="${pageContext.request.contextPath}/restaurant/editMenu">
             <button class="edit-button" name="menuId" value="<%= food.getId()%>">Edit</button>
         </form>
         <form method="post" action="${pageContext.request.contextPath}/restaurant/deleteMenu">
             <button class="delete-button" name="menuId" value="<%= food.getId()%>">Delete</button>
         </form>
     </td>
+    </tr>
     <% }%>
     <% } %>
     </tbody>
 </table>
-
+<form method="get" action="${pageContext.request.contextPath}/restaurant/addMenu">
+    <button>Add menu</button>
+</form>
 </body>
 </html>
 

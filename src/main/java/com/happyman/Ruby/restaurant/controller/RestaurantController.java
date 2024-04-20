@@ -18,7 +18,7 @@ import java.util.List;
 public class RestaurantController extends BaseController {
 
     @GetMapping(value = "/restaurantHome")
-    public String getStartBooking(){
+    public String getStartBooking2(){
         return "/restaurant/startBooking";
     }
 
@@ -47,14 +47,14 @@ public class RestaurantController extends BaseController {
         return "/restaurant/summary";
     }
 
-    @GetMapping("/adminMenuPlan")
+    @PostMapping("/adminMenuPlan")
     public String getMenuPlan(Menu menu, Model model) {
         masterService.saveMenu(menu);
         model.addAttribute("foods", masterService.getAllMenus());
         return "restaurant/menuView";
     }
 
-    @GetMapping("/adminMenuPlanEdit")
+    @GetMapping("/adminMenuPlanShow")
     public String getMenu(Model model) {
         model.addAttribute("foods", masterService.getAllMenus());
         return "restaurant/menuView";
@@ -69,8 +69,12 @@ public class RestaurantController extends BaseController {
 
     @PostMapping("/editMenu")
     public String editMenu(Integer menuId, Model model) {
-        masterService.deleteMenuById(menuId);
         model.addAttribute("editMenu", masterService.getMenuById(menuId));
         return "restaurant/addMenuForm";
+    }
+
+    @GetMapping(value = "/addMenu")
+    public String getStartBooking(){
+        return "/restaurant/addMenuForm";
     }
 }

@@ -15,15 +15,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/restaurant/addMenuForm.css">
 </head>
 <body>
-<form id="mealForm">
+<form id="mealForm" method="post" action="${pageContext.request.contextPath}/restaurant/adminMenuPlan">
     <label for="mealName">Meal name:</label>
-    <input type="text" id="mealName" name="mealName" value="<%= (menu != null) ? menu.getMenuName() : ""%>" required />
+    <input type="text" id="mealName" name="menuName" value="<%= (menu != null) ? menu.getMenuName() : ""%>" required />
 
     <label for="mealType">Meal Type:</label>
     <input type="text" id="mealType" name="mealType" value="<%= (menu != null) ? menu.getMealType() : ""%>" required />
 
     <label for="dishType">Dish Type:</label>
-    <input type="text" id="dishType" name="mealType" value="<%= (menu != null) ? menu.getDishType() : ""%>" required />
+    <input type="text" id="dishType" name="dishType" value="<%= (menu != null) ? menu.getDishType() : ""%>" required />
 
     <label for="price">Price:</label>
     <input
