@@ -71,7 +71,7 @@
                 <h3 class="title">Your feedback</h3>
 
                 <div class="input-container">
-                    <input type="text" name="userName" class="input" />
+                    <input type="text" name="userName" class="input" required/>
                     <label>Username</label>
                     <span>Username</span>
                 </div>
@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="input-container">
-                    <input type="text" name="bookingID" class="input" />
+                    <input type="text" name="bookingID" class="input" required/>
                     <label>Booking ID</label>
                     <span>Booking ID</span>
                 </div>
