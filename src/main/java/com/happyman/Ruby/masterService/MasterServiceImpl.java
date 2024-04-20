@@ -217,13 +217,13 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public void updateEvent(EventAddDTO event) {
+	public void updateEvent(Event event) {
 		eventService.updateEvent(event);
 	}
 
 	@Override
-	public void updateEventByEventDTO(EventAddDTO eve) {
-		eventService.updateEventByEventDTO(eve);
+	public List<Addon> getAddonsByEventId(Integer eventId) {
+		return eventAddon.getAddonsByEventId(eventId);
 	}
 
 	@Override
@@ -246,13 +246,4 @@ public class MasterServiceImpl implements MasterService{
 		eventAddon.deleteEventToAddon(eventToAddon);
 	}
 
-	@Override
-	public List<EventAddDTO> getEventDTOList() {
-		return null;
-	}
-
-	@Override
-	public void updateEventAddDTO(EventAddDTO eventAddDTO) {
-
-	}
 }

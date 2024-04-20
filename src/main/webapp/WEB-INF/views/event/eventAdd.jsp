@@ -33,8 +33,8 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <label>Discription :</label><br>
-                            <div class="chech"><input type="text" name="description" id="description" required></div>
+                            <label>Description :</label><br>
+                            <div class="check"><input type="text" name="description" id="description" required></div>
                         </div>
 
                     </div>

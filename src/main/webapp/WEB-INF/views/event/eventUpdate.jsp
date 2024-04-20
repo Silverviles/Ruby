@@ -16,11 +16,6 @@
 
 <h1>Events</h1>
 
-<div id="searchContainer">
-    <input type="text" id="searchInput" placeholder="Search by First Name">
-    <button onclick="searchEmployee()">Search</button>
-</div>
-
 <table id="employeeTable">
     <thead>
     <tr>

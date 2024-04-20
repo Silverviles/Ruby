@@ -3,17 +3,11 @@ package com.happyman.Ruby.masterService;
 import java.util.List;
 
 import com.happyman.Ruby.events.dto.EventAddDTO;
-import com.happyman.Ruby.masterService.dao.Event;
-import com.happyman.Ruby.masterService.dao.EventToAddon;
+import com.happyman.Ruby.masterService.dao.*;
 import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.Seat;
-import com.happyman.Ruby.masterService.dao.Trip;
-import com.happyman.Ruby.masterService.dao.Vehicle;
 
 
 public interface MasterService {
@@ -69,9 +63,9 @@ public interface MasterService {
 
 	void deleteEvent(Integer eventId);
 
-	void updateEvent(EventAddDTO event);
+	void updateEvent(Event event);
 
-	void updateEventByEventDTO(EventAddDTO eve);
+	List<Addon> getAddonsByEventId(Integer eventId);
 
 	//Implement for Event
 
@@ -82,10 +76,6 @@ public interface MasterService {
 	void deleteEventToAddonByEventId(Integer eventId);
 
 	void deleteEventToAddon(EventToAddon eventToAddon);
-
-	List<EventAddDTO> getEventDTOList();
-
-	void updateEventAddDTO(EventAddDTO eventAddDTO);
 
 	//Implement for EventAddon
 }

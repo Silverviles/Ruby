@@ -3,12 +3,17 @@ package com.happyman.Ruby.masterService.service;
 import com.happyman.Ruby.events.dto.EventAddDTO;
 import com.happyman.Ruby.masterService.dao.Event;
 import com.happyman.Ruby.masterService.repository.EventRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class EventServiceImpl implements EventService {
     private final EventRepository eventRepository;
 
+    @Autowired
     public EventServiceImpl(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
@@ -51,8 +56,17 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void updateEvent(EventAddDTO event) {
-
+    public void updateEvent(Event event) {
+        Optional<Event> existingEventOptional = eventRepository.findById(event.getId());
+        if (existingEventOptional.isPresent()) {
+            Event existingEvent = existingEventOptional.get();
+            existingEvent.setEventName(event.getEventName());
+            existingEvent.setAvailability(event.getAvailability());
+            existingEvent.setDescription(event.getDescription());
+            existingEvent.setPrice(event.getPrice());
+            existingEvent.setImage(event.getImage());
+            eventRepository.save(existingEvent);
+        }
     }
 
     @Override
@@ -60,9 +74,9 @@ public class EventServiceImpl implements EventService {
         Event e = this.getEventById(eve.getEventId());
         e.setEventName(eve.getEventName());
         e.setAvailability(eve.getAvailable());
-        e.setDescription(eve.getAdminDescription());
-        e.setPrice(eve.getPriceInput());
-        e.setImage(eve.getImageInput());
+        e.setDescription(eve.getDescription());
+        e.setPrice(eve.getPrice());
+        e.setImage(eve.getImage());
         eventRepository.save(e);
     }
 }

@@ -20,6 +20,7 @@ Landing Page
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="transport/transportForm">Transportation Form</button>
+    <button data-action="admin/temp1">Admin</button>
 </form>
 
 <script>

@@ -21,9 +21,7 @@ public interface EventService {
 
     void deleteEvent(Integer eventId);
 
-    void updateEvent(EventAddDTO event);
+    void updateEvent(Event event);
 
-    void updateEventByEventDTO(EventAddDTO eve);
-
-
+    public void updateEventByEventDTO(EventAddDTO eve);
 }

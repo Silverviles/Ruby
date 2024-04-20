@@ -13,10 +13,10 @@ public class EventAddDTO {
     private Integer eventId;
     private String eventName;
     private Byte available;
-    private String adminDescription;
-    private String imageInput;
-    private Float priceInput;
-    private Boolean eventAvailability;
+    private String description;
+    private String image;
+    private Double price;
+    private Boolean availability;
     private List<Addon> addonList;
 
 }
