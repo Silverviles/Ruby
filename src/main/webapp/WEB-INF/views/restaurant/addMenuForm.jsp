@@ -1,10 +1,11 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Menu" %><%--
   Created by IntelliJ IDEA.
   User: Jola
   Date: 4/20/2024
   Time: 1:07 AM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Menu menu = (Menu) request.getAttribute("editMenu"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,21 +17,13 @@
 <body>
 <form id="mealForm">
     <label for="mealName">Meal name:</label>
-    <input type="text" id="mealName" name="mealName" required />
+    <input type="text" id="mealName" name="mealName" value="<%= (menu != null) ? menu.getMenuName() : ""%>" required />
 
     <label for="mealType">Meal Type:</label>
-    <select id="mealType" name="mealType">
-        <option value="breakfast">Breakfast</option>
-        <option value="lunch">Lunch</option>
-        <option value="dinner">Dinner</option>
-    </select>
+    <input type="text" id="mealType" name="mealType" value="<%= (menu != null) ? menu.getMealType() : ""%>" required />
 
     <label for="dishType">Dish Type:</label>
-    <select id="dishType" name="dishType">
-        <option value="mainDish">Main Dish</option>
-        <option value="drink">Drink</option>
-        <option value="dessert">Dessert</option>
-    </select>
+    <input type="text" id="dishType" name="mealType" value="<%= (menu != null) ? menu.getDishType() : ""%>" required />
 
     <label for="price">Price:</label>
     <input
@@ -39,12 +32,9 @@
             name="price"
             min="0"
             step="0.01"
+            value="<%= (menu != null) ? menu.getPrice() : ""%>"
             required
     />
-
-    <label for="image">Image:</label>
-    <input type="file" id="image" name="image" accept="image/*" required />
-
     <input type="submit" value="Submit" />
 </form>
 </body>

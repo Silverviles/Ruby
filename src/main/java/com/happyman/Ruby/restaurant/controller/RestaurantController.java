@@ -1,20 +1,17 @@
 package com.happyman.Ruby.restaurant.controller;
 
-import java.util.List;
-
+import com.happyman.Ruby.common.BaseController;
+import com.happyman.Ruby.masterService.dao.Food;
+import com.happyman.Ruby.masterService.dao.Menu;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.happyman.Ruby.common.BaseController;
-import com.happyman.Ruby.masterService.MasterServiceImpl;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.RestaurantTable;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/restaurant")
@@ -50,9 +47,30 @@ public class RestaurantController extends BaseController {
         return "/restaurant/summary";
     }
 
-    @PostMapping("/reserveTable")
-    public String addTableReservation(RestaurantTable restaurantTable){
-        masterService.save(restaurantTable);
-        return "/restaurant/startBooking";
+    @GetMapping("/adminMenuPlan")
+    public String getMenuPlan(Menu menu, Model model) {
+        masterService.saveMenu(menu);
+        model.addAttribute("foods", masterService.getAllMenus());
+        return "restaurant/menuView";
+    }
+
+    @GetMapping("/adminMenuPlanEdit")
+    public String getMenu(Model model) {
+        model.addAttribute("foods", masterService.getAllMenus());
+        return "restaurant/menuView";
+    }
+
+    @PostMapping("/deleteMenu")
+    public String deleteMenu(Integer menuId, Model model) {
+        masterService.deleteMenuById(menuId);
+        model.addAttribute("foods", masterService.getAllMenus());
+        return "restaurant/menuView";
+    }
+
+    @PostMapping("/editMenu")
+    public String editMenu(Integer menuId, Model model) {
+        masterService.deleteMenuById(menuId);
+        model.addAttribute("editMenu", masterService.getMenuById(menuId));
+        return "restaurant/addMenuForm";
     }
 }

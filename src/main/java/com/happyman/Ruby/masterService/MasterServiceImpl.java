@@ -2,22 +2,14 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.masterService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Driver;
-import com.happyman.Ruby.masterService.dao.Food;
-import com.happyman.Ruby.masterService.dao.RestaurantTable;
-import com.happyman.Ruby.masterService.dao.Trip;
-import com.happyman.Ruby.masterService.dao.Vehicle;
-import com.happyman.Ruby.masterService.service.DriverService;
-import com.happyman.Ruby.masterService.service.FoodService;
-import com.happyman.Ruby.masterService.service.RestaurantTableService;
-import com.happyman.Ruby.masterService.service.TripService;
-import com.happyman.Ruby.masterService.service.VehicleService;
 
 @Service
 public class MasterServiceImpl implements MasterService{
@@ -26,23 +18,26 @@ public class MasterServiceImpl implements MasterService{
 	private final TripService tripService;
 	private final FoodService foodService;
 	private final RestaurantTableService restaurantTableService;
+
+	private final MenuService menuService;
 	private final PlatformTransactionManager platformTransactionManager;
 
 	@Autowired
 	public MasterServiceImpl(
-		DriverService driverService,
-		VehicleService vehicleService,
-		TripService tripService,
-		FoodService foodService,
-		RestaurantTableService restaurantTableService,
-		PlatformTransactionManager platformTransactionManager
+            DriverService driverService,
+            VehicleService vehicleService,
+            TripService tripService,
+            FoodService foodService,
+            RestaurantTableService restaurantTableService, MenuService menuService,
+            PlatformTransactionManager platformTransactionManager
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
 		this.foodService = foodService;
 		this.restaurantTableService = restaurantTableService;
-		this.platformTransactionManager = platformTransactionManager;
+        this.menuService = menuService;
+        this.platformTransactionManager = platformTransactionManager;
 		// TODO: add all the other services here. Declare them as variables above first.
 	}
 
@@ -161,23 +156,38 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public RestaurantTable save(RestaurantTable restaurantTable) {
-		return restaurantTableService.save(restaurantTable);
+	public void saveMenu(Menu menu) {
+		menuService.saveMenu(menu);
 	}
 
 	@Override
-	public List<RestaurantTable> findAll() {
-		return restaurantTableService.findAll();
+	public Menu getMenuById(Integer menuId) {
+		return menuService.getMenuById(menuId);
 	}
 
 	@Override
-	public RestaurantTable findById(Integer id) {
-		return restaurantTableService.findById(id);
+	public List<Menu> getAllMenus() {
+		return menuService.getAllMenus();
 	}
 
 	@Override
-	public void deleteById(Integer id) {
-		restaurantTableService.deleteById(id);
+	public List<Menu> getAllMenusByMealType(String mealType) {
+		return menuService.getAllMenusByMealType(mealType);
+	}
+
+	@Override
+	public List<Menu> getAllMenusByDishType(String dishType) {
+		return menuService.getAllMenusByDishType(dishType);
+	}
+
+	@Override
+	public List<Menu> getAllMenusByAvailability(Byte availability) {
+		return menuService.getAllMenusByAvailability(availability);
+	}
+
+	@Override
+	public void deleteMenuById(Integer menuId) {
+		menuService.deleteMenuById(menuId);
 	}
 
 	@Override

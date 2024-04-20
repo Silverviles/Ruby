@@ -1,10 +1,13 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Food" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Menu" %><%--
   Created by IntelliJ IDEA.
   User: Jola
   Date: 4/20/2024
   Time: 2:12 AM
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<% List<Menu> foodList = (List<Menu>) request.getAttribute("foods"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +23,7 @@
         <th>Image</th>
         <th>Name</th>
         <th>
-            <select id="mealTypeFilter" onchange="filterByMealType(this.value)">
+            <select id="mealTypeFilter">
                 <option value="all">All</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
@@ -28,7 +31,7 @@
             </select>
         </th>
         <th>
-            <select id="dishTypeFilter" onchange="filterByDishType(this.value)">
+            <select id="dishTypeFilter">
                 <option value="all">All</option>
                 <option value="mainDish">Main Dish</option>
                 <option value="drink">Drink</option>
@@ -41,11 +44,26 @@
     </tr>
     </thead>
     <tbody id="mealBody">
-    <!-- Meal items will be populated here -->
+    <% if (foodList != null && !foodList.isEmpty()) {%>
+    <% for (Menu food : foodList) { %>
+    <td>Image URL</td>
+    <td><%= food.getMenuName()%></td>
+    <td><%= food.getMealType()%></td>
+    <td><%= food.getDishType()%></td>
+    <td><%= food.getPrice()%></td>
+    <td>
+        <form method="post" action="${pageContext.request.contextPath}">
+            <button class="edit-button" name="menuId" value="<%= food.getId()%>">Edit</button>
+        </form>
+        <form method="post" action="${pageContext.request.contextPath}/restaurant/deleteMenu">
+            <button class="delete-button" name="menuId" value="<%= food.getId()%>">Delete</button>
+        </form>
+    </td>
     </tbody>
 </table>
-
-<script src="${pageContext.request.contextPath}/scripts/restaurant/menuView.js"></script>
+<form method="get" action="${pageContext.request.contextPath}restaurant/getMeals">
+    <button class="add-button" name="addMenu" value="<%= food.getId()%>">Add Menu</button>
+</form>
 </body>
 </html>
 

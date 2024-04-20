@@ -74,13 +74,15 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
+                            <li id="view_Menu_button">
                                 <a href="#">
-                                    <span class="text">R1</span>
+                                    <span class="text">View Menu</span>
                                 </a>
                             </li>
                             <li>
+                            <li id="Add_Menu_button">
                                 <a href="#">
-                                    <span class="text">R2</span>
+                                    <span class="text">Add Menu</span>
                                 </a>
                             </li>
                         </ul>
@@ -289,7 +291,13 @@
         <div id="emp_updateDelete" class="sub-contents">
             <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
         </div>
+        <div id="view_Menu" class="sub-contents">
+            <jsp:include page="../restaurant/menuView.jsp"/>
+        </div>
 
+        <div id="Add_Menu" class="sub-contents">
+            <jsp:include page="../restaurant/addMenuForm.jsp"/>
+        </div>
         <!-- TODO: Add other divs as needed. follow the id and class formats -->
     </div>
 </div>
