@@ -39,7 +39,7 @@
                 </div>
                 <div class="information">
                     <img src="${pageContext.request.contextPath}/images/customerSupport/email-2.png" class="icon" alt="">
-                    <p>lorem@ipsum.com</p>
+                    <p>happymanVilla@gmail.com</p>
                 </div>
                 <div class="information">
                     <img src="${pageContext.request.contextPath}/images/customerSupport/telephone.png" class="icon" alt="">
