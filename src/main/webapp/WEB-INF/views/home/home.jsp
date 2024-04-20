@@ -18,6 +18,7 @@
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="customerSupport/feedback">Feedback</button>
     <button data-action="admin/temp1">Admin</button>
+    <button data-action="customerSupport/feedbackPage">Customer feedback</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 <script>

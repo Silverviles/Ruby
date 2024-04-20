@@ -19,6 +19,9 @@ public class CustomerSupportController extends BaseController {
         return "customerSupportSystem/feedback";
     }
 
+    @GetMapping("/feedbackPage")
+    public String authenticate1() { return "customerSupportSystem/feedbackPage"; }
+
     @PostMapping("/addFeedback")
     public String addFeedback(@ModelAttribute Feedback feedback){
         masterService.addFeedback(feedback);
