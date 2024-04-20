@@ -94,7 +94,8 @@
                     <span>Message</span>
                 </div>
 
-                <input type="submit" value="Send" class="btn" />
+                <input type="submit" value="Send" class="btn" id="submitButton"/>
+                <div id="successMessage" class="hidden">Success!</div>
             </form>
         </div>
     </div>
