@@ -45,7 +45,7 @@
 
                     <div class="form_group">
                         <div class="input_group">
-                            <input type="text" name="email" required>
+                            <input type="email" name="email" required>
                             <label>Email</label>
                         </div>
 
