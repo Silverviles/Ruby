@@ -14,7 +14,7 @@
     <div class="booking_container" style="width: 80vw;">
         <table style="width: 80vw; table-layout: fixed;">
             <tr>
-                <th>ID</th>
+                <th style="width:30px">ID</th>
                 <th style="width: 15%">Name</th>
                 <th style="width: 20%">Description</th>
                 <th>Price</th>

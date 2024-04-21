@@ -45,9 +45,15 @@ public class PackageController extends BaseController {
 
     @PostMapping("/deletePackage")
     public String deletePackage(@ModelAttribute PackageDTO packageDTO) {
-        masterService.deletePackage(packageDTO.getId());
-        masterService.deletePackageToAddonByPackageId(packageDTO.getId());
-        return "redirect:/success";
+        try {
+            masterService.deletePackage(packageDTO.getId());
+            masterService.deletePackageToAddonByPackageId(packageDTO.getId());
+            return "redirect:/success";
+        }catch (Exception e) {
+            log.error(e.getMessage());
+            return "redirect:/error";
+        }
+
     }
 
     @PostMapping("/updatePackage")
