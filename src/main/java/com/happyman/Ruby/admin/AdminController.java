@@ -21,7 +21,7 @@ public class AdminController extends BaseController {
 
     @GetMapping("/temp1")
     public String goTemp1(Model model) {
-        List<Room> rooms = masterService.getAllRoom();
+        List<Room> rooms = masterService.getAllRooms();
         model.addAttribute("room", rooms);
         return "common/admin_sidebar";
     }
