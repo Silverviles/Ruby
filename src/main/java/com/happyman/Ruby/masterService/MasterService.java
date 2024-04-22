@@ -41,9 +41,6 @@ public interface MasterService {
 	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber);
 	public List<Trip> getAllTripsByDriverId(Integer driverId);
 
-	// Common Implementation
-	public PlatformTransactionManager getTransactionManager();
-
 	//room
 
 	public void saveRoom(Room room);
