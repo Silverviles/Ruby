@@ -17,8 +17,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_sidebar.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/formStyles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/admin_sidebar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/common/formStyles.css">
     <script
             src="https://kit.fontawesome.com/64d58efce2.js"
             crossorigin="anonymous"
