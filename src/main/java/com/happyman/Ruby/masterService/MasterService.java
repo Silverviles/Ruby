@@ -1,11 +1,12 @@
 package com.happyman.Ruby.masterService;
 
-import java.util.List;
-
-import org.hibernate.Transaction;
+import com.happyman.Ruby.common.DomainConstants;
+import com.happyman.Ruby.masterService.dao.Package;
+import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.packages.dto.PackageDTO;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import com.happyman.Ruby.common.DomainConstants;
+import java.util.List;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Employee;
 import com.happyman.Ruby.masterService.dao.Food;
@@ -30,7 +31,7 @@ public interface MasterService {
 	public Vehicle getVehicleByNumber(String vehicleNumber);
 	public void saveVehicle(Vehicle vehicle);
 
-	// Implementation for Trip
+	// methods Implementation for Trip
 	public void saveTrip(Trip trip);
 	public void deleteTrip(Trip trip);
 	public Trip getTripById(Integer tripId);
@@ -39,7 +40,7 @@ public interface MasterService {
 	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber);
 	public List<Trip> getAllTripsByDriverId(Integer driverId);
 
-	// Implementation for Food
+	// methods Implementation for Food
 	public void saveFood(Food food);
 	public Food findFoodById(Integer foodId);
 	public List<Food> getAllFoods();
@@ -63,4 +64,33 @@ public interface MasterService {
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();
+
+	//methods implementations for Addons
+	public Addon getAddonById(Integer addonId);
+	public void saveAddon(Addon addon);
+
+	public void deleteAddon(Integer addonId);
+	public List<Addon> getAllAddons();
+	public List<Addon> grtAddonByAvailability(Byte availability);
+	public List<Addon> getAddonByPackageId(Integer id);
+
+	//methods implementation for Packages
+	public List<Package> getAllPackages();
+	public Package getPackageById(Integer packageId);
+	public Package getPackageByName(String packageName);
+	public List<Package> getPackageByAvailability(Boolean availability);
+	public List<Package> getPackageByType(DomainConstants.PackageType type);
+	public List<Package> getPackageByMaxAdults(int maxAdults);
+	public void addPackage(Package pkg);
+	public void deletePackage(Integer packageId);
+	public void addPackageToAddon(PackageToAddon packageToAddon);
+	public void addPackageWithAddon(PackageDTO packageDTO);
+	public  List<PackageDTO> getPackageDTOList();
+	public void deletePackageToAddonByPackageId(Integer packageId);
+	public void updatePackageByPackageDTO(PackageDTO pkg);
+	public void updatePackageDTO(PackageDTO packageDTO);
+
+	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO);
+	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
+
 }

@@ -3,7 +3,6 @@
   User: silverviles
   Date: 09/02/2024
   Time: 22:26
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -24,7 +23,8 @@
     <button data-action="transport/transportForm">Transportation Form</button>
     <!--<button data-action="employeeManagement/shiftHome">EmployeeShift Management</button>-->
     <button data-action="employeeManagement/registerHome">Employee Registration</button>
-   <button data-action="employeeManagement/managementHome">Employee Management</button>
+    <button data-action="employeeManagement/managementHome">Employee Management</button>
+    <button data-action="packages/pack">packageUpdateDelete</button>
 </form>
 
 
