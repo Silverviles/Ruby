@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.happyman.Ruby.events.dto.EventAddDTO;
 import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.masterService.dao.Room;
 import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -198,4 +199,25 @@ public interface MasterService {
 	void deleteEventToAddon(EventToAddon eventToAddon);
 
 	//Implement for EventAddon
+	//room
+
+	public void saveRoom(Room room);
+
+	public Room getRoomById(Integer roomId);
+
+	public List<Room> getAllRooms();
+
+	public List<Room> getAllRoomsByRoomType(String roomType);
+
+	public List<Room> getAllRoomsByStatus(Boolean status);
+
+
+	public List<Room> getAllRoomsByGuests(Integer guests);
+
+
+	void addRoom(Room room);
+
+	void updateRoom(Room room);
+
+	void deleteRoom(Room room);
 }

@@ -3,6 +3,8 @@ package com.happyman.Ruby.masterService;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.Room;
+import com.happyman.Ruby.masterService.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -32,6 +34,7 @@ import com.happyman.Ruby.masterService.service.FoodService;
 import com.happyman.Ruby.masterService.service.PackageService;
 import com.happyman.Ruby.masterService.service.PackageToAddonService;
 import com.happyman.Ruby.masterService.service.PaymentService;
+import com.happyman.Ruby.masterService.service.RoomService;
 import com.happyman.Ruby.masterService.service.SeatService;
 import com.happyman.Ruby.masterService.service.TripService;
 import com.happyman.Ruby.masterService.service.VehicleService;
@@ -54,6 +57,7 @@ public class MasterServiceImpl implements MasterService {
 	private final EventService eventService;
 
 	private final EventToAddOnService eventAddon;
+	private final RoomService roomService;
 
 	@Autowired
 	public MasterServiceImpl(
@@ -69,6 +73,7 @@ public class MasterServiceImpl implements MasterService {
 		SeatService seatService,
 		EventService eventService,
 		EventToAddOnService eventAddon,
+		RoomService roomService,
 		PlatformTransactionManager platformTransactionManager
 	) {
 		this.driverService = driverService;
@@ -84,6 +89,7 @@ public class MasterServiceImpl implements MasterService {
 		this.paymentService = paymentService;
 		this.eventService = eventService;
 		this.eventAddon = eventAddon;
+		this.roomService = roomService;
 	}
 
 	@Override
@@ -261,8 +267,48 @@ public class MasterServiceImpl implements MasterService {
 	}
 
 	@Override
-	public PlatformTransactionManager getTransactionManager() {
-		return this.platformTransactionManager;
+	public void saveRoom(Room room) {
+
+	}
+
+	@Override
+	public Room getRoomById(Integer roomId) {
+		return null;
+	}
+
+	@Override
+	public List<Room> getAllRooms() {
+		return roomService.getAllRooms();
+	}
+
+	@Override
+	public List<Room> getAllRoomsByRoomType(String roomType) {
+		return roomService.getAllRoomsByRoomType(roomType);
+	}
+
+	@Override
+	public List<Room> getAllRoomsByStatus(Boolean status) {
+		return roomService.getAllRoomsByStatus(status);
+	}
+
+	@Override
+	public List<Room> getAllRoomsByGuests(Integer guests) {
+		return roomService.getAllRoomsByGuests(guests);
+	}
+
+	@Override
+	public void addRoom(Room room) {
+		roomService.addRoom(room);
+	}
+
+	@Override
+	public void updateRoom(Room room) {
+		roomService.updateRoom(room);
+	}
+
+	@Override
+	public void deleteRoom(Room room) {
+		roomService.deleteRoom(room);
 	}
 
 	@Override
