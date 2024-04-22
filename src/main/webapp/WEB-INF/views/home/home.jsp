@@ -13,9 +13,7 @@
 <body>
 <jsp:include page="../common/header.jsp"/>
 
-<%--Your page content--%>
-
-Landing Page
+<div style="margin-top: 80px"></div>
 <a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
 <form method="get" id="transportForm">
     <button data-action="transport/loginForm">Transportation Login</button>
