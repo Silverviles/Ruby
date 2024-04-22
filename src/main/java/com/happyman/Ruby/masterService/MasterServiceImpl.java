@@ -1,10 +1,8 @@
 package com.happyman.Ruby.masterService;
 
-import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Package;
-import com.happyman.Ruby.masterService.dao.*;
-import com.happyman.Ruby.masterService.service.*;
-import com.happyman.Ruby.packages.dto.PackageDTO;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -15,6 +13,7 @@ import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Employee;
 import com.happyman.Ruby.masterService.dao.Food;
+import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.dao.PackageToAddonId;
 import com.happyman.Ruby.masterService.dao.Seat;
@@ -26,6 +25,7 @@ import com.happyman.Ruby.masterService.service.EmployeeService;
 import com.happyman.Ruby.masterService.service.FoodService;
 import com.happyman.Ruby.masterService.service.PackageService;
 import com.happyman.Ruby.masterService.service.PackageToAddonService;
+import com.happyman.Ruby.masterService.service.SeatService;
 import com.happyman.Ruby.masterService.service.TripService;
 import com.happyman.Ruby.masterService.service.VehicleService;
 import com.happyman.Ruby.packages.dto.PackageDTO;
@@ -41,398 +41,387 @@ public class MasterServiceImpl implements MasterService{
 	private final AddonService addonService;
 	private final PackageService packageService;
 	private final PackageToAddonService packageToAddonService;
+	private final SeatService seatService;
 
 	@Autowired
-	public MasterServiceImpl(
-            DriverService driverService,
-            VehicleService vehicleService,
-            FoodService foodService,
-            PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageService packageService, PackageToAddonService packageToAddonService
-    ) {
-		DriverService driverService,
-		VehicleService vehicleService,
-		TripService tripService,
-		FoodService foodService,
-		EmployeeService employeeService,
-		PlatformTransactionManager platformTransactionManager
-	){
-			this.driverService = driverService;
-			this.vehicleService = vehicleService;
-			this.tripService = tripService;
-			this.foodService = foodService;
-			this.platformTransactionManager = platformTransactionManager;
-			// TODO: add all the other services here. Declare them as variables above first.
+	public MasterServiceImpl(DriverService driverService, VehicleService vehicleService, TripService tripService, FoodService foodService, EmployeeService employeeService, PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageService packageService, PackageToAddonService packageToAddonService, SeatService seatService) {
+		this.driverService = driverService;
+		this.vehicleService = vehicleService;
+		this.tripService = tripService;
+		this.foodService = foodService;
+		this.employeeService = employeeService;
+		this.platformTransactionManager = platformTransactionManager;
+		this.addonService = addonService;
+		this.packageService = packageService;
+		this.packageToAddonService = packageToAddonService;
+		this.seatService = seatService;
+	}
 
-		}
+	@Override
+	public void addDriver(Driver driver) {
+		driverService.addDriver(driver);
+	}
 
-		@Override
-		public void addDriver (Driver driver){
-			driverService.addDriver(driver);
-		}
+	@Transactional
+	@Override
+	public void addDriverAndVehicle(Driver driver, Vehicle vehicle) {
+		vehicleService.saveVehicle(vehicle);
+		driver.setVehicle(getVehicleByNumber(vehicle.getVehicleNumber()));
+		driverService.addDriver(driver);
+	}
 
-		@Transactional
-		@Override
-		public void addDriverAndVehicle (Driver driver, Vehicle vehicle){
-			vehicleService.saveVehicle(vehicle);
-			driver.setVehicle(getVehicleByNumber(vehicle.getVehicleNumber()));
-			driverService.addDriver(driver);
-		}
+	@Override
+	public void deleteDriver(Driver driver) {
+		driverService.deleteDriver(driver);
+	}
 
-		@Override
-		public void deleteDriver (Driver driver){
-			driverService.deleteDriver(driver);
-		}
+	@Override
+	public Driver getDriverById(Integer driverId) {
+		return driverService.getDriverById(driverId);
+	}
 
-		@Override
-		public Driver getDriverById (Integer driverId){
-			return driverService.getDriverById(driverId);
-		}
+	@Override
+	public Driver getDriverByEmail(String email) {
+		return driverService.getDriverByEmail(email);
+	}
 
-		@Override
-		public Driver getDriverByEmail (String email){
-			return driverService.getDriverByEmail(email);
-		}
+	@Override
+	public Driver getDriverByMobileNo(String mobileNo) {
+		return driverService.getDriverByMobileNo(mobileNo);
+	}
 
-		@Override
-		public Driver getDriverByMobileNo (String mobileNo){
-			return driverService.getDriverByMobileNo(mobileNo);
-		}
+	@Override
+	public List<Driver> getAllDrivers() {
+		return driverService.getAllDrivers();
+	}
 
-		@Override
-		public List<Driver> getAllDrivers () {
-			return driverService.getAllDrivers();
-		}
+	@Override
+	public List<Driver> getAllDriversByVehicleType(String type) {
+		return driverService.getAllDriversByVehicleType(type);
+	}
 
-		@Override
-		public List<Driver> getAllDriversByVehicleType (String type){
-			return driverService.getAllDriversByVehicleType(type);
-		}
+	@Override
+	public Vehicle getVehicle(Integer vehicleId) {
+		return vehicleService.getVehicle(vehicleId);
+	}
 
-		@Override
-		public Vehicle getVehicle (Integer vehicleId){
-			return vehicleService.getVehicle(vehicleId);
-		}
+	@Override
+	public Vehicle getVehicleByNumber(String vehicleNumber) {
+		return vehicleService.getAllVehicles().stream().filter(
+			vehicle -> vehicle.getVehicleNumber().equals(vehicleNumber)).findFirst().orElse(null);
+	}
 
-		@Override
-		public Vehicle getVehicleByNumber (String vehicleNumber){
-			return vehicleService.getAllVehicles().stream().filter(
-				vehicle -> vehicle.getVehicleNumber().equals(vehicleNumber)).findFirst().orElse(null);
-		}
+	@Override
+	public void saveVehicle(Vehicle vehicle) {
+		vehicleService.saveVehicle(vehicle);
+	}
 
-		@Override
-		public void saveVehicle (Vehicle vehicle){
-			vehicleService.saveVehicle(vehicle);
-		}
+	@Override
+	public void saveTrip(Trip trip) {
+		tripService.saveTrip(trip);
+	}
 
-		@Override
-		public void saveTrip (Trip trip){
-			tripService.saveTrip(trip);
-		}
+	@Override
+	public void deleteTrip(Trip trip) {
+		tripService.deleteTrip(trip);
+	}
 
-		@Override
-		public void deleteTrip (Trip trip){
-			tripService.deleteTrip(trip);
-		}
+	@Override
+	public Trip getTripById(Integer tripId) {
+		return tripService.getTripById(tripId);
+	}
 
-		@Override
-		public Trip getTripById (Integer tripId){
-			return tripService.getTripById(tripId);
-		}
+	@Override
+	public List<Trip> getAllTrips() {
+		return tripService.getAllTrips();
+	}
 
-		@Override
-		public List<Trip> getAllTrips () {
-			return tripService.getAllTrips();
-		}
+	@Override
+	public List<Trip> getAllTripsByVehicleType(String type) {
+		return tripService.getAllTripsByVehicleType(type);
+	}
 
-		@Override
-		public List<Trip> getAllTripsByVehicleType (String type){
-			return tripService.getAllTripsByVehicleType(type);
-		}
+	@Override
+	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber) {
+		return tripService.getAllTripsByVehicleNumber(vehicleNumber);
+	}
 
-		@Override
-		public List<Trip> getAllTripsByVehicleNumber (String vehicleNumber){
-			return tripService.getAllTripsByVehicleNumber(vehicleNumber);
-		}
+	@Override
+	public List<Trip> getAllTripsByDriverId(Integer driverId) {
+		return tripService.getAllTripsByDriverId(driverId);
+	}
 
-		@Override
-		public List<Trip> getAllTripsByDriverId (Integer driverId){
-			return tripService.getAllTripsByDriverId(driverId);
-		}
+	@Override
+	public void saveFood(Food food) {
+		foodService.saveFood(food);
+	}
 
-		@Override
-		public void saveFood (Food food){
-			foodService.saveFood(food);
-		}
+	@Override
+	public Food findFoodById(Integer foodId) {
+		return foodService.findFoodById(foodId);
+	}
 
-		@Override
-		public Food findFoodById (Integer foodId){
-			return foodService.findFoodById(foodId);
-		}
+	@Override
+	public List<Food> getAllFoods() {
+		return foodService.getAllFoods();
+	}
 
-		@Override
-		public List<Food> getAllFoods () {
-			return foodService.getAllFoods();
-		}
+	@Override
+	public List<Food> getAllFoodByCategory(DomainConstants.FoodCategory category) {
+		return foodService.getAllFoodByCategory(category);
+	}
 
-		@Override
-		public List<Food> getAllFoodByCategory (DomainConstants.FoodCategory category){
-			return foodService.getAllFoodByCategory(category);
-		}
+	@Override
+	public List<Food> getAllFoodByAvailability(Byte availability) {
+		return foodService.getAllFoodByAvailability(availability);
+	}
 
-		@Override
-		public List<Food> getAllFoodByAvailability (Byte availability){
-			return foodService.getAllFoodByAvailability(availability);
-		}
+	@Override
+	public List<Food> getAllFoodByCategoryAndAvailability(DomainConstants.FoodCategory category, Byte availability) {
+		return foodService.getAllFoodByCategoryAndAvailability(category, availability);
+	}
 
-		@Override
-		public List<Food> getAllFoodByCategoryAndAvailability (DomainConstants.FoodCategory category, Byte availability)
-		{
-			return foodService.getAllFoodByCategoryAndAvailability(category, availability);
-		}
+	@Override
+	public void saveSeat(Seat seat) {
+		seatService.saveSeat(seat);
+	}
 
-		@Override
-		public void saveSeat (Seat seat){
+	@Override
+	public Seat findSeatById(Integer seatId) {
+		return null;
+	}
 
-		}
+	@Override
+	public List<Seat> getAllSeats() {
+		return List.of();
+	}
 
-		@Override
-		public Seat findSeatById (Integer seatId){
-			return null;
-		}
+	@Override
+	public List<Seat> getAllSeatsByAvailability(Byte availability) {
+		return List.of();
+	}
 
-		@Override
-		public List<Seat> getAllSeats () {
-			return List.of();
-		}
+	@Override
+	public Seat findSeatByLocation(String location) {
+		return null;
+	}
 
-		@Override
-		public List<Seat> getAllSeatsByAvailability (Byte availability){
-			return List.of();
-		}
+	@Override
+	public void addEmployee(Employee employee) {
+		employeeService.addEmployee(employee);
+	}
 
-		@Override
-		public Seat findSeatByLocation (String location){
-			return null;
-		}
+	@Override
+	public List<Employee> getAllEmployees() {
+		return employeeService.getAllEmployees();
+	}
 
-		@Override
-		public void addEmployee (Employee employee){
-			employeeService.addEmployee(employee);
-		}
+	@Override
+	public void updateEmployee(Employee employee) {
+		employeeService.updateEmployee(employee);
+	}
 
-		@Override
-		public List<Employee> getAllEmployees () {
-			return employeeService.getAllEmployees();
-		}
+	@Override
+	public Boolean deleteEmployee(Integer employeeID) {
+		return employeeService.deleteEmployee(employeeID);
+	}
 
-		@Override
-		public void updateEmployee (Employee employee){
-			employeeService.updateEmployee(employee);
-		}
+	@Override
+	public Employee getEmployeeById(Integer employeeID) {
+		return employeeService.getEmployeeById(employeeID);
+	}
 
-		@Override
-		public Boolean deleteEmployee (Integer employeeID){
-			return employeeService.deleteEmployee(employeeID);
-		}
+	@Override
+	public PlatformTransactionManager getTransactionManager() {
+		return this.platformTransactionManager;
+	}
 
-		@Override
-		public Employee getEmployeeById (Integer employeeID){
-			return employeeService.getEmployeeById(employeeID);
-		}
+	@Override
+	public Addon getAddonById(Integer addonId) {
+		return addonService.getAddonById(addonId);
+	}
 
-		@Override
-		public PlatformTransactionManager getTransactionManager () {
-			return this.platformTransactionManager;
-		}
+	@Override
+	public void saveAddon(Addon addon) {
+		addonService.saveAddon(addon);
+	}
 
-		@Override
-		public Addon getAddonById (Integer addonId){
-			return addonService.getAddonById(addonId);
-		}
+	@Override
+	public void deleteAddon(Integer addonId) {
+		addonService.deleteAddon(addonId);
+	}
 
-		@Override
-		public void saveAddon (Addon addon){
-			addonService.saveAddon(addon);
-		}
+	@Override
+	public List<Addon> getAllAddons() {
+		return addonService.getAllAddon();
+	}
 
-		@Override
-		public void deleteAddon (Integer addonId){
-			addonService.deleteAddon(addonId);
-		}
+	@Override
+	public List<Addon> grtAddonByAvailability(Byte availability) {
+		return addonService.getAddonByAvailability(availability);
+	}
 
-		@Override
-		public List<Addon> getAllAddons () {
-			return addonService.getAllAddon();
-		}
+	@Override
+	public List<Addon> getAddonByPackageId(Integer id) {
+		return addonService.getAddonByPackageId(id);
+	}
 
-		@Override
-		public List<Addon> grtAddonByAvailability (Byte availability){
-			return addonService.getAddonByAvailability(availability);
-		}
+	@Override
+	public List<Package> getAllPackages() {
+		return packageService.getAllPackages();
+	}
 
-		@Override
-		public List<Addon> getAddonByPackageId (Integer id){
-			return addonService.getAddonByPackageId(id);
-		}
+	@Override
+	public Package getPackageById(Integer packageId) {
+		return packageService.getPackageById(packageId);
+	}
 
-		@Override
-		public List<Package> getAllPackages () {
-			return packageService.getAllPackages();
-		}
+	@Override
+	public Package getPackageByName(String packageName) {
+		return packageService.getPackageByName(packageName);
+	}
 
-		@Override
-		public Package getPackageById (Integer packageId){
-			return packageService.getPackageById(packageId);
-		}
+	@Override
+	public List<Package> getPackageByAvailability(Boolean availability) {
+		return packageService.getPackageByAvailability(availability);
+	}
 
-		@Override
-		public Package getPackageByName (String packageName){
-			return packageService.getPackageByName(packageName);
-		}
+	@Override
+	public List<Package> getPackageByType(DomainConstants.PackageType type) {
+		return packageService.getPackageByType(type);
+	}
 
-		@Override
-		public List<Package> getPackageByAvailability (Boolean availability){
-			return packageService.getPackageByAvailability(availability);
-		}
+	@Override
+	public List<Package> getPackageByMaxAdults(int maxAdults) {
+		return packageService.getPackageByMaxAdults(maxAdults);
+	}
 
-		@Override
-		public List<Package> getPackageByType (DomainConstants.PackageType type){
-			return packageService.getPackageByType(type);
-		}
+	@Override
+	public void addPackage(Package pkg) {
+		packageService.addPackage(pkg);
+	}
 
-		@Override
-		public List<Package> getPackageByMaxAdults ( int maxAdults){
-			return packageService.getPackageByMaxAdults(maxAdults);
-		}
+	@Override
+	public void deletePackage(Integer packageId) {
+		packageService.deletePackage(packageId);
+	}
 
-		@Override
-		public void addPackage (Package pkg){
-			packageService.addPackage(pkg);
-		}
-
-		@Override
-		public void deletePackage (Integer packageId){
-			packageService.deletePackage(packageId);
-		}
-
-		@Override
-		public void addPackageToAddon (PackageToAddon packageToAddon){
-			packageToAddonService.addPackageToAddon(packageToAddon);
-		}
+	@Override
+	public void addPackageToAddon(PackageToAddon packageToAddon) {
+		packageToAddonService.addPackageToAddon(packageToAddon);
+	}
 
 
-		@Override
-		public void addPackageWithAddon (PackageDTO packageDTO){
-			Package pkg = new Package();
+	@Override
+	public void addPackageWithAddon(PackageDTO packageDTO) {
+		Package pkg = new Package();
 
-			pkg.setName(packageDTO.getPackageName());
-			pkg.setDescription(packageDTO.getPackageDescription());
-			pkg.setPrice(packageDTO.getPackagePrice());
-			pkg.setDiscontinueDate(packageDTO.getPackageDiscontinueDate());
-			pkg.setAvailability(packageDTO.getPackageAvailability());
-			pkg.setType(DomainConstants.PackageType.valueOf(packageDTO.getPackageType().toUpperCase()));
-			pkg.setMaxAdults(packageDTO.getMaxAdults());
+		pkg.setName(packageDTO.getPackageName());
+		pkg.setDescription(packageDTO.getPackageDescription());
+		pkg.setPrice(packageDTO.getPackagePrice());
+		pkg.setDiscontinueDate(packageDTO.getPackageDiscontinueDate());
+		pkg.setAvailability(packageDTO.getPackageAvailability());
+		pkg.setType(DomainConstants.PackageType.valueOf(packageDTO.getPackageType().toUpperCase()));
+		pkg.setMaxAdults(packageDTO.getMaxAdults());
 
-			packageService.addPackage(pkg);
+		packageService.addPackage(pkg);
 
-			List<Addon> addons = packageDTO.getAddonList();
-			if (!addons.isEmpty()) {
-				for (Addon addon : addons) {
-					PackageToAddonId packageToAddonId = new PackageToAddonId();
-					packageToAddonId.setPackageId(pkg.getId());
-					packageToAddonId.setAddonId(addon.getId());
-
-					PackageToAddon packageToAddon = new PackageToAddon();
-					packageToAddon.setId(packageToAddonId);
-					packageToAddon.setPackageField(pkg);
-					packageToAddon.setAddon(addon);
-					packageToAddonService.addPackageToAddon(packageToAddon);
-				}
-			}
-		}
-
-		public List<PackageDTO> getPackageDTOList ()
-		PackageDTO packageDTO;
-		{
-			List<PackageDTO> packageDTOList = new ArrayList<>();
-			List<Package> packages = packageService.getAllPackages();
-			for (Package p : packages) {
-				packageDTO = new PackageDTO();
-				packageDTO.setId(p.getId());
-				packageDTO.setPackageName(p.getName());
-				packageDTO.setPackageDescription(p.getDescription());
-				packageDTO.setPackagePrice(p.getPrice());
-				packageDTO.setPackageDiscontinueDate(p.getDiscontinueDate());
-				packageDTO.setPackageAvailability(p.getAvailability());
-				packageDTO.setPackageType(p.getType().toString());
-				packageDTO.setMaxAdults(p.getMaxAdults());
-				packageDTO.setAddonList(addonService.getAddonByPackageId(p.getId()));
-				packageDTOList.add(packageDTO);
-			}
-			return packageDTOList;
-		}
-
-		@Override
-		public void deletePackageToAddonByPackageId (Integer packageId){
-			packageToAddonService.deletePackageToAddonByPackageId(packageId);
-		}
-
-		@Override
-		public void updatePackageByPackageDTO (PackageDTO pkg){
-			packageService.updatePackageByPackageDTO(pkg);
-		}
-
-		@Override
-		public List<PackageToAddon> getPackageToAddonsByPackageId (Integer packageId){
-			return packageToAddonService.getPackageToAddonsByPackageId(packageId);
-		}
-
-		@Override
-		public void updatePackageToAddonByPackageDTO (PackageDTO packageDTO){
-			List<Addon> addons = packageDTO.getAddonList();
-			List<Integer> list1 = new ArrayList<>();
+		List<Addon> addons = packageDTO.getAddonList();
+		if (!addons.isEmpty()) {
 			for (Addon addon : addons) {
-				list1.add(addon.getId());
-			}
+				PackageToAddonId packageToAddonId = new PackageToAddonId();
+				packageToAddonId.setPackageId(pkg.getId());
+				packageToAddonId.setAddonId(addon.getId());
 
-			List<PackageToAddon> addons1 = this.getPackageToAddonsByPackageId(packageDTO.getId());
-			List<Integer> list2 = new ArrayList<>();
-			for (PackageToAddon addon : addons1) {
-				PackageToAddonId packageToAddonId = addon.getId();
-				list2.add(packageToAddonId.getAddonId());
+				PackageToAddon packageToAddon = new PackageToAddon();
+				packageToAddon.setId(packageToAddonId);
+				packageToAddon.setPackageField(pkg);
+				packageToAddon.setAddon(addon);
+				packageToAddonService.addPackageToAddon(packageToAddon);
 			}
+		}
+	}
 
-			for (Integer addonId : list1) {
-				if (!list2.contains(addonId)) {
-					PackageToAddon packageToAddon = new PackageToAddon();
-					PackageToAddonId packageToAddonId = new PackageToAddonId();
-					packageToAddonId.setAddonId(addonId);
-					packageToAddonId.setPackageId(addonId);
-					packageToAddon.setId(packageToAddonId);
-					packageToAddon.setPackageField(packageService.getPackageById(packageDTO.getId()));
-					packageToAddon.setAddon(addonService.getAddonById(addonId));
-					packageToAddonService.addPackageToAddon(packageToAddon);
-				}
-			}
+	public List<PackageDTO> getPackageDTOList() {
+		List<PackageDTO> packageDTOList = new ArrayList<>();
+		List<Package> packages = packageService.getAllPackages();
+		for (Package p : packages) {
+			PackageDTO packageDTO = new PackageDTO();
+			packageDTO.setId(p.getId());
+			packageDTO.setPackageName(p.getName());
+			packageDTO.setPackageDescription(p.getDescription());
+			packageDTO.setPackagePrice(p.getPrice());
+			packageDTO.setPackageDiscontinueDate(p.getDiscontinueDate());
+			packageDTO.setPackageAvailability(p.getAvailability());
+			packageDTO.setPackageType(p.getType().toString());
+			packageDTO.setMaxAdults(p.getMaxAdults());
+			packageDTO.setAddonList(addonService.getAddonByPackageId(p.getId()));
+			packageDTOList.add(packageDTO);
+		}
+		return packageDTOList;
+	}
 
-			for (Integer addonId : list2) {
-				if (!list1.contains(addonId)) {
-					PackageToAddon packageToAddon = new PackageToAddon();
-					PackageToAddonId packageToAddonId = new PackageToAddonId();
-					packageToAddonId.setAddonId(addonId);
-					packageToAddonId.setPackageId(addonId);
-					packageToAddon.setId(packageToAddonId);
-					packageToAddonService.addPackageToAddon(packageToAddon);
-				}
-			}
+	@Override
+	public void deletePackageToAddonByPackageId(Integer packageId) {
+		packageToAddonService.deletePackageToAddonByPackageId(packageId);
+	}
 
+	@Override
+	public void updatePackageByPackageDTO(PackageDTO pkg) {
+		packageService.updatePackageByPackageDTO(pkg);
+	}
+
+	@Override
+	public List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId) {
+		return packageToAddonService.getPackageToAddonsByPackageId(packageId);
+	}
+
+	@Override
+	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
+		List<Addon> addons = packageDTO.getAddonList();
+		List<Integer> list1 = new ArrayList<>();
+		for (Addon addon : addons) {
+			list1.add(addon.getId());
 		}
 
+		List<PackageToAddon> addons1 = this.getPackageToAddonsByPackageId(packageDTO.getId());
+		List<Integer> list2 = new ArrayList<>();
+		for (PackageToAddon addon : addons1) {
+			PackageToAddonId packageToAddonId = addon.getId();
+			list2.add(packageToAddonId.getAddonId());
+		}
 
-		@Override
-		public void updatePackageDTO (PackageDTO packageDTO){
-			this.updatePackageToAddonByPackageDTO(packageDTO);
-			this.updatePackageByPackageDTO(packageDTO);
+		for (Integer addonId : list1) {
+			if (!list2.contains(addonId)) {
+				PackageToAddon packageToAddon = new PackageToAddon();
+				PackageToAddonId packageToAddonId = new PackageToAddonId();
+				packageToAddonId.setAddonId(addonId);
+				packageToAddonId.setPackageId(addonId);
+				packageToAddon.setId(packageToAddonId);
+				packageToAddon.setPackageField(packageService.getPackageById(packageDTO.getId()));
+				packageToAddon.setAddon(addonService.getAddonById(addonId));
+				packageToAddonService.addPackageToAddon(packageToAddon);
+			}
+		}
+
+		for (Integer addonId : list2) {
+			if (!list1.contains(addonId)) {
+				PackageToAddon packageToAddon = new PackageToAddon();
+				PackageToAddonId packageToAddonId = new PackageToAddonId();
+				packageToAddonId.setAddonId(addonId);
+				packageToAddonId.setPackageId(addonId);
+				packageToAddon.setId(packageToAddonId);
+				packageToAddonService.addPackageToAddon(packageToAddon);
+			}
 		}
 
 	}
+
+
+	@Override
+	public void updatePackageDTO(PackageDTO packageDTO) {
+		this.updatePackageToAddonByPackageDTO(packageDTO);
+		this.updatePackageByPackageDTO(packageDTO);
+	}
+
+}
