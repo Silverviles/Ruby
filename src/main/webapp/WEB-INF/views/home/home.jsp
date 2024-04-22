@@ -19,6 +19,7 @@
     <button data-action="customerSupport/feedback">Feedback</button>
     <button data-action="admin/temp1">Admin</button>
     <button data-action="customerSupport/feedbackPage">Customer feedback</button>
+    <button data-action="customerSupport/complaint">Complaint</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 <script>
