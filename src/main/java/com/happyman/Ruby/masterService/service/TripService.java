@@ -5,17 +5,17 @@ import java.util.List;
 import com.happyman.Ruby.masterService.dao.Trip;
 
 public interface TripService {
-	public void saveTrip(Trip trip);
+	void saveTrip(Trip trip);
 
-	public Trip getTripById(Integer tripId);
+	Trip getTripById(Integer tripId);
 
-	public void deleteTrip(Trip trip);
+	void deleteTrip(Trip trip);
 
-	public List<Trip> getAllTrips();
+	List<Trip> getAllTrips();
 
-	public List<Trip> getAllTripsByVehicleType(String type);
+	List<Trip> getAllTripsByVehicleType(String type);
 
-	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber);
+	List<Trip> getAllTripsByVehicleNumber(String vehicleNumber);
 
-	public List<Trip> getAllTripsByDriverId(Integer driverId);
+	List<Trip> getAllTripsByDriverId(Integer driverId);
 }

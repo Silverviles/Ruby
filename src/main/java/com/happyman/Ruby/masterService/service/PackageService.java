@@ -1,31 +1,30 @@
 package com.happyman.Ruby.masterService.service;
 
-import com.happyman.Ruby.common.DomainConstants;
-import com.happyman.Ruby.masterService.dao.Addon;
-import com.happyman.Ruby.masterService.dao.Package;
-import com.happyman.Ruby.packages.dto.PackageDTO;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.happyman.Ruby.masterService.dao.Package;
+import com.happyman.Ruby.packages.dto.PackageDTO;
 
 @Service
 public interface PackageService {
-    List<Package> getAllPackages();
+	List<Package> getAllPackages();
 
-    Package getPackageById(Integer packageId);
+	Package getPackageById(Integer packageId);
 
-    Package getPackageByName(String packageName);
+	Package getPackageByName(String packageName);
 
-    List<Package> getPackageByAvailability(Boolean availability);
+	List<Package> getPackageByAvailability(Boolean availability);
 
-    List<Package> getPackageByType(DomainConstants.PackageType type);
+	List<Package> getPackageByType(String type);
 
-    List<Package> getPackageByMaxAdults(int maxAdults);
+	List<Package> getPackageByMaxAdults(int maxAdults);
 
-    void addPackage(Package pkg);
+	void addPackage(Package pkg);
 
-    void deletePackage(Integer packageId);
+	void deletePackage(Integer packageId);
 
-    void updatePackageByPackageDTO(PackageDTO pkg);
+	void updatePackageByPackageDTO(PackageDTO pkg);
 
 }

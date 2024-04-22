@@ -1,7 +1,6 @@
 package com.happyman.Ruby.transportation.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.util.Date;
 
@@ -60,7 +59,7 @@ public class TransportController extends BaseController {
 		}
 	}
 
-	private String getPortalString (@ModelAttribute DriverDTO driverDTO, Model model) {
+	private String getPortalString(@ModelAttribute DriverDTO driverDTO, Model model) {
 		Driver driver = masterService.getDriverByEmail(driverDTO.getEmail());
 		model.addAttribute("driver", driver);
 		model.addAttribute("allJobs", DriverJobList.getAllTrips(masterService, driver.getId()));
@@ -69,7 +68,7 @@ public class TransportController extends BaseController {
 	}
 
 	@PostMapping("/accept")
-	public String deleteTrip(Integer jobId, Integer driverId, Model model){
+	public String deleteTrip(Integer jobId, Integer driverId, Model model) {
 		Trip trip = masterService.getTripById(jobId);
 		trip.setTripStatus((byte) 1);
 		trip.setDriver(masterService.getDriverById(driverId));
@@ -80,7 +79,7 @@ public class TransportController extends BaseController {
 	}
 
 	@PostMapping("/complete")
-	public String completeTrip(Integer jobId, Integer driverId, Model model){
+	public String completeTrip(Integer jobId, Integer driverId, Model model) {
 		Trip trip = masterService.getTripById(jobId);
 		trip.setTripStatus((byte) 2);
 		trip.setDriver(masterService.getDriverById(driverId));
@@ -92,7 +91,7 @@ public class TransportController extends BaseController {
 	}
 
 	@PostMapping("/cancel")
-	public String cancelTrip(Integer jobId, Integer driverId, Model model){
+	public String cancelTrip(Integer jobId, Integer driverId, Model model) {
 		Trip trip = masterService.getTripById(jobId);
 		masterService.deleteTrip(trip);
 		model.addAttribute("driver", masterService.getDriverById(driverId));
@@ -109,10 +108,5 @@ public class TransportController extends BaseController {
 	@GetMapping("/loginForm")
 	public String getLoginForm() {
 		return "transportation/driver_login";
-	}
-
-	@GetMapping("/transportForm")
-	public String getTransportForm(){
-		return "transportation/transportForm";
 	}
 }

@@ -13,11 +13,15 @@
 <body>
 <jsp:include page="../common/header.jsp"/>
 
-<div style="margin-top: 80px"></div>
-<a href="${pageContext.request.contextPath}/restaurant/food" >Go TO Food Page</a>
+<%--Your page content--%>
+
+Landing Page
+<a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
 <form method="get" id="transportForm">
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
+    <button data-action="payments/billing">Payment Portal</button>
+    <button data-action="payments/billingHome">Payment Portal</button>
     <button data-action="packages/packHome">Packages</button>
     <button data-action="admin/adminHome">Admin Template 01</button>
     <button data-action="transport/transportForm">Transportation Form</button>
@@ -26,10 +30,7 @@
     <button data-action="employeeManagement/managementHome">Employee Management</button>
     <button data-action="packages/pack">packageUpdateDelete</button>
 </form>
-
-
 <jsp:include page="../common/footer.jsp"/>
-
 
 
 <script>

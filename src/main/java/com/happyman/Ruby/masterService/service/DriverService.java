@@ -8,17 +8,17 @@ import com.happyman.Ruby.masterService.dao.Driver;
 
 @Service
 public interface DriverService {
-	public void addDriver(Driver driver);
+	void addDriver(Driver driver);
 
-	public Driver getDriverById(Integer driverId);
+	Driver getDriverById(Integer driverId);
 
-	public void deleteDriver(Driver driver);
+	void deleteDriver(Driver driver);
 
-	public Driver getDriverByEmail(String email);
+	Driver getDriverByEmail(String email);
 
-	public Driver getDriverByMobileNo(String mobileNo);
+	Driver getDriverByMobileNo(String mobileNo);
 
-	public List<Driver> getAllDrivers();
+	List<Driver> getAllDrivers();
 
-	public List<Driver> getAllDriversByVehicleType(String type);
+	List<Driver> getAllDriversByVehicleType(String type);
 }

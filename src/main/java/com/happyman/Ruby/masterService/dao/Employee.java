@@ -2,7 +2,6 @@ package com.happyman.Ruby.masterService.dao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +24,7 @@ public class Employee {
 
 	@Column(name = "mobileNo", nullable = false, length = 10) private String mobileNo;
 
-    @Column(name = "shiftType", nullable = false) private Integer ShiftCategory;
+	@Column(name = "shiftType", nullable = false) private Integer ShiftCategory;
 
 	@Column(name = "baseSalary", nullable = false) private double baseSalary;
 

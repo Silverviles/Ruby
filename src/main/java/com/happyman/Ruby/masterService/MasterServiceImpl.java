@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.Driver;
@@ -16,6 +17,7 @@ import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.dao.PackageToAddonId;
+import com.happyman.Ruby.masterService.dao.Payment;
 import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
@@ -25,13 +27,14 @@ import com.happyman.Ruby.masterService.service.EmployeeService;
 import com.happyman.Ruby.masterService.service.FoodService;
 import com.happyman.Ruby.masterService.service.PackageService;
 import com.happyman.Ruby.masterService.service.PackageToAddonService;
+import com.happyman.Ruby.masterService.service.PaymentService;
 import com.happyman.Ruby.masterService.service.SeatService;
 import com.happyman.Ruby.masterService.service.TripService;
 import com.happyman.Ruby.masterService.service.VehicleService;
 import com.happyman.Ruby.packages.dto.PackageDTO;
 
 @Service
-public class MasterServiceImpl implements MasterService{
+public class MasterServiceImpl implements MasterService {
 	private final DriverService driverService;
 	private final VehicleService vehicleService;
 	private final TripService tripService;
@@ -42,9 +45,22 @@ public class MasterServiceImpl implements MasterService{
 	private final PackageService packageService;
 	private final PackageToAddonService packageToAddonService;
 	private final SeatService seatService;
+	private final PaymentService paymentService;
 
 	@Autowired
-	public MasterServiceImpl(DriverService driverService, VehicleService vehicleService, TripService tripService, FoodService foodService, EmployeeService employeeService, PlatformTransactionManager platformTransactionManager, AddonService addonService, PackageService packageService, PackageToAddonService packageToAddonService, SeatService seatService) {
+	public MasterServiceImpl(
+		DriverService driverService,
+		VehicleService vehicleService,
+		TripService tripService,
+		FoodService foodService,
+		PaymentService paymentService,
+		EmployeeService employeeService,
+		AddonService addonService,
+		PackageService packageService,
+		PackageToAddonService packageToAddonService,
+		SeatService seatService,
+		PlatformTransactionManager platformTransactionManager
+	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
@@ -55,6 +71,7 @@ public class MasterServiceImpl implements MasterService{
 		this.packageService = packageService;
 		this.packageToAddonService = packageToAddonService;
 		this.seatService = seatService;
+		this.paymentService = paymentService;
 	}
 
 	@Override
@@ -287,7 +304,7 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public List<Package> getPackageByType(DomainConstants.PackageType type) {
+	public List<Package> getPackageByType(String type) {
 		return packageService.getPackageByType(type);
 	}
 
@@ -311,6 +328,68 @@ public class MasterServiceImpl implements MasterService{
 		packageToAddonService.addPackageToAddon(packageToAddon);
 	}
 
+	@Override
+	public List<Payment> getAllPayments() {
+		return paymentService.getAllPayments();
+	}
+
+	@Override
+	public Payment getPaymentById(Integer paymentId) {
+		return paymentService.getPaymentById(paymentId);
+	}
+
+	@Override
+	public void UpdatePayment(Payment pay) {
+		paymentService.addPayment(pay);
+	}
+
+	@Override
+	public Payment getPaymentByAmount(Float Amount) {
+		return paymentService.getPaymentByAmount(Amount);
+	}
+
+	@Override
+	public List<Payment> getPaymentStatus(Byte Status) {
+		return paymentService.getAllPayments().stream().filter(payment ->
+			payment.getPaymentStatus().equals(Status)).toList();
+	}
+
+	@Override
+	public void addPayment(PaymentsDTO paymentsDTO) {
+		Payment payment = new Payment();
+		payment.setCustomerName(paymentsDTO.getCustomerName());
+		payment.setCustomerEmail(paymentsDTO.getCustomerEmail());
+		payment.setBillAmount(paymentsDTO.getAmount());
+		payment.setPaymentStatus(paymentsDTO.getPaymentStatus());
+		//TODO:
+		paymentService.addPayment(payment);
+	}
+
+	@Override
+	public void addPayment(Payment payment) {
+		paymentService.addPayment(payment);
+	}
+
+
+	@Override
+	public void deletePayment(Integer paymentId) {
+		paymentService.deletePayment(paymentId);
+	}
+
+	@Override
+	public void updatePaymentByPaymentDTO(PaymentsDTO payment) {
+		paymentService.updatePaymentByPaymentDTO(payment);
+	}
+
+	@Override
+	public List<PaymentsDTO> getPaymentsDTOList() {
+		return null;
+	}
+
+	@Override
+	public void deletePaymentBypaymentId(Integer bid) {
+		paymentService.deletePaymentBypaymentId(bid);
+	}
 
 	@Override
 	public void addPackageWithAddon(PackageDTO packageDTO) {
@@ -321,7 +400,7 @@ public class MasterServiceImpl implements MasterService{
 		pkg.setPrice(packageDTO.getPackagePrice());
 		pkg.setDiscontinueDate(packageDTO.getPackageDiscontinueDate());
 		pkg.setAvailability(packageDTO.getPackageAvailability());
-		pkg.setType(DomainConstants.PackageType.valueOf(packageDTO.getPackageType().toUpperCase()));
+		pkg.setType(packageDTO.getPackageType());
 		pkg.setMaxAdults(packageDTO.getMaxAdults());
 
 		packageService.addPackage(pkg);
@@ -353,7 +432,7 @@ public class MasterServiceImpl implements MasterService{
 			packageDTO.setPackagePrice(p.getPrice());
 			packageDTO.setPackageDiscontinueDate(p.getDiscontinueDate());
 			packageDTO.setPackageAvailability(p.getAvailability());
-			packageDTO.setPackageType(p.getType().toString());
+			packageDTO.setPackageType(p.getType());
 			packageDTO.setMaxAdults(p.getMaxAdults());
 			packageDTO.setAddonList(addonService.getAddonByPackageId(p.getId()));
 			packageDTOList.add(packageDTO);
@@ -423,5 +502,4 @@ public class MasterServiceImpl implements MasterService{
 		this.updatePackageToAddonByPackageDTO(packageDTO);
 		this.updatePackageByPackageDTO(packageDTO);
 	}
-
 }

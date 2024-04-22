@@ -31,13 +31,13 @@ public class DriverJobList {
 					availableTrips.add(tripDTO);
 					break;
 				case 1:
-					if(trip.getDriver().getId().equals(driverId)) {
+					if (trip.getDriver().getId().equals(driverId)) {
 						tripDTO.setTripStatus((byte) 1);
 						inProgressTrips.add(tripDTO);
 					}
 					break;
 				case 2:
-					if(trip.getDriver().getId().equals(driverId)) {
+					if (trip.getDriver().getId().equals(driverId)) {
 						tripDTO.setTripStatus((byte) 2);
 						if (trip.getFinishedDate() != null) {
 							tripDTO.setFinishedDate(trip.getFinishedDate().toString());

@@ -35,76 +35,79 @@
 //}
 package com.happyman.Ruby.employeeManagement.controller;
 
-import com.happyman.Ruby.common.BaseController;
-import com.happyman.Ruby.employeeManagement.dto.EmployeeDTO;
-import com.happyman.Ruby.masterService.dao.Employee;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import com.happyman.Ruby.common.BaseController;
+import com.happyman.Ruby.employeeManagement.dto.EmployeeDTO;
+import com.happyman.Ruby.masterService.dao.Employee;
 
 @Controller
 @RequestMapping("/employeeManagement")
 public class EmployeeManagementController extends BaseController {
 
-    private static final Logger log = LoggerFactory.getLogger(EmployeeManagementController.class);
+	private static final Logger log = LoggerFactory.getLogger(EmployeeManagementController.class);
 
-    @GetMapping("/managementHome")
-    public String showManagementHome(Model model) {
-        List<Employee> employees = masterService.getAllEmployees();
-        model.addAttribute("employees", employees);
-        return "employeeManagement/EmployeeManagement";
-    }
+	@GetMapping("/managementHome")
+	public String showManagementHome(Model model) {
+		List<Employee> employees = masterService.getAllEmployees();
+		model.addAttribute("employees", employees);
+		return "employeeManagement/EmployeeManagement";
+	}
 
-    /*delete mapping changed to post mapping*/
-    @PostMapping("/delete")
-    public String deleteEmployee(@RequestParam("employeeId") Integer employeeId, Model model) {
-        masterService.deleteEmployee(employeeId);
-        List<Employee> employees = masterService.getAllEmployees();
-        model.addAttribute("employees", employees);
-       /* return "employeeManagement/EmployeeManagement";*/
-        return "admin/admin_sidebar";
+	/*delete mapping changed to post mapping*/
+	@PostMapping("/delete")
+	public String deleteEmployee(@RequestParam("employeeId") Integer employeeId, Model model) {
+		masterService.deleteEmployee(employeeId);
+		List<Employee> employees = masterService.getAllEmployees();
+		model.addAttribute("employees", employees);
+		/* return "employeeManagement/EmployeeManagement";*/
+		return "admin/admin_sidebar";
 
-    }
+	}
 
-    @GetMapping("/navigatetoupdate")
-    public String navigateToUpdate(@RequestParam("employeeId") Integer employeeId, Model model) {
-        model.addAttribute("employeeId", employeeId); // Pass employeeId to the view
-        model.addAttribute("editEmployee", masterService.getEmployeeById(employeeId));
-        return "employeeManagement/UpdateEmployee";
-    }
+	@GetMapping("/navigatetoupdate")
+	public String navigateToUpdate(@RequestParam("employeeId") Integer employeeId, Model model) {
+		model.addAttribute("employeeId", employeeId); // Pass employeeId to the view
+		model.addAttribute("editEmployee", masterService.getEmployeeById(employeeId));
+		return "employeeManagement/UpdateEmployee";
+	}
 
 
-    @PostMapping("/update")
-    public String updateEmployeeDetails(@RequestParam("employeeId") Integer employeeId,
-                                        @ModelAttribute("editEmployee") EmployeeDTO updatedEmployeeDTO,
-                                        Model model) {
-        // Retrieve the existing employee from the database
-        Employee existingEmployee = masterService.getEmployeeById(employeeId);
+	@PostMapping("/update")
+	public String updateEmployeeDetails(@RequestParam("employeeId") Integer employeeId,
+		@ModelAttribute("editEmployee") EmployeeDTO updatedEmployeeDTO,
+		Model model) {
+		// Retrieve the existing employee from the database
+		Employee existingEmployee = masterService.getEmployeeById(employeeId);
 
-        if (existingEmployee != null) {
-            // Update the existing employee with the data from the form
-            existingEmployee.setFirstName(updatedEmployeeDTO.getFirstName());
-            existingEmployee.setLastName(updatedEmployeeDTO.getLastName());
-            existingEmployee.setEmail(updatedEmployeeDTO.getEmail());
-            existingEmployee.setMobileNo(updatedEmployeeDTO.getContactNo());
-            existingEmployee.setBaseSalary(updatedEmployeeDTO.getSalary());
+		if (existingEmployee != null) {
+			// Update the existing employee with the data from the form
+			existingEmployee.setFirstName(updatedEmployeeDTO.getFirstName());
+			existingEmployee.setLastName(updatedEmployeeDTO.getLastName());
+			existingEmployee.setEmail(updatedEmployeeDTO.getEmail());
+			existingEmployee.setMobileNo(updatedEmployeeDTO.getContactNo());
+			existingEmployee.setBaseSalary(updatedEmployeeDTO.getSalary());
 
-            // Save the updated employee to the database
-            masterService.updateEmployee(existingEmployee);
+			// Save the updated employee to the database
+			masterService.updateEmployee(existingEmployee);
 
-            // Redirect to the employee management page
-            return "redirect:/employeeManagement/managementHome";
-        } else {
-            // Handle error, maybe show a message indicating the employee was not found
-            return "errorPage"; // Redirect to an error page
-        }
-    }
-
+			// Redirect to the employee management page
+			return "redirect:/employeeManagement/managementHome";
+		} else {
+			// Handle error, maybe show a message indicating the employee was not found
+			return "errorPage"; // Redirect to an error page
+		}
+	}
 
 
 }

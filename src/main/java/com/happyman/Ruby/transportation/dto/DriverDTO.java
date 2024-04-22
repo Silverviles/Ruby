@@ -3,8 +3,6 @@ package com.happyman.Ruby.transportation.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import com.happyman.Ruby.common.DomainConstants;
-
 @Setter
 @Getter
 public class DriverDTO {

@@ -5,9 +5,13 @@ import java.util.List;
 import com.happyman.Ruby.masterService.dao.Seat;
 
 public interface SeatService {
-	public void saveSeat(Seat seat);
-	public Seat findSeatById(Integer seatId);
-	public List<Seat> getAllSeats();
-	public List<Seat> getAllSeatsByAvailability(Byte availability);
-	public Seat findSeatByLocation(String location);
+	void saveSeat(Seat seat);
+
+	Seat findSeatById(Integer seatId);
+
+	List<Seat> getAllSeats();
+
+	List<Seat> getAllSeatsByAvailability(Byte availability);
+
+	Seat findSeatByLocation(String location);
 }
