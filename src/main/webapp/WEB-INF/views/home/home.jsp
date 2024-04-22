@@ -3,6 +3,7 @@
   User: silverviles
   Date: 09/02/2024
   Time: 22:26
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -19,8 +20,11 @@
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="packages/packHome">Packages</button>
-    <button data-action="admin/temp1">Admin Template 01</button>
-    <button data-action="packages/pack">packageUpdateDelete</button>
+    <button data-action="admin/adminHome">Admin Template 01</button>
+    <button data-action="transport/transportForm">Transportation Form</button>
+    <!--<button data-action="employeeManagement/shiftHome">EmployeeShift Management</button>-->
+    <button data-action="employeeManagement/registerHome">Employee Registration</button>
+   <button data-action="employeeManagement/managementHome">Employee Management</button>
 </form>
 
 
