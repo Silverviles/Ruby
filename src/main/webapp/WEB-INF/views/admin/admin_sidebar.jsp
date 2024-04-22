@@ -30,19 +30,14 @@
 <div class="container">
     <div class="sidebar">
         <div class="head">
-            <!-- User information -->
-            <div class="user-img">
-                <img src="img1.png" alt="">
-            </div>
-            <div class="user-details">
-                <p class="title">Happy Man Village</p>
-                <p class="name"></p>
+            <div id="logoNname">
+                <div id="logo" style="text-align: center"><span id="happyMan">Happy Man</span> <br> <span id="village">VILLAGE</span>
+                </div>
             </div>
         </div>
+
         <div class="nav">
             <div class="menu">
-                <!-- Main navigation -->
-                <p class="title">Main</p>
                 <ul>
                     <li class="active">
                         <a href="#">

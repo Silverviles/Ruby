@@ -44,6 +44,28 @@ body {
     box-shadow: 0 10px 8px rgba(0, 0, 0, 1);
 }
 
+#happyMan {
+    font-family: "Dancing Script", cursive;
+    font-size: 30px;
+    font-weight: bolder;
+    transition: font-size 0.3s ease;
+}
+
+#village {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    transition: font-size 0.3s ease;
+}
+
+#logoNname {
+    left: 3dvw;
+    position: absolute;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
 .sidebar .head {
     display: flex;
     gap: 30px;
