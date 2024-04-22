@@ -522,8 +522,6 @@ public class MasterServiceImpl implements MasterService {
 		eventAddon.deleteEventToAddon(eventToAddon);
 	}
 
-}
-
 	@Override
 	public List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId) {
 		return packageToAddonService.getPackageToAddonsByPackageId(packageId);
