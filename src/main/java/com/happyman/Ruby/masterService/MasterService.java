@@ -2,6 +2,9 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
+import com.happyman.Ruby.events.dto.EventAddDTO;
+import com.happyman.Ruby.masterService.dao.*;
+import org.hibernate.Transaction;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
@@ -9,6 +12,8 @@ import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Employee;
+import com.happyman.Ruby.masterService.dao.Event;
+import com.happyman.Ruby.masterService.dao.EventToAddon;
 import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
@@ -166,4 +171,31 @@ public interface MasterService {
 
 	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
 
+	List<Event> getAllEvents();
+
+	Event getEventById(Integer eventId);
+
+	Event getEventByName(String eventName);
+
+	List<Event> getEventByAvailability(Byte availability);
+
+	void addEvent(Event event);
+
+	void deleteEvent(Integer eventId);
+
+	void updateEvent(Event event);
+
+	List<Addon> getAddonsByEventId(Integer eventId);
+
+	//Implement for Event
+
+	List<EventToAddon> getEventToAddonsByEventId(Integer eventId);
+
+	void addEventToAddon(EventToAddon eventToAddon);
+
+	void deleteEventToAddonByEventId(Integer eventId);
+
+	void deleteEventToAddon(EventToAddon eventToAddon);
+
+	//Implement for EventAddon
 }

@@ -21,9 +21,9 @@ public class Event {
 
 	@Lob @Column(name = "description") private String description;
 
-	@Column(name = "price") private Float price;
+	@Column(name = "price") private Double price;
 
-	@Column(name = "availability", nullable = false) private Byte availability;
+	@Column(name = "availability", nullable = true) private Boolean availability;
 
 	@Column(name = "image", length = 100) private String image;
 

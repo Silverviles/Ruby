@@ -13,6 +13,8 @@ import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Employee;
+import com.happyman.Ruby.masterService.dao.Event;
+import com.happyman.Ruby.masterService.dao.EventToAddon;
 import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
@@ -24,6 +26,8 @@ import com.happyman.Ruby.masterService.dao.Vehicle;
 import com.happyman.Ruby.masterService.service.AddonService;
 import com.happyman.Ruby.masterService.service.DriverService;
 import com.happyman.Ruby.masterService.service.EmployeeService;
+import com.happyman.Ruby.masterService.service.EventService;
+import com.happyman.Ruby.masterService.service.EventToAddOnService;
 import com.happyman.Ruby.masterService.service.FoodService;
 import com.happyman.Ruby.masterService.service.PackageService;
 import com.happyman.Ruby.masterService.service.PackageToAddonService;
@@ -47,6 +51,10 @@ public class MasterServiceImpl implements MasterService {
 	private final SeatService seatService;
 	private final PaymentService paymentService;
 
+	private final EventService eventService;
+
+	private final EventToAddOnService eventAddon;
+
 	@Autowired
 	public MasterServiceImpl(
 		DriverService driverService,
@@ -59,6 +67,8 @@ public class MasterServiceImpl implements MasterService {
 		PackageService packageService,
 		PackageToAddonService packageToAddonService,
 		SeatService seatService,
+		EventService eventService,
+		EventToAddOnService eventAddon,
 		PlatformTransactionManager platformTransactionManager
 	) {
 		this.driverService = driverService;
@@ -72,6 +82,8 @@ public class MasterServiceImpl implements MasterService {
 		this.packageToAddonService = packageToAddonService;
 		this.seatService = seatService;
 		this.paymentService = paymentService;
+		this.eventService = eventService;
+		this.eventAddon = eventAddon;
 	}
 
 	@Override
@@ -449,6 +461,68 @@ public class MasterServiceImpl implements MasterService {
 	public void updatePackageByPackageDTO(PackageDTO pkg) {
 		packageService.updatePackageByPackageDTO(pkg);
 	}
+
+	@Override
+	public List<Event> getAllEvents() {
+		return eventService.getAllEvents();
+	}
+
+	@Override
+	public Event getEventById(Integer eventId) {
+		return eventService.getEventById(eventId);
+	}
+
+	@Override
+	public Event getEventByName(String eventName) {
+		return eventService.getEventByName(eventName);
+	}
+
+	@Override
+	public List<Event> getEventByAvailability(Byte availability) {
+		return eventService.getEventByAvailability(availability);
+	}
+
+	@Override
+	public void addEvent(Event event) {
+		eventService.addEvent(event);
+	}
+
+	@Override
+	public void deleteEvent(Integer eventId) {
+		eventService.deleteEvent(eventId);
+	}
+
+	@Override
+	public void updateEvent(Event event) {
+		eventService.updateEvent(event);
+	}
+
+	@Override
+	public List<Addon> getAddonsByEventId(Integer eventId) {
+		return eventAddon.getAddonsByEventId(eventId);
+	}
+
+	@Override
+	public List<EventToAddon> getEventToAddonsByEventId(Integer eventId) {
+		return eventAddon.getEventToAddonsByEventId(eventId);
+	}
+
+	@Override
+	public void addEventToAddon(EventToAddon eventToAddon) {
+		eventAddon.addEventToAddon(eventToAddon);
+	}
+
+	@Override
+	public void deleteEventToAddonByEventId(Integer eventId) {
+		eventAddon.deleteEventToAddonByEventId(eventId);
+	}
+
+	@Override
+	public void deleteEventToAddon(EventToAddon eventToAddon) {
+		eventAddon.deleteEventToAddon(eventToAddon);
+	}
+
+}
 
 	@Override
 	public List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId) {

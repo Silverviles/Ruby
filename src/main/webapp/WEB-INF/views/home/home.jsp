@@ -27,6 +27,7 @@
     <button data-action="employeeManagement/registerHome">Employee Registration</button>
     <button data-action="employeeManagement/managementHome">Employee Management</button>
     <button data-action="packages/pack">packageUpdateDelete</button>
+    <button data-action="admin/temp1">Admin</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 
