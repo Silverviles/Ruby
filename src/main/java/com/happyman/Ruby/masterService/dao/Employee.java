@@ -6,8 +6,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,8 +25,8 @@ public class Employee {
 
 	@Column(name = "mobileNo", nullable = false, length = 10) private String mobileNo;
 
-	@Column(name = "shiftType", nullable = false) private String shiftType;
+    @Column(name = "shiftType", nullable = false) private Integer ShiftCategory;
 
-	@Column(name = "baseSalary", nullable = false) private Float baseSalary;
+	@Column(name = "baseSalary", nullable = false) private double baseSalary;
 
 }

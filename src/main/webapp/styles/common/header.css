@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+#happyMan {
+    font-family: "Dancing Script", cursive;
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+    transition: font-size 0.3s ease;
+}
+
+#village {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    color: white;
+    transition: font-size 0.3s ease;
+}
+
+#header {
+    position: fixed;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    height: 80px;
+    margin: auto;
+    width: 100%;
+    z-index: 10;
+    padding-top: 20px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0));
+    top: 0;
+    transition: padding-top 0.3s ease, background-color 0.3s ease;
+}
+
+#logoNname {
+    left: 3dvw;
+    position: absolute;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.nav {
+    right: 3dvw;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: center; /* Align items vertically */
+    margin-left: auto; /* Push the nav to the right */
+
+}
+
+.nav a {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 2dvw; /* Add spacing between nav items */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+.nav a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+#header.scrolled {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 0;
+    background-color: rgba(0, 0, 0, 0.86);
+}
+
+.scrolled #happyMan {
+    font-size: 24px;
+}
+
+.scrolled #village {
+    font-size: 12px; /* Decrease the font size when scrolling */
+}
+
+
+/* footer */
+#fitem1 {
+    grid-area: 1/1/2/4;
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+}
+
+#fitem2 {
+    grid-area: 2/1/5/3;
+    font-size: 15px;
+    text-align: left;
+    padding-top: 25px;
+
+}
+
+#fitem2 ul {
+    list-style-type: none;
+    line-height: 25px;
+}
+
+#fitem2 ul li a, .middle-item a {
+    text-decoration: none;
+    color: #D3BDB0;
+}
+
+#fitem2 ul li a:hover, .middle-item a:hover {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgba(11, 45, 40, 0.998);
+}
+
+#fitem3 {
+    grid-area: 2/3/3/5;
+}
+
+#fitem4 {
+    grid-area: 3/3/4/5;
+}
+
+#fitem5 {
+    grid-area: 4/3/5/5;
+}
+
+#fitem5 a i {
+    padding-right: 20px;
+}
+
+.middle-item {
+    font-size: 15px;
+    text-align: left;
+    padding-top: 30px;
+}
+
+#fitem6 {
+    grid-area: 1/4/2/7;
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+}
+
+#fitem7 {
+    grid-area: 2/5/5/7;
+    font-size: 15px;
+    text-align: left;
+    line-height: 25px;
+    padding-top: 25px;
+
+}
+
+#fitem8 {
+    grid-area: 5/1/6/7;
+    font-size: 10px;
+    text-align: center;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 15% 45% 10% 10% 10% 10%;
+    padding: 20px;
+    background-color: rgba(5, 23, 21, 0.89);
+    color: #D3BDB0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-left: 6dvw;
+}
+
+@media screen and (max-width: 768px) {
+
+    #fitem1 {
+        grid-area: 1/1/2/1;
+    }
+
+    #fitem2 {
+        grid-area: 2/1/3/1;
+    }
+
+    #fitem6 {
+        grid-area: 3/1/4/1;
+    }
+
+    #fitem7 {
+        grid-area: 4/1/5/1;
+    }
+
+    #fitem3 {
+        grid-area: 5/1/6/1;
+    }
+
+    #fitem4 {
+        grid-area: 6/1/7/1;
+    }
+
+    #fitem5 {
+        grid-area: 7/1/8/1;
+    }
+
+    #fitem8 {
+        grid-area: 8/1/9/1;
+    }
+
+    .footer {
+        display: grid;
+        grid-template-columns: 100%; /* One column */
+        padding: 20px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        align-items: center;
+        justify-items: center;
+    }
+
+}

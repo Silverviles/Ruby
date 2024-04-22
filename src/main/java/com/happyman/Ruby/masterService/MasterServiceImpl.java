@@ -9,11 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Driver;
+import com.happyman.Ruby.masterService.dao.Employee;
 import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
 import com.happyman.Ruby.masterService.service.DriverService;
+import com.happyman.Ruby.masterService.service.EmployeeService;
 import com.happyman.Ruby.masterService.service.FoodService;
 import com.happyman.Ruby.masterService.service.TripService;
 import com.happyman.Ruby.masterService.service.VehicleService;
@@ -24,6 +26,7 @@ public class MasterServiceImpl implements MasterService{
 	private final VehicleService vehicleService;
 	private final TripService tripService;
 	private final FoodService foodService;
+	private final EmployeeService employeeService;
 	private final PlatformTransactionManager platformTransactionManager;
 
 	@Autowired
@@ -32,12 +35,14 @@ public class MasterServiceImpl implements MasterService{
 		VehicleService vehicleService,
 		TripService tripService,
 		FoodService foodService,
+		EmployeeService employeeService,
 		PlatformTransactionManager platformTransactionManager
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
 		this.foodService = foodService;
+		this.employeeService = employeeService;
 		this.platformTransactionManager = platformTransactionManager;
 		// TODO: add all the other services here. Declare them as variables above first.
 	}
@@ -189,6 +194,31 @@ public class MasterServiceImpl implements MasterService{
 	@Override
 	public Seat findSeatByLocation(String location) {
 		return null;
+	}
+
+	@Override
+	public void addEmployee(Employee employee) {
+		employeeService.addEmployee(employee);
+	}
+
+	@Override
+	public List<Employee> getAllEmployees() {
+		return employeeService.getAllEmployees();
+	}
+
+	@Override
+	public void updateEmployee(Employee employee) {
+		employeeService.updateEmployee(employee);
+	}
+
+	@Override
+	public Boolean deleteEmployee(Integer employeeID) {
+		return employeeService.deleteEmployee(employeeID);
+	}
+
+	@Override
+	public Employee getEmployeeById(Integer employeeID) {
+		return employeeService.getEmployeeById(employeeID);
 	}
 
 	@Override

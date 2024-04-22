@@ -7,6 +7,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Driver;
+import com.happyman.Ruby.masterService.dao.Employee;
 import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
@@ -52,6 +53,13 @@ public interface MasterService {
 	public List<Seat> getAllSeats();
 	public List<Seat> getAllSeatsByAvailability(Byte availability);
 	public Seat findSeatByLocation(String location);
+
+	// Implementation of Employee
+	public void addEmployee(Employee employee);
+	public List<Employee> getAllEmployees();
+	public void updateEmployee(Employee employee);
+	public Boolean deleteEmployee(Integer employeeID);
+	public Employee getEmployeeById(Integer employeeID);
 
 	// Common Implementation
 	public PlatformTransactionManager getTransactionManager();
