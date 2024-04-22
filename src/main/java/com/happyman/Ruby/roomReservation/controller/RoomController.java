@@ -32,7 +32,7 @@ public class RoomController extends BaseController {
 
     @GetMapping("/displayRoom")
     public String displayRooms(Model model){
-        List<Room> rooms = masterService.getAllRoom();
+        List<Room> rooms = masterService.getAllRooms();
         model.addAttribute("room", rooms);
         return "room/allRoom";
     }
