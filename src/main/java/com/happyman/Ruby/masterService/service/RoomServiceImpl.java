@@ -9,10 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class RoomImpl implements RoomService {
+public class RoomServiceImpl implements RoomService {
+
+    private final RoomRepository roomRepository;
 
     @Autowired
-    private RoomRepository roomRepository;
+    RoomServiceImpl(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
+    }
 
     @Override
     public void saveRoom(Room room) {
@@ -25,45 +29,24 @@ public class RoomImpl implements RoomService {
     }
 
     @Override
-    public List<Room> getAllRoom() {
+    public List<Room> getAllRooms() {
         return roomRepository.findAll();
     }
 
     @Override
-    public List<Room> getAllRoomByRoomType(String roomType) {
-        List<Room> rooms = roomRepository.findAll();
-        List<Room> rooms1 = new ArrayList<>();
-        for(Room room: rooms){
-            if(room.getRoomType().equals(roomType)){
-                rooms1.add(room);
-            }
-        }
-        return rooms1;
+    public List<Room> getAllRoomsByRoomType(String roomType) {
+        return getAllRooms().stream().filter(room -> room.getRoomType().equals(roomType)).toList();
     }
 
     @Override
-    public List<Room> getAllRoomByStatus(Boolean status) {
-        List<Room> rooms = roomRepository.findAll();
-        List<Room> rooms1 = new ArrayList<>();
-        for(Room room: rooms){
-            if(room.getRoomStatus().equals(status)){
-                rooms1.add(room);
-            }
-        }
-        return rooms1;
+    public List<Room> getAllRoomsByStatus(Boolean status) {
+        return getAllRooms().stream().filter(room -> room.getRoomStatus().equals(status)).toList();
     }
 
 
     @Override
-    public List<Room> getAllRoomByGuests(Integer guests) {
-        List<Room> rooms = roomRepository.findAll();
-        List<Room> rooms1 = new ArrayList<>();
-        for(Room room: rooms){
-            if(room.getRoomCapacity().equals(guests)){
-                rooms1.add(room);
-            }
-        }
-        return rooms1;
+    public List<Room> getAllRoomsByGuests(Integer guests) {
+        return getAllRooms().stream().filter(room -> room.getRoomCapacity().equals(guests)).toList();
     }
 
     @Override

@@ -19,8 +19,6 @@ import com.happyman.Ruby.masterService.service.VehicleService;
 public class MasterServiceImpl implements MasterService{
 	private final DriverService driverService;
 	private final VehicleService vehicleService;
-	private final PlatformTransactionManager platformTransactionManager;
-
 	private final RoomService roomService;
 
     @Autowired
@@ -32,8 +30,6 @@ public class MasterServiceImpl implements MasterService{
     ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
-		this.platformTransactionManager = platformTransactionManager;
-		// TODO: add all the other services here. Declare them as variables above first.
         this.roomService = roomService;
     }
 
@@ -122,11 +118,6 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public PlatformTransactionManager getTransactionManager() {
-		return this.platformTransactionManager;
-	}
-
-	@Override
 	public void saveRoom(Room room) {
 
 	}
@@ -137,23 +128,23 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public List<Room> getAllRoom() {
-		return roomService.getAllRoom();
+	public List<Room> getAllRooms() {
+		return roomService.getAllRooms();
 	}
 
 	@Override
-	public List<Room> getAllRoomByRoomType(String roomType) {
-		return roomService.getAllRoomByRoomType(roomType);
+	public List<Room> getAllRoomsByRoomType(String roomType) {
+		return roomService.getAllRoomsByRoomType(roomType);
 	}
 
 	@Override
-	public List<Room> getAllRoomByStatus(Boolean status) {
-		return roomService.getAllRoomByStatus(status);
+	public List<Room> getAllRoomsByStatus(Boolean status) {
+		return roomService.getAllRoomsByStatus(status);
 	}
 
 	@Override
-	public List<Room> getAllRoomByGuests(Integer guests) {
-		return roomService.getAllRoomByGuests(guests);
+	public List<Room> getAllRoomsByGuests(Integer guests) {
+		return roomService.getAllRoomsByGuests(guests);
 	}
 
 	@Override

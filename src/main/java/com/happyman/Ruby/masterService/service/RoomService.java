@@ -11,14 +11,14 @@ public interface RoomService {
 
     public Room getRoomById(Integer roomId);
 
-    public List<Room> getAllRoom();
+    public List<Room> getAllRooms();
 
-    public List<Room> getAllRoomByRoomType(String roomType);
+    public List<Room> getAllRoomsByRoomType(String roomType);
 
-    public List<Room> getAllRoomByStatus(Boolean status);
+    public List<Room> getAllRoomsByStatus(Boolean status);
 
 
-    public List<Room> getAllRoomByGuests(Integer guests);
+    public List<Room> getAllRoomsByGuests(Integer guests);
 
 
     void addRoom(Room room);
