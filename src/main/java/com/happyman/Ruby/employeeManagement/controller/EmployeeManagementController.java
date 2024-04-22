@@ -38,10 +38,9 @@ package com.happyman.Ruby.employeeManagement.controller;
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.employeeManagement.dto.EmployeeDTO;
 import com.happyman.Ruby.masterService.dao.Employee;
-import com.happyman.Ruby.masterService.service.EmployeeService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -68,7 +67,7 @@ public class EmployeeManagementController extends BaseController {
         List<Employee> employees = masterService.getAllEmployees();
         model.addAttribute("employees", employees);
        /* return "employeeManagement/EmployeeManagement";*/
-        return "common/admin_sidebar";
+        return "admin/admin_sidebar";
 
     }
 

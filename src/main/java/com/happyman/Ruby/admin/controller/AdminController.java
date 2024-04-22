@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/admin")
-
 public class AdminController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(PackageController.class);
 
-    @GetMapping("/temp1")
+    @GetMapping("/adminHome")
     public String goTemp1(Model model) {
         model.addAttribute("employees", masterService.getAllEmployees());
-        return "common/admin_sidebar";
+        return "admin/admin_sidebar";
     }
 
 }

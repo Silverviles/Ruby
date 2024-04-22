@@ -25,18 +25,14 @@
 body {
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
-    background-color:#c8c4d6;
+    background-color: #c8c4d6;
 }
-
-/* .container {
-    width: 80%;
-    min-height: 100vh;
-} */
 
 .sidebar {
     position: fixed;
-    width: 270px;
+    width: 20%;
     height: 100vh;
+    left: 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -70,9 +66,6 @@ body {
 
 .contents {
     margin-left: 330px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .user-details .title,
@@ -103,7 +96,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     color: #3f3f3f;
     text-decoration: none;
@@ -219,13 +212,6 @@ body {
     margin-left: 130px;
 }
 
-/* .section_container {
-    max-width: var(--max-width);
-    margin: auto;
-    padding: 5rem 1rem;
-
-} */
-
 .section_header {
     font-size: 2.2rem;
     font-weight: 600;
@@ -319,7 +305,8 @@ body {
 .booking_container input[type=number],
 .booking_container input[type=date],
 .booking_container input[type=checkbox],
-select, textarea {
+select,
+textarea {
     /* padding: 10px 0; */
     font-size: 1rem;
     outline: none;
@@ -332,22 +319,13 @@ select, textarea {
 .booking_container input[type=text],
 .booking_container input[type=number],
 .booking_container input[type=date],
-select, textarea {
+select,
+textarea {
     width: 100%;
     margin: 10px 0;
 }
 
-/* .booking_container input[type=text]:focus~label,
-.booking_container input[type=number]:focus~label,
-.booking_container input[type=date]:focus~label,
-.booking_container select:focus~label,
-.booking_container textarea:focus~label {
-  font-size: 0.8rem !important;
-  top: 0;
-} */
-
 .booking_container form .form_group p {
-    /* margin-top: 5px; */
     font-size: 0.8rem;
     color: var(--text-light);
 }
@@ -377,33 +355,30 @@ select, textarea {
 }
 
 /*---------------------------end of the header part------------------------ */
-. popular_card {
+.popular_card {
     overflow: hidden;
     border-radius: 1rem;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-    .popular_card img {
-        width: 100%;
-    }
+.popular_card img {
+    width: 100%;
+}
 
-    .popular_content {
-        padding: 1rem;
-    }
+.popular_content {
+    padding: 1rem;
+}
 
-    .popular_card_header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-    }
+.popular_card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
 
-    .popular_card_header h4 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--text-dark);
-    }
-
-
-
+.popular_card_header h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}

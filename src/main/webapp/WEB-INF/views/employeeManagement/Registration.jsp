@@ -5,84 +5,58 @@
   Time: 12:25 AM
   To change this template use File | Settings | File Templates.
 --%>
+<div class="formContainer">
+    <span class="big-circle one"></span>
+    <span class="big-circle two"></span>
 
-<div class="container">
+    <div class="form">
+        <div class="contact-info">
+            <img src="${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png"  alt="employee picture"/>
+        </div>
 
-    <div class="xxx">
-        <h1 class="Topic">Employee Management</h1>
-        <header class="section_container header_container">
-            <h2 class="registration_heading">Employee Registration</h2>
+        <div class="ticket-form">
+            <span class="circle one"></span>
+            <span class="circle two"></span>
 
-            <div class="registration_container">
-                <form action="${pageContext.request.contextPath}/employeeManagement/registerEmployee" method="post">
+            <form action="#" autocomplete="off">
+                <h3 class="title">Add Employee</h3>
 
-                    <div class="form_group" style="display: none">
-                        <div class="input_group">
-                            <input type="text" name="employeeId" id="employeeId"  readonly>
-                            <label>Employee Id</label>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="firstName" required>
-                            <label>Employee First Name</label>
-                        </div>
-                        <!-- <p>Type of the shifts</p>-->
-                    </div>
-
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="lastName" required>
-                            <label>Employee Last Name</label>
-                        </div>
-                        <!-- <p>Type of the shifts</p>-->
-                    </div>
-
-
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="email" name="email" required>
-                            <label>Email</label>
-                        </div>
-
-                    </div>
-
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="text" name="contactNo" required>
-                            <label>Contact No</label>
-                        </div>
-
-                    </div>
-                    <div class="form_group">
-                        <div class="input_group">
-                            <input type="number" name="salary" step="0.01" required>
-                            <label>Salary</label>
-                        </div>
-                    </div>
-                    <button class="btn">Add</button>
-
-
-                </form>
-                <div class="header_content">
-                    <div class="popular_card">
-                        <img src="${pageContext.request.contextPath}/images/employeeManagement/reg.jpeg" alt="villa ">
-
-                    </div>
+                <div class="input-container">
+                    <input type="hidden" name="employeeId" class="input" />
                 </div>
 
-            </div>
+                <div class="input-container">
+                    <input type="text" id="firstName" name="firstName" class="input" />
+                    <label for="firstName">First Name: </label>
+                    <span>First Name</span>
+                </div>
 
-        </header>
+                <div class="input-container">
+                    <input type="text" id="lastName" name="lastName" class="input" />
+                    <label for="lastName">Last Name: </label>
+                    <span>Last Name</span>
+                </div>
 
+                <div class="input-container">
+                    <input type="email" id="email" name="email" class="input" />
+                    <label for="email">Email: </label>
+                    <span>Email</span>
+                </div>
 
+                <div class="input-container textarea">
+                    <input type="text" id="contactNo" name="contactNo" pattern="[0-9]{10}" class="input" />
+                    <label for="contactNo">Contact No: </label>
+                    <span>Contact No</span>
+                </div>
+
+                <div class="input-container textarea">
+                    <input type="text" id="salary" name="salary" class="input" />
+                    <label for="salary">Salary: </label>
+                    <span>Salary</span>
+                </div>
+
+                <input type="submit" value="Submit" class="btn" />
+            </form>
+        </div>
     </div>
-
 </div>
-
-<script src="${pageContext.request.contextPath}/scripts/employeeManagement/Registration.js"></script>
-

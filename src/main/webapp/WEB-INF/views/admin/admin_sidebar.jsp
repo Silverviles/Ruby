@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,15 +17,15 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/Registration.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/EmployeeManagement.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_sidebar.css">
-
-
-
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/formStyles.css">
+    <script
+            src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"
+    ></script>
     <title>Sidebar</title>
 </head>
+
 <body>
 <div class="container">
     <div class="sidebar">
@@ -45,7 +46,7 @@
                 <ul>
                     <li class="active">
                         <a href="#">
-                            <i class='bx bx-home-alt-2' ></i>
+                            <i class='bx bx-home-alt-2'></i>
                             <span class="text">Dashboard</span>
                         </a>
                     </li>
@@ -53,9 +54,9 @@
                     <!-- Rooms -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-hotel' ></i>
+                            <i class='bx bxs-hotel'></i>
                             <span class="text">Rooms</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="update_room_button">
@@ -73,9 +74,9 @@
                     <!-- restaurant -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-bowl-hot' ></i>
+                            <i class='bx bxs-bowl-hot'></i>
                             <span class="text">Restaurant</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -93,9 +94,9 @@
                     <!-- package -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-category' ></i>
+                            <i class='bx bxs-category'></i>
                             <span class="text">Packages</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="new_package_button">
@@ -113,9 +114,9 @@
                     <!-- events -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-calendar-event' ></i>
+                            <i class='bx bxs-calendar-event'></i>
                             <span class="text">Events</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="new_event_button">
@@ -154,9 +155,9 @@
                     <!-- employee management -->
                     <li>
                         <a href="#">
-                            <i class='bx bxs-network-chart' ></i>
+                            <i class='bx bxs-network-chart'></i>
                             <span class="text">Employee Management</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li id="emp_registration_button">
@@ -176,7 +177,7 @@
                         <a href="#">
                             <i class='bx bxs-car'></i>
                             <span class="text">Transport</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -196,7 +197,7 @@
                         <a href="#">
                             <i class='bx bx-dna'></i>
                             <span class="text">Feedbacks</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -216,7 +217,7 @@
                         <a href="#">
                             <i class='bx bx-credit-card'></i>
                             <span class="text">Billing & Payment</span>
-                            <i class='arrow bx bx-chevron-down' ></i>
+                            <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -255,7 +256,6 @@
         </div>
 
         <div id="new_package" class="sub-contents">
-<%--            <jsp:include page="../packages/add_package.jsp"/>--%>
         </div>
 
         <div id="remove_package" class="sub-contents">
@@ -278,26 +278,18 @@
             <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
         </div>
 
-
         <div id="emp_registration" class="sub-contents">
             <jsp:include page="../employeeManagement/Registration.jsp" />
         </div>
 
         <div id="emp_updateDelete" class="sub-contents">
-            <jsp:include page="../employeeManagement/EmployeeManagement.jsp" />
-        </div>
 
-        <!-- TODO: Add other divs as needed. follow the id and class formats -->
+        </div>
     </div>
 </div>
-<!-- End of container -->
-
-<!-- Jquery -->
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
-        integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
-        crossorigin="anonymous"
-></script>
-<script src="${pageContext.request.contextPath}/scripts/common/sidebar.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/admin/form.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/admin/sidebar.js"></script>
 </body>
+
 </html>
