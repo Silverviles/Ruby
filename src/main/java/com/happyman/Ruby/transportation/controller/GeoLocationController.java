@@ -1,5 +1,6 @@
 package com.happyman.Ruby.transportation.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,8 @@ import com.happyman.Ruby.transportation.utils.GeoLocation;
 @RequestMapping("/geoLocation")
 public class GeoLocationController extends BaseController {
 	@PostMapping("/distance")
-	public DistanceDTO getDistanceAndDuration(@RequestBody LatLng destination){
-		return GeoLocation.getDistance(destination);
+	public ResponseEntity<DistanceDTO> getDistanceAndDuration(@RequestBody LatLng destination) {
+		DistanceDTO distanceDTO = GeoLocation.getDistance(destination);
+		return ResponseEntity.ok().body(distanceDTO);
 	}
 }

@@ -11,7 +11,7 @@ import com.happyman.Ruby.transportation.dto.DistanceDTO;
 
 public class GeoLocation {
 	private static final Logger LOG = LoggerFactory.getLogger(GeoLocation.class);
-	private static final String GOOGLE_API_KEY_STATIC = "YOUR_GOOGLE_API_KEY";
+	private static final String GOOGLE_API_KEY_STATIC = "AIzaSyBfPafF0R1oIb1vV3sk2plRSQBvOtU8At8";
 	private static final Double villaLat = 6.340848202661656;
 	private static final Double villaLong = 80.03448843955994;
 

@@ -18,6 +18,7 @@ public interface MasterService {
 	//Method implementation for Driver
 	public void addDriver(Driver driver);
 	public void addDriverAndVehicle(Driver driver, Vehicle vehicle);
+	public void deleteDriver(Driver driver);
 	public Driver getDriverById(Integer driverId);
 	public Driver getDriverByEmail(String email);
 	public Driver getDriverByMobileNo(String mobileNo);
@@ -31,6 +32,7 @@ public interface MasterService {
 
 	// methods Implementation for Trip
 	public void saveTrip(Trip trip);
+	public void deleteTrip(Trip trip);
 	public Trip getTripById(Integer tripId);
 	public List<Trip> getAllTrips();
 	public List<Trip> getAllTripsByVehicleType(String type);

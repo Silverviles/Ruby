@@ -55,6 +55,11 @@ import java.util.List;
 	}
 
 	@Override
+	public void deleteDriver(Driver driver) {
+		driverService.deleteDriver(driver);
+	}
+
+	@Override
 	public Driver getDriverById(Integer driverId) {
 		return driverService.getDriverById(driverId);
 	}
@@ -97,32 +102,37 @@ import java.util.List;
 
 	@Override
 	public void saveTrip(Trip trip) {
+		tripService.saveTrip(trip);
+	}
 
+	@Override
+	public void deleteTrip(Trip trip) {
+		tripService.deleteTrip(trip);
 	}
 
 	@Override
 	public Trip getTripById(Integer tripId) {
-		return null;
+		return tripService.getTripById(tripId);
 	}
 
 	@Override
 	public List<Trip> getAllTrips() {
-		return List.of();
+		return tripService.getAllTrips();
 	}
 
 	@Override
 	public List<Trip> getAllTripsByVehicleType(String type) {
-		return List.of();
+		return tripService.getAllTripsByVehicleType(type);
 	}
 
 	@Override
 	public List<Trip> getAllTripsByVehicleNumber(String vehicleNumber) {
-		return List.of();
+		return tripService.getAllTripsByVehicleNumber(vehicleNumber);
 	}
 
 	@Override
 	public List<Trip> getAllTripsByDriverId(Integer driverId) {
-		return List.of();
+		return tripService.getAllTripsByDriverId(driverId);
 	}
 
 	@Override
