@@ -22,6 +22,7 @@ Landing Page
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="payments/billing">Payment Portal</button>
+    <button data-action="payments/billingHome">Payment Portal</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 

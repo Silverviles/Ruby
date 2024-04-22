@@ -97,5 +97,10 @@ public class PaymentController extends BaseController {
         model.addAttribute("payments", masterService.getAllPayments());
         return "billingAndReporting/paymentsAdmin";
     }
+
+    @GetMapping("/billingHome")
+    public String billingHome(Model model) {
+        return "billingAndReporting/billingHome";
+    }
 }
 
