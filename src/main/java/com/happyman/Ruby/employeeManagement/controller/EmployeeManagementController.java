@@ -37,6 +37,7 @@ package com.happyman.Ruby.employeeManagement.controller;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -66,50 +67,42 @@ public class EmployeeManagementController extends BaseController {
 
 	/*delete mapping changed to post mapping*/
 	@PostMapping("/delete")
-	public String deleteEmployee(@RequestParam("employeeId") Integer employeeId, Model model) {
+	public String deleteEmployee(Integer employeeId, Model model) {
 		masterService.deleteEmployee(employeeId);
 		List<Employee> employees = masterService.getAllEmployees();
 		model.addAttribute("employees", employees);
-		/* return "employeeManagement/EmployeeManagement";*/
-		return "admin/admin_sidebar";
-
+		return "redirect:/admin/adminHome?showDiv=emp_updateDelete";
 	}
 
-	@GetMapping("/navigatetoupdate")
-	public String navigateToUpdate(@RequestParam("employeeId") Integer employeeId, Model model) {
-		model.addAttribute("employeeId", employeeId); // Pass employeeId to the view
+	@PostMapping("/navigateToUpdate")
+	public String navigateToUpdate(Integer employeeId, Model model) {
+		model.addAttribute("employeeId", employeeId);
 		model.addAttribute("editEmployee", masterService.getEmployeeById(employeeId));
-		return "employeeManagement/UpdateEmployee";
+		return "redirect:/admin/adminHome?showDiv=emp_registration";
 	}
 
-
-	@PostMapping("/update")
-	public String updateEmployeeDetails(@RequestParam("employeeId") Integer employeeId,
-		@ModelAttribute("editEmployee") EmployeeDTO updatedEmployeeDTO,
-		Model model) {
-		// Retrieve the existing employee from the database
-		Employee existingEmployee = masterService.getEmployeeById(employeeId);
-
-		if (existingEmployee != null) {
-			// Update the existing employee with the data from the form
-			existingEmployee.setFirstName(updatedEmployeeDTO.getFirstName());
-			existingEmployee.setLastName(updatedEmployeeDTO.getLastName());
-			existingEmployee.setEmail(updatedEmployeeDTO.getEmail());
-			existingEmployee.setMobileNo(updatedEmployeeDTO.getContactNo());
-			existingEmployee.setBaseSalary(updatedEmployeeDTO.getSalary());
-
-			// Save the updated employee to the database
-			masterService.updateEmployee(existingEmployee);
-
-			// Redirect to the employee management page
-			return "redirect:/employeeManagement/managementHome";
-		} else {
-			// Handle error, maybe show a message indicating the employee was not found
-			return "errorPage"; // Redirect to an error page
+	@PostMapping("/registerEmployee")
+	public String registerEmployee(EmployeeDTO employee, Model model) {
+		Employee employeeTemp = new Employee();
+		if(employee.getEmployeeId() != null){
+			employeeTemp = masterService.getEmployeeById(employee.getEmployeeId());
 		}
+		employeeTemp.setFirstName(employee.getFirstName());
+		employeeTemp.setLastName(employee.getLastName());
+		employeeTemp.setEmail(employee.getEmail());
+		employeeTemp.setMobileNo(employee.getContactNo());
+		employeeTemp.setBaseSalary(employee.getSalary());
+		employeeTemp.setShiftCategory(1);
+		masterService.addEmployee(employeeTemp);
+		log.info("Employee registered: {}", employee);
+		return "redirect:/admin/adminHome?showDiv=emp_updateDelete";
 	}
 
-
+	@GetMapping("/employeeManagement/registerHome")
+	public String showRegistrationPage(Model model) {
+		model.addAttribute("employees", masterService.getAllEmployees());
+		return "employeeManagement/EmployeeManagement";
+	}
 }
 
 

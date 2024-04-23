@@ -1,10 +1,11 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Employee" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 4/13/2024
   Time: 12:25 AM
   To change this template use File | Settings | File Templates.
 --%>
+<% Employee employee = (Employee) request.getAttribute("editEmployee"); %>
 <div class="formContainer">
     <span class="big-circle one"></span>
     <span class="big-circle two"></span>
@@ -18,15 +19,15 @@
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form action="#" autocomplete="off">
+            <form method="post" action="${pageContext.request.contextPath}/employeeManagement/registerEmployee">
                 <h3 class="title">Add Employee</h3>
 
                 <div class="input-container">
-                    <input type="hidden" name="employeeId" class="input" />
+                    <input type="hidden" name="employeeId" class="input" value="<%= employee != null ? employee.getId() : "" %>"/>
                 </div>
 
                 <div class="input-container">
-                    <input type="text" id="firstName" name="firstName" class="input" />
+                    <input type="text" id="firstName" name="firstName" value="<%= employee != null ? employee.getFirstName() : "" %>" class="input" />
                     <label for="firstName">First Name: </label>
                     <span>First Name</span>
                 </div>

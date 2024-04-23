@@ -25,30 +25,28 @@
         </tr>
         </thead>
         <tbody class="tableBody">
+        <% if (employeeList != null && !employeeList.isEmpty()) { %>
+        <% for (Employee employee : employeeList) { %>
         <tr>
-            <td>1</td>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>123-456-7890</td>
-            <td>Full time</td>
-            <td>40000</td>
+            <td><%= employee.getId()%></td>
+            <td><%= employee.getFirstName() + " " + employee.getLastName()%></td>
+            <td><%= employee.getEmail()%></td>
+            <td><%= employee.getMobileNo()%></td>
+            <td><%= employee.getShiftCategory()%></td>
+            <td><%= employee.getBaseSalary()%></td>
             <td>
-                <button class="edit-button">Action</button>
-                <button class="delete-button">Action</button>
+                <form method="post" action="${pageContext.request.contextPath}/employeeManagement/navigateToUpdate">
+                    <input type="hidden" value="<%= employee.getId()%>" name="employeeId"/>
+                    <button class="edit-button">Edit</button>
+                </form>
+                <form method="post" action="${pageContext.request.contextPath}/employeeManagement/delete">
+                    <input type="hidden" value="<%= employee.getId()%>" name="employeeId"/>
+                    <button class="delete-button">Delete</button>
+                </form>
             </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Jane Smith</td>
-            <td>jane@example.com</td>
-            <td>987-654-3210</td>
-            <td>Full time</td>
-            <td>40000</td>
-            <td>
-                <button class="edit-button">Edit</button>
-                <button class="delete-button">Delete</button>
-            </td>
-        </tr>
+        <% } %>
+        <% } %>
         </tbody>
     </table>
 </div>
