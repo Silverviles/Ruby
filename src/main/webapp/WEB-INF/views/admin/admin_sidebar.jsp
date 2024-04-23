@@ -56,12 +56,12 @@
                         <ul class="sub-menu">
                             <li id="update_room_button">
                                 <a href="#">
-                                    <span class="text">Update Room</span>
+                                    <span class="text1">Update Room</span>
                                 </a>
                             </li>
                             <li id="remove_room_button">
                                 <a href="#">
-                                    <span class="text">Remove Room</span>
+                                    <span class="text1">Remove Room</span>
                                 </a>
                             </li>
                         </ul>
@@ -76,12 +76,12 @@
                         <ul class="sub-menu">
                             <li>
                                 <a href="#">
-                                    <span class="text">R1</span>
+                                    <span class="text1">R1</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="text">R2</span>
+                                    <span class="text1">R2</span>
                                 </a>
                             </li>
                         </ul>
@@ -96,12 +96,12 @@
                         <ul class="sub-menu">
                             <li id="new_package_button">
                                 <a href="#">
-                                    <span class="text">Add New Package</span>
+                                    <span class="text1">Add New Package</span>
                                 </a>
                             </li>
                             <li id="remove_package_button">
                                 <a href="#">
-                                    <span class="text">Remove Package</span>
+                                    <span class="text1">Remove Package</span>
                                 </a>
                             </li>
                         </ul>
@@ -116,12 +116,12 @@
                         <ul class="sub-menu">
                             <li id="new_event_button">
                                 <a href="#">
-                                    <span class="text">Add New Event</span>
+                                    <span class="text1">Add New Event</span>
                                 </a>
                             </li>
                             <li id="remove_event_button">
                                 <a href="#">
-                                    <span class="text">Remove Event</span>
+                                    <span class="text1">Remove Event</span>
                                 </a>
                             </li>
                         </ul>
@@ -137,12 +137,12 @@
                         <ul class="sub-menu">
                             <li id="new_addon_button">
                                 <a href="#">
-                                    <span class="text">Add New Addon</span>
+                                    <span class="text1">Add New Addon</span>
                                 </a>
                             </li>
                             <li id="remove_addon_button">
                                 <a href="#">
-                                    <span class="text">Remove Addon</span>
+                                    <span class="text1">Remove Addon</span>
                                 </a>
                             </li>
                         </ul>
@@ -157,12 +157,12 @@
                         <ul class="sub-menu">
                             <li id="emp_registration_button">
                                 <a href="#">
-                                    <span class="text">Employee registration </span>
+                                    <span class="text1">Employee registration </span>
                                 </a>
                             </li>
                             <li id="emp_updateDelete_button">
                                 <a href="#">
-                                    <span class="text">Employee Update /Delete </span>
+                                    <span class="text1">Employee Update /Delete </span>
                                 </a>
                             </li>
                         </ul>
@@ -177,12 +177,12 @@
                         <ul class="sub-menu">
                             <li>
                                 <a href="#">
-                                    <span class="text">T1</span>
+                                    <span class="text1">T1</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="text">T2</span>
+                                    <span class="text1">T2</span>
                                 </a>
                             </li>
                         </ul>
@@ -197,12 +197,12 @@
                         <ul class="sub-menu">
                             <li>
                                 <a href="#">
-                                    <span class="text">E1</span>
+                                    <span class="text1">E1</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="text">E2</span>
+                                    <span class="text1">E2</span>
                                 </a>
                             </li>
                         </ul>
@@ -217,17 +217,17 @@
                         <ul class="sub-menu">
                             <li>
                                 <a href="#">
-                                    <span class="text">b1</span>
+                                    <span class="text1">b1</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="text">b2</span>
+                                    <span class="text1">b2</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="text">b3</span>
+                                    <span class="text1">b3</span>
                                 </a>
                             </li>
                         </ul>

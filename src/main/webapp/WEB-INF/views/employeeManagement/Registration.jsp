@@ -10,7 +10,7 @@
     <span class="big-circle two"></span>
 
     <div class="form">
-        <div class="contact-info">
+        <div class="contact-info" style="background-image: url("${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png)">
             <img src="${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png"  alt="employee picture"/>
         </div>
 
