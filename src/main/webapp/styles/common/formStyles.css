@@ -134,9 +134,9 @@ textarea.input {
     transition: 0.5s;
 }
 
-.input-container.textarea label {
-    top: 1rem;
-    transform: translateY(0);
+.textarea label {
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .btn {
