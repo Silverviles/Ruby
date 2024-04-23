@@ -20,6 +20,18 @@ public class RoomController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(RoomController.class);
 
+    @GetMapping("/roomHome")
+    public String goPackages() {
+        return "roomReservation/room_booking";
+    }
+
+    @GetMapping("/adminRoom")
+    public String goRoom() {
+        return "room/allRoom";
+    }
+
+
+
     @PostMapping("/addroom")
     public String addRoom(@ModelAttribute Room room){
         if(room.getRoomStatus() == null){
