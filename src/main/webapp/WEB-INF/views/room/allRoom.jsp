@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/roomReservation/addroom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_table.css">
     <title>Room Booking</title>
 </head>
 
@@ -37,6 +37,7 @@
             <th>Room Type</th>
             <th>Guest Count</th>
             <th>Status</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody class="tableBody">
