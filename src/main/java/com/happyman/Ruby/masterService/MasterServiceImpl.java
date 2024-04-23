@@ -50,9 +50,7 @@ public class MasterServiceImpl implements MasterService {
 	private final PackageToAddonService packageToAddonService;
 	private final SeatService seatService;
 	private final PaymentService paymentService;
-
 	private final EventService eventService;
-
 	private final EventToAddOnService eventAddon;
 	private final RoomService roomService;
 
@@ -423,7 +421,6 @@ public class MasterServiceImpl implements MasterService {
 		paymentService.addPayment(payment);
 	}
 
-
 	@Override
 	public void deletePayment(Integer paymentId) {
 		paymentService.deletePayment(paymentId);
@@ -606,9 +603,7 @@ public class MasterServiceImpl implements MasterService {
 				packageToAddonService.addPackageToAddon(packageToAddon);
 			}
 		}
-
 	}
-
 
 	@Override
 	public void updatePackageDTO(PackageDTO packageDTO) {
