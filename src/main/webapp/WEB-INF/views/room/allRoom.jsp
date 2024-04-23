@@ -7,6 +7,8 @@
 --%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.happyman.Ruby.masterService.dao.Room" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,93 +20,50 @@
 </head>
 
 <body>
-
 <%
-    @SuppressWarnings("unchecked")
-    List<Room> roomList = (List<Room>) request.getAttribute("room");
+    List<Room> roomList = new ArrayList<>();
+    roomList = (List<Room>) request.getAttribute("room");
 %>
 
-<header class="section_container header_container">
-    <h2 class="booking_heading">Rooms</h2>
-    <div class="booking_container">
-        <table >
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Capacity</th>
-                <th>Price</th>
-                <th>Status</th>
-            </tr>
-
-            <div class="tbody">
-                <% if (roomList != null && !roomList.isEmpty()) {
-                    for (Room room : roomList) {%>
-                <tr>
-
-                    <div class="aaa">
-                        <td><%= room.getId()%>
-                        <td><%= room.getRoomName()%>
-                        </td>
-                        <td><%= room.getRoomType()%>
-                        </td>
-                        <td><%= room.getRoomCapacity()%></td>
-                        <td><%= room.getRoomPrice()%>
-                        </td>
-                        <td><%= room.getRoomStatus()%>
-                        </td>
-
-                        <td>
-                            <div class="editdeleteIcon" title="update" onclick="showUpdatePopup()">
-                                <i class="fa-solid fa-pen-to-square" id="update_btn"></i>
-
-                                <div class="popup_background popup" id="popup_update_package">
-
-                                    <div class="popup_container">
-                                        <div class="popup_close">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </td>
-                    </div>
-                    <td>
-                        <div class="editdeleteIcon" title="Delete" onclick="showDeletePopup()">
-                            <i class="fa-solid fa-trash" id="delete_btn"></i>
-                            <div class="popup_background popup" id="popup_delete_package">
-                                <div class="popup_close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-                                <div class="popup_container">
-                                    <p>Are you sure want to delete the room?</p>
-                                    <br>
-                                    <form action="room/deleteRoom" method="post">
-                                        <button type="submit">Yes</button>
-                                        <button>No</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-
-
-                <%
-                    }
-                } else {
-                %>
-                <tr>
-                    <td colspan="9" style="text-align: center"> No Records Available.</td>
-                </tr>
-                <% } %>
-            </div>
-
-        </table>
+<div class="tableDiv">
+    <div id="searchContainer" class="searchContainer">
+        <input type="text" aria-label="Search Input" id="searchInput" placeholder="Search by First Name">
     </div>
-</header>
+
+    <table id="adminTable" class="adminTable">
+        <thead class="tableHead">
+        <tr>
+            <th>Room ID</th>
+            <th>Room Type</th>
+            <th>Guest Count</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody class="tableBody">
+        <tr>
+            <td>001</td>
+            <td>Double</td>
+            <td>2</td>
+            <td>True</td>
+            <td>
+                <button class="edit-button">Action</button>
+                <button class="delete-button">Action</button>
+            </td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Triple</td>
+            <td>3</td>
+            <td>True</td>
+            <td>
+                <button class="edit-button">Edit</button>
+                <button class="delete-button">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 <script>
     function showUpdatePopup() {
         var updatePopup = document.getElementById("popup_update_package");

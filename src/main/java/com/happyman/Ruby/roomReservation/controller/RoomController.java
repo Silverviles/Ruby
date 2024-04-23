@@ -27,7 +27,7 @@ public class RoomController extends BaseController {
 
     @GetMapping("/adminRoom")
     public String goRoom() {
-        return "admin/admin_sidebar";
+        return "room/allRoom";
     }
 
 
