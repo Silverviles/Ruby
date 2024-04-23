@@ -50,9 +50,8 @@
             </div>
 
             <div class="input-container">
-                <input type="checkbox" id="availability" name="availability"  class="input" />
+                <input type="checkbox" id="availability" name="availability" />
                 <label for="availability">Availability: </label>
-                <span>Availability</span>
             </div>
 
             <input type="submit" value="Submit" class="btn" />
