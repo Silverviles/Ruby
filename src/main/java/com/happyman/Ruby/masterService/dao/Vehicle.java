@@ -18,12 +18,12 @@ import com.happyman.Ruby.common.DomainConstants;
 @Entity
 @Table(name = "vehicle")
 public class Vehicle {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "vehicleId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "vehicle_Id", nullable = false) private Integer id;
 
-	@Column(name = "vehicleType", nullable = false) private String vehicleType;
+	@Column(name = "vehicle_Type", nullable = false) private String vehicleType;
 
-	@Column(name = "maxCount", nullable = false) private Integer maxCount;
+	@Column(name = "max_Count", nullable = false) private Integer maxCount;
 
-	@Column(name = "vehicleNumber", nullable = false, unique = true) private String vehicleNumber;
+	@Column(name = "vehicle_Number", nullable = false, unique = true) private String vehicleNumber;
 
 }

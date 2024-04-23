@@ -5,6 +5,7 @@ import jakarta.persistence.Embeddable;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -14,6 +15,7 @@ import org.hibernate.Hibernate;
 @Setter
 @Embeddable
 public class PackageToAddonId implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 4871857066494951595L;
 	@Column(name = "packageId", nullable = false) private Integer packageId;
 

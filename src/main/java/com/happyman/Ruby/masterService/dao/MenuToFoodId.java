@@ -5,6 +5,7 @@ import jakarta.persistence.Embeddable;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -14,6 +15,7 @@ import org.hibernate.Hibernate;
 @Setter
 @Embeddable
 public class MenuToFoodId implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 5102557133466500615L;
 	@Column(name = "menuId", nullable = false) private Integer menuId;
 

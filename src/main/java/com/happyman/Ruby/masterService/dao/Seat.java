@@ -14,10 +14,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "seat")
 public class Seat {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "seatId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "seat_Id", nullable = false) private Integer id;
 
-	@Column(name = "seatLocation", nullable = false, length = 3) private String seatLocation;
+	@Column(name = "seat_Location", nullable = false, length = 3) private String seatLocation;
 
-	@Column(name = "locationAvailability", nullable = false) private Byte locationAvailability;
+	@Column(name = "location_Availability", nullable = false) private Byte locationAvailability;
 
 }

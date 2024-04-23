@@ -18,14 +18,14 @@ import com.happyman.Ruby.common.DomainConstants;
 @Entity
 @Table(name = "food")
 public class Food {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "foodId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "food_Id", nullable = false) private Integer id;
 
-	@Enumerated(EnumType.STRING) @Column(name = "foodCategory", nullable = false, length = 45) private DomainConstants.FoodCategory foodCategory;
+	@Enumerated(EnumType.STRING) @Column(name = "food_Category", nullable = false, length = 45) private DomainConstants.FoodCategory foodCategory;
 
-	@Column(name = "foodPrice", nullable = false) private Double foodPrice;
+	@Column(name = "food_Price", nullable = false) private Double foodPrice;
 
-	@Column(name = "foodAvailability", nullable = false) private Byte foodAvailability;
+	@Column(name = "food_Availability", nullable = false) private Byte foodAvailability;
 
-	@Column(name = "foodImg", nullable = false, length = 100) private String foodImg;
+	@Column(name = "food_Img", nullable = false, length = 100) private String foodImg;
 
 }

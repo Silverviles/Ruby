@@ -19,16 +19,16 @@ import com.happyman.Ruby.common.DomainConstants;
 @Entity
 @Table(name = "room")
 public class Room {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "roomId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "room_Id", nullable = false) private Integer id;
 
-	@Column(name = "roomName", nullable = false, length = 45) private String roomName;
+	@Column(name = "room_Name", nullable = false, length = 45) private String roomName;
 
-	@Enumerated(EnumType.STRING) @Column(name = "roomType", nullable = false) private DomainConstants.RoomType roomType;
+	@Enumerated(EnumType.STRING) @Column(name = "room_Type", nullable = false) private DomainConstants.RoomType roomType;
 
-	@Column(name = "roomCapacity", nullable = false) private Integer roomCapacity;
+	@Column(name = "room_Capacity", nullable = false) private Integer roomCapacity;
 
-	@Column(name = "roomPrice", nullable = false) private Float roomPrice;
+	@Column(name = "room_Price", nullable = false) private Float roomPrice;
 
-	@Column(name = "roomStatus", nullable = false) private Byte roomStatus;
+	@Column(name = "room_Status", nullable = false) private Byte roomStatus;
 
 }

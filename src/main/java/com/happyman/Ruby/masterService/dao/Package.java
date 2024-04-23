@@ -21,7 +21,7 @@ import com.happyman.Ruby.common.DomainConstants;
 @Entity
 @Table(name = "package")
 public class Package {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "packageId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "package_Id", nullable = false) private Integer id;
 
 	@Column(name = "name", nullable = false, length = 100) private String name;
 
@@ -29,12 +29,12 @@ public class Package {
 
 	@Column(name = "price", nullable = false) private Float price;
 
-	@Column(name = "discontinueDate") private LocalDate discontinueDate;
+	@Column(name = "discontinue_Date") private LocalDate discontinueDate;
 
 	@Column(name = "availability", nullable = false) private Boolean availability;
 
 	@Enumerated(EnumType.STRING) @Column(name = "type") private DomainConstants.PackageType type;
 
-	@Column(name = "maxAdults") private Integer maxAdults;
+	@Column(name = "max_Adults") private Integer maxAdults;
 
 }

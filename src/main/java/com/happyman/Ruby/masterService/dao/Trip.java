@@ -20,15 +20,15 @@ import java.util.Date;
 @Entity
 @Table(name = "trip")
 public class Trip {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "tripId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "trip_Id", nullable = false) private Integer id;
 
-	@OneToOne(fetch = FetchType.LAZY, optional = true) @JoinColumn(name = "driverId", nullable = false) private Driver driver;
+	@OneToOne(fetch = FetchType.LAZY, optional = true) @JoinColumn(name = "driver_Id", nullable = false) private Driver driver;
 
-	@Column(name = "tripStatus", nullable = false) private Byte tripStatus;
+	@Column(name = "trip_Status", nullable = false) private Byte tripStatus;
 
-	@Column(name = "tripDestination", nullable = false) private String tripDestination;
+	@Column(name = "trip_Destination", nullable = false) private String tripDestination;
 
-	@Column(name = "totalCost", nullable = false) private Long totalCost;
+	@Column(name = "total_Cost", nullable = false) private Long totalCost;
 
-	@Column(name = "finishedDate", nullable = true) private Date finishedDate;
+	@Column(name = "finished_Date", nullable = true) private Date finishedDate;
 }

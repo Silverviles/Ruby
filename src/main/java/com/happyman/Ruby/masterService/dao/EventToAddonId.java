@@ -5,6 +5,7 @@ import jakarta.persistence.Embeddable;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -14,6 +15,7 @@ import org.hibernate.Hibernate;
 @Setter
 @Embeddable
 public class EventToAddonId implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1656046107685033485L;
 	@Column(name = "eventId", nullable = false) private Integer eventId;
 
