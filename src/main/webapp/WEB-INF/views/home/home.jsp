@@ -23,11 +23,12 @@
     <button data-action="packages/packHome">Packages</button>
     <button data-action="admin/adminHome">Admin Template 01</button>
     <button data-action="transport/transportForm">Transportation Form</button>
-    <!--<button data-action="employeeManagement/shiftHome">EmployeeShift Management</button>-->
+    <button data-action="customerSupport/feedback">Feedback</button>
+    <button data-action="customerSupport/feedbackPage">Customer feedback</button>
+    <button data-action="customerSupport/complaint">Complaint</button>
     <button data-action="employeeManagement/registerHome">Employee Registration</button>
     <button data-action="employeeManagement/managementHome">Employee Management</button>
     <button data-action="packages/pack">packageUpdateDelete</button>
-    <button data-action="admin/temp1">Admin</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 

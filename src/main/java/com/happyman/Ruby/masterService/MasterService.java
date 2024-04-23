@@ -217,4 +217,19 @@ public interface MasterService {
 	void updateRoom(Room room);
 
 	void deleteRoom(Room room);
+
+	//customerSupport
+	List<Feedback> getAllFeedbacks();
+
+	Feedback getFeedbackById(Integer feedbackId);
+
+	Feedback getFeedbackByBookingId(String bookingId);
+
+	void addFeedback(Feedback feedback);
+
+	void deleteFeedbackById(Integer feedbackId);
+
+	void deleteFeedbackByBookingId(String bookingId);
+
+	void updateFeedback(String bookingId);
 }
