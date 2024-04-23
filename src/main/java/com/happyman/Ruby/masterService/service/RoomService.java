@@ -1,29 +1,29 @@
 package com.happyman.Ruby.masterService.service;
 
-import com.happyman.Ruby.masterService.dao.Room;
-
 import java.util.List;
+
+import com.happyman.Ruby.masterService.dao.Room;
 
 public interface RoomService {
 
 
-    public void saveRoom(Room room);
+	void saveRoom(Room room);
 
-    public Room getRoomById(Integer roomId);
+	Room getRoomById(Integer roomId);
 
-    public List<Room> getAllRooms();
+	List<Room> getAllRooms();
 
-    public List<Room> getAllRoomsByRoomType(String roomType);
+	List<Room> getAllRoomsByRoomType(String roomType);
 
-    public List<Room> getAllRoomsByStatus(Boolean status);
-
-
-    public List<Room> getAllRoomsByGuests(Integer guests);
+	List<Room> getAllRoomsByStatus(Boolean status);
 
 
-    void addRoom(Room room);
+	List<Room> getAllRoomsByGuests(Integer guests);
 
-    void updateRoom(Room room);
 
-    void deleteRoom(Room room);
+	void addRoom(Room room);
+
+	void updateRoom(Room room);
+
+	void deleteRoom(Room room);
 }

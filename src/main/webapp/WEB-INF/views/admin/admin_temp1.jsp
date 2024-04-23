@@ -22,7 +22,7 @@
           rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_sidebar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/formStyles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_form.css">
 
 </head>
 

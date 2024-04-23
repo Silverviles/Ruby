@@ -14,6 +14,7 @@ import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Employee;
 import com.happyman.Ruby.masterService.dao.Event;
 import com.happyman.Ruby.masterService.dao.EventToAddon;
+import com.happyman.Ruby.masterService.dao.Feedback;
 import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
@@ -28,6 +29,7 @@ import com.happyman.Ruby.masterService.service.DriverService;
 import com.happyman.Ruby.masterService.service.EmployeeService;
 import com.happyman.Ruby.masterService.service.EventService;
 import com.happyman.Ruby.masterService.service.EventToAddOnService;
+import com.happyman.Ruby.masterService.service.FeedbackService;
 import com.happyman.Ruby.masterService.service.FoodService;
 import com.happyman.Ruby.masterService.service.PackageService;
 import com.happyman.Ruby.masterService.service.PackageToAddonService;
@@ -53,6 +55,7 @@ public class MasterServiceImpl implements MasterService {
 	private final EventService eventService;
 	private final EventToAddOnService eventAddon;
 	private final RoomService roomService;
+	private final FeedbackService feedbackService;
 
 	@Autowired
 	public MasterServiceImpl(
@@ -68,7 +71,8 @@ public class MasterServiceImpl implements MasterService {
 		SeatService seatService,
 		EventService eventService,
 		EventToAddOnService eventAddon,
-		RoomService roomService
+		RoomService roomService,
+		FeedbackService feedbackService
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
@@ -83,6 +87,7 @@ public class MasterServiceImpl implements MasterService {
 		this.eventService = eventService;
 		this.eventAddon = eventAddon;
 		this.roomService = roomService;
+		this.feedbackService = feedbackService;
 	}
 
 	@Override
@@ -609,5 +614,40 @@ public class MasterServiceImpl implements MasterService {
 	public void updatePackageDTO(PackageDTO packageDTO) {
 		this.updatePackageToAddonByPackageDTO(packageDTO);
 		this.updatePackageByPackageDTO(packageDTO);
+	}
+
+	@Override
+	public List<Feedback> getAllFeedbacks() {
+		return feedbackService.getAllFeedbacks();
+	}
+
+	@Override
+	public Feedback getFeedbackById(Integer feedbackId) {
+		return feedbackService.getFeedbackById(feedbackId);
+	}
+
+	@Override
+	public Feedback getFeedbackByBookingId(String bookingId) {
+		return feedbackService.getFeedbackByBookingId(bookingId);
+	}
+
+	@Override
+	public void addFeedback(Feedback feedback) {
+		feedbackService.addFeedback(feedback);
+	}
+
+	@Override
+	public void deleteFeedbackById(Integer feedbackId) {
+		feedbackService.deleteFeedbackById(feedbackId);
+	}
+
+	@Override
+	public void deleteFeedbackByBookingId(String bookingId) {
+		feedbackService.deleteFeedbackByBookingId(bookingId);
+	}
+
+	@Override
+	public void updateFeedback(String bookingId) {
+		feedbackService.updateFeedback(bookingId);
 	}
 }
