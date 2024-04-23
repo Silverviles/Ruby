@@ -100,9 +100,6 @@ public interface MasterService {
 
 	Employee getEmployeeById(Integer employeeID);
 
-	// Common Implementation
-	PlatformTransactionManager getTransactionManager();
-
 	// Payment Implementation
 	List<Payment> getAllPayments();
 

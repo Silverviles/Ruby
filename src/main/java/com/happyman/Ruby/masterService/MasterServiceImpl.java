@@ -3,11 +3,8 @@ package com.happyman.Ruby.masterService;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.happyman.Ruby.masterService.dao.Room;
-import com.happyman.Ruby.masterService.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
@@ -22,6 +19,7 @@ import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.dao.PackageToAddonId;
 import com.happyman.Ruby.masterService.dao.Payment;
+import com.happyman.Ruby.masterService.dao.Room;
 import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
@@ -47,7 +45,6 @@ public class MasterServiceImpl implements MasterService {
 	private final TripService tripService;
 	private final FoodService foodService;
 	private final EmployeeService employeeService;
-	private final PlatformTransactionManager platformTransactionManager;
 	private final AddonService addonService;
 	private final PackageService packageService;
 	private final PackageToAddonService packageToAddonService;
@@ -73,15 +70,13 @@ public class MasterServiceImpl implements MasterService {
 		SeatService seatService,
 		EventService eventService,
 		EventToAddOnService eventAddon,
-		RoomService roomService,
-		PlatformTransactionManager platformTransactionManager
+		RoomService roomService
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
 		this.foodService = foodService;
 		this.employeeService = employeeService;
-		this.platformTransactionManager = platformTransactionManager;
 		this.addonService = addonService;
 		this.packageService = packageService;
 		this.packageToAddonService = packageToAddonService;
