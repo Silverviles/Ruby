@@ -44,15 +44,15 @@
             </div>
 
             <div class="input-container">
-                <input type="checkbox" id="availability" name="availability"  class="input" />
-                <label for="availability">Availability: </label>
-                <span>Availability</span>
+                <input type="file" id="image" name="image" class="input" />
+                <label for="image">Add Image: </label>
+                <span>Add Image</span>
             </div>
 
             <div class="input-container">
-                <input type="file" id="image" name="image" class="input" />
-                <label for="image">Add Image: </label>
-                <span>Image</span>
+                <input type="checkbox" id="availability" name="availability"  class="input" />
+                <label for="availability">Availability: </label>
+                <span>Availability</span>
             </div>
 
             <input type="submit" value="Submit" class="btn" />
