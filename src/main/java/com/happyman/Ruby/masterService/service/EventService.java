@@ -1,27 +1,28 @@
 package com.happyman.Ruby.masterService.service;
 
-import com.happyman.Ruby.events.dto.EventAddDTO;
-import com.happyman.Ruby.masterService.dao.Event;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.happyman.Ruby.events.dto.EventAddDTO;
+import com.happyman.Ruby.masterService.dao.Event;
 
 @Service
 public interface EventService {
 
-    List<Event> getAllEvents();
+	List<Event> getAllEvents();
 
-    Event getEventById(Integer eventId);
+	Event getEventById(Integer eventId);
 
-    Event getEventByName(String eventName);
+	Event getEventByName(String eventName);
 
-    List<Event> getEventByAvailability(Byte availability);
+	List<Event> getEventByAvailability(Byte availability);
 
-    void addEvent(Event event);
+	void addEvent(Event event);
 
-    void deleteEvent(Integer eventId);
+	void deleteEvent(Integer eventId);
 
-    void updateEvent(Event event);
+	void updateEvent(Event event);
 
-    public void updateEventByEventDTO(EventAddDTO eve);
+	void updateEventByEventDTO(EventAddDTO eve);
 }

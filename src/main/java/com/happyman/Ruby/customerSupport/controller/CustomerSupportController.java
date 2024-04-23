@@ -16,43 +16,44 @@ import com.happyman.Ruby.masterService.dao.Feedback;
 @RequestMapping("/customerSupport")
 public class CustomerSupportController extends BaseController {
 
-    private static final Logger log = LoggerFactory.getLogger(CustomerSupportController.class);
+	private static final Logger log = LoggerFactory.getLogger(CustomerSupportController.class);
 
-    @GetMapping("/feedback")
-    public String authenticate() {
-        return "customerSupportSystem/feedback";
-    }
+	@GetMapping("/feedback")
+	public String authenticate() {
+		return "customerSupportSystem/feedback";
+	}
 
-    @GetMapping("/feedbackPage")
-    public String authenticate1(Model model) {
-        model.addAttribute("acceptedFeedbacks", masterService.getAllFeedbacks().stream().filter(Feedback::isActive).toList());
-        return "customerSupportSystem/feedbackPage";
-    }
+	@GetMapping("/feedbackPage")
+	public String authenticate1(Model model) {
+		model.addAttribute("acceptedFeedbacks",
+			masterService.getAllFeedbacks().stream().filter(Feedback::isActive).toList());
+		return "customerSupportSystem/feedbackPage";
+	}
 
-    @PostMapping("/addFeedback")
-    public String addFeedback(@ModelAttribute Feedback feedback) {
-        masterService.addFeedback(feedback);
-        return "redirect:/success";
-    }
+	@PostMapping("/addFeedback")
+	public String addFeedback(@ModelAttribute Feedback feedback) {
+		masterService.addFeedback(feedback);
+		return "redirect:/success";
+	}
 
-    @PostMapping("/deleteFeedback")
-    public String deleteFeedback(Integer feedbackId, Model model) {
-        masterService.deleteFeedbackById(feedbackId);
-        model.addAttribute("feedbacks", masterService.getAllFeedbacks());
-        return "common/admin_sidebar";
-    }
+	@PostMapping("/deleteFeedback")
+	public String deleteFeedback(Integer feedbackId, Model model) {
+		masterService.deleteFeedbackById(feedbackId);
+		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
+		return "common/admin_sidebar";
+	}
 
-    @PostMapping("/acceptFeedback")
-    public String acceptFeedback(Integer feedbackId, Model model) {
-        Feedback feedback = masterService.getFeedbackById(feedbackId);
-        feedback.setActive(true);
-        masterService.addFeedback(feedback);
-        model.addAttribute("feedbacks", masterService.getAllFeedbacks());
-        return "common/admin_sidebar";
-    }
+	@PostMapping("/acceptFeedback")
+	public String acceptFeedback(Integer feedbackId, Model model) {
+		Feedback feedback = masterService.getFeedbackById(feedbackId);
+		feedback.setActive(true);
+		masterService.addFeedback(feedback);
+		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
+		return "common/admin_sidebar";
+	}
 
-    @GetMapping("/complaint")
-    public String complaint() {
-        return "customerSupportSystem/complain";
-    }
+	@GetMapping("/complaint")
+	public String complaint() {
+		return "customerSupportSystem/complain";
+	}
 }

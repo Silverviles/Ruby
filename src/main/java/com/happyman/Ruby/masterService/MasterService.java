@@ -2,12 +2,6 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
-import com.happyman.Ruby.events.dto.EventAddDTO;
-import com.happyman.Ruby.masterService.dao.*;
-import com.happyman.Ruby.masterService.dao.Room;
-import org.hibernate.Transaction;
-import org.springframework.transaction.PlatformTransactionManager;
-
 import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
@@ -15,10 +9,12 @@ import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Employee;
 import com.happyman.Ruby.masterService.dao.Event;
 import com.happyman.Ruby.masterService.dao.EventToAddon;
+import com.happyman.Ruby.masterService.dao.Feedback;
 import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.dao.Payment;
+import com.happyman.Ruby.masterService.dao.Room;
 import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
 import com.happyman.Ruby.masterService.dao.Vehicle;
@@ -198,18 +194,18 @@ public interface MasterService {
 	//Implement for EventAddon
 	//room
 
-	public void saveRoom(Room room);
+	void saveRoom(Room room);
 
-	public Room getRoomById(Integer roomId);
+	Room getRoomById(Integer roomId);
 
-	public List<Room> getAllRooms();
+	List<Room> getAllRooms();
 
-	public List<Room> getAllRoomsByRoomType(String roomType);
+	List<Room> getAllRoomsByRoomType(String roomType);
 
-	public List<Room> getAllRoomsByStatus(Boolean status);
+	List<Room> getAllRoomsByStatus(Boolean status);
 
 
-	public List<Room> getAllRoomsByGuests(Integer guests);
+	List<Room> getAllRoomsByGuests(Integer guests);
 
 
 	void addRoom(Room room);
