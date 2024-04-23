@@ -1,0 +1,128 @@
+:root {
+    --primary-table-color: #ac6a3e;
+    --table-row-1-color: #ddb399;
+    --table-row-2-color: #ddc8b9;
+    --button-delete-color: #ff1a1a;
+    --button-delete-hover-color: #bd0303;
+    --button-edit-color: #ffd000;
+    --button-edit-hover-color: #e0b700;
+    --button-accept-color: #099409;
+    --button-accept-hover-color: #017201;
+}
+
+.tableDiv {
+    width: 95%;
+    margin-right: 50px;
+}
+
+.searchContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.adminTable {
+    border-collapse: collapse;
+    width: 80%;
+    float: right;
+}
+
+.tableHead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.tableHead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.tableHead th,
+.tableBody td {
+    border: none;
+    text-align: center;
+    padding: 8px;
+}
+
+.tableHead th {
+    background-color: var(--primary-table-color);
+    color: white;
+    height: 50px;
+}
+
+.tableBody td {
+    height: 30px;
+}
+
+.tableBody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.tableBody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.adminTable tr:nth-child(even) {
+    background-color: var(--table-row-1-color);
+}
+
+.adminTable tr:nth-child(odd) {
+    background-color: var(--table-row-2-color);
+}
+
+.accept-button {
+    padding: 5px 10px;
+    background-color: var(--button-accept-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80px;
+    height: 35px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.accept-button:hover {
+    background-color: var(--button-accept-hover-color);
+    color: white;
+}
+
+.edit-button {
+    padding: 5px 10px;
+    background-color: var(--button-edit-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80px;
+    height: 35px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.edit-button:hover {
+    background-color: var(--button-edit-hover-color);
+    color: white;
+}
+
+.delete-button {
+    margin-left: 20px;
+    padding: 5px 10px;
+    background-color: var(--button-delete-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80px;
+    height: 35px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.delete-button:hover {
+    background-color: var(--button-delete-hover-color);
+    color: white;
+}
+
+#searchInput {
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border-color: var(--primary-table-color);
+    border-width: 3px;
+}
