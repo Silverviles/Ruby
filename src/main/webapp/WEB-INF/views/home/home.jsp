@@ -17,7 +17,6 @@
 <a href="${pageContext.request.contextPath}/restaurant/food">Go TO Food Page</a>
 <form method="get" id="transportForm">
     <button data-action="room/roomHome"> Room </button>
-    <button data-action="room/adminRoom"> Room Admin </button>
     <button data-action="transport/loginForm">Transportation Login</button>
     <button data-action="transport/portal">Transportation Portal</button>
     <button data-action="payments/billing">Payment Portal</button>
