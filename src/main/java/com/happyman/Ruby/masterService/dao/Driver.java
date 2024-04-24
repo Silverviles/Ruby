@@ -18,15 +18,15 @@ import lombok.Setter;
 @Entity
 @Table(name = "driver")
 public class Driver {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "driverId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "driver_Id", nullable = false) private Integer id;
 
-	@Column(name = "firstName", nullable = false, length = 45) private String firstName;
+	@Column(name = "first_Name", nullable = false, length = 45) private String firstName;
 
-	@Column(name = "lastName", nullable = false, length = 45) private String lastName;
+	@Column(name = "last_Name", nullable = false, length = 45) private String lastName;
 
 	@Column(name = "email", nullable = false, length = 100) private String email;
 
-	@Column(name = "mobileNo", nullable = false, length = 10) private String mobileNo;
+	@Column(name = "mobile_No", nullable = false, length = 10) private String mobileNo;
 
 	@Column(name = "password", nullable = false, length = 100) private String password;
 

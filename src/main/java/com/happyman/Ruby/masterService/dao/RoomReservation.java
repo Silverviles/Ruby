@@ -19,13 +19,13 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "room_reservation")
 public class RoomReservation {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "roomReservationId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "room_Reservation_Id", nullable = false) private Integer id;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "roomId", nullable = false) private Room room;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "room_Id", nullable = false) private Room room;
 
-	@Column(name = "startDate", nullable = false) private LocalDate startDate;
+	@Column(name = "start_Date", nullable = false) private LocalDate startDate;
 
-	@Column(name = "endDate", nullable = false) private LocalDate endDate;
+	@Column(name = "end_Date", nullable = false) private LocalDate endDate;
 
 	@Column(name = "guest", nullable = false) private Integer noGuest;
 

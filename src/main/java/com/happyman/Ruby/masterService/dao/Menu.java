@@ -14,9 +14,9 @@ import lombok.Setter;
 @Entity
 @Table(name = "menu")
 public class Menu {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "menuId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "menu_Id", nullable = false) private Integer id;
 
-	@Column(name = "menuName", nullable = false, length = 50) private String menuName;
+	@Column(name = "menu_Name", nullable = false, length = 50) private String menuName;
 
 	@Column(name = "availability") private Byte availability;
 

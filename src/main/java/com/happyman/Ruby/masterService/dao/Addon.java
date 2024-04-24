@@ -14,9 +14,9 @@ import lombok.Setter;
 @Entity
 @Table(name = "addons")
 public class Addon {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "addonId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "addon_Id", nullable = false) private Integer id;
 
-	@Column(name = "addonName", nullable = false, length = 50) private String addonName;
+	@Column(name = "addon_Name", nullable = false, length = 50) private String addonName;
 
 	@Column(name = "description", length = 200) private String description;
 

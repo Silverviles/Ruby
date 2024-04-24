@@ -17,20 +17,20 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "reservation")
 public class Reservation {
-	@Id @Column(name = "bookingId", nullable = false, length = 10) private String bookingId;
+	@Id @Column(name = "booking_Id", nullable = false, length = 10) private String bookingId;
 
-	@Column(name = "roomReservationId", nullable = false) private Integer roomReservationId;
+	@Column(name = "room_Reservation_Id", nullable = false) private Integer roomReservationId;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "tripId") private Trip trip;
+	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "trip_Id") private Trip trip;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "eventId") private Event event;
+	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "event_Id") private Event event;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "packageId") private Package packageField;
+	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "package_Id") private Package packageField;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "menuId") private Menu menu;
+	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "menu_Id") private Menu menu;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "paymentId") private Payment payment;
+	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "payment_Id") private Payment payment;
 
-	@Column(name = "discontinueDate") private LocalDate discontinueDate;
+	@Column(name = "discontinue_Date") private LocalDate discontinueDate;
 
 }

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.happyman</groupId>
 	<artifactId>Ruby</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.1-Alpha</version>
 	<name>Ruby</name>
 	<description>A software suit to manage all operations of the Happy Man Village</description>
 	<properties>
