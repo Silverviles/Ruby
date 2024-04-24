@@ -33,25 +33,25 @@
                 </div>
 
                 <div class="input-container">
-                    <input type="text" id="lastName" name="lastName" class="input" />
+                    <input type="text" id="lastName" name="lastName" value="<%= employee != null ? employee.getLastName() : ""%>" class="input" />
                     <label for="lastName">Last Name: </label>
                     <span>Last Name</span>
                 </div>
 
                 <div class="input-container">
-                    <input type="email" id="email" name="email" class="input" />
+                    <input type="email" id="email" name="email" value="<%= employee != null ? employee.getEmail() : ""%>" class="input" />
                     <label for="email">Email: </label>
                     <span>Email</span>
                 </div>
 
                 <div class="input-container textarea">
-                    <input type="text" id="contactNo" name="contactNo" pattern="[0-9]{10}" class="input" />
+                    <input type="text" id="contactNo" name="contactNo" value="<%= employee != null ? employee.getMobileNo() : ""%>" pattern="[0-9]{10}" class="input" />
                     <label for="contactNo">Contact No: </label>
                     <span>Contact No</span>
                 </div>
 
                 <div class="input-container textarea">
-                    <input type="text" id="salary" name="salary" class="input" />
+                    <input type="text" id="salary" name="salary" value="<%= employee != null ? employee.getBaseSalary() : ""%>" class="input" />
                     <label for="salary">Salary: </label>
                     <span>Salary</span>
                 </div>

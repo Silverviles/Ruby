@@ -47,6 +47,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.employeeManagement.dto.EmployeeDTO;
@@ -75,9 +76,9 @@ public class EmployeeManagementController extends BaseController {
 	}
 
 	@PostMapping("/navigateToUpdate")
-	public String navigateToUpdate(Integer employeeId, Model model) {
-		model.addAttribute("employeeId", employeeId);
-		model.addAttribute("editEmployee", masterService.getEmployeeById(employeeId));
+	public String navigateToUpdate(Integer employeeId, RedirectAttributes model) {
+		model.addFlashAttribute("employeeId", employeeId);
+		model.addFlashAttribute("editEmployee", masterService.getEmployeeById(employeeId));
 		return "redirect:/admin/adminHome?showDiv=emp_registration";
 	}
 
