@@ -2,6 +2,7 @@ package com.happyman.Ruby.masterService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -572,18 +573,9 @@ public class MasterServiceImpl implements MasterService {
 
 	@Override
 	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
-		List<Addon> addons = packageDTO.getAddonList();
-		List<Integer> list1 = new ArrayList<>();
-		for (Addon addon : addons) {
-			list1.add(addon.getId());
-		}
-
-		List<PackageToAddon> addons1 = this.getPackageToAddonsByPackageId(packageDTO.getId());
-		List<Integer> list2 = new ArrayList<>();
-		for (PackageToAddon addon : addons1) {
-			PackageToAddonId packageToAddonId = addon.getId();
-			list2.add(packageToAddonId.getAddonId());
-		}
+		List<Integer> list1 = packageDTO.getAddonList().stream().map(Addon::getId).toList();
+		List<Integer> list2 = this.getPackageToAddonsByPackageId(packageDTO.getId())
+			.stream().map(addon -> addon.getId().getAddonId()).toList();
 
 		for (Integer addonId : list1) {
 			if (!list2.contains(addonId)) {

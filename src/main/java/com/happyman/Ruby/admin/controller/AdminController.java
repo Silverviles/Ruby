@@ -19,6 +19,7 @@ public class AdminController extends BaseController {
 	@GetMapping("/adminHome")
 	public String goTemp1(Model model) {
 		model.addAttribute("employees", masterService.getAllEmployees());
+		model.addAttribute("allPackages", masterService.getPackageDTOList());
 		return "admin/admin_sidebar";
 	}
 

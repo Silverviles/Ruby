@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.packages.dto.PackageDTO;
@@ -46,9 +47,17 @@ public class PackageController extends BaseController {
 
 	@PostMapping("/deletePackage")
 	public String deletePackage(@ModelAttribute PackageDTO packageDTO) {
-		masterService.deletePackage(packageDTO.getId());
 		masterService.deletePackageToAddonByPackageId(packageDTO.getId());
-		return "redirect:/success";
+		masterService.deletePackage(packageDTO.getId());
+		return "redirect:/admin/adminHome?showDiv=remove_package";
+	}
+
+	@PostMapping("/navigateToUpdate")
+	public String navigateToUpdate(Integer packageId, RedirectAttributes model) {
+		model.addFlashAttribute("packageId", packageId);
+		model.addFlashAttribute("editPackage", masterService.getPackageDTOList().stream().filter(
+			packageDTO -> packageDTO.getId().equals(packageId)).toList().stream().findFirst());
+		return "redirect:/admin/adminHome?showDiv=new_package";
 	}
 
 	@PostMapping("/updatePackage")

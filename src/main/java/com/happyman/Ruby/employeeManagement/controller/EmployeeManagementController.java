@@ -70,8 +70,6 @@ public class EmployeeManagementController extends BaseController {
 	@PostMapping("/delete")
 	public String deleteEmployee(Integer employeeId, Model model) {
 		masterService.deleteEmployee(employeeId);
-		List<Employee> employees = masterService.getAllEmployees();
-		model.addAttribute("employees", employees);
 		return "redirect:/admin/adminHome?showDiv=emp_updateDelete";
 	}
 

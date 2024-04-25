@@ -48,6 +48,15 @@
     height: 50px;
 }
 
+.tableHead tr {
+    min-height: 40px;
+}
+
+.tableBody tr td:last-child {
+    display: flex;
+    min-height: 55px;
+}
+
 .tableBody td {
     height: 30px;
 }

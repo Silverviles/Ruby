@@ -15,8 +15,4 @@ function blurFunc() {
 inputs.forEach((input) => {
 	input.addEventListener("focus", focusFunc);
 	input.addEventListener("blur", blurFunc);
-	let parent = this.parentNode;
-	if(this.value !== ""){
-		parent.classList.add("focus");
-	}
 });
