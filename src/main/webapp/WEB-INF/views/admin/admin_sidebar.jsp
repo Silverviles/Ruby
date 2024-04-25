@@ -216,19 +216,14 @@
                             <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li id="payments_button">
                                 <a href="#">
                                     <span class="text1">b1</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="refunds_button">
                                 <a href="#">
                                     <span class="text1">b2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="text1">b3</span>
                                 </a>
                             </li>
                         </ul>
@@ -281,6 +276,14 @@
 
         <div id="emp_updateDelete" class="sub-contents">
             <jsp:include page="../employeeManagement/EmployeeManagement.jsp" />
+        </div>
+
+        <div id="payments" class="sub-contents">
+            <jsp:include page="../billingAndReporting/adminPayments.jsp" />
+        </div>
+
+        <div id="refunds" class="sub-contents">
+            <jsp:include page="../billingAndReporting/adminRefunds.jsp" />
         </div>
     </div>
 </div>

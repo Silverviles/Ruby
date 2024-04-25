@@ -2,7 +2,7 @@ package com.happyman.Ruby.masterService;
 
 import java.util.List;
 
-import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
+import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.Driver;
@@ -14,6 +14,8 @@ import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.dao.Payment;
+import com.happyman.Ruby.masterService.dao.Refund;
+import com.happyman.Ruby.masterService.dao.Reservation;
 import com.happyman.Ruby.masterService.dao.Room;
 import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
@@ -107,15 +109,15 @@ public interface MasterService {
 
 	List<Payment> getPaymentStatus(Byte Status);
 
-	void addPayment(PaymentsDTO paymentsDTO);
+	void addPayment(PaymentDTO paymentDTO);
 
 	void addPayment(Payment payment);
 
 	void deletePayment(Integer paymentId);
 
-	void updatePaymentByPaymentDTO(PaymentsDTO payment);
+	void updatePaymentByPaymentDTO(PaymentDTO payment);
 
-	List<PaymentsDTO> getPaymentsDTOList();
+	List<PaymentDTO> getPaymentsDTOList();
 
 	void deletePaymentBypaymentId(Integer bid);
 
@@ -228,4 +230,19 @@ public interface MasterService {
 	void deleteFeedbackByBookingId(String bookingId);
 
 	void updateFeedback(String bookingId);
+
+	Reservation saveReservation(Reservation reservation);
+
+	List<Reservation> findAllReservations();
+
+	Reservation findReservationById(String id);
+
+	void deleteReservationById(String id);
+
+	Refund saveRefund(Refund refund);
+
+	List<Refund> findAllRefunds();
+
+	Refund findRefundById(Integer id);
+
 }

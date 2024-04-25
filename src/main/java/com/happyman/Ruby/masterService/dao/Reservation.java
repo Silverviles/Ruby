@@ -1,5 +1,6 @@
 package com.happyman.Ruby.masterService.dao;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,17 +20,19 @@ import java.time.LocalDate;
 public class Reservation {
 	@Id @Column(name = "booking_Id", nullable = false, length = 10) private String bookingId;
 
-	@Column(name = "room_Reservation_Id", nullable = false) private Integer roomReservationId;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) @JoinColumn(name = "room_Reservation_Id", nullable = false) private RoomReservation roomReservation;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "trip_Id") private Trip trip;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) @JoinColumn(name = "trip_Id") private Trip trip;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "event_Id") private Event event;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) @JoinColumn(name = "event_Id") private Event event;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "package_Id") private Package packageField;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) @JoinColumn(name = "package_Id") private Package packageField;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "menu_Id") private Menu menu;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) @JoinColumn(name = "menu_Id") private Menu menu;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "payment_Id") private Payment payment;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) @JoinColumn(name = "payment_Id") private Payment payment;
+
+	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "refund_id") private Refund refund;
 
 	@Column(name = "discontinue_Date") private LocalDate discontinueDate;
 

@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
+import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.masterService.dao.Payment;
+import com.happyman.Ruby.masterService.dao.Refund;
+import com.happyman.Ruby.masterService.dao.Reservation;
 
 @Controller
 @RequestMapping("/payments")
@@ -32,17 +34,17 @@ public class PaymentController extends BaseController {
 
 	@GetMapping("/getCustomerDetails")
 	public String displayPaymentData(Model model) {
-		List<PaymentsDTO> payment = masterService.getPaymentsDTOList();
+		List<PaymentDTO> payment = masterService.getPaymentsDTOList();
 		model.addAttribute("allPayments", payment);
 		return "/payment_updateDelete";
 	}
 
 	@PostMapping("/addPaymentStatus")
-	public String addPaymentStatus(@ModelAttribute PaymentsDTO paymentsDTO) {
-		if (paymentsDTO.getPaymentStatus() == null) {
-			paymentsDTO.setPaymentStatus((byte) 0);
+	public String addPaymentStatus(@ModelAttribute PaymentDTO paymentDTO) {
+		if (paymentDTO.getPaymentStatus() == null) {
+			paymentDTO.setPaymentStatus((byte) 0);
 		}
-		masterService.addPayment(paymentsDTO);
+		masterService.addPayment(paymentDTO);
 		return "redirect:/success";
 	}
 
@@ -54,17 +56,25 @@ public class PaymentController extends BaseController {
 	}
 
 	@PostMapping("/updatePayment")
-	public String updatePayment(Byte paymentStatus, Integer paymentId, Model model) {
+	public String updatePayment(Integer paymentId, Model model) {
 		Payment payment = masterService.getPaymentById(paymentId);
-		payment.setPaymentStatus(payment.getPaymentStatus() == 0 ? (byte) 1 : (byte) 0);
+		payment.setPaymentStatus((byte) 1);
 		masterService.addPayment(payment);
-		model.addAttribute("payments", masterService.getAllPayments());
-		return "billingAndReporting/paymentsAdmin";
+		return "redirect:/admin/adminHome?showDiv=payments";
+	}
+
+	@PostMapping("/refund")
+	public String getRefund(String bookingId) {
+		Refund refund = masterService.findReservationById(bookingId).getRefund();
+		refund.setRefundStatus((byte) 1);
+		masterService.saveRefund(refund);
+		masterService.deleteReservationById(bookingId);
+		return "redirect:/admin/adminHome?showDiv=refunds";
 	}
 
 	@PostMapping("/generateBill")
-	public String generateBill(@ModelAttribute PaymentsDTO paymentsDTO) {
-		Map<String, Map<Integer, Double>> records = paymentsDTO.getRecords();
+	public String generateBill(@ModelAttribute PaymentDTO paymentDTO) {
+		Map<String, Map<Integer, Double>> records = paymentDTO.getRecords();
 
 		double totalBill = 0.0;
 		for (Map.Entry<String, Map<Integer, Double>> entry : records.entrySet()) {
@@ -75,7 +85,6 @@ public class PaymentController extends BaseController {
 				Integer id = categoryEntry.getKey();
 				Double payment = categoryEntry.getValue();
 
-
 				totalBill += payment;
 			}
 		}
@@ -84,9 +93,9 @@ public class PaymentController extends BaseController {
 		advance.put(999, totalBill * 15 / 100);
 		records.put("Advance", advance);
 		// Save the total bill to the PaymentsDTO
-		paymentsDTO.setAmount(Float.parseFloat(String.valueOf(totalBill)));
+		paymentDTO.setAmount(Float.parseFloat(String.valueOf(totalBill)));
 
-		paymentsDTO.setRecords(records);
+		paymentDTO.setRecords(records);
 
 		// Return the view name (replace "billView" with the actual view name)
 		return "billView";

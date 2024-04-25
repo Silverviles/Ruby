@@ -2,7 +2,7 @@ package com.happyman.Ruby.masterService.service;
 
 import java.util.List;
 
-import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
+import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
 import com.happyman.Ruby.masterService.dao.Payment;
 
 public interface PaymentService {
@@ -24,6 +24,6 @@ public interface PaymentService {
 
 	void deletePaymentBypaymentId(Integer bId);
 
-	void updatePaymentByPaymentDTO(PaymentsDTO payment);
+	void updatePaymentByPaymentDTO(PaymentDTO payment);
 }
 

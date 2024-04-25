@@ -2,13 +2,12 @@ package com.happyman.Ruby.masterService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
+import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.Driver;
@@ -21,6 +20,8 @@ import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import com.happyman.Ruby.masterService.dao.PackageToAddonId;
 import com.happyman.Ruby.masterService.dao.Payment;
+import com.happyman.Ruby.masterService.dao.Refund;
+import com.happyman.Ruby.masterService.dao.Reservation;
 import com.happyman.Ruby.masterService.dao.Room;
 import com.happyman.Ruby.masterService.dao.Seat;
 import com.happyman.Ruby.masterService.dao.Trip;
@@ -35,6 +36,8 @@ import com.happyman.Ruby.masterService.service.FoodService;
 import com.happyman.Ruby.masterService.service.PackageService;
 import com.happyman.Ruby.masterService.service.PackageToAddonService;
 import com.happyman.Ruby.masterService.service.PaymentService;
+import com.happyman.Ruby.masterService.service.RefundService;
+import com.happyman.Ruby.masterService.service.ReservationService;
 import com.happyman.Ruby.masterService.service.RoomService;
 import com.happyman.Ruby.masterService.service.SeatService;
 import com.happyman.Ruby.masterService.service.TripService;
@@ -57,6 +60,8 @@ public class MasterServiceImpl implements MasterService {
 	private final EventToAddOnService eventAddon;
 	private final RoomService roomService;
 	private final FeedbackService feedbackService;
+	private final ReservationService reservationService;
+	private final RefundService refundService;
 
 	@Autowired
 	public MasterServiceImpl(
@@ -73,7 +78,8 @@ public class MasterServiceImpl implements MasterService {
 		EventService eventService,
 		EventToAddOnService eventAddon,
 		RoomService roomService,
-		FeedbackService feedbackService
+		FeedbackService feedbackService,
+		ReservationService reservationService, RefundService refundService
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
@@ -89,6 +95,8 @@ public class MasterServiceImpl implements MasterService {
 		this.eventAddon = eventAddon;
 		this.roomService = roomService;
 		this.feedbackService = feedbackService;
+		this.reservationService = reservationService;
+		this.refundService = refundService;
 	}
 
 	@Override
@@ -412,12 +420,12 @@ public class MasterServiceImpl implements MasterService {
 	}
 
 	@Override
-	public void addPayment(PaymentsDTO paymentsDTO) {
+	public void addPayment(PaymentDTO paymentDTO) {
 		Payment payment = new Payment();
-		payment.setCustomerName(paymentsDTO.getCustomerName());
-		payment.setCustomerEmail(paymentsDTO.getCustomerEmail());
-		payment.setBillAmount(paymentsDTO.getAmount());
-		payment.setPaymentStatus(paymentsDTO.getPaymentStatus());
+		payment.setCustomerName(paymentDTO.getCustomerName());
+		payment.setCustomerEmail(paymentDTO.getCustomerEmail());
+		payment.setBillAmount(paymentDTO.getAmount());
+		payment.setPaymentStatus(paymentDTO.getPaymentStatus());
 		//TODO:
 		paymentService.addPayment(payment);
 	}
@@ -433,12 +441,12 @@ public class MasterServiceImpl implements MasterService {
 	}
 
 	@Override
-	public void updatePaymentByPaymentDTO(PaymentsDTO payment) {
+	public void updatePaymentByPaymentDTO(PaymentDTO payment) {
 		paymentService.updatePaymentByPaymentDTO(payment);
 	}
 
 	@Override
-	public List<PaymentsDTO> getPaymentsDTOList() {
+	public List<PaymentDTO> getPaymentsDTOList() {
 		return null;
 	}
 
@@ -641,5 +649,40 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public void updateFeedback(String bookingId) {
 		feedbackService.updateFeedback(bookingId);
+	}
+
+	@Override
+	public Reservation saveReservation(Reservation reservation) {
+		return reservationService.save(reservation);
+	}
+
+	@Override
+	public List<Reservation> findAllReservations() {
+		return reservationService.findAll();
+	}
+
+	@Override
+	public Reservation findReservationById(String id) {
+		return reservationService.findById(id);
+	}
+
+	@Override
+	public void deleteReservationById(String id) {
+		reservationService.deleteById(id);
+	}
+
+	@Override
+	public Refund saveRefund(Refund refund) {
+		return refundService.save(refund);
+	}
+
+	@Override
+	public List<Refund> findAllRefunds() {
+		return refundService.findAll();
+	}
+
+	@Override
+	public Refund findRefundById(Integer id) {
+		return refundService.findById(id);
 	}
 }

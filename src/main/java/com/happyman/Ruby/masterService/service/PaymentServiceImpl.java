@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.happyman.Ruby.billingAndReporting.dto.PaymentsDTO;
+import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
 import com.happyman.Ruby.masterService.dao.Payment;
 import com.happyman.Ruby.masterService.repository.PaymentRepository;
 
@@ -48,13 +48,7 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public List<Payment> getPaymentStatus(Byte Status) {
-		List<Payment> payment = paymentRepository.findAll();
-		for (Payment pay : payment) {
-			if (pay.getPaymentStatus().equals(Status)) {
-				payment.add(pay);
-			}
-		}
-		return payment;
+		return getAllPayments().stream().filter(payment -> payment.getPaymentStatus().equals(Status)).toList();
 	}
 
 
@@ -70,17 +64,17 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public void deletePaymentBypaymentId(Integer bId) {
-
+		paymentRepository.deleteById(bId);
 	}
 
 
 	@Override
-	public void updatePaymentByPaymentDTO(PaymentsDTO payment) {
-		Payment py = this.getPaymentById(payment.getBID());
+	public void updatePaymentByPaymentDTO(PaymentDTO payment) {
+		Payment py = this.getPaymentById(payment.getPaymentId());
 		py.setBillAmount(payment.getAmount());
 		py.setCustomerName(payment.getCustomerName());
 		py.setCustomerEmail(payment.getCustomerEmail());
-		py.setPaymentStatus(payment.getBID().byteValue());
+		py.setPaymentStatus(payment.getPaymentStatus());
 
 		paymentRepository.save(py);
 	}

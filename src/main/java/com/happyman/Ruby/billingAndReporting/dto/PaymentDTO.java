@@ -8,8 +8,9 @@ import java.util.Map;
 
 @Getter
 @Setter
-public class PaymentsDTO {
-	private Integer bID;
+public class PaymentDTO {
+	private Integer paymentId;
+	private String bookingId;
 	private String customerName;
 	private String customerEmail;
 	private Map<String, Map<Integer, Double>> records;
