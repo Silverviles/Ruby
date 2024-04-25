@@ -51,11 +51,11 @@
             </td>
             <td>
                 <form method="post" action="${pageContext.request.contextPath}/packages/navigateToUpdate">
-                    <input type="hidden" value="<%= packageDTO.getId()%>" name="employeeId"/>
+                    <input type="hidden" value="<%= packageDTO.getId()%>" name="packageId"/>
                     <button class="edit-button">Edit</button>
                 </form>
-                <form method="post" action="${pageContext.request.contextPath}/employeeManagement/delete">
-                    <input type="hidden" value="<%= packageDTO.getId()%>" name="employeeId"/>
+                <form method="post" action="${pageContext.request.contextPath}/packages/deletePackage">
+                    <input type="hidden" value="<%= packageDTO.getId()%>" name="packageId"/>
                     <button class="delete-button">Delete</button>
                 </form>
             </td>

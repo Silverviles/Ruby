@@ -462,7 +462,7 @@ public class MasterServiceImpl implements MasterService {
 		packageService.addPackage(pkg);
 
 		List<Addon> addons = packageDTO.getAddonList();
-		if (!addons.isEmpty()) {
+		if (addons!= null && !addons.isEmpty()) {
 			for (Addon addon : addons) {
 				PackageToAddonId packageToAddonId = new PackageToAddonId();
 				packageToAddonId.setPackageId(pkg.getId());
