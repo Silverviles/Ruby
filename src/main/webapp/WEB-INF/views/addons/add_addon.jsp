@@ -18,7 +18,7 @@
         <span class="circle one"></span>
         <span class="circle two"></span>
 
-        <form action="#" autocomplete="off">
+        <form action="addons/addAddon" autocomplete="off" method="post">
             <h3 class="title">Add Addon</h3>
 
             <div class="input-container">

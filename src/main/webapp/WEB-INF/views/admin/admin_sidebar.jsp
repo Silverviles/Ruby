@@ -251,6 +251,7 @@
         </div>
 
         <div id="new_package" class="sub-contents">
+            <jsp:include page="../packages/add_package.jsp" />
         </div>
 
         <div id="remove_package" class="sub-contents">

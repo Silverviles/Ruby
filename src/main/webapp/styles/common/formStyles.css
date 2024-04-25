@@ -395,3 +395,15 @@ textarea.input {
         padding: 0.45rem 1.2rem;
     }
 }
+
+.selectArea{
+    margin: 0;
+}
+
+input[type="date"]::-webkit-slider-runnable-track {
+    color: var(--primary-color);
+}
+
+input[type="number"]::-webkit-slider-thumb {
+    color: var(--primary-color);
+}
