@@ -259,4 +259,10 @@ public interface MasterService {
 
 	Refund findRefundById(Integer id);
 
+	public Complaint saveComplaint(Complaint complaint);
+	public Complaint findComplaintById(Integer id);
+	public void deleteComplaint(Integer id);
+	public List<Complaint> findAllComplaints();
+	public Complaint findComplaintByBookingId(String bookingId);
+
 }

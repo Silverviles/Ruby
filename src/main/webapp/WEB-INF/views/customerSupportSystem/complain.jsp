@@ -51,30 +51,26 @@
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form action="complain.html" autocomplete="off">
+            <form action="${pageContext.request.contextPath}/customerSupport/saveComplaint" method="post" autocomplete="off">
                 <h3 class="title">Drop your ticket</h3>
 
+                <input type="hidden" id="bookingId" name="bookingId" value="">
+
                 <div class="input-container">
-                    <input type="text" name="name" class="input" />
-                    <label>Username</label>
-                    <span>Username</span>
+                    <input id="customerName" type="text" name="name" class="input" />
+                    <label for="customerName">Name: </label>
+                    <span>Name</span>
                 </div>
 
                 <div class="input-container">
-                    <input type="email" name="email" class="input" />
-                    <label>Email</label>
+                    <input id="email" type="email" name="email" class="input" />
+                    <label for="email">Email</label>
                     <span>Email</span>
                 </div>
 
-                <div class="input-container">
-                    <input type="text" name="date" class="input" />
-                    <label>Date of visit</label>
-                    <span>Booking ID</span>
-                </div>
-
                 <div class="input-container textarea">
-                    <textarea name="complaint" class="input"></textarea>
-                    <label>Complaint</label>
+                    <textarea id="complaint" name="complaintDesc" class="input"></textarea>
+                    <label for="complaint">Complaint</label>
                     <span>Complaint</span>
                 </div>
 

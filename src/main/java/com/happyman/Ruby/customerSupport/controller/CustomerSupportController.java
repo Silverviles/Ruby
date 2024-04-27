@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.happyman.Ruby.common.BaseController;
+import com.happyman.Ruby.masterService.dao.Complaint;
 import com.happyman.Ruby.masterService.dao.Feedback;
 
 @Controller
@@ -52,8 +53,21 @@ public class CustomerSupportController extends BaseController {
 		return "common/admin_sidebar";
 	}
 
-	@GetMapping("/complaint")
-	public String complaint() {
+	@GetMapping("/giveComplaintForm")
+	public String giveComplaint(String bookingId, Model model) {
+		model.addAttribute("complaint", masterService.findComplaintByBookingId(bookingId));
 		return "customerSupportSystem/complain";
+	}
+
+	@PostMapping("/saveComplaint")
+	public String saveComplaint(@ModelAttribute Complaint complaint, String bookingId, Model model) {
+		Complaint cmp = complaint.getComplaintId() == null ? complaint : masterService.findComplaintById(complaint.getComplaintId());
+		cmp.setCustomerName(complaint.getCustomerName());
+		cmp.setEmail(complaint.getEmail());
+		cmp.setReservation(masterService.findReservationById(bookingId));
+		cmp.setComplaintDesc(complaint.getComplaintDesc());
+
+		masterService.saveComplaint(cmp);
+		return "redirect:/success";
 	}
 }

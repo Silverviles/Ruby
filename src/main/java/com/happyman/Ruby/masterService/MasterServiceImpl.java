@@ -65,6 +65,7 @@ public class MasterServiceImpl implements MasterService {
 	private final ReservationService reservationService;
 	private final RefundService refundService;
 	private final MenuService menuService;
+	private final ComplaintService complaintService;
 
 	@Autowired
 	public MasterServiceImpl(
@@ -84,7 +85,8 @@ public class MasterServiceImpl implements MasterService {
 		FeedbackService feedbackService,
 		ReservationService reservationService,
 		RefundService refundService,
-		MenuService menuService
+		MenuService menuService,
+		ComplaintService complaintService
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
@@ -103,6 +105,7 @@ public class MasterServiceImpl implements MasterService {
 		this.reservationService = reservationService;
 		this.refundService = refundService;
 		this.menuService = menuService;
+		this.complaintService = complaintService;
 	}
 
 	@Override
@@ -736,5 +739,30 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public Refund findRefundById(Integer id) {
 		return refundService.findById(id);
+	}
+
+	@Override
+	public Complaint saveComplaint(Complaint complaint) {
+		return complaintService.saveComplaint(complaint);
+	}
+
+	@Override
+	public Complaint findComplaintById(Integer id) {
+		return complaintService.findComplaintById(id);
+	}
+
+	@Override
+	public void deleteComplaint(Integer id) {
+		complaintService.deleteComplaint(id);
+	}
+
+	@Override
+	public List<Complaint> findAllComplaints() {
+		return complaintService.findAllComplaints();
+	}
+
+	@Override
+	public Complaint findComplaintByBookingId(String bookingId) {
+		return complaintService.findComplaintByBookingId(bookingId);
 	}
 }
