@@ -1,10 +1,10 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Event" %><%--
   Created by IntelliJ IDEA.
   User: Migara
   Date: 27/04/2024
   Time: 06:32
 --%>
-<% Event %>
+<% Event event = (Event) request.getAttribute("editEvent"); %>
 
 <div class="formContainer">
     <span class="big-circle one"></span>
@@ -21,49 +21,40 @@
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form method="post" action="${pageContext.request.contextPath}/employeeManagement/registerEmployee">
-                <h3 class="title">Add Employee</h3>
+            <form method="post" action="${pageContext.request.contextPath}/event/addEvent">
+                <h3 class="title">Add Event</h3>
 
                 <div class="input-container">
-                    <input type="hidden" name="employeeId" class="input"
-                           value="<%= employee != null ? employee.getId() : "" %>"/>
+                    <input type="hidden" name="eventId" class="input"
+                           value="<%= event != null ? event.getEventId() : "" %>"/>
                 </div>
 
                 <div class="input-container">
-                    <input type="text" id="firstName" name="firstName"
-                           value="<%= employee != null ? employee.getFirstName() : "" %>" class="input"/>
-                    <label for="firstName">First Name: </label>
-                    <span>First Name</span>
+                    <input type="text" id="eventName" name="eventName"
+                           value="<%= event != null ? event.getEventName() : "" %>" class="input"/>
+                    <label for="eventName">Event Name: </label>
+                    <span>Event Name</span>
+                </div>
+
+                <div class="input-container checkboxes">
+                    <input type="checkbox" id="availability" name="availability"
+                           value="<%= event != null ? event.getAvailability() : ""%>" class="input"/>
+                    <label for="availability">Availability: </label>
+                    <span>Availability</span>
+                </div>
+
+                <div class="input-container textarea">
+                    <textarea id="description" name="description" class="input">
+                        <%= event != null ? event.getDescription() : ""%>
+                    </textarea>
+                    <label for="description">Description: </label>
+                    <span>Description</span>
                 </div>
 
                 <div class="input-container">
-                    <input type="text" id="lastName" name="lastName"
-                           value="<%= employee != null ? employee.getLastName() : ""%>" class="input"/>
-                    <label for="lastName">Last Name: </label>
-                    <span>Last Name</span>
-                </div>
-
-                <div class="input-container">
-                    <input type="email" id="email" name="email"
-                           value="<%= employee != null ? employee.getEmail() : ""%>"
-                           class="input"/>
-                    <label for="email">Email: </label>
-                    <span>Email</span>
-                </div>
-
-                <div class="input-container">
-                    <input type="text" id="contactNo" name="contactNo"
-                           value="<%= employee != null ? employee.getMobileNo() : ""%>" pattern="[0-9]{10}"
-                           class="input"/>
-                    <label for="contactNo">Contact No: </label>
-                    <span>Contact No</span>
-                </div>
-
-                <div class="input-container">
-                    <input type="text" id="salary" name="salary"
-                           value="<%= employee != null ? employee.getBaseSalary() : ""%>" class="input"/>
-                    <label for="salary">Salary: </label>
-                    <span>Salary</span>
+                    <input type="number" id="price" name="price" value="<%= event != null ? event.getPrice() : ""%>" class="input"/>
+                    <label for="price">Price: </label>
+                    <span>Price</span>
                 </div>
 
                 <input type="submit" value="Submit" class="btn"/>

@@ -22,6 +22,7 @@ public class AdminController extends BaseController {
 		model.addAttribute("allPackages", masterService.getPackageDTOList());
 		model.addAttribute("reservations", masterService.findAllCompletedReservations());
 		model.addAttribute("refunds", masterService.findAllRefunds());
+		model.addAttribute("events", masterService.getAllEvents());
 		return "admin/admin_sidebar";
 	}
 

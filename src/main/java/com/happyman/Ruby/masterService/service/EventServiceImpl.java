@@ -59,7 +59,7 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public void updateEvent(Event event) {
-		Optional<Event> existingEventOptional = eventRepository.findById(event.getId());
+		Optional<Event> existingEventOptional = eventRepository.findById(event.getEventId());
 		if (existingEventOptional.isPresent()) {
 			Event existingEvent = existingEventOptional.get();
 			existingEvent.setEventName(event.getEventName());

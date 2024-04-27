@@ -255,11 +255,11 @@
         </div>
 
         <div id="new_event" class="sub-contents">
-
+            <jsp:include page="../events/add_update_event.jsp" />
         </div>
 
         <div id="remove_event" class="sub-contents">
-
+            <jsp:include page="../events/all_events.jsp" />
         </div>
 
         <div id="new_addon" class="sub-contents">

@@ -1,4 +1,7 @@
 package com.happyman.Ruby.roomReservation.controller;
 
-public class RoomReservationController {
+import com.happyman.Ruby.common.BaseController;
+
+public class RoomReservationController extends BaseController {
+
 }

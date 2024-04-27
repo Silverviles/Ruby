@@ -15,7 +15,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "event")
 public class Event {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "event_Id", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "event_Id", nullable = false) private Integer eventId;
 
 	@Column(name = "event_Name", nullable = false, length = 50) private String eventName;
 

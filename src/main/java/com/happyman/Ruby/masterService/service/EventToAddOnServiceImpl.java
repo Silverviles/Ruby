@@ -28,7 +28,7 @@ public class EventToAddOnServiceImpl implements EventToAddOnService {
 	@Override
 	public List<Addon> getAddonsByEventId(Integer eventId) {
 		return eventToAddonRepository.findAll().stream()
-			.filter(eventToAddon -> eventToAddon.getEvent().getId().equals(eventId))
+			.filter(eventToAddon -> eventToAddon.getEvent().getEventId().equals(eventId))
 			.map(EventToAddon::getAddon) // Assuming getAddon() method exists to retrieve the addon from EventToAddon
 			.collect(Collectors.toList());
 	}
