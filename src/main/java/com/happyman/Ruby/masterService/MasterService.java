@@ -226,6 +226,8 @@ public interface MasterService {
 
 	void deleteRoom(Room room);
 
+	void deleteRoomById(Integer roomId);
+
 	//customerSupport
 	List<Feedback> getAllFeedbacks();
 

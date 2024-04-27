@@ -26,4 +26,6 @@ public interface RoomService {
 	void updateRoom(Room room);
 
 	void deleteRoom(Room room);
+
+	void deleteRoomById(Integer roomId);
 }

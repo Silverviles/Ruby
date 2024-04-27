@@ -239,11 +239,11 @@
     <div class="contents">
 
         <div id="update_room" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+            <jsp:include page="../roomReservation/add_update_room.jsp" />
         </div>
 
         <div id="remove_room" class="sub-contents">
-            <!-- TODO: include update room jsp here. Create it in a separate jsp without head or body -->
+            <jsp:include page="../roomReservation/all_rooms.jsp" />
         </div>
 
         <div id="new_package" class="sub-contents">

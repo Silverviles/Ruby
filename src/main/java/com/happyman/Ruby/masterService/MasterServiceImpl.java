@@ -361,6 +361,11 @@ public class MasterServiceImpl implements MasterService {
 	}
 
 	@Override
+	public void deleteRoomById(Integer roomId) {
+		roomService.deleteRoomById(roomId);
+	}
+
+	@Override
 	public Addon getAddonById(Integer addonId) {
 		return addonService.getAddonById(addonId);
 	}

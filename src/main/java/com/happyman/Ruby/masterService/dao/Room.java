@@ -14,15 +14,15 @@ import lombok.Setter;
 @Entity
 @Table(name = "room")
 public class Room {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "roomId", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "room_id", nullable = false) private Integer roomId;
 
-	@Column(name = "roomName", nullable = false, length = 45) private String roomName;
+	@Column(name = "room_name", nullable = false, length = 45) private String roomName;
 
-	@Column(name = "roomType", nullable = false) private String roomType;
+	@Column(name = "room_type", nullable = false) private String roomType;
 
-	@Column(name = "roomCapacity", nullable = false) private Integer roomCapacity;
+	@Column(name = "room_capacity", nullable = false) private Integer roomCapacity;
 
-	@Column(name = "roomPrice", nullable = false) private Float roomPrice;
+	@Column(name = "room_price", nullable = false) private Float roomPrice;
 
-	@Column(name = "roomStatus", nullable = false) private Boolean roomStatus;
+	@Column(name = "room_status", nullable = false) private Boolean roomStatus;
 }

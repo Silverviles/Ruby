@@ -25,9 +25,11 @@ window.onload = function () {
 	const searchPaymentInput = document.getElementById("searchPaymentInput");
 	const searchRefundInput = document.getElementById("searchRefundInput");
 	const searchEventInput = document.getElementById("searchEventInput");
+	const searchRoomInput = document.getElementById("searchRoomInput");
 	searchEmployeeInput.addEventListener("input", () => {searchTable("searchEmployeeInput", "employeeTable", 1)});
 	searchPackageInput.addEventListener("input", () => {searchTable("searchPackageInput", "packageTable", 1)});
 	searchPaymentInput.addEventListener("input", () => {searchTable("searchPaymentInput", "paymentTable", 0)});
 	searchRefundInput.addEventListener("input", () => {searchTable("searchRefundInput", "refundTable", 0)});
 	searchEventInput.addEventListener("input", () => {searchTable("searchEventInput", "eventTable", 1)});
+	searchRoomInput.addEventListener("input", () => {searchTable("searchRoomInput", "roomTable", 1)});
 };
