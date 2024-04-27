@@ -126,7 +126,7 @@
     color: white;
 }
 
-#searchInput {
+.searchInput {
     width: 400px;
     padding: 12px 20px;
     margin: 8px 0;

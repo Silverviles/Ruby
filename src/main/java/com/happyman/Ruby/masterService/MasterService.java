@@ -3,6 +3,8 @@ package com.happyman.Ruby.masterService;
 import java.util.List;
 
 import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
+import com.happyman.Ruby.masterService.dao.*;
+
 import com.happyman.Ruby.common.DomainConstants;
 import com.happyman.Ruby.masterService.dao.Addon;
 import com.happyman.Ruby.masterService.dao.Driver;
@@ -173,6 +175,14 @@ public interface MasterService {
 
 	Event getEventByName(String eventName);
 
+	public void saveMenu(Menu menu);
+	public Menu getMenuById(Integer menuId);
+	public List<Menu> getAllMenus();
+	public List<Menu> getAllMenusByMealType(String mealType);
+	public List<Menu> getAllMenusByDishType(String dishType);
+	public List<Menu> getAllMenusByAvailability(Byte availability);
+	void deleteMenuById(Integer menuId);
+
 	List<Event> getEventByAvailability(Byte availability);
 
 	void addEvent(Event event);
@@ -234,6 +244,8 @@ public interface MasterService {
 	Reservation saveReservation(Reservation reservation);
 
 	List<Reservation> findAllReservations();
+
+	List<Reservation> findAllCompletedReservations();
 
 	Reservation findReservationById(String id);
 

@@ -20,7 +20,7 @@ public class AdminController extends BaseController {
 	public String goTemp1(Model model) {
 		model.addAttribute("employees", masterService.getAllEmployees());
 		model.addAttribute("allPackages", masterService.getPackageDTOList());
-		model.addAttribute("reservations", masterService.findAllReservations());
+		model.addAttribute("reservations", masterService.findAllCompletedReservations());
 		model.addAttribute("refunds", masterService.findAllRefunds());
 		return "admin/admin_sidebar";
 	}

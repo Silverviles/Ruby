@@ -20,6 +20,9 @@ public class Menu {
 
 	@Column(name = "availability") private Byte availability;
 
-	@Column(name = "price", nullable = false) private Float price;
+	@Column(name = "price", nullable = false) private Double price;
 
+	@Column(name = "dishType", nullable = false) private String dishType;
+
+	@Column(name = "mealType", nullable = false) private String mealType;
 }

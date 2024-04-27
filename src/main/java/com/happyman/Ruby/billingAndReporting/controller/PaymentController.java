@@ -48,12 +48,12 @@ public class PaymentController extends BaseController {
 		return "redirect:/success";
 	}
 
-	@PostMapping("/deletePayment")
+	/*@PostMapping("/deletePayment")
 	public String deletePayment(Integer paymentId, Model model) {
 		masterService.deletePayment(paymentId);
 		model.addAttribute("payments", masterService.getAllPayments());
 		return "billingAndReporting/paymentsAdmin";
-	}
+	}*/
 
 	@PostMapping("/updatePayment")
 	public String updatePayment(Integer paymentId, Model model) {

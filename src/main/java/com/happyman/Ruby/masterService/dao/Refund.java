@@ -16,18 +16,18 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "refund")
 public class Refund {
-	@Id @Column(name = "refundId", nullable = false) private Integer id;
+	@Id @Column(name = "refund_id", nullable = false) private Integer id;
 
-	@Column(name = "referencedBookingId") private String referencedBookingId;
+	@Column(name = "referenced_booking_id") private String referencedBookingId;
 
-	@Column(name = "customerName", nullable = false) private String customerName;
+	@Column(name = "customer_name", nullable = false) private String customerName;
 
-	@Column(name = "customerEmail", nullable = false) private String customerEmail;
+	@Column(name = "customer_email", nullable = false) private String customerEmail;
 
-	@Column(name = "refundAmount", nullable = false) private Double refundAmount;
+	@Column(name = "refund_amount", nullable = false) private Double refundAmount;
 
-	@Column(name = "refundedDate") private LocalDate refundedDate;
+	@Column(name = "refunded_date") private LocalDate refundedDate;
 
-	@Column(name = "refundStatus") private Byte refundStatus;
+	@Column(name = "refund_status") private Byte refundStatus;
 
 }

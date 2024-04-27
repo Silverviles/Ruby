@@ -7,6 +7,7 @@ import com.happyman.Ruby.masterService.dao.Reservation;
 public interface ReservationService {
 	Reservation save(Reservation reservation);
 	List<Reservation> findAll();
+	public List<Reservation> findAllCompleted();
 	Reservation findById(String id);
 	void deleteById(String id);
 }

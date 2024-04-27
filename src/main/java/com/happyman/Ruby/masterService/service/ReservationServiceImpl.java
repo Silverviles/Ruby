@@ -28,6 +28,11 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
+	public List<Reservation> findAllCompleted() {
+		return findAll().stream().filter(reservation -> reservation.getPayment() != null).toList();
+	}
+
+	@Override
 	public Reservation findById(String id) {
 		return reservationRepository.findById(id).orElse(null);
 	}

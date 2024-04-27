@@ -3,6 +3,8 @@ package com.happyman.Ruby.masterService;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.*;
+import com.happyman.Ruby.masterService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,6 +64,7 @@ public class MasterServiceImpl implements MasterService {
 	private final FeedbackService feedbackService;
 	private final ReservationService reservationService;
 	private final RefundService refundService;
+	private final MenuService menuService;
 
 	@Autowired
 	public MasterServiceImpl(
@@ -79,7 +82,9 @@ public class MasterServiceImpl implements MasterService {
 		EventToAddOnService eventAddon,
 		RoomService roomService,
 		FeedbackService feedbackService,
-		ReservationService reservationService, RefundService refundService
+		ReservationService reservationService,
+		RefundService refundService,
+		MenuService menuService
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
@@ -97,6 +102,7 @@ public class MasterServiceImpl implements MasterService {
 		this.feedbackService = feedbackService;
 		this.reservationService = reservationService;
 		this.refundService = refundService;
+		this.menuService = menuService;
 	}
 
 	@Override
@@ -228,6 +234,10 @@ public class MasterServiceImpl implements MasterService {
 		seatService.saveSeat(seat);
 	}
 
+	public void saveMenu(Menu menu) {
+		menuService.saveMenu(menu);
+	}
+
 	@Override
 	public Seat findSeatById(Integer seatId) {
 		return null;
@@ -247,6 +257,38 @@ public class MasterServiceImpl implements MasterService {
 	public Seat findSeatByLocation(String location) {
 		return null;
 	}
+
+
+	@Override
+	public Menu getMenuById(Integer menuId) {
+		return menuService.getMenuById(menuId);
+	}
+
+	@Override
+	public List<Menu> getAllMenus() {
+		return menuService.getAllMenus();
+	}
+
+	@Override
+	public List<Menu> getAllMenusByMealType(String mealType) {
+		return menuService.getAllMenusByMealType(mealType);
+	}
+
+	@Override
+	public List<Menu> getAllMenusByDishType(String dishType) {
+		return menuService.getAllMenusByDishType(dishType);
+	}
+
+	@Override
+	public List<Menu> getAllMenusByAvailability(Byte availability) {
+		return menuService.getAllMenusByAvailability(availability);
+	}
+
+	@Override
+	public void deleteMenuById(Integer menuId) {
+		menuService.deleteMenuById(menuId);
+	}
+
 
 	@Override
 	public void addEmployee(Employee employee) {
@@ -659,6 +701,11 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public List<Reservation> findAllReservations() {
 		return reservationService.findAll();
+	}
+
+	@Override
+	public List<Reservation> findAllCompletedReservations() {
+		return reservationService.findAllCompleted();
 	}
 
 	@Override

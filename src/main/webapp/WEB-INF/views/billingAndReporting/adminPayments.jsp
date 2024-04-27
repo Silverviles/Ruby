@@ -10,7 +10,7 @@
 <% @SuppressWarnings("unchecked") List<Reservation> payments = (List<Reservation>) request.getAttribute("reservations"); %>
 <div class="tableDiv">
     <div id="searchContainer" class="searchContainer">
-        <input type="text" aria-label="Search Input" id="searchInput" placeholder="Search by First Name">
+        <input type="text" class="searchInput" aria-label="Search Input" id="searchPaymentInput" placeholder="Search by Booking ID">
     </div>
 
     <table id="paymentTable" class="adminTable">
@@ -53,34 +53,3 @@
         </tbody>
     </table>
 </div>
-
-<script>
-	function searchEmployee() {
-		var input, filter, table, tr, td, i, txtValue;
-		// Search bar id tag here
-		input = document.getElementById("searchInput");
-		filter = input.value.toUpperCase();
-
-		// Table needs to be searched here
-		table = document.getElementById("paymentTable");
-		tr = table.getElementsByTagName("tr");
-
-		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[0];
-			if (td) {
-				txtValue = td.textContent || td.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = "";
-				} else {
-					tr[i].style.display = "none";
-				}
-			}
-		}
-	}
-
-	window.onload = function () {
-		var searchInput = document.getElementById("searchInput");
-		searchInput.addEventListener("input", searchEmployee);
-	};
-
-</script>

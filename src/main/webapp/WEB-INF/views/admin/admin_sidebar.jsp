@@ -290,6 +290,7 @@
 <script src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/scripts/admin/form.js"></script>
 <script src="${pageContext.request.contextPath}/scripts/admin/sidebar.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/admin/filter.js"></script>
 </body>
 
 </html>

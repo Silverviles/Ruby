@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.events.dto.EventAddDTO;
@@ -69,9 +70,9 @@ public class EventController extends BaseController {
 	}
 
 	@PostMapping("/updateForm")
-	public String goToUpdate(Integer eventId, Model model) {
-		model.addAttribute("event", masterService.getEventById(eventId));
-		return "event/eventAdd";
+	public String goToUpdate(Integer eventId, RedirectAttributes model) {
+		model.addFlashAttribute("editEvent", masterService.getEventById(eventId));
+		return "redirect:/admin/adminHome?showDiv=payments";
 	}
 
 	@PostMapping("/update")

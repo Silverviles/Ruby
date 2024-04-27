@@ -1,15 +1,13 @@
 <%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
 <%
-    List<PackageDTO> packagesList = new ArrayList<>();
-    packagesList = (List<PackageDTO>) request.getAttribute("allPackages");
+    List<PackageDTO> packagesList = (List<PackageDTO>) request.getAttribute("allPackages");
 %>
 
 <div class="tableDiv">
     <div id="searchContainer" class="searchContainer">
-        <input type="text" aria-label="Search Input" id="searchInput" placeholder="Search by First Name">
+        <input type="text" class="searchInput" aria-label="Search Input" id="searchPackageInput" placeholder="Search by Package Name">
     </div>
 
     <table id="packageTable" class="adminTable">
@@ -65,34 +63,3 @@
         </tbody>
     </table>
 </div>
-
-<script>
-	function searchEmployee() {
-		var input, filter, table, tr, td, i, txtValue;
-		// Search bar id tag here
-		input = document.getElementById("searchInput");
-		filter = input.value.toUpperCase();
-
-		// Table needs to be searched here
-		table = document.getElementById("packageTable");
-		tr = table.getElementsByTagName("tr");
-
-		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[1]; // Index 1 for first name column
-			if (td) {
-				txtValue = td.textContent || td.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = "";
-				} else {
-					tr[i].style.display = "none";
-				}
-			}
-		}
-	}
-
-	window.onload = function () {
-		var searchInput = document.getElementById("searchInput");
-		searchInput.addEventListener("input", searchEmployee);
-	};
-
-</script>

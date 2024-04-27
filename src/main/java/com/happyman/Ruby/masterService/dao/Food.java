@@ -20,12 +20,12 @@ import com.happyman.Ruby.common.DomainConstants;
 public class Food {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "food_Id", nullable = false) private Integer id;
 
-	@Enumerated(EnumType.STRING) @Column(name = "food_Category", nullable = false, length = 45) private DomainConstants.FoodCategory foodCategory;
+	@Column(name = "food_name", nullable = false) private String foodName;
 
-	@Column(name = "food_Price", nullable = false) private Double foodPrice;
+	@Column(name = "food_category", nullable = false) private String foodCategory;
 
-	@Column(name = "food_Availability", nullable = false) private Byte foodAvailability;
+	@Column(name = "food_price", nullable = false) private Double foodPrice;
 
-	@Column(name = "food_Img", nullable = false, length = 100) private String foodImg;
+	@Column(name = "food_availability", nullable = false) private Byte foodAvailability;
 
 }
