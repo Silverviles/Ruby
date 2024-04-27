@@ -56,7 +56,7 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public void updateRoom(Room room) {
-		Room room1 = this.getRoomById(room.getId());
+		Room room1 = this.getRoomById(room.getRoomId());
 		room1.setRoomName(room.getRoomName());
 		room1.setRoomType(room.getRoomType());
 		room1.setRoomPrice(room.getRoomPrice());

@@ -317,12 +317,12 @@ public class MasterServiceImpl implements MasterService {
 
 	@Override
 	public void saveRoom(Room room) {
-
+		roomService.saveRoom(room);
 	}
 
 	@Override
 	public Room getRoomById(Integer roomId) {
-		return null;
+		return roomService.getRoomById(roomId);
 	}
 
 	@Override

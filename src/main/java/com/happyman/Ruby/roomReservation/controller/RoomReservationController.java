@@ -28,7 +28,7 @@ public class RoomReservationController extends BaseController {
 
 		reservationRoom.setRoomName(room != null ? room.getRoomName() : null);
 		reservationRoom.setRoomType(room != null ? room.getRoomType() : null);
-		reservationRoom.setRoomStatus(room != null ? room.getRoomStatus() : null);
+		reservationRoom.setRoomStatus(room != null);
 		reservationRoom.setRoomPrice(room != null ? room.getRoomPrice() : null);
 		reservationRoom.setRoomCapacity(room != null ? room.getRoomCapacity() : null);
 

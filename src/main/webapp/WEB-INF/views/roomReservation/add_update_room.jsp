@@ -21,7 +21,7 @@
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form method="post" action="${pageContext.request.contextPath}/room/addRoom">
+            <form method="post" action="${pageContext.request.contextPath}/food/save">
                 <h3 class="title">Add Room</h3>
 
                 <div class="input-container">
@@ -32,8 +32,8 @@
                 <div class="input-container">
                     <input type="text" id="roomName" name="roomName"
                            value="<%= room != null ? room.getRoomName() : "" %>" class="input"/>
-                    <label for="roomName">Event Name: </label>
-                    <span>Event Name</span>
+                    <label for="roomName">Room Name: </label>
+                    <span>Room Name</span>
                 </div>
 
                 <div class="input-container">

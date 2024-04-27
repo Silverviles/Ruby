@@ -75,14 +75,14 @@
                             <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li id="add_food_button">
                                 <a href="#">
-                                    <span class="text1">R1</span>
+                                    <span class="text1">Add Food</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="all_food_button">
                                 <a href="#">
-                                    <span class="text1">R2</span>
+                                    <span class="text1">Food List</span>
                                 </a>
                             </li>
                         </ul>
@@ -244,6 +244,14 @@
 
         <div id="remove_room" class="sub-contents">
             <jsp:include page="../roomReservation/all_rooms.jsp" />
+        </div>
+
+        <div id="add_food" class="sub-contents">
+            <jsp:include page="../restaurant/add_update_meal.jsp" />
+        </div>
+
+        <div id="all_food" class="sub-contents">
+            <jsp:include page="../restaurant/all_meals.jsp" />
         </div>
 
         <div id="new_package" class="sub-contents">

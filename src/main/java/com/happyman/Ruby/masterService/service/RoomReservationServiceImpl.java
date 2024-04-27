@@ -37,7 +37,7 @@ public class RoomReservationServiceImpl implements RoomReservationService {
 	@Override
 	public List<RoomReservation> getAllRoomReservationsByRoomId(Integer roomId) {
 		return getAllRoomReservations().stream().filter(
-			roomReservation -> roomReservation.getRoom().getId().equals(roomId)).toList();
+			roomReservation -> roomReservation.getRoom().getRoomId().equals(roomId)).toList();
 	}
 
 	@Override

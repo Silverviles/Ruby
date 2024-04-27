@@ -6,7 +6,7 @@
   Time: 10:52
 --%>
 <%
-    @SuppressWarnings("unchecked") List<Room> roomList = (List<Room>) request.getAttribute("events");
+    @SuppressWarnings("unchecked") List<Room> roomList = (List<Room>) request.getAttribute("rooms");
 %>
 
 <div class="tableDiv">
