@@ -58,6 +58,11 @@ public class EmployeeManagementController extends BaseController {
 
 	private static final Logger log = LoggerFactory.getLogger(EmployeeManagementController.class);
 
+	@GetMapping("/startHome")
+	public String goPackages() {
+		return "employeeManagement/Home";
+	}
+
 	@GetMapping("/managementHome")
 	public String showManagementHome(Model model) {
 		List<Employee> employees = masterService.getAllEmployees();

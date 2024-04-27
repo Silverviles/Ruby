@@ -10,10 +10,10 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/Home.css">
+
 </head>
 <body>
 
-<body>
 <header class="header">
     <a href="#" class="logo">Happy Man Village</a>
     <nav class="nav-items">
@@ -35,7 +35,7 @@
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
 
-            <img src="photographs/res4.jpg" style="width:100%">
+            <img src="${pageContext.request.contextPath}/images/employeeManagement/res4.jpg" style="width:100%">
             <div class="text">
                 <button class="btn101">Book Now</button>
                 <h1>Experience the village feeling</h1>
@@ -47,7 +47,7 @@
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
-            <img src="photographs/res8.jpg" style="width:100%">
+            <img src="${pageContext.request.contextPath}/images/employeeManagement/res8.jpg" style="width:100%">
             <div class="text"><h1>Experience the village feeling</h1>
                 <p>filled with natural beauty and delious servings with unbeliveable packages</p>
                 <button class="btn101">Book Now</button></div>
@@ -55,7 +55,7 @@
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 3</div>
-            <img src="photographs/res10.jpg" style="width:100%">
+            <img src="${pageContext.request.contextPath}/images/employeeManagement/res10.jpg" style="width:100%">
             <div class="text"><h1>Experience the village feeling</h1>
                 <p>filled with natural beauty and delious servings with unbeliveable packages</p>
                 <button class="btn101">Book Now</button></div>
@@ -98,7 +98,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_5terre.jpg">
-                <img src="photographs/room4.jpg" alt="Cinque Terre" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/room4.jpg" alt="Cinque Terre" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -108,7 +108,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_forest.jpg">
-                <img src="photographs/roomid1.jpeg" alt="Forest" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/roomid1.jpeg" alt="Forest" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -117,7 +117,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_lights.jpg">
-                <img src="photographs/roomid2.jpg" alt="Northern Lights" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/roomid2.jpg" alt="Northern Lights" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -126,7 +126,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_mountains.jpg">
-                <img src="photographs/roomid3.jpg" alt="Mountains" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/roomid3.jpg" alt="Mountains" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -143,7 +143,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_5terre.jpg">
-                <img src="photographs/breakitem1.jpg" alt="Cinque Terre" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem1.jpg" alt="Cinque Terre" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -153,7 +153,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_forest.jpg">
-                <img src="photographs/breakitem2.jpg" alt="Forest" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem2.jpg" alt="Forest" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -162,7 +162,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_lights.jpg">
-                <img src="photographs/breakitem3.jpg" alt="Northern Lights" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem3.jpg" alt="Northern Lights" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -171,7 +171,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_mountains.jpg">
-                <img src="photographs/breakitem4.jpg" alt="Mountains" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem4.jpg" alt="Mountains" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -188,7 +188,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_5terre.jpg">
-                <img src="photographs/fes1.jpg" alt="Cinque Terre" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/fes1.jpg" alt="Cinque Terre" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -198,7 +198,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_forest.jpg">
-                <img src="photographs/fes2.jpg" alt="Forest" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/fes2.jpg" alt="Forest" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -207,7 +207,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_lights.jpg">
-                <img src="photographs/fes3.jpg" alt="Northern Lights" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/fes3.jpg" alt="Northern Lights" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -216,7 +216,7 @@
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_mountains.jpg">
-                <img src="photographs/fes4.jpg" alt="Mountains" width="600" height="400">
+                <img src="${pageContext.request.contextPath}/images/employeeManagement/fes4.jpg" alt="Mountains" width="600" height="400">
             </a>
             <div class="desc">Add a description of the image here</div>
         </div>
@@ -233,7 +233,7 @@
                 Sri Lanka. With its serene surroundings and warm hospitality, this hotel offers a truly blissful retreat for travelers seeking relaxation and rejuvenation. From the moment you step into the hotel, you will
                 be greeted by a sense of calm and tranquility that is sure to make your stay unforgettable. </p>
         </div>
-        <img src="photographs/about.jpeg" alt="Hotel ">
+        <img src="${pageContext.request.contextPath}/images/employeeManagement/about.jpeg" alt="Hotel ">
     </div>
 </main>
 <footer class="footer">
