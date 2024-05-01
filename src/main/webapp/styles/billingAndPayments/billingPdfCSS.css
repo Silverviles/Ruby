@@ -1,0 +1,81 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+input,
+textarea {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #dbb8a3ad;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+
+}
+
+#downloadPdf {
+    background-color: green;
+    height: fit-content;
+    padding: 10px;
+    color: white;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+}
+
+.input {
+    width: 100%;
+    outline:invert;
+    border: 2px solid #120202;
+    background: none;
+    padding: 0.6rem 1.2rem;
+    color: #882a2a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-radius: 125px;
+    transition: 0.3s;
+
+}
+
+.input-container.textarea label {
+    top: 1rem;
+    transform: translateY(0);
+}
+
+.information {
+    display: flex;
+    color: #555;
+    margin: 0.7rem 0;
+    align-items: center;
+    font-size: 0.95rem;
+    margin-top: 30px;
+}
+.info{
+    margin-left:100px;
+}
+.h1{
+    padding-left: 100px;
+}
