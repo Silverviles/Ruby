@@ -20,7 +20,7 @@
 <header class="section_container header_container">
     <h2 class="booking_heading">Confirm Your Booking</h2>
     <div class="booking_container">
-        <form>
+        <form method="post" action="${pageContext.request.contextPath}/booking/room">
             <input type="hidden" name="roomId" value="<%= room.getRoomId()%>">
             <div class="form_group">
                 <div class="input_group">
@@ -31,28 +31,28 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="startDate" type="date" name="startDate">
-                    <label for="startDate">Check-in date</label>
+                    <input id="startDate" type="date" name="startDate" value="2024-05-04" min="2024-05-04">
+                    <label for="startDate" class="focus">Check-in date</label>
                 </div>
                 <p>Add date</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="endDate" type="date" name="endDate">
-                    <label for="endDate">Check-out date</label>
+                    <input id="endDate" type="date" name="endDate" value="2024-05-04" min="2024-05-04">
+                    <label for="endDate" class="focus">Check-out date</label>
                 </div>
                 <p>Add date</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="noGuest" type="number" name="noGuest">
+                    <input id="noGuest" type="number" name="noGuest" max="<%= room.getRoomCapacity()%>">
                     <label for="noGuest">Guests</label>
                 </div>
                 <p>add the number of guests</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="price" type="text" name="fullPrice" disabled>
+                    <input id="price" type="text" name="fullPrice" value="<%=room.getRoomPrice()%>" disabled>
                     <label for="price">Price</label>
                 </div>
                 <p>room price for a day</p>
@@ -61,20 +61,44 @@
         </form>
         <div class="header_content">
             <div class="popular_card">
-                <img src="${pageContext.request.contextPath}/images/roomReservation/room1_double_luxe.jpg" alt="popular room">
+                <img src="${imageName}" alt="popular room">
                 <div class="popular_content">
                     <div class="popular_card_header">
                         <input type="hidden" name="roomId" value="<%= room.getRoomId()%>">
                         <h4><%= room.getRoomName()%></h4>
-                        <h4><%= room.getRoomPrice()%></h4>
+                        <h4 id="roomPrice"><%= room.getRoomPrice()%></h4>
                     </div><hr>
-                    <p><%= room.getRoomType() + ": " + room.getRoomStatus() %></p>
+                    <p><%= room.getRoomType() + ": " + (room.getRoomStatus() ? "Available" : "Not Available") %></p>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const startDateInput = document.getElementById('startDate');
+			const endDateInput = document.getElementById('endDate');
+			const pricePerDay = parseInt(document.getElementById('roomPrice').textContent);
 
+			function calculateDays(startDate, endDate) {
+				const start = new Date(startDate);
+				const end = new Date(endDate);
+				const millisecondsPerDay = 1000 * 60 * 60 * 24;
+				return Math.round((end - start) / millisecondsPerDay);
+			}
+
+			function updateTotalPrice() {
+				const startDate = startDateInput.value;
+				const endDate = endDateInput.value;
+				const numDays = calculateDays(startDate, endDate) + 1;
+				document.getElementById('price').value = pricePerDay * numDays;
+			}
+
+			startDateInput.addEventListener('change', updateTotalPrice);
+			endDateInput.addEventListener('change', updateTotalPrice);
+
+			updateTotalPrice();
+		});
+    </script>
 </header>
-<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

@@ -70,6 +70,7 @@
                     <div class="popular_content">
                         <div class="popular_card_header">
                             <input type="hidden" name="roomId" value="<%= room.getRoomId()%>">
+                            <input type="hidden" name="imageName" value="${pageContext.request.contextPath}/images/roomReservation/room<%=i%>.jpg" />
                             <h4><%= room.getRoomName()%></h4>
                             <h4><%= room.getRoomPrice()%></h4>
                         </div><hr>

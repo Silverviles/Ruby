@@ -51,8 +51,9 @@ public class RoomReservationController extends BaseController {
 	}
 
 	@PostMapping("/serveRoom")
-	public String serveRoom(Integer roomId, Model model) {
+	public String serveRoom(Integer roomId, Model model, String imageName) {
 		model.addAttribute("room", masterService.getRoomById(roomId));
+		model.addAttribute("imageName", imageName);
 		return "roomReservation/booking_confirm_form";
 	}
 

@@ -39,7 +39,9 @@
                 <th>Price</th>
                 <th>Total</th>
             </tr>
-
+            <tr>
+                <td></td>
+            </tr>
         </table>
     </fieldset>
     <fieldset>
