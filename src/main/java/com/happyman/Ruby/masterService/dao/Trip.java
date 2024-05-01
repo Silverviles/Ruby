@@ -27,7 +27,7 @@ public class Trip {
 
 	@Column(name = "trip_Destination", nullable = false) private String tripDestination;
 
-	@Column(name = "total_Cost", nullable = false) private Long totalCost;
+	@Column(name = "total_Cost", nullable = false) private Float totalCost;
 
 	@Column(name = "finished_Date", nullable = true) private Date finishedDate;
 }

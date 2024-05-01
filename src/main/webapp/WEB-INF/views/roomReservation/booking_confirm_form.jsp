@@ -52,7 +52,7 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="price" type="text" name="fullPrice" value="<%=room.getRoomPrice()%>" disabled>
+                    <input id="price" type="text" name="fullPrice" value="<%=room.getRoomPrice()%>" readonly>
                     <label for="price">Price</label>
                 </div>
                 <p>room price for a day</p>

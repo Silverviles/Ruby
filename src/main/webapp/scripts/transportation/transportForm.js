@@ -84,6 +84,8 @@ function initAutocomplete() {
 				$("#distance").val(distanceStr);
 				$("#duration").val(durationStr);
 
+				calculatePrice(duration / 60, distance / 1000);
+
 				console.log(distance, distanceStr, duration, durationStr);
 				console.log('Distance and duration:', response);
 			},
@@ -93,6 +95,17 @@ function initAutocomplete() {
 		});
 	});
 
+}
+
+function calculatePrice(duration, distance) {
+	var vehicleType = document.getElementById("vehicleDropdown");
+	const pricePerKilometer = {
+		car: 150,
+		van: 300,
+		bus: 500
+	};
+
+	document.getElementById("pricePerKilometer").value = (duration * 10) + (distance * pricePerKilometer[vehicleType]);
 }
 
 window.initAutocomplete = initAutocomplete;

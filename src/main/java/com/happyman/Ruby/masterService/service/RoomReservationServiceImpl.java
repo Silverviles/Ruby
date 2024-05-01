@@ -34,11 +34,11 @@ public class RoomReservationServiceImpl implements RoomReservationService {
 		return roomReservationRepository.findAll();
 	}
 
-	@Override
+	/*@Override
 	public List<RoomReservation> getAllRoomReservationsByRoomId(String roomId) {
 		return getAllRoomReservations().stream().filter(
-			roomReservation -> roomReservation.getRooms().contains(roomId)).toList();
-	}
+			roomReservation -> roomReservation.getRoom();
+	}*/
 
 	@Override
 	public List<RoomReservation> getAllRoomReservationsByStartDate(LocalDate startDate) {

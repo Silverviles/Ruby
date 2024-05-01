@@ -70,13 +70,14 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public void updatePaymentByPaymentDTO(PaymentDTO payment) {
-		Payment py = this.getPaymentById(payment.getPaymentId());
+		/*Payment py = this.getPaymentById(payment.getPaymentId());
 		py.setBillAmount(payment.getAmount());
 		py.setCustomerName(payment.getCustomerName());
 		py.setCustomerEmail(payment.getCustomerEmail());
 		py.setPaymentStatus(payment.getPaymentStatus());
 
-		paymentRepository.save(py);
+		paymentRepository.save(py);*/
+		return;
 	}
 }
 

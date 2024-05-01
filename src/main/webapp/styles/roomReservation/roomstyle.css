@@ -79,6 +79,7 @@ nav{
 }
 
 .header_container{
+    margin-top: 100px;
     padding: 1rem 1rem 5rem 1rem;
 }
 
@@ -136,7 +137,7 @@ nav{
     width: 100%;
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 

@@ -474,13 +474,13 @@ public class MasterServiceImpl implements MasterService {
 
 	@Override
 	public void addPayment(PaymentDTO paymentDTO) {
-		Payment payment = new Payment();
+		/*Payment payment = new Payment();
 		payment.setCustomerName(paymentDTO.getCustomerName());
 		payment.setCustomerEmail(paymentDTO.getCustomerEmail());
 		payment.setBillAmount(paymentDTO.getAmount());
 		payment.setPaymentStatus(paymentDTO.getPaymentStatus());
 		//TODO:
-		paymentService.addPayment(payment);
+		paymentService.addPayment(payment);*/
 	}
 
 	@Override
@@ -715,9 +715,24 @@ public class MasterServiceImpl implements MasterService {
 	}
 
 	@Override
+	public void saveRoomReservation(RoomReservation roomReservation) {
+		roomReservationService.saveRoomReservation(roomReservation);
+	}
+
+	@Override
+	public RoomReservation getRoomReservationById(Integer roomReservationId) {
+		return roomReservationService.getRoomReservationById(roomReservationId);
+	}
+
+	@Override
+	public List<RoomReservation> getAllRoomReservationsByRoomId(String roomId) {
+		return List.of();
+	}
+
+	/*@Override
 	public List<RoomReservation> getAllRoomReservationsByRoomId(String roomId) {
 		return roomReservationService.getAllRoomReservationsByRoomId(roomId);
-	}
+	}*/
 
 	@Override
 	public List<RoomReservation> getAllRoomReservationsByStartDate(LocalDate startDate) {

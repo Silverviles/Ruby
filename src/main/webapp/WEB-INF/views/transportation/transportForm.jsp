@@ -26,18 +26,18 @@
             <form>
                 <div class="input-container">
                     <div>
-                        <input type="text" id="destination" name="destination" placeholder="Destination"/>
+                        <input type="text" aria-label="destination" id="pac-input" name="destination" placeholder="Destination"/>
                     </div>
                     <div>
-                        <input type="text" id="distance" name="distance" placeholder="Distance" disabled/>
+                        <input type="text" aria-label="distance" id="distance" name="distance" placeholder="Distance" disabled/>
                     </div>
                     <div>
-                        <input type="text" id="duration" name="duration" placeholder="Duration" disabled/>
+                        <input type="text" aria-label="duration" id="duration" name="duration" placeholder="Duration" disabled/>
                     </div>
                     <div>
                         <select aria-label="vehicles" id="vehicleDropdown" name="vehicle">
                             <option value="car">Car</option>
-                            <option value="bike">Bike</option>
+                            <option value="van">Van</option>
                             <option value="bus">Bus</option>
                         </select>
                     </div>
@@ -52,7 +52,6 @@
         </div>
         <div class="right">
             <div class="map-div">
-                <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
                 <div id="map"></div>
             </div>
         </div>

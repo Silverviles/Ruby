@@ -248,6 +248,10 @@ public interface MasterService {
 
 	List<Reservation> findAllReservations();
 
+	void saveRoomReservation(RoomReservation roomReservation);
+
+	RoomReservation getRoomReservationById(Integer roomReservationId);
+
 	List<RoomReservation> getAllRoomReservationsByRoomId(String roomId);
 
 	List<RoomReservation> getAllRoomReservationsByStartDate(LocalDate startDate);

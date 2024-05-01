@@ -24,7 +24,7 @@ import java.util.List;
 public class RoomReservation {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "room_Reservation_Id", nullable = false) private Integer id;
 
-	@Column(name = "room_Id", nullable = false) private String rooms;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "room_Id", nullable = false) private Room room;
 
 	@Column(name = "start_Date", nullable = false) private LocalDate startDate;
 
