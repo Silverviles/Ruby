@@ -26,10 +26,9 @@
 <div class="container">
     <div class="header">
         <h3 class="title">Customer feedback</h3>
-        <a href="#" class="top-right-button">
-            <img src="${pageContext.request.contextPath}/images/customerSupport/addition.png" class="icon" alt="">
+        <a href="${pageContext.request.contextPath}/customerSupport/feedback" class="top-right-button" >
+            <img  src="${pageContext.request.contextPath}/images/customerSupport/addition.png"  data-action="customerSupport/feedback" class="icon" alt="">
         </a>
-
     </div>
     <% if (feedbackList != null && !feedbackList.isEmpty()) { %>
     <% for (Feedback feedback : feedbackList) { %>
@@ -40,6 +39,8 @@
     <% } %>
     <% } %>
 </div>
+
+
 </body>
 </html>
 
