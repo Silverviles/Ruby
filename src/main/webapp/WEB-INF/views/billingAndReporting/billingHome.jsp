@@ -1,11 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS TUF
-  Date: 4/20/2024
-  Time: 8:55 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 <title>Billing and payments</title>
@@ -15,6 +8,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/billingAndPayments/billingHomeCSS.css">
 </head>
 <body>
+<h1>Payments</h1>
 <form>
     <fieldset>
         <legend>Customer Details</legend>
@@ -75,3 +69,4 @@
 </form>
 </body>
 </html>
+
