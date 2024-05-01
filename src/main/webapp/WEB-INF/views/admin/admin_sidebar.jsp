@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_sidebar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_form.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_table.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/packages/add_package.css">
+
     <script
             src="https://kit.fontawesome.com/64d58efce2.js"
             crossorigin="anonymous"

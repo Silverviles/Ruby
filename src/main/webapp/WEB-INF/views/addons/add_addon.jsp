@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="input-container textarea">
-                    <textarea id="description" name="description" class="input" required></textarea>
+                    <textarea id="description" name="description" class="input textArea" required></textarea>
                     <label for="description">Description: </label>
                     <span>Description</span>
                 </div>
@@ -43,12 +43,6 @@
                     <input type="number" id="price" name="price" class="input" step="0.01" min="0" required/>
                     <label for="price">Price: </label>
                     <span>Price</span>
-                </div>
-
-                <div class="input-container fileInput">
-                    <input type="file" id="image" name="image" class="input"/>
-                    <label for="image">Add Image: </label>
-                    <span>Add Image</span>
                 </div>
 
                 <div class="input-container">
