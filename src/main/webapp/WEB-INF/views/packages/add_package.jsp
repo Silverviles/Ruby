@@ -15,10 +15,7 @@
     <span class="big-circle two"></span>
 
     <div class="form">
-        <div class="contact-info"
-             style="background-image: url('${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png')">
-            <img src="${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png"
-                 alt="employee picture"/>
+        <div class="contact-info" style="background-image: url('${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png')">
         </div>
 
         <div class="ticket-form">
@@ -40,7 +37,7 @@
                 </div>
 
                 <div class="input-container textarea">
-                    <textarea id="packageDescription" name="packageDescription" class="input" required>
+                    <textarea id="packageDescription" name="packageDescription" class="input textArea" required>
                         <%= packageDTO != null ? packageDTO.getPackageDescription() : ""%>
                     </textarea>
                     <label for="packageDescription">Description: </label>
@@ -48,20 +45,19 @@
                 </div>
 
                 <div class="input-container">
-                    <input type="number" id="packagePrice" value="<%= packageDTO != null ? packageDTO.getPackagePrice() : ""%>" name="packagePrice" class="input" step="0.01" min="0"
-                           required/>
+                    <input type="text" id="packagePrice" value="<%= packageDTO != null ? packageDTO.getPackagePrice() : ""%>" name="packagePrice" class="input" pattern="[0-9]+(\.[0-9]+)?" required/>
                     <label for="packagePrice">Price: </label>
                     <span>Price</span>
                 </div>
 
-                <div class="input-container">
+                <div class="date-container focus">
                     <input type="date" id="packageDiscontinueDate" value="<%= packageDTO != null ? packageDTO.getPackageDiscontinueDate() : ""%>" name="packageDiscontinueDate" class="input"
                            required/>
                     <label for="packageDiscontinueDate">Discontinue Date: </label>
-                    <span>Discontinue Date</span>
+                    <span></span>
                 </div>
 
-                <div class="input-container">
+                <div class="input-container focus">
                     <select id="packageType" name="packageType" class="input selectArea">
                         <option value="Family" >Family</option>
                         <option value="Couple">Couple</option>
@@ -82,6 +78,8 @@
                     <input type="checkbox" id="availability" name="availability" value="<%= packageDTO != null ? packageDTO.getPackageAvailability() : ""%>"/>
                     <label for="availability">Availability: </label>
                 </div>
+
+                <br>
 
                 <div class="input-container">
                     <% if (addons != null && !addons.isEmpty()) {
