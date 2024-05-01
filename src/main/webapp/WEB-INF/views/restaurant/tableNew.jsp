@@ -85,7 +85,7 @@
 
         <!--table3-->
         <div class="table03-container">
-            table03 table
+
             <div
                     id="table03"
                     class="table03-table"
@@ -254,8 +254,8 @@
             <div
                     class="table07-table"
                     id="table07"
-                    class="available"
-                    onclick="toggleColor('table07')"
+                    data-tableNum="7"
+                    onclick="selectTable()"
             ></div>
             <!-- top seat table - 7 -->
             <div class="top-seat-table07"></div>
@@ -307,6 +307,11 @@
     </div>
 
     <script>
+        function selectTable(){
+            var table = document.getElementById("table07");
+            var tableNumber = table.getAttribute("data-tableNum");
+        }
+
         var selectedTableId = null; // Variable to store the ID of the currently selected table
 
         function toggleColor(id) {

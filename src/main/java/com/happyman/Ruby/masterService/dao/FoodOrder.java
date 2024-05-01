@@ -27,4 +27,16 @@ public class FoodOrder {
 
 	@Column(name = "payment_status", nullable = false) private Byte paymentStatus;
 
+	@Column(name = "time_slot", nullable = false)
+	private java.sql.Time timeSlot;
+
+	@Column(name = "meal_type", nullable = false)
+	private String mealType;
+
+	@Column(name = "booking_date", nullable = false)
+	private java.sql.Date bookingDate;
+
+	@Column(name = "number_of_guests", nullable = false)
+	private Integer numberOfGuests;
+
 }

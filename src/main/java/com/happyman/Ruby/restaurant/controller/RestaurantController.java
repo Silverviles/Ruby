@@ -77,4 +77,9 @@ public class RestaurantController extends BaseController {
     public String getStartBooking(){
         return "/restaurant/addMenuForm";
     }
+
+    @GetMapping("/newTable")
+    public String getNewTable() {
+        return "/restaurant/tableNew";
+    }
 }
