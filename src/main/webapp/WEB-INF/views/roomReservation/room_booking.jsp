@@ -1,11 +1,13 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Room" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Tashini
   Date: 11/04/2024
   Time: 12:03
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% @SuppressWarnings("unchecked") List<Room> roomList = (List<Room>) request.getAttribute("rooms"); %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +18,7 @@
     <title>Room Booking</title>
 </head>
 <body>
-<nav>
-    <div class="nav_logo">Happy Man Village</div>
-    <ul class="nav_link">
-        <li class="link"><a href="#">Home</a></li>
-        <li class="link"><a href="#">Room</a></li>
-        <li class="link"><a href="#">event</a></li>
-        <li class="link"><a href="#">package</a></li>
-    </ul>
-</nav>
+<jsp:include page="../common/header.jsp"/>
 <header class="section_container header_container">
     <div class="header_image_container">
         <div class="header_content">
@@ -35,29 +29,22 @@
             <form>
                 <div class="form_group">
                     <div class="input_group">
-                        <input type="text" name="roomType">
-                        <label>Room Type</label>
+                        <input id="roomType" type="text" name="roomType">
+                        <label for="roomType">Room Type</label>
                     </div>
                     <p>What type of a room do you prefer?</p>
                 </div>
                 <div class="form_group">
                     <div class="input_group">
-                        <input type="text" name="checkInDate">
-                        <label>Check-in date</label>
+                        <input id="roomPrice" type="text" pattern="[0-9]" name="roomPrice">
+                        <label for="roomPrice">Price</label>
                     </div>
-                    <p>Add date</p>
+                    <p>Add Price</p>
                 </div>
                 <div class="form_group">
                     <div class="input_group">
-                        <input type="text" name="checkOutDate">
-                        <label>Check-out date</label>
-                    </div>
-                    <p>Add date</p>
-                </div>
-                <div class="form_group">
-                    <div class="input_group">
-                        <input type="text" name="guests">
-                        <label>Guests</label>
+                        <input id="guests" type="text" name="guests">
+                        <label for="guests">Guests</label>
                     </div>
                     <p>add the number of guests</p>
                 </div>
@@ -68,81 +55,34 @@
 </header>
 <!-----------------------enf of the header part---------------------------------------------->
 <section class="section_container popular_container">
-    <h2 class="section_header">Popular Rooms</h2><br>
+    <h2 class="section_header">All Rooms</h2><br>
     <hr>
     <div class="popular_grid">
-        <a class="card_link" href="Booking_confirm_form.jsp">
-            <div class="popular_card">
-                <img src="${pageContext.request.contextPath}/images/roomReservation/room1_double_luxe.jpg" alt="popular room">
-                <div class="popular_content">
-                    <div class="popular_card_header">
-                        <h4>Pinky Room</h4>
-                        <h4>$1000</h4>
-                    </div><hr>
-                    <p>Double Luxury room, Ocean view</p>
+        <% if (roomList != null && !roomList.isEmpty()) { %>
+        <% int i = 0; %>
+        <% for (Room room : roomList) { %>
+        <% i++; if (i >= 17) i = 1; %>
+        <form id="room_<%=room.getRoomId()%>" class="card_link" method="post" action="${pageContext.request.contextPath}/room/serveRoom">
+            <button type="submit" style="border: none">
+                <div class="popular_card">
+                    <img src="${pageContext.request.contextPath}/images/roomReservation/room<%=i%>.jpg" alt="popular room">
+                    <input type="hidden" id="roomId" name="roomId" value="<%= room.getRoomId() %>">
+                    <div class="popular_content">
+                        <div class="popular_card_header">
+                            <input type="hidden" name="roomId" value="<%= room.getRoomId()%>">
+                            <h4><%= room.getRoomName()%></h4>
+                            <h4><%= room.getRoomPrice()%></h4>
+                        </div><hr>
+                        <p><%= room.getRoomType() + ": " + (room.getRoomStatus() ? "Available" : "Not Available") %></p>
+                    </div>
                 </div>
-            </div>
-        </a>
-        <a class="card_link" href="#">
-            <div class="popular_card">
-                <img src="${pageContext.request.contextPath}/images/roomReservation/room2_double.jpeg" alt="double room">
-                <div class="popular_content">
-                    <div class="popular_card_header">
-                        <h4>Double Room</h4>
-                        <h4>$800</h4>
-                    </div><hr>
-                    <p>Double room, King bed, Garder view</p>
-                </div>
-            </div>
-        </a>
-        <a class="card_link" href="#">
-            <div class="popular_card">
-                <img src="${pageContext.request.contextPath}/images/roomReservation/room3_fam_luxe.jpeg" alt="Luxe family room">
-                <div class="popular_content">
-                    <div class="popular_card_header">
-                        <h4>Family Room</h4>
-                        <h4>$2000</h4>
-                    </div><hr>
-                    <p>Luxe family room, Outdoor pool</p>
-                </div>
-            </div>
-        </a>
-        <a class="card_link" href="#">
-            <div class="popular_card">
-                <img src="${pageContext.request.contextPath}/images/roomReservation/room4_triple_luxe.jpeg" alt="Triple luxe room">
-                <div class="popular_content">
-                    <div class="popular_card_header">
-                        <h4>Triple Room</h4>
-                        <h4>$1600</h4>
-                    </div><hr>
-                    <p>Triple Luxe room, Garder view</p>
-                </div>
-            </div>
-        </a>
-        <a class="card_link" href="#">
-            <div class="popular_card">
-                <img src="${pageContext.request.contextPath}/images/roomReservation/room5_triple.jpg" alt="Triple room">
-                <div class="popular_content">
-                    <div class="popular_card_header">
-                        <h4>Triple Room</h4>
-                        <h4>$1400</h4>
-                    </div><hr>
-                    <p>Room with three bed, Oceand view</p>
-                </div>
-            </div>
-        </a>
-        <a class="card_link" href="#">
-            <div class="popular_card">
-                <img src="${pageContext.request.contextPath}/images/roomReservation/room6_fam.jpeg" alt="Triple room">
-                <div class="popular_content">
-                    <div class="popular_card_header">
-                        <h4>Family Room</h4>
-                        <h4>$1800</h4>
-                    </div><hr>
-                    <p>4 bed room for family, Outdoor pool</p>
-                </div>
-            </div>
-        </a>
+            </button>
+        </form>
+        <script>
+            document.getElementById("room<%=i%>").addEventListener("click", document.getElementById("room<%=i%>").submit());
+        </script>
+        <% } %>
+        <% } %>
         <br><br><br><br><p style="text-align: center;">Please note: all room sizes are approximate.</p>
     </div>
 </section>
@@ -158,5 +98,6 @@
 <div class="footer_bar">
     Tashini S. Hansanee...
 </div>
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

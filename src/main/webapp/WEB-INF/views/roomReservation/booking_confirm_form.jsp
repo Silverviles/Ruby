@@ -1,11 +1,12 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Room" %><%--
   Created by IntelliJ IDEA.
   User: Tashini
   Date: 11/04/2024
   Time: 12:13
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Room room = (Room) request.getAttribute("room"); %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,78 +17,64 @@
     <title>Room Booking</title>
 </head>
 <body>
-<nav>
-    <div class="nav_logo">Happy Man Village</div>
-    <ul class="nav_link">
-        <li class="link"><a href="#">Home</a></li>
-        <li class="link"><a href="#">Room</a></li>
-        <li class="link"><a href="#">event</a></li>
-        <li class="link"><a href="#">package</a></li>
-    </ul>
-</nav>
 <header class="section_container header_container">
     <h2 class="booking_heading">Confirm Your Booking</h2>
     <div class="booking_container">
         <form>
+            <input type="hidden" name="roomId" value="<%= room.getRoomId()%>">
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="roomType">
-                    <label>Room Type</label>
+                    <input id="roomType" type="text" name="roomType" value="<%= room.getRoomType()%>" disabled>
+                    <label for="roomType">Room Type</label>
                 </div>
                 <p>What type of a room do you prefer?</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="checkInDate">
-                    <label>Check-in date</label>
+                    <input id="startDate" type="date" name="startDate">
+                    <label for="startDate">Check-in date</label>
                 </div>
                 <p>Add date</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="checkOutDate">
-                    <label>Check-out date</label>
+                    <input id="endDate" type="date" name="endDate">
+                    <label for="endDate">Check-out date</label>
                 </div>
                 <p>Add date</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="guests">
-                    <label>Guests</label>
+                    <input id="noGuest" type="number" name="noGuest">
+                    <label for="noGuest">Guests</label>
                 </div>
                 <p>add the number of guests</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="Price">
-                    <label>Price</label>
+                    <input id="price" type="text" name="fullPrice" disabled>
+                    <label for="price">Price</label>
                 </div>
                 <p>room price for a day</p>
             </div>
-            <button class="btn">Confirm</button>
+            <input type="submit" class="btn" value="Confirm"/>
         </form>
         <div class="header_content">
             <div class="popular_card">
                 <img src="${pageContext.request.contextPath}/images/roomReservation/room1_double_luxe.jpg" alt="popular room">
                 <div class="popular_content">
                     <div class="popular_card_header">
-                        <h4>Pinky Room</h4>
-                        <h4>$1000</h4>
+                        <input type="hidden" name="roomId" value="<%= room.getRoomId()%>">
+                        <h4><%= room.getRoomName()%></h4>
+                        <h4><%= room.getRoomPrice()%></h4>
                     </div><hr>
-                    <p>Double Luxury room, Ocean view</p>
+                    <p><%= room.getRoomType() + ": " + room.getRoomStatus() %></p>
                 </div>
             </div>
         </div>
     </div>
 
 </header>
-<section class="section_container">
-    <div class="reward_container">
-        <p>100+ discount</p>
-        <h4>Make your billing & payment</h4>
-        <button class="reard_btn">Pay Now</button>
-    </div>
-</section>
-
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

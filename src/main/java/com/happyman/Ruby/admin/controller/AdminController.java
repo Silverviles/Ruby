@@ -25,6 +25,8 @@ public class AdminController extends BaseController {
 		model.addAttribute("events", masterService.getAllEvents());
 		model.addAttribute("rooms", masterService.getAllRooms());
 		model.addAttribute("menus", masterService.getAllMenus());
+		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
+		model.addAttribute("complaints", masterService.findAllComplaints());
 		return "admin/admin_sidebar";
 	}
 

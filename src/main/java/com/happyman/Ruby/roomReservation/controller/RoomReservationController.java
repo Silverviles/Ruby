@@ -3,6 +3,8 @@ package com.happyman.Ruby.roomReservation.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -46,5 +48,17 @@ public class RoomReservationController extends BaseController {
 	public String deleteRoom(Integer roomId) {
 		masterService.deleteRoomById(roomId);
 		return "redirect:/admin/adminHome?showDiv=remove_room";
+	}
+
+	@PostMapping("/serveRoom")
+	public String serveRoom(Integer roomId, Model model) {
+		model.addAttribute("room", masterService.getRoomById(roomId));
+		return "roomReservation/booking_confirm_form";
+	}
+
+	@GetMapping("/rooms")
+	public String goToRooms(Model model) {
+		model.addAttribute("rooms", masterService.getAllRooms());
+		return "roomReservation/room_booking";
 	}
 }

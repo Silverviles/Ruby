@@ -13,7 +13,7 @@ public interface RoomReservationService {
 
 	List<RoomReservation> getAllRoomReservations();
 
-	List<RoomReservation> getAllRoomReservationsByRoomId(Integer roomId);
+	List<RoomReservation> getAllRoomReservationsByRoomId(String roomId);
 
 	List<RoomReservation> getAllRoomReservationsByStartDate(LocalDate startDate);
 

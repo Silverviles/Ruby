@@ -1,5 +1,6 @@
 package com.happyman.Ruby.masterService.dao;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,6 +14,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,12 +24,14 @@ import java.time.LocalDate;
 public class RoomReservation {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "room_Reservation_Id", nullable = false) private Integer id;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false) @JoinColumn(name = "room_Id", nullable = false) private Room room;
+	@Column(name = "room_Id", nullable = false) private String rooms;
 
 	@Column(name = "start_Date", nullable = false) private LocalDate startDate;
 
 	@Column(name = "end_Date", nullable = false) private LocalDate endDate;
 
 	@Column(name = "guest", nullable = false) private Integer noGuest;
+
+	@Column(name = "full_price", nullable = false) private Float fullPrice;
 
 }
