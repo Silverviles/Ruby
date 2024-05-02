@@ -18,8 +18,8 @@
     <script type="module" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
 </head>
 
-<body style="background-image: url('${pageContext.request.contextPath}/images/transportation/transportBackground.jpg')">
-<div class="overlay">
+<body>
+<div style="background-image: url('${pageContext.request.contextPath}/images/transportation/transportBackground.jpg')" class="overlay"></div>
 <div class="container">
     <div class="inner-container">
         <div class="left">
@@ -65,7 +65,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <script
