@@ -293,6 +293,11 @@
         <div id="refunds" class="sub-contents">
             <jsp:include page="../billingAndReporting/adminRefunds.jsp" />
         </div>
+
+        <div id="feedback" class="sub-contents">
+            <jsp:include page="../customerSupportSystem/feedbackAdmin.jsp" />
+        </div>
+
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
