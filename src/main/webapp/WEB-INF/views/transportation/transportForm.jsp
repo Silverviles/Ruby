@@ -1,10 +1,11 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %><%--
   Created by IntelliJ IDEA.
   User: tharindu
   Date: 18/04/2024
   Time: 17:48
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Reservation reservation = (Reservation) request.getAttribute("reservation"); %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,16 +20,16 @@
 </head>
 
 <body style="background-image: url('${pageContext.request.contextPath}/images/transportation/transportBackground.jpg')">
-<div class="overlay">
 <div class="container">
     <div class="inner-container">
         <div class="left">
-            <form>
+            <form method="post" action="${pageContext.request.contextPath}/booking/transport">
+                <input type="hidden" id="bookingId" name="bookingId" value="<%= reservation.getBookingId()%>">
                 <div class="input-container">
                     <div>
                         <label for="pac-input">Destination:</label><br>
                         <input type="text" id="pac-input" name="destination" placeholder="Destination"
-                               aria-label="destination"/>
+                               aria-label="destination" required/>
                     </div>
                     <div>
                         <label for="distance">Distance:</label><br>
@@ -50,11 +51,12 @@
                     </div>
                     <div>
                         <label for="pricePerKilometer">Total Cost:</label><br>
-                        <input type="text" id="pricePerKilometer" name="pricePerKilometer"
+                        <input type="text" id="pricePerKilometer" name="totalCost"
                                aria-label="pricePerKilometer"/>
                     </div>
-                    <div>
-                        <button id="myButton">Continue</button>
+                    <div class="buttonDiv">
+                        <button class="transportButton" id="skip" name="action" value="Skip">Skip</button>
+                        <button class="transportButton" id="continue" name="action" value="Continue">Book a Vehicle</button>
                     </div>
                 </div>
             </form>
@@ -65,7 +67,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <script

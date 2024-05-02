@@ -2,13 +2,10 @@ package com.happyman.Ruby.common;
 
 import java.security.SecureRandom;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,6 +14,8 @@ import com.happyman.Ruby.masterService.dao.Payment;
 import com.happyman.Ruby.masterService.dao.Reservation;
 import com.happyman.Ruby.masterService.dao.Room;
 import com.happyman.Ruby.masterService.dao.RoomReservation;
+import com.happyman.Ruby.masterService.dao.Trip;
+import com.happyman.Ruby.transportation.dto.TripRequestDTO;
 
 @Controller
 @RequestMapping("/booking")
@@ -47,6 +46,27 @@ public class BookingController extends BaseController {
 
 		model.addAttribute("reservation", reservation);
 
+		return "transportation/transportForm";
+	}
+
+	@PostMapping("/transport")
+	public String processTransport(TripRequestDTO tripRequestDTO, String action, String bookingId, Model model) {
+		if(action.equals("Skip")){
+			return "billingAndReporting/billingHome";
+		}
+
+		Trip trip = new Trip();
+		trip.setTripStatus((byte) 0);
+		trip.setTripDestination(tripRequestDTO.getDestination());
+		trip.setTotalCost(tripRequestDTO.getTotalCost());
+		masterService.saveTrip(trip);
+
+		// Add the trip details to the existing reservation object
+		Reservation reservation = masterService.findReservationById(bookingId);
+		reservation.setTrip(trip);
+		masterService.saveReservation(reservation);
+
+		model.addAttribute("reservation", reservation);
 		return "billingAndReporting/billingHome";
 	}
 

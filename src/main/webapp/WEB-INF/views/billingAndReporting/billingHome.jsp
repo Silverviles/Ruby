@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <% if(reservation.getTrip() != null) { %>
-                <td>Room Reservation</td>
+                <td>Vehicle Cost</td>
                 <td id="tripPrice"><%= String.format("%.2f", reservation.getTrip().getTotalCost())%></td>
                 <% } %>
             </tr>
