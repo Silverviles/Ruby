@@ -52,7 +52,7 @@ public class BookingController extends BaseController {
 
 	@Transactional
 	@PostMapping("/generateBill")
-	public String generateBill(PaymentDTO paymentDTO) {
+	public String generateBill(PaymentDTO paymentDTO, Model model) {
 		Payment payment = new Payment();
 		payment.setPaymentStatus((byte) 1); // Payment done is 1
 		payment.setBillAmount(paymentDTO.getTotal());
@@ -65,8 +65,9 @@ public class BookingController extends BaseController {
 		Reservation reservation = masterService.findReservationById(paymentDTO.getBookingId());
 		reservation.setPayment(payment);
 		masterService.saveReservation(reservation);
+		model.addAttribute("bill", reservation);
 
-		return "billView";
+		return "billingAndReporting/billingPdf";
 	}
 
 	private static String generateRandomString() {
