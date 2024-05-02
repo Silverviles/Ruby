@@ -114,6 +114,10 @@
                                 for(Addon addon : pkg.getAddonList()) { %>
                                     <tr>
                                         <td><%= addon.getAddonName()%></td>
+                                        <td><i class="fa-light fa-circle-minus"></i>
+                                            <span id="count<%=addon.getAddonId()%>">0</span>
+                                            <i class="fa-light fa-circle-plus"></i>
+                                        </td>
                                     </tr>
                             <%}
                             }%>

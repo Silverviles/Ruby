@@ -47,7 +47,7 @@ public class AddonServiceImpl implements AddonService {
 	public List<Addon> getAddonByAvailability(Byte availability) {
 		List<Addon> addons = addonRepository.findAll();
 		for (Addon addon : addons) {
-			if (addon.getAvailability().equals(availability)) {
+			if (addon.getAddonAvailability().equals(availability)) {
 				addons.add(addon);
 			}
 		}

@@ -29,7 +29,8 @@ public class PackageController extends BaseController {
 
 
 	@GetMapping("/packHome")
-	public String goPackages() {
+	public String goPackages(Model model) {
+		model.addAttribute("Packages", masterService.getPackageDTOList());
 		return "packages/package";
 	}
 
@@ -74,12 +75,6 @@ public class PackageController extends BaseController {
 	@GetMapping("/pack")
 	public String goPackagesUpdateDelete() {
 		return "packages/packages_updateDelete";
-	}
-
-	@GetMapping("/getAllPackage")
-	public String displayAllPackage(Model model) {
-		model.addAttribute("Packages", masterService.getPackageDTOList());
-		return "packages/package";
 	}
 
 

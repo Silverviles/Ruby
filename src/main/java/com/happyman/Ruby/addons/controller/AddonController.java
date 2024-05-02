@@ -23,19 +23,13 @@ public class AddonController extends BaseController {
 
 	@PostMapping("/addAddon")
 	public String addAddon(@ModelAttribute Addon addon) {
-		if (addon.getAvailability() == null) {
-			addon.setAvailability((byte) 0);
+		if (addon.getAddonAvailability() == null) {
+			addon.setAddonAvailability((byte) 0);
 		}
 		masterService.saveAddon(addon);
 		return "redirect:/success";
 	}
 
-	@GetMapping("/getAddonNames")
-	public String getAddonNames(Model model) {
-		List<Addon> addons = masterService.getAllAddons();
-		model.addAttribute("addons", addons);
-		return "packages/add_package";
-	}
 
 	@GetMapping("/getAddonNamesToUpdatePackage")
 	public String getAddonNamesToUpdatePackage(Model model) {
