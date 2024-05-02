@@ -29,7 +29,7 @@
                     <div>
                         <label for="pac-input">Destination:</label><br>
                         <input type="text" id="pac-input" name="destination" placeholder="Destination"
-                               aria-label="destination"/>
+                               aria-label="destination" required/>
                     </div>
                     <div>
                         <label for="distance">Distance:</label><br>
@@ -51,7 +51,7 @@
                     </div>
                     <div>
                         <label for="pricePerKilometer">Total Cost:</label><br>
-                        <input type="text" id="pricePerKilometer" name="pricePerKilometer"
+                        <input type="text" id="pricePerKilometer" name="totalCost"
                                aria-label="pricePerKilometer"/>
                     </div>
                     <div class="buttonDiv">

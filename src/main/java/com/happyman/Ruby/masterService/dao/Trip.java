@@ -21,7 +21,7 @@ import java.util.Date;
 public class Trip {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "trip_Id", nullable = false) private Integer id;
 
-	@OneToOne(fetch = FetchType.LAZY) @JoinColumn(name = "driver_Id", nullable = false) private Driver driver;
+	@OneToOne(fetch = FetchType.LAZY) @JoinColumn(name = "driver_Id") private Driver driver;
 
 	@Column(name = "trip_Status", nullable = false) private Byte tripStatus;
 
