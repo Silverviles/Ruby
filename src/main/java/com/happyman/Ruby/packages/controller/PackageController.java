@@ -4,6 +4,7 @@ package com.happyman.Ruby.packages.controller;
 import java.net.http.HttpRequest;
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.Package;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -72,6 +73,13 @@ public class PackageController extends BaseController {
 	@GetMapping("/pack")
 	public String goPackagesUpdateDelete() {
 		return "packages/packages_updateDelete";
+	}
+
+	@GetMapping("/getAllPackage")
+	public String displayAllPackage(Model model) {
+		List<Package> packages = masterService.getAllPackages();
+		model.addAttribute("Package", packages);
+		return "packages/package";
 	}
 
 }

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: sdilr
   Date: 3/14/2024
@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% List<Package> packageAll = (List<Package>) request.getAttribute("Package"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,8 @@
     <script src="https://kit.fontawesome.com/20733750a5.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -31,7 +33,8 @@
     </div>
 
     <div class="slideshow">
-        <img src="${pageContext.request.contextPath}/images/packages/corp-inner-banner-experience-Bentota-beach.jpg" alt="">
+        <img src="${pageContext.request.contextPath}/images/packages/corp-inner-banner-experience-Bentota-beach.jpg"
+             alt="">
         <div class="overlay"></div>
         <p style="width: auto;">Welcome to our exclusive package offerings at
             <br><span style="font-family: 'Vidaloka', serif;font-size: 70PX;width: auto;">HAPPY MAN VILLAGE!</span></p>
@@ -76,6 +79,24 @@
     <p>Based on the information you provided, we suggest you <span>Package Name</span></p>
 </div>
 
+<div class="body-content">
+
+    <div class="filter">
+        <div class="filter-header">
+            <span>Filter by</span>
+            <div class="filters">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="package_container">
+        <div class="package-box">
+
+        </div>
+    </div>
+
+</div>
 <jsp:include page="../common/footer.jsp"/>
 </body>
 </html>

@@ -9,11 +9,11 @@ import java.util.Map;
 @Getter
 @Setter
 public class PaymentDTO {
-	private Integer paymentId;
 	private String bookingId;
-	private String customerName;
-	private String customerEmail;
-	private Map<String, Map<Integer, Double>> records;
-	private Float amount;
-	private Byte paymentStatus;
+	private String name;
+	private String address;
+	private String email;
+	private Float subtotal;
+	private Float total;
+	private String paymentMethod;
 }

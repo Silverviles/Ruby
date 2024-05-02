@@ -18,31 +18,39 @@
     <script type="module" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
 </head>
 
-<body>
-
+<body style="background-image: url('${pageContext.request.contextPath}/images/transportation/transportBackground.jpg')">
 <div class="container">
     <div class="inner-container">
         <div class="left">
             <form>
                 <div class="input-container">
                     <div>
-                        <input type="text" id="destination" name="destination" placeholder="Destination"/>
+                        <label for="pac-input">Destination:</label><br>
+                        <input type="text" id="pac-input" name="destination" placeholder="Destination"
+                               aria-label="destination"/>
                     </div>
                     <div>
-                        <input type="text" id="distance" name="distance" placeholder="Distance" disabled/>
+                        <label for="distance">Distance:</label><br>
+                        <input type="text" id="distance" name="distance" placeholder="Distance" readonly
+                               aria-label="distance"/>
                     </div>
                     <div>
-                        <input type="text" id="duration" name="duration" placeholder="Duration" disabled/>
+                        <label for="duration">Duration:</label><br>
+                        <input type="text" id="duration" name="duration" placeholder="Duration" readonly
+                               aria-label="duration"/>
                     </div>
                     <div>
-                        <select aria-label="vehicles" id="vehicleDropdown" name="vehicle">
+                        <label for="vehicleDropdown">Select Vehicle:</label><br>
+                        <select id="vehicleDropdown" name="vehicle" aria-label="vehicles">
                             <option value="car">Car</option>
-                            <option value="bike">Bike</option>
+                            <option value="van">Van</option>
                             <option value="bus">Bus</option>
                         </select>
                     </div>
                     <div>
-                        <input aria-label="pricePerKilometer" type="text" id="pricePerKilometer" name="pricePerKilometer">
+                        <label for="pricePerKilometer">Total Cost:</label><br>
+                        <input type="text" id="pricePerKilometer" name="pricePerKilometer"
+                               aria-label="pricePerKilometer"/>
                     </div>
                     <div>
                         <button id="myButton">Continue</button>
@@ -52,7 +60,6 @@
         </div>
         <div class="right">
             <div class="map-div">
-                <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
                 <div id="map"></div>
             </div>
         </div>

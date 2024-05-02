@@ -41,9 +41,7 @@ public class PaymentController extends BaseController {
 
 	@PostMapping("/addPaymentStatus")
 	public String addPaymentStatus(@ModelAttribute PaymentDTO paymentDTO) {
-		if (paymentDTO.getPaymentStatus() == null) {
-			paymentDTO.setPaymentStatus((byte) 0);
-		}
+		// TODO: Fix payment update
 		masterService.addPayment(paymentDTO);
 		return "redirect:/success";
 	}
@@ -72,7 +70,7 @@ public class PaymentController extends BaseController {
 		return "redirect:/admin/adminHome?showDiv=refunds";
 	}
 
-	@PostMapping("/generateBill")
+	/*@PostMapping("/generateBill")
 	public String generateBill(@ModelAttribute PaymentDTO paymentDTO) {
 		Map<String, Map<Integer, Double>> records = paymentDTO.getRecords();
 
@@ -99,7 +97,7 @@ public class PaymentController extends BaseController {
 
 		// Return the view name (replace "billView" with the actual view name)
 		return "billView";
-	}
+	}*/
 
 
 	@GetMapping("/billing")

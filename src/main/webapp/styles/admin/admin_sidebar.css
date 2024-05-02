@@ -414,3 +414,41 @@ textarea {
     font-weight: 600;
     color: var(--text-dark);
 }
+
+.textarea label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    padding: 0 0.4rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 400;
+    pointer-events: none;
+    z-index: 1000;
+    transition: 0.5s;
+}
+
+.textArea,.selectArea{
+    margin: 0;
+}
+
+.date-container label {
+    position: absolute;
+    padding: 0 0.4rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    pointer-events: none;
+    z-index: 1000;
+    transition: 0.5s;
+    top: 0;
+    transform: translateY(-50%);
+    left: 25px;
+    font-size: 0.8rem;
+    background-color: white;
+}
+
+.date-container {
+    position: relative;
+    margin: 1rem 0;
+}

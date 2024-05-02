@@ -1,5 +1,6 @@
 package com.happyman.Ruby.masterService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +67,7 @@ public class MasterServiceImpl implements MasterService {
 	private final RefundService refundService;
 	private final MenuService menuService;
 	private final ComplaintService complaintService;
+	private final RoomReservationService roomReservationService;
 
 	@Autowired
 	public MasterServiceImpl(
@@ -86,7 +88,7 @@ public class MasterServiceImpl implements MasterService {
 		ReservationService reservationService,
 		RefundService refundService,
 		MenuService menuService,
-		ComplaintService complaintService
+		ComplaintService complaintService, RoomReservationService roomReservationService
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
@@ -106,6 +108,7 @@ public class MasterServiceImpl implements MasterService {
 		this.refundService = refundService;
 		this.menuService = menuService;
 		this.complaintService = complaintService;
+		this.roomReservationService = roomReservationService;
 	}
 
 	@Override
@@ -471,13 +474,13 @@ public class MasterServiceImpl implements MasterService {
 
 	@Override
 	public void addPayment(PaymentDTO paymentDTO) {
-		Payment payment = new Payment();
+		/*Payment payment = new Payment();
 		payment.setCustomerName(paymentDTO.getCustomerName());
 		payment.setCustomerEmail(paymentDTO.getCustomerEmail());
 		payment.setBillAmount(paymentDTO.getAmount());
 		payment.setPaymentStatus(paymentDTO.getPaymentStatus());
 		//TODO:
-		paymentService.addPayment(payment);
+		paymentService.addPayment(payment);*/
 	}
 
 	@Override
@@ -709,6 +712,41 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public List<Reservation> findAllReservations() {
 		return reservationService.findAll();
+	}
+
+	@Override
+	public void saveRoomReservation(RoomReservation roomReservation) {
+		roomReservationService.saveRoomReservation(roomReservation);
+	}
+
+	@Override
+	public RoomReservation getRoomReservationById(Integer roomReservationId) {
+		return roomReservationService.getRoomReservationById(roomReservationId);
+	}
+
+	@Override
+	public List<RoomReservation> getAllRoomReservationsByRoomId(String roomId) {
+		return List.of();
+	}
+
+	/*@Override
+	public List<RoomReservation> getAllRoomReservationsByRoomId(String roomId) {
+		return roomReservationService.getAllRoomReservationsByRoomId(roomId);
+	}*/
+
+	@Override
+	public List<RoomReservation> getAllRoomReservationsByStartDate(LocalDate startDate) {
+		return roomReservationService.getAllRoomReservationsByStartDate(startDate);
+	}
+
+	@Override
+	public List<RoomReservation> getAllRoomReservationsByEndDate(LocalDate endDate) {
+		return roomReservationService.getAllRoomReservationsByEndDate(endDate);
+	}
+
+	@Override
+	public List<RoomReservation> getAllRoomReservationsByStartEndDate(LocalDate startDate, LocalDate endDate) {
+		return roomReservationService.getAllRoomReservationsByStartEndDate(startDate, endDate);
 	}
 
 	@Override

@@ -21,7 +21,7 @@
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form method="post" action="${pageContext.request.contextPath}/food/save">
+            <form method="post" action="${pageContext.request.contextPath}/room/addRoom">
                 <h3 class="title">Add Room</h3>
 
                 <div class="input-container">
