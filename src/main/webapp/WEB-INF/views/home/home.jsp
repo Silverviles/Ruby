@@ -29,7 +29,7 @@
     <button data-action="employeeManagement/registerHome">Employee Registration</button>
     <button data-action="employeeManagement/managementHome">Employee Management</button>
     <button data-action="packages/pack">packageUpdateDelete</button>
-    <button data-action="restaurant/newTable">newTable</button>
+    <button data-action="restaurant/newStartBooking">StartBooking</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 

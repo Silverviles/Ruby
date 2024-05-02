@@ -78,8 +78,30 @@ public class RestaurantController extends BaseController {
         return "/restaurant/addMenuForm";
     }
 
-    @GetMapping("/newTable")
-    public String getNewTable() {
+    @GetMapping("/newStartBooking")
+    public String getNewStartBooking() {
+        return "/restaurant/newStartBooking";
+    }
+
+    @GetMapping(value = "/newdateTime")
+    public String getNewDateTime(){
+        return "/restaurant/newDateTime";
+    }
+
+    @GetMapping(value = "/newseatmap")
+    public String getNewSeatMap(){
         return "/restaurant/tableNew";
     }
+
+    @GetMapping(value = "/newmealpage")
+    public String getNewMeal(){
+        return "/restaurant/newMeal";
+    }
+
+    @GetMapping(value = "/newsummary")
+    public String getNewSummaryl(){
+        return "/restaurant/newSummary";
+    }
+
 }
+

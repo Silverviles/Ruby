@@ -87,7 +87,6 @@
 
         <!--table3-->
         <div class="table03-container">
-
             <div
                     id="table03"
                     class="table03-table"
@@ -266,7 +265,6 @@
                     class="table07-table"
                     id="table07"
                     data-tableNum="7"
-
                     onclick="toggleColor('table07')"
             ></div>
             <!-- top seat table - 7 -->
@@ -310,12 +308,14 @@
                 id="selectedTableDisplay"
                 style="font-size: large; font-weight: bold"
         ></p>
-        <button
-                class="btn btn-primary"
-                onclick="window.location.href='Meal.html'"
-        >
-            Continue
-        </button>
+        <form method="get" action="${pageContext.request.contextPath}/restaurant/newmealpage">
+
+                <button class="btn btn-primary">
+                    continue
+                </button>
+
+        </form>
+
     </div>
 
     <script>
@@ -336,7 +336,6 @@
         //         alert("table 1 is not available");
         //     }
         // }
-
 
         // var selectedTableId = null; // Variable to store the ID of the currently selected table
         //
@@ -396,8 +395,6 @@
                 alert("table " + tableValue + " is reserved");
             }
         }
-
-
     </script>
 </div>
 </body>

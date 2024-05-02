@@ -6,9 +6,9 @@
     margin-right: 10px;
 }
 
- .available {
-        background-color: #008000;
-      }
+.available {
+    background-color: #008000;
+}
 
 .reserved {
     background-color: #ffff00;
@@ -49,7 +49,7 @@
 }
 
 .body-container {
-    overflow-x: hidden;
+    overflow: hidden;
     margin: 0;
     display: flex;
     flex-direction: column;
