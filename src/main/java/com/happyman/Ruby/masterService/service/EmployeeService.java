@@ -2,6 +2,7 @@ package com.happyman.Ruby.masterService.service;
 
 import java.util.List;
 
+import com.happyman.Ruby.masterService.dao.Driver;
 import com.happyman.Ruby.masterService.dao.Employee;
 
 public interface EmployeeService {
@@ -14,5 +15,7 @@ public interface EmployeeService {
 	Boolean deleteEmployee(Integer employeeID);
 
 	Employee getEmployeeById(Integer employeeID);
+
+//	Employee getEmployeeByEmail(String email);
 
 }

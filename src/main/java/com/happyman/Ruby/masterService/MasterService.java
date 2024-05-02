@@ -101,6 +101,8 @@ public interface MasterService {
 
 	Employee getEmployeeById(Integer employeeID);
 
+//	Driver getEmployeeByEmail(String email);
+
 	// Payment Implementation
 	List<Payment> getAllPayments();
 

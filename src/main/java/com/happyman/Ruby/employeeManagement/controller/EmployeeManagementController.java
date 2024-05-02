@@ -37,6 +37,9 @@ package com.happyman.Ruby.employeeManagement.controller;
 
 import java.util.List;
 
+import com.happyman.Ruby.transportation.dto.DriverDTO;
+import com.happyman.Ruby.transportation.utils.DriverAuthentication;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,6 +61,13 @@ import com.happyman.Ruby.masterService.dao.Employee;
 public class EmployeeManagementController extends BaseController {
 
 	private static final Logger log = LoggerFactory.getLogger(EmployeeManagementController.class);
+
+
+	@GetMapping("/StartHome")
+	public String goHome() {
+		return "employeeManagement/Home";
+	}
+
 
 	@GetMapping("/managementHome")
 	public String showManagementHome(Model model) {
@@ -102,6 +112,26 @@ public class EmployeeManagementController extends BaseController {
 		model.addAttribute("employees", masterService.getAllEmployees());
 		return "employeeManagement/EmployeeManagement";
 	}
+
+
+//	@PostMapping("/login")
+//	public String getLogin(
+//			@ModelAttribute EmployeeDTO employeeDTO,
+//			HttpServletResponse response,
+//			Model model
+//	) {
+//		try {
+//			if (DriverAuthentication.verifyLogin(employeeDTO, masterService)) {
+//				return getPortalString(employeeDTO, model);
+//			} else {
+//				response.setHeader("Error", "Invalid username or password");
+//				return "EmployeeManagement/AdminLogin";
+//			}
+//		} catch (Exception e) {
+//			response.setHeader("Error", "Unknown error occurred. Please contact system administrator");
+//			return "EmployeeManagement/AdminLogin";
+//		}
+//	}
 }
 
 
