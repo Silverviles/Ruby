@@ -258,7 +258,7 @@
 <html>
 <head>
     <title>Home</title>
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/employeeManagement/Home.css" />
 
 </head>
 <body>
@@ -534,7 +534,7 @@
     </div>
 </footer>
 
-
+<script src="${pageContext.request.contextPath}/scripts/employeeManagement/Home.js"></script>
 </body>
 
 </html>
