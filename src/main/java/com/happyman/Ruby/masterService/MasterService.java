@@ -169,6 +169,8 @@ public interface MasterService {
 
 	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
 
+
+	//event
 	List<Event> getAllEvents();
 
 	Event getEventById(Integer eventId);

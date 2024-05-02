@@ -5,6 +5,7 @@ import java.net.http.HttpRequest;
 import java.util.List;
 
 import com.happyman.Ruby.masterService.dao.Package;
+import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -77,9 +78,9 @@ public class PackageController extends BaseController {
 
 	@GetMapping("/getAllPackage")
 	public String displayAllPackage(Model model) {
-		List<Package> packages = masterService.getAllPackages();
-		model.addAttribute("Package", packages);
+		model.addAttribute("Packages", masterService.getPackageDTOList());
 		return "packages/package";
 	}
+
 
 }

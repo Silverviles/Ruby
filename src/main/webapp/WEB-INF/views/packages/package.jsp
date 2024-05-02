@@ -1,4 +1,9 @@
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
+<% List<PackageDTO> packageAll = (List<PackageDTO>) request.getAttribute("Packages"); %>
+
+<%--
   Created by IntelliJ IDEA.
   User: sdilr
   Date: 3/14/2024
@@ -6,7 +11,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% List<Package> packageAll = (List<Package>) request.getAttribute("Package"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,9 +95,33 @@
     </div>
 
     <div class="package_container">
-        <div class="package-box">
-
-        </div>
+        hhhhhhhhhh
+        <% if(packageAll != null && !packageAll.isEmpty()){
+            for(PackageDTO pkg : packageAll) { %>
+                <div class="package-box">
+                    <div class="package-name">
+                        <p><%= pkg.getPackageName()%> - <%= pkg.getPackageType()%> Package</p>
+                    </div>
+                    <div class="package-img"></div>
+                    <div class="package-description"><%= pkg.getPackageDescription()%></div>
+                    <div class="select-package-btn"><button class="package-select">Select Package</button> </div>
+                </div>
+                <div class="popup-addons">
+                    <p class="addon-list">Select Addons</p>
+                    <div class="addon-table-container">
+                        <table class="addon-table">
+                            <% if(pkg.getAddonList() != null && !pkg.getAddonList().isEmpty()){
+                                for(Addon addon : pkg.getAddonList()) { %>
+                                    <tr>
+                                        <td><%= addon.getAddonName()%></td>
+                                    </tr>
+                            <%}
+                            }%>
+                        </table>
+                    </div>
+                </div>
+            <%}
+        }%>
     </div>
 
 </div>
