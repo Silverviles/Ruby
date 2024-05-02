@@ -31,21 +31,21 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="startDate" type="date" name="startDate" value="2024-05-04" min="2024-05-04">
+                    <input id="startDate" type="date" name="startDate" value="2024-05-04" min="2024-05-04" required>
                     <label for="startDate" class="focus">Check-in date</label>
                 </div>
                 <p>Add date</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="endDate" type="date" name="endDate" value="2024-05-04" min="2024-05-04">
+                    <input id="endDate" type="date" name="endDate" value="2024-05-04" min="2024-05-04" required>
                     <label for="endDate" class="focus">Check-out date</label>
                 </div>
                 <p>Add date</p>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input id="noGuest" type="number" name="noGuest" max="<%= room.getRoomCapacity()%>">
+                    <input id="noGuest" type="number" name="noGuest" max="<%= room.getRoomCapacity()%>" required>
                     <label for="noGuest">Guests</label>
                 </div>
                 <p>add the number of guests</p>
