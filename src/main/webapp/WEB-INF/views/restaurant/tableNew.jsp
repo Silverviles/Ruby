@@ -45,6 +45,7 @@
             <div
                     id="table02"
                     class="table02-table"
+                    data-tableNum="2"
                     onclick="toggleColor('table02')"
             ></div>
             <!-- right bottom seat - table 2 -->
@@ -68,6 +69,7 @@
             <div
                     id="table01"
                     class="table01-table"
+                    data-tableNum="1"
                     onclick="toggleColor('table01')"
             ></div>
             <!-- top seat - table 1 -->
@@ -89,6 +91,7 @@
             <div
                     id="table03"
                     class="table03-table"
+                    data-tableNum="3"
                     onclick="toggleColor('table03')"
             ></div>
             <!-- bottom seat - table 3 -->
@@ -109,6 +112,7 @@
             <div
                     id="table11"
                     class="table11-table"
+                    data-tableNum="11"
                     onclick="toggleColor('table11')"
             ></div>
             <!-- left seat table - 11 -->
@@ -129,6 +133,7 @@
             <div
                     id="table12"
                     class="table12-table"
+                    data-tableNum="12"
                     onclick="toggleColor('table12')"
             ></div>
             <!-- left seat table - 12 -->
@@ -155,6 +160,7 @@
             <div
                     id="table04"
                     class="table04-table"
+                    data-tableNum="4"
                     onclick="toggleColor('table04')"
             ></div>
             <div class="table04-number">4</div>
@@ -172,6 +178,7 @@
             <div
                     id="table10"
                     class="table10-table"
+                    data-tableNum="10"
                     onclick="toggleColor('table10')"
             ></div>
             <div class="table10-number">10</div>
@@ -189,6 +196,7 @@
             <div
                     id="table08"
                     class="table08-table"
+                    data-tableNum="8"
                     onclick="toggleColor('table08')"
             ></div>
 
@@ -208,6 +216,7 @@
             <div
                     id="table09"
                     class="table09-table"
+                    data-tableNum="9"
                     onclick="toggleColor('table09')"
             ></div>
             <div class="table09-number">9</div>
@@ -226,6 +235,7 @@
             <div
                     id="table05"
                     class="table05-table"
+                    data-tableNum="5"
                     onclick="toggleColor('table05')"
             ></div>
             <div class="table05-number">5</div>
@@ -244,6 +254,7 @@
             <div
                     id="table06"
                     class="table06-table"
+                    data-tableNum="6"
                     onclick="toggleColor('table06')"
             ></div>
             <div class="table06-number">6</div>
@@ -255,7 +266,8 @@
                     class="table07-table"
                     id="table07"
                     data-tableNum="7"
-                    onclick="selectTable()"
+
+                    onclick="toggleColor('table07')"
             ></div>
             <!-- top seat table - 7 -->
             <div class="top-seat-table07"></div>
@@ -307,49 +319,85 @@
     </div>
 
     <script>
-        function selectTable(){
-            var table = document.getElementById("table07");
-            var tableNumber = table.getAttribute("data-tableNum");
-        }
+        // function ToggleEvent(id) {
+        //     var shape = document.getElementById(id);
+        //     var tableValue = shape.getAttribute("data-tableNum");
+        //
+        //     if (shape.classList.contains("available")) {
+        //         shape.classList.remove("available");
+        //         shape.classList.add("selected");
+        //         alert("table 1 selected");
+        //     } else if (shape.classList.contains("selected")) {
+        //         shape.classList.remove("selected");
+        //         shape.classList.add("available");
+        //     } else if (shape.classList.contains("reserved")) {
+        //         alert("table 1 is reserved");
+        //     } else {
+        //         alert("table 1 is not available");
+        //     }
+        // }
 
-        var selectedTableId = null; // Variable to store the ID of the currently selected table
+
+        // var selectedTableId = null; // Variable to store the ID of the currently selected table
+        //
+        // function toggleColor(id) {
+        //     var circle = document.getElementById(id);
+        //     var selectedTableDisplay = document.getElementById(
+        //         "selectedTableDisplay"
+        //     );
+        //
+        //     if (circle.classList.contains("not-available")) {
+        //         alert("Table not available");
+        //     } else if (circle.classList.contains("reserved")) {
+        //         alert("Table already booked");
+        //     } else {
+        //         if (id === selectedTableId) {
+        //             // If the clicked table is already selected, deselect it
+        //             circle.classList.remove("selected");
+        //             circle.classList.add("available");
+        //             selectedTableId = null;
+        //             selectedTableDisplay.textContent = "Selected Table: None";
+        //             localStorage.removeItem("selectedTable"); // Remove from localStorage
+        //         } else {
+        //             // If a new table is selected
+        //             if (selectedTableId) {
+        //                 // If there's already a selected table, deselect it
+        //                 var previousSelectedTable =
+        //                     document.getElementById(selectedTableId);
+        //                 previousSelectedTable.classList.remove("selected");
+        //                 previousSelectedTable.classList.add("available");
+        //             }
+        //             // Select the clicked table
+        //             circle.classList.remove("available");
+        //             circle.classList.add("selected");
+        //             selectedTableId = id;
+        //             selectedTableDisplay.textContent = "Selected Table: " + id;
+        //             localStorage.setItem("selectedTable", id); // Save to localStorage
+        //         }
+        //     }
+        // }
 
         function toggleColor(id) {
-            var circle = document.getElementById(id);
-            var selectedTableDisplay = document.getElementById(
-                "selectedTableDisplay"
-            );
+            var shape = document.getElementById(id);
+            var tableValue = shape.getAttribute("data-tableNum");
 
-            if (circle.classList.contains("not-available")) {
-                alert("Table not available");
-            } else if (circle.classList.contains("reserved")) {
-                alert("Table already booked");
+            if (shape.classList.contains("available")) {
+                shape.classList.remove("available");
+                shape.classList.add("selected");
+                alert("table " + tableValue + " selected");
+                localStorage.setItem("tableNumber", tableValue);
+            } else if (shape.classList.contains("selected")) {
+                shape.classList.remove("selected");
+                shape.classList.add("available");
+                localStorage.removeItem("tableNumber");
+            } else if (shape.classList.contains("reserved")) {
+                alert("table " + tableValue + " is reserved");
             } else {
-                if (id === selectedTableId) {
-                    // If the clicked table is already selected, deselect it
-                    circle.classList.remove("selected");
-                    circle.classList.add("available");
-                    selectedTableId = null;
-                    selectedTableDisplay.textContent = "Selected Table: None";
-                    localStorage.removeItem("selectedTable"); // Remove from localStorage
-                } else {
-                    // If a new table is selected
-                    if (selectedTableId) {
-                        // If there's already a selected table, deselect it
-                        var previousSelectedTable =
-                            document.getElementById(selectedTableId);
-                        previousSelectedTable.classList.remove("selected");
-                        previousSelectedTable.classList.add("available");
-                    }
-                    // Select the clicked table
-                    circle.classList.remove("available");
-                    circle.classList.add("selected");
-                    selectedTableId = id;
-                    selectedTableDisplay.textContent = "Selected Table: " + id;
-                    localStorage.setItem("selectedTable", id); // Save to localStorage
-                }
+                alert("table " + tableValue + " is reserved");
             }
         }
+
+
     </script>
 </div>
 </body>

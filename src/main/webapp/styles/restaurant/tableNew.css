@@ -6,9 +6,9 @@
     margin-right: 10px;
 }
 
-/* .available {
+ .available {
         background-color: #008000;
-      } */
+      }
 
 .reserved {
     background-color: #ffff00;
@@ -92,8 +92,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-
     border-radius: 50px;
+
     border: 3px #008000 solid;
 }
 
@@ -215,7 +215,7 @@
     transform-origin: 0 0;
 
     border-radius: 50px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .top-seat-table01 {
@@ -224,8 +224,8 @@
     left: 25px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px #d9d9d9 solid;
+    /*background: white;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -235,8 +235,8 @@
     left: 25px;
     top: -17px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px #d9d9d9 solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -246,8 +246,8 @@
     left: 25px;
     top: 210px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px #d9d9d9 solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -257,8 +257,8 @@
     left: 25px;
     top: 265px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -268,8 +268,8 @@
     left: 107px;
     top: 99px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -279,8 +279,8 @@
     left: 164px;
     top: 99px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -316,7 +316,7 @@
     transform-origin: 0 0;
 
     border-radius: 50px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .bottom-seat-table03 {
@@ -327,8 +327,8 @@
     position: absolute;
     transform: rotate(-180deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -340,8 +340,8 @@
     position: absolute;
     transform: rotate(-180deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -353,8 +353,8 @@
     position: absolute;
     transform: rotate(-180deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -366,8 +366,8 @@
     position: absolute;
     transform: rotate(-180deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -379,8 +379,8 @@
     position: absolute;
     transform: rotate(-180deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -392,8 +392,8 @@
     position: absolute;
     transform: rotate(-180deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -428,7 +428,7 @@
     transform: rotate(-180deg);
     transform-origin: 0 0;
     border-radius: 50px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .left-seat-table11 {
@@ -439,8 +439,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -452,8 +452,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -465,8 +465,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -478,8 +478,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -491,8 +491,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #ffffff;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -504,8 +504,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -540,7 +540,7 @@
     transform: rotate(-180deg);
     transform-origin: 0 0;
     border-radius: 50px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .left-seat-table12 {
@@ -551,8 +551,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -564,8 +564,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -577,8 +577,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -590,8 +590,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -603,8 +603,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -616,8 +616,8 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -647,8 +647,8 @@
     left: 25px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -658,8 +658,8 @@
     left: 25px;
     top: -15px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -669,8 +669,8 @@
     left: 25px;
     top: 175px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -680,8 +680,8 @@
     left: 25px;
     top: 230px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -692,7 +692,7 @@
     top: 63px;
     position: absolute;
     border-radius: 9999px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .table04-number {
@@ -721,8 +721,8 @@
     left: 25px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -732,8 +732,8 @@
     left: 25px;
     top: -15px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -743,8 +743,8 @@
     left: 25px;
     top: 175px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -754,8 +754,8 @@
     left: 25px;
     top: 230px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -766,7 +766,7 @@
     top: 63px;
     position: absolute;
     border-radius: 9999px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .table10-number {
@@ -795,8 +795,8 @@
     left: 25px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -806,8 +806,8 @@
     left: 25px;
     top: -15px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -817,8 +817,8 @@
     left: 25px;
     top: 175px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -828,8 +828,8 @@
     left: 25px;
     top: 230px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -840,7 +840,7 @@
     top: 63px;
     position: absolute;
     border-radius: 9999px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .table08-number {
@@ -869,8 +869,8 @@
     left: 25px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -880,8 +880,8 @@
     left: 25px;
     top: -15px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -891,8 +891,8 @@
     left: 25px;
     top: 175px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -902,8 +902,8 @@
     left: 25px;
     top: 230px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -914,7 +914,7 @@
     top: 63px;
     position: absolute;
     border-radius: 9999px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .table09-number {
@@ -943,8 +943,8 @@
     left: 25px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -954,8 +954,8 @@
     left: 25px;
     top: -15px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -965,8 +965,8 @@
     left: 25px;
     top: 175px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -976,8 +976,8 @@
     left: 25px;
     top: 230px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -988,7 +988,7 @@
     top: 63px;
     position: absolute;
     border-radius: 9999px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .table05-number {
@@ -1017,8 +1017,8 @@
     left: 25px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1028,8 +1028,8 @@
     left: 25px;
     top: -15px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1039,8 +1039,8 @@
     left: 25px;
     top: 175px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1050,8 +1050,8 @@
     left: 25px;
     top: 230px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1101,8 +1101,8 @@
     left: 144px;
     top: 0px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1112,8 +1112,8 @@
     left: 144px;
     top: -15px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1125,8 +1125,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1138,8 +1138,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1151,8 +1151,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1164,8 +1164,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1177,8 +1177,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1190,8 +1190,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1203,8 +1203,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1216,8 +1216,8 @@
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: 0 0;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1227,8 +1227,8 @@
     left: 142px;
     top: 278px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1238,8 +1238,8 @@
     left: 142px;
     top: 333px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1249,8 +1249,8 @@
     left: 283px;
     top: 139px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1260,8 +1260,8 @@
     left: 339px;
     top: 139px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1271,8 +1271,8 @@
     left: 0px;
     top: 139px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
@@ -1282,8 +1282,8 @@
     left: -16px;
     top: 139px;
     position: absolute;
-    background: #d9d9d9;
-    border: 1px black solid;
+    /*background: #d9d9d9;*/
+    border: 3px #008000 solid;
     border-radius: 10px;
 }
 
