@@ -30,6 +30,7 @@
     <button data-action="packages/pack">packageUpdateDelete</button>
     <button data-action="room/rooms">Book Now</button>
     <button data-action="employeeManagement/StartHome">Home</button>
+    <button data-action="employeeManagement/admin/login">AdminLogin</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 

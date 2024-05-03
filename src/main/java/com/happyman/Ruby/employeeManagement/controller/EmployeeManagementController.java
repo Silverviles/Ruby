@@ -133,6 +133,36 @@ public class EmployeeManagementController extends BaseController {
 //			return "EmployeeManagement/AdminLogin";
 //		}
 //	}
+
+	// Mapping for displaying the login form
+	@GetMapping("/admin/login")
+	public String showLoginForm() {
+		return "employeeManagement/AdminLogin"; // Assuming "admin/login.html" is your login form
+	}
+
+	// Mapping for handling login form submission
+	@PostMapping("/login")
+	public String processLogin(
+			@RequestParam("username") String username,
+			@RequestParam("password") String password,
+			Model model,
+			RedirectAttributes redirectAttributes
+	) {
+		// Simulated admin credentials (replace with actual authentication logic)
+		String expectedUsername = "admin";
+		String expectedPassword = "password";
+
+		// Validate credentials
+		if (username.equals(expectedUsername) && password.equals(expectedPassword)) {
+			// Authentication successful
+			// Redirect to admin dashboard or home page
+			return "admin/admin_sidebar"; // Assuming "/admin/dashboard" is the admin dashboard URL
+		} else {
+			// Authentication failed
+			model.addAttribute("error", "Invalid credentials. Please try again.");
+			return "employeeManagement/Home"; // Return to login form with error message
+		}
+	}
 }
 
 
