@@ -41,7 +41,7 @@ public class CustomerSupportController extends BaseController {
 	public String deleteFeedback(Integer feedbackId, Model model) {
 		masterService.deleteFeedbackById(feedbackId);
 		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
-		return "common/admin_sidebar";
+		return "redirect:/admin/adminHome?showDiv=feedback";
 	}
 
 	@PostMapping("/acceptFeedback")
@@ -50,7 +50,7 @@ public class CustomerSupportController extends BaseController {
 		feedback.setActive(true);
 		masterService.addFeedback(feedback);
 		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
-		return "common/admin_sidebar";
+		return "redirect:/admin/adminHome?showDiv=feedback";
 	}
 
 	@GetMapping("/giveComplaintForm")
