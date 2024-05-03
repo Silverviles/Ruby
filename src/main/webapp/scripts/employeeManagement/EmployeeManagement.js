@@ -17,4 +17,5 @@ function searchEmployee() {
                 tr[i].style.display = "none";
             }
         }
-    }
+    }}
+
