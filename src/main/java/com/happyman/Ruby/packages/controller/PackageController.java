@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.happyman.Ruby.masterService.dao.Package;
 import com.happyman.Ruby.masterService.dao.PackageToAddon;
+import com.happyman.Ruby.masterService.dao.RoomReservation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -29,9 +30,10 @@ public class PackageController extends BaseController {
 
 
 	@GetMapping("/packHome")
-	public String goPackages(Model model) {
+	public String goPackages(@ModelAttribute RoomReservation roomReservation, Model model) {
 		model.addAttribute("Packages", masterService.getPackageDTOList());
 		model.addAttribute("Addons", masterService.getAllAddons());
+		model.addAttribute("suggestedPackage",masterService.getSuitablePackage(roomReservation));
 		return "packages/package";
 	}
 
@@ -55,7 +57,6 @@ public class PackageController extends BaseController {
 
 	@PostMapping("/deletePackage")
 	public String deletePackage(Integer packageId) {
-		// TODO: Fix delete
 		masterService.deletePackageToAddonByPackageId(packageId);
 		masterService.deletePackage(packageId);
 		return "redirect:/admin/adminHome?showDiv=remove_package";

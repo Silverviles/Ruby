@@ -169,6 +169,8 @@ public interface MasterService {
 
 	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
 
+	Package getSuitablePackage(RoomReservation roomReservation);
+
 	List<Event> getAllEvents();
 
 	Event getEventById(Integer eventId);
@@ -264,5 +266,6 @@ public interface MasterService {
 	public void deleteComplaint(Integer id);
 	public List<Complaint> findAllComplaints();
 	public Complaint findComplaintByBookingId(String bookingId);
+
 
 }

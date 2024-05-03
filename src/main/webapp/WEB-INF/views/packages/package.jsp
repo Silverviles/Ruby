@@ -1,9 +1,10 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
 <%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Package" %>
 <% List<PackageDTO> packageAll = (List<PackageDTO>) request.getAttribute("Packages"); %>
 <% List<Addon> addonAll = (List<Addon>) request.getAttribute("Addons"); %>
-
+<% Package suggestedPackage = (Package) request.getAttribute("suggestedPackage");%>
 <%--
   Created by IntelliJ IDEA.
   User: sdilr
@@ -79,7 +80,7 @@
     </div>
 
     <div>
-        <p class="suggestion-quote">Based on the information you provided, we suggest you <span style="font-size: xx-large;font-family:'Libre Baskerville';">Package Name</span><i class="fas fa-arrow-right" style="margin-left: 7px"></i></p>
+        <p class="suggestion-quote">Based on the information you provided, we suggest you <span style="font-size: xx-large;font-family:'Libre Baskerville';"><%=suggestedPackage.getName()%>></span><i class="fas fa-arrow-right" style="margin-left: 7px" href="#<%=suggestedPackage.getId()%>"></i></p>
     </div>
 </div>
 
@@ -105,7 +106,7 @@
     <div class="package_container" id="allPkg">
         <% if(packageAll != null && !packageAll.isEmpty()){
             for(PackageDTO pkg : packageAll) { %>
-                <div class="package-box">
+                <div class="package-box" id="<%=pkg.getId()%>">
                     <div class="package-name">
                         <p><%= pkg.getPackageName()%> - <%= pkg.getPackageType()%> Package</p>
                     </div>
@@ -122,8 +123,9 @@
                     <% if (!pkg.getPackageType().equals("COUPLE")) {%>
                     <div class="descript">Kids should be below 12 years of age.</div>
                     <%}%>
-                    <div class="select-package-btn" onclick="document.getElementsByClassName('package-select-btn').style.display='none'"><button class="package-select">Select Package</button> </div>
-
+                    <div class="select-package-btn">
+                        <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
+                    </div>
                     <div class="popup-addons">
                         <p class="addon-list">Select Addons</p>
                         <div class="addon-table-container">
@@ -170,8 +172,8 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn" onclick="document.getElementsByClassName('package-select-btn').style.display='none'">
-                <button class="package-select">Select Package</button>
+            <div class="select-package-btn">
+                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
             </div>
 
             <div class="popup-addons">
@@ -222,8 +224,8 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn" onclick="document.getElementsByClassName('package-select-btn').style.display='none'">
-                <button class="package-select" >Select Package</button>
+            <div class="select-package-btn">
+                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
             </div>
 
             <div class="popup-addons">
@@ -275,8 +277,8 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn" onclick="document.getElementsByClassName('package-select-btn').style.display='none'">
-                <button class="package-select">Select Package</button>
+            <div class="select-package-btn">
+                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
             </div>
 
             <div class="popup-addons">
@@ -328,8 +330,8 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn" onclick="document.getElementsByClassName('package-select-btn').style.display='none'">
-                <button class="package-select">Select Package</button>
+            <div class="select-package-btn">
+                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
             </div>
 
             <div class="popup-addons">

@@ -46,6 +46,8 @@ import com.happyman.Ruby.masterService.service.TripService;
 import com.happyman.Ruby.masterService.service.VehicleService;
 import com.happyman.Ruby.packages.dto.PackageDTO;
 
+import static java.lang.Boolean.TRUE;
+
 @Service
 public class MasterServiceImpl implements MasterService {
 	private final DriverService driverService;
@@ -629,6 +631,7 @@ public class MasterServiceImpl implements MasterService {
 		return packageToAddonService.getPackageToAddonsByPackageId(packageId);
 	}
 
+
 	@Override
 	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
 		List<Integer> list1 = packageDTO.getAddonList().stream().map(Addon::getAddonId).toList();
@@ -768,5 +771,22 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public Complaint findComplaintByBookingId(String bookingId) {
 		return complaintService.findComplaintByBookingId(bookingId);
+	}
+
+
+	@Override
+	public Package getSuitablePackage(RoomReservation roomReservation) {
+		List<Package> packages= packageService.getAllPackages();
+		Package suitablePackage = new Package();
+
+		for(Package p:packages){
+			if(p.getDiscontinueDate().isAfter(roomReservation.getEndDate()) && p.getAvailability()==TRUE ){
+				if(roomReservation.getNoGuest()<=p.getMaxAdults()){
+					suitablePackage = p;
+					break;
+				}
+			}
+		}
+		return suitablePackage;
 	}
 }
