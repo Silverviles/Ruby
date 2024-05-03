@@ -34,7 +34,7 @@
 
 <div id="register-page" class="register-page" style="display: block;">
     <h2>Login</h2>
-    <form id="register-form" method="post" action="${pageContext.request.contextPath}/employeeManagement/login">
+    <form id="register-form" method="get" action="${pageContext.request.contextPath}/admin/adminLogin">
         <input id="username" name="username" aria-label="username" type="text" placeholder="username" required>
         <input id="signupPassword" name="password" aria-label="Password" type="password" placeholder="Password" required>
         <button type="submit">Login</button>

@@ -20,7 +20,7 @@
             <span class="circle one"></span>
             <span class="circle two"></span>
 
-            <form action="#" autocomplete="off">
+            <form action="${pageContext.request.contextPath}/addons/addAddon" method="post" autocomplete="off">
                 <h3 class="title">Add Addon</h3>
 
                 <div class="input-container">
@@ -34,20 +34,20 @@
                 </div>
 
                 <div class="input-container textarea">
-                    <textarea id="description" name="description" class="input textArea" required></textarea>
-                    <label for="description">Description: </label>
+                    <textarea id="addonDescription" name="addonDescription" class="input textArea" required></textarea>
+                    <label for="addonDescription">Description: </label>
                     <span>Description</span>
                 </div>
 
                 <div class="input-container">
-                    <input type="number" id="price" name="price" class="input" step="0.01" min="0" required/>
-                    <label for="price">Price: </label>
+                    <input type="number" id="addonPrice" name="addonPrice" class="input" step="0.01" min="0" required/>
+                    <label for="addonPrice">Price: </label>
                     <span>Price</span>
                 </div>
 
                 <div class="input-container">
-                    <input type="checkbox" id="availability" name="availability"/>
-                    <label for="availability">Availability: </label>
+                    <input type="checkbox" id="addonAvailability" name="addonAvailability" value="1"/>
+                    <label for="addonAvailability">Availability: </label>
                 </div>
 
                 <input type="submit" value="Submit" class="btn"/>

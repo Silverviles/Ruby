@@ -8,11 +8,11 @@ import com.happyman.Ruby.masterService.dao.PackageToAddon;
 
 @Service
 public interface PackageToAddonService {
-	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
+    List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
 
-	void addPackageToAddon(PackageToAddon packageToAddon);
+    void addPackageToAddon(PackageToAddon packageToAddon);
 
-	void deletePackageToAddonByPackageId(Integer packageId);
+    void deletePackageToAddonByPackageId(Integer packageId);
 
-	void deletePackageToAddon(PackageToAddon packageToAddon);
+    void deletePackageToAddon(PackageToAddon packageToAddon);
 }

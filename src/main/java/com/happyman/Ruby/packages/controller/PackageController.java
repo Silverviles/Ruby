@@ -5,6 +5,7 @@ import java.net.http.HttpRequest;
 import java.util.List;
 
 import com.happyman.Ruby.masterService.dao.Package;
+import com.happyman.Ruby.masterService.dao.PackageToAddon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,9 @@ public class PackageController extends BaseController {
 
 
 	@GetMapping("/packHome")
-	public String goPackages() {
+	public String goPackages(Model model) {
+		model.addAttribute("Packages", masterService.getPackageDTOList());
+		model.addAttribute("Addons", masterService.getAllAddons());
 		return "packages/package";
 	}
 
@@ -40,7 +43,9 @@ public class PackageController extends BaseController {
 	}
 
 	@PostMapping("/addPackage")
-	public String addPackage(@ModelAttribute PackageDTO packageDTO) {
+	public String addPackage(@ModelAttribute PackageDTO packageDTO, Model model) {
+
+
 		if (packageDTO.getPackageAvailability() == null) {
 			packageDTO.setPackageAvailability(false);
 		}
@@ -75,11 +80,5 @@ public class PackageController extends BaseController {
 		return "packages/packages_updateDelete";
 	}
 
-	@GetMapping("/getAllPackage")
-	public String displayAllPackage(Model model) {
-		List<Package> packages = masterService.getAllPackages();
-		model.addAttribute("Package", packages);
-		return "packages/package";
-	}
 
 }

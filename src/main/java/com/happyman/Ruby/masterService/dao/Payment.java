@@ -20,7 +20,7 @@ public class Payment {
 
 	@Column(name = "customerEmail", nullable = false) private String customerEmail;
 
-	@Column(name = "amount", nullable = false) private Float billAmount;
+	@Column(name = "bill_amount", nullable = false) private Float billAmount;
 
 	@Column(name = "paymentStatus") private Byte paymentStatus;
 

@@ -7,7 +7,4 @@ import com.happyman.Ruby.masterService.dao.PackageToAddonId;
 
 public interface PackageToAddonRepository extends BaseRepository<PackageToAddon, PackageToAddonId> {
 
-	List<PackageToAddon> findAllById_PackageId(Integer packageId);
-
-	List<PackageToAddon> findAllById_AddonId(Integer addonId);
 }

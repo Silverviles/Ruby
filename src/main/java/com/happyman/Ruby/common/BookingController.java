@@ -45,6 +45,15 @@ public class BookingController extends BaseController {
 		masterService.saveReservation(reservation);
 
 		model.addAttribute("reservation", reservation);
+		model.addAttribute("Packages", masterService.getPackageDTOList());
+		model.addAttribute("Addons", masterService.getAllAddons());
+
+		//return "packages/package";
+		return "transportation/transportForm";
+	}
+
+	@PostMapping("/package")
+	public String processPackage(){
 
 		return "transportation/transportForm";
 	}
@@ -72,9 +81,9 @@ public class BookingController extends BaseController {
 
 	@Transactional
 	@PostMapping("/generateBill")
-	public String generateBill(PaymentDTO paymentDTO) {
+	public String generateBill(PaymentDTO paymentDTO, Model model) {
 		Payment payment = new Payment();
-		payment.setPaymentStatus((byte) 1); // Payment done is 1
+		payment.setPaymentStatus((byte) 0); // Payment done is 1
 		payment.setBillAmount(paymentDTO.getTotal());
 		payment.setCustomerName(paymentDTO.getName());
 		payment.setCustomerEmail(paymentDTO.getEmail());
@@ -85,8 +94,9 @@ public class BookingController extends BaseController {
 		Reservation reservation = masterService.findReservationById(paymentDTO.getBookingId());
 		reservation.setPayment(payment);
 		masterService.saveReservation(reservation);
+		model.addAttribute("bill", reservation);
 
-		return "billView";
+		return "billingAndReporting/billingPdf";
 	}
 
 	private static String generateRandomString() {

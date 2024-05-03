@@ -65,3 +65,153 @@ body{
     text-shadow: 0.0520833333vw 0.1041666667vw 0.2083333333vw rgba(0, 0, 0, 0.64);
     animation: slideIn 1s ease-in-out forwards;
 }
+
+.body-content{
+    display: flex;
+}
+
+.filter{
+    width: 30%;
+}
+.package-box{
+        width: 50%;
+        margin: 2rem auto;
+        background-color: #a1816191;
+        position: relative;
+        border-radius: 20px;
+    padding: 30px
+}
+
+.package-name{
+    margin: 0 auto;
+    width: fit-content;
+    font-weight: 500;
+    font-size: larger;
+    color: #281609;
+    margin-bottom: 20px;
+}
+
+.popup-addons {
+    display: none;
+    padding: 30px;
+}
+
+.popup-addons.hidden {
+    display: block;
+}
+
+.package-img img{
+    width: 100%;
+}
+
+.descript{
+    padding:5px 0;
+}
+.package-select{
+    background-color: #210403;
+    color: white;
+    margin: 20px auto;
+    width: 100%;
+    padding: 10px;
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+}
+
+.select-package-btn{
+    margin: auto;
+    width: fit-content;
+}
+
+.addon-list{
+    font-size: large;
+    font-weight: 500;
+    text-align: center;
+}
+
+.addon-table-container{
+    margin-left: 2rem;
+    margin-top: 10px;
+}
+
+.checkoutbtn{
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #20302f;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    border: none;
+}
+
+.filters{
+    width: fit-content;
+    background-color: #20302f;
+}
+
+.filters button{
+    background: none;
+    color: white;
+    border: none;
+    font-size: x-large;
+    font-weight: 700;
+    width: 300px;
+    padding:20px;
+}
+
+.filters:hover, .filters:focus, .filters:active{
+    background-color: #cab7a5;
+    color: #20302f;
+}
+
+.filters button:hover, .filters button:focus, .filters button:active{
+    color: #20302f;
+    cursor: pointer;
+    background-color: #cab7a5;
+}
+
+.filter {
+    position: sticky;
+    top: 80px;
+    background-color: #20302f;
+    width: fit-content;
+}
+
+.suggestion{
+    font-size: 30px;
+    margin-left: 5rem;
+}
+
+.suggestion-container{
+    padding: 60px 100px;
+    background-color: #20302f;
+    color: #cab7a5;
+    font-weight: 600;
+}
+
+.suggestion-quote{
+    margin: 20px auto;
+    font-size: 27px;
+    text-align: center;
+}
+
+.suggestion-quote span:hover{
+    font-size: xxx-large;
+    cursor: pointer;
+}
+
+.filter-header{
+    position: sticky;
+    top:80px;
+}
+
+.checkoutbtn:hover, .package-select:hover{
+    cursor: pointer;
+}
+
+.checkboxes{
+    margin-top: 3px;
+}

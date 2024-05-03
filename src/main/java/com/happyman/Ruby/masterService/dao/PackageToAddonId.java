@@ -3,6 +3,7 @@ package com.happyman.Ruby.masterService.dao;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serial;
@@ -17,9 +18,17 @@ import org.hibernate.Hibernate;
 public class PackageToAddonId implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 4871857066494951595L;
-	@Column(name = "packageId", nullable = false) private Integer packageId;
+	private Integer packageId;
+	private Integer addonId;
 
-	@Column(name = "addonId", nullable = false) private Integer addonId;
+	public PackageToAddonId(){}
+
+	public PackageToAddonId(Integer packageId, Integer addonId){
+		this.packageId = packageId;
+		this.addonId = addonId;
+	}
+
+
 
 	@Override
 	public boolean equals(Object o) {

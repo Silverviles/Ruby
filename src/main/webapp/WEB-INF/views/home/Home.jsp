@@ -301,7 +301,9 @@
 
             <img src="${pageContext.request.contextPath}/images/employeeManagement/res4.jpg" style="width:100%">
             <div class="text">
-                <button class="btn101">Book Now</button>
+                <form method="get" action="${pageContext.request.contextPath}/room/rooms">
+                    <button class="btn101">Book Now</button>
+                </form>
                 <h1>Experience the village feeling</h1>
                 <div class="my edit">
                     <p>filled with natural beauty and delious servings with unbeliveable packages</p>
@@ -314,7 +316,10 @@
             <img src="${pageContext.request.contextPath}/images/employeeManagement/res8.jpg" style="width:100%">
             <div class="text"><h1>Experience the village feeling</h1>
                 <p>filled with natural beauty and delious servings with unbeliveable packages</p>
-                <button class="btn101">Book Now</button></div>
+                <form method="get" action="${pageContext.request.contextPath}/room/rooms">
+                    <button class="btn101">Book Now</button>
+                </form>
+                </div>
         </div>
 
         <div class="mySlides fade">
@@ -322,7 +327,7 @@
             <img src="${pageContext.request.contextPath}/images/employeeManagement/res10.jpg" style="width:100%">
             <div class="text"><h1>Experience the village feeling</h1>
                 <p>filled with natural beauty and delious servings with unbeliveable packages</p>
-                <form method="post" action="${pageContext.request.contextPath}/room/rooms">
+                <form method="get" action="${pageContext.request.contextPath}/room/rooms">
                     <button class="btn101">Book Now</button>
                 </form>
             </div>

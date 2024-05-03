@@ -33,4 +33,6 @@ public class Package {
 
 	@Column(name = "max_Adults") private Integer maxAdults;
 
+	@Column(name = "no_of_nights") private Integer noOfNights;
+
 }

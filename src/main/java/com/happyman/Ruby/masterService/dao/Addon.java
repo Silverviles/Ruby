@@ -14,17 +14,17 @@ import lombok.Setter;
 @Entity
 @Table(name = "addons")
 public class Addon {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "addon_Id", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "addon_Id", nullable = false) private Integer addonId;
 
 	@Column(name = "addon_Name", nullable = false, length = 50) private String addonName;
 
-	@Column(name = "description", length = 200) private String description;
+	@Column(name = "description", length = 200) private String addonDescription;
 
-	@Column(name = "price") private Float price;
+	@Column(name = "price") private Float addonPrice;
 
-	@Column(name = "availability", nullable = false) private Byte availability;
+	@Column(name = "availability", nullable = false) private Byte addonAvailability;
 
-	@Column(name = "image", length = 100) private String image;
+	@Column(name = "image", length = 100) private String addonImage;
 
 
 }

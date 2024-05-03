@@ -7,7 +7,7 @@
   Time: 1:35 PM
   To change this template use File | Settings | File Templates.
 --%>
-<% @SuppressWarnings("unchecked") List<Addon> addons = (List<Addon>) request.getAttribute("addons");%>
+<%  List<Addon> addons = (List<Addon>) request.getAttribute("addonsPkg");%>
 <% PackageDTO packageDTO = (PackageDTO) request.getAttribute("editPackage"); %>
 
 <div class="formContainer">
@@ -75,6 +75,12 @@
                 </div>
 
                 <div class="input-container">
+                    <input type="number" id="packageNoOfNights" value="<%= packageDTO != null ? packageDTO.getPackageNoOfNights() : ""%>" name="packageNoOfNights" class="input" required/>
+                    <label for="packageNoOfNights">Number of Nights: </label>
+                    <span>Number of Nights</span>
+                </div>
+
+                <div class="input-container">
                     <input type="checkbox" id="availability" name="availability" value="<%= packageDTO != null ? packageDTO.getPackageAvailability() : ""%>"/>
                     <label for="availability">Availability: </label>
                 </div>
@@ -84,13 +90,13 @@
                 <div class="input-container">
                     <% if (addons != null && !addons.isEmpty()) {
                         for (Addon addon : addons) {%>
-                    <input type="checkbox" id="addon<%=addon.getId()%>" name="addonList" value="<%=addon.getId()%>">
-                    <label for="addon<%=addon.getId()%>"><%=addon.getAddonName()%>
-                    </label>
-                    <br>
-                    <%
-                            }
-                        }%>
+                    <div class="addon-container-package">
+                        <input type="checkbox" id="addon<%=addon.getAddonId()%>" name="addonList" value="<%=addon.getAddonId()%>">
+                        <label for="addon<%=addon.getAddonId()%>"><%=addon.getAddonName()%></label>
+                        <br>
+                    </div>
+                    <%  }
+                    }%>
                 </div>
 
                 <input type="submit" value="Submit" class="btn"/>
