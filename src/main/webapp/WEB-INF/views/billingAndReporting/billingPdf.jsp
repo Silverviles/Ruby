@@ -58,30 +58,6 @@
         </div>
     </div>
 </div>
-<script>document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        const roomPriceElement = document.getElementById("roomPrice");
-        const menuPriceElement = document.getElementById("menuPrice");
-        const packagePriceElement = document.getElementById("packagePrice");
-        const eventPriceElement = document.getElementById("eventPrice");
-        const tripPriceElement = document.getElementById("tripPrice");
-
-        const roomPrice = roomPriceElement ? parseFloat(roomPriceElement.innerHTML) : 0;
-        const menuPrice = menuPriceElement ? parseFloat(menuPriceElement.innerHTML) : 0;
-        const packagePrice = packagePriceElement ? parseFloat(packagePriceElement.innerHTML) : 0;
-        const eventPrice = eventPriceElement ? parseFloat(eventPriceElement.innerHTML) : 0;
-        const tripPrice = tripPriceElement ? parseFloat(tripPriceElement.innerHTML) : 0;
-
-        const subTotal = roomPrice + menuPrice + packagePrice + eventPrice + tripPrice;
-        const refundableDeposit = subTotal * 15 / 100;
-        const total = subTotal + refundableDeposit;
-
-        document.getElementById("subtotal").value = subTotal.toFixed(2);
-        document.getElementById("deposit").value = refundableDeposit.toFixed(2);
-        document.getElementById("total").value = total.toFixed(2);
-    }, 1000);
-});</script>
 <script src="${pageContext.request.contextPath}/scripts/billingAndPayments/billingpdf.js"></script>
-
 </body>
 </html>
