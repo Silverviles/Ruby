@@ -130,6 +130,8 @@
                         <p class="addon-list">Select Addons</p>
                         <div class="addon-table-container">
                             <form class="addon-form" method="post" action="#">
+
+                                <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
                                 <% if (addonAll != null && !addonAll.isEmpty()) {
                                     for (Addon addon : addonAll) { %>
                                 <div class="checkboxes">
@@ -180,6 +182,7 @@
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
                     <form class="addon-form" method="post" action="#">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
@@ -232,6 +235,7 @@
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
                     <form class="addon-form" method="post" action="#">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
@@ -285,6 +289,7 @@
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
                     <form class="addon-form" method="post" action="#">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
@@ -338,6 +343,7 @@
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
                     <form class="addon-form" method="post" action="#">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
