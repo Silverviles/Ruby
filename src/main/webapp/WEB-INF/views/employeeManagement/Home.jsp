@@ -298,10 +298,10 @@
         <div class="mySlides fade">
             <div class="numbertext"></div>
 
-
+            <button class="btn101">Book Now</button>
             <img src="${pageContext.request.contextPath}/images/employeeManagement/res4.jpg" style="width:100%">
             <div class="text">
-                <button class="btn101">Book Now</button>
+
                 <h1>Experience the village feeling</h1>
                 <div class="my edit">
                     <p>filled with natural beauty and delious servings with unbeliveable packages</p>
@@ -311,18 +311,22 @@
 
         <div class="mySlides fade">
             <div class="numbertext"></div>
+            <button class="btn101">Book Now</button>
             <img src="${pageContext.request.contextPath}/images/employeeManagement/res8.jpg" style="width:100%">
-            <div class="text"><h1>Experience the village feeling</h1>
+            <div class="text">
+                <h1>Experience the village feeling</h1>
                 <p>filled with natural beauty and delious servings with unbeliveable packages</p>
-                <button class="btn101">Book Now</button></div>
+               </div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext"></div>
+            <button class="btn101">Book Now</button>
             <img src="${pageContext.request.contextPath}/images/employeeManagement/res10.jpg" style="width:100%">
-            <div class="text"><h1>Experience the village feeling</h1>
+            <div class="text">
+                <h1>Experience the village feeling</h1>
                 <p>filled with natural beauty and delious servings with unbeliveable packages</p>
-                <button class="btn101">Book Now</button></div>
+                </div>
         </div>
 
     </div>
