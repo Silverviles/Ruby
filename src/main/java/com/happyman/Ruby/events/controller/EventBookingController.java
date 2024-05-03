@@ -1,7 +1,6 @@
 package com.happyman.Ruby.events.controller;
 
 import com.happyman.Ruby.events.dto.EventBookDTO;
-import com.happyman.Ruby.masterService.dao.Event;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -49,8 +48,8 @@ public class EventBookingController extends BaseController {
         eventBookDTO.setCustomerDescription(eventBookDTO.getCustomerDescription());
 
         masterService.bookEvent(eventBook);
-        model.addAttribute("allEvent", masterService.getAllEvents());
-        return "redirect:/success";
+        model.addAttribute("allEventbooking", masterService.getAllbookingEvents());
+        return "redirect:/event_booking/eventHome?showDiv";
     }
 
     @PostMapping("/delete_book_event")
