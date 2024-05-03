@@ -15,7 +15,8 @@
     <span class="big-circle two"></span>
 
     <div class="form">
-        <div class="contact-info" style="background-image: url('${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png')">
+        <div class="contact-info">
+            <img src="${pageContext.request.contextPath}/images/employeeManagement/employeeReg.png"  alt="employee picture"/>
         </div>
 
         <div class="ticket-form">
@@ -86,18 +87,6 @@
                 </div>
 
                 <br>
-
-                <div class="input-container">
-                    <% if (addons != null && !addons.isEmpty()) {
-                        for (Addon addon : addons) {%>
-                    <div class="addon-container-package">
-                        <input type="checkbox" id="addon<%=addon.getAddonId()%>" name="addonList" value="<%=addon.getAddonId()%>">
-                        <label for="addon<%=addon.getAddonId()%>"><%=addon.getAddonName()%></label>
-                        <br>
-                    </div>
-                    <%  }
-                    }%>
-                </div>
 
                 <input type="submit" value="Submit" class="btn"/>
             </form>

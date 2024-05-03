@@ -395,3 +395,11 @@ textarea.input {
 .addon-container-package{
     position: relative;
 }
+
+.contact-info img{
+    padding: 31px;
+    top: 30%;
+    left: 0;
+    position: absolute;
+    width: 98%;
+}

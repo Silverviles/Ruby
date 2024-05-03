@@ -21,7 +21,6 @@
             <th>Availability</th>
             <th>Maximum Adults</th>
             <th>No of Nights</th>
-            <th>Addons</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -37,18 +36,7 @@
             <td><%= packageDTO.getPackageAvailability()%></td>
             <td><%= packageDTO.getMaxAdults()%></td>
             <td><%= packageDTO.getPackageNoOfNights()%></td>
-            <td><% if (!packageDTO.getAddonList().isEmpty()) { %>
-                <ul>
-                    <% for (Addon addon : packageDTO.getAddonList()) { %>
-                        <li>
-                            <input type="hidden" name="addonId" value="<%= addon.getAddonId()%>">
-                            <input type="hidden" name="packageId" value="<%= packageDTO.getId()%>">
-                            <%= addon.getAddonName()%>
-                        </li>
-                </ul>
-                <% } %>
-                <% } %>
-            </td>
+
             <td>
                 <form method="post" action="${pageContext.request.contextPath}/packages/navigateToUpdate">
                     <input type="hidden" value="<%= packageDTO.getId()%>" name="packageId"/>
