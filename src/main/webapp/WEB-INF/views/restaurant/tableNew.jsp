@@ -1,10 +1,13 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.FoodOrder" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Jola
   Date: 5/1/2024
   Time: 12:42 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<% @SuppressWarnings("unchecked") List<FoodOrder> foodOrderList = (List<FoodOrder>) request.getAttribute("food_order"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@
 <body>
 
 <div class="body-container">
-    <% if (roomList != null && !roomList.isEmpty()) { %>
+    <% if (foodOrderList != null && !foodOrderList.isEmpty()) { %>
 
     <div>
         <h1>Header</h1>
@@ -46,8 +49,8 @@
         <!--table2-->
         <div class="table02-container">
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 2){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 2){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table02"
                     data-tableNum="2"
@@ -72,8 +75,8 @@
         <div class="table01-container">
             <!-- table01 table -->
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 1){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 1){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table01"
                     data-tableNum="1"
@@ -95,8 +98,8 @@
         <!--table3-->
         <div class="table03-container">
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 3){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 3){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table03"
                     data-tableNum="3"
@@ -118,8 +121,8 @@
         <!--table11-->
         <div class="table11-container">
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 11){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 11){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table11"
                     data-tableNum="11"
@@ -141,8 +144,8 @@
         <!--table12-->
         <div class="table12-container">
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 12){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 12){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table12"
                     data-tableNum="12"
@@ -170,8 +173,8 @@
             <div class="bottom-seat-table04"></div>
             <div class="bottom-seat-rest-table04"></div>
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 4){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 4){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table04"
                     data-tableNum="4"
@@ -190,8 +193,8 @@
             <div class="bottom-seat-rest-table10"></div>
             <!-- table10 table  -->
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 10){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 10){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table10"
                     data-tableNum="10"
@@ -210,8 +213,8 @@
             <div class="bottom-seat-rest-table08"></div>
 
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 8){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 8){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table08"
                     data-tableNum="8"
@@ -232,8 +235,8 @@
             <div class="bottom-seat-rest-table09"></div>
 
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 9){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 9){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table09"
                     data-tableNum="9"
@@ -253,8 +256,9 @@
             <div class="bottom-seat-rest-table05"></div>
 
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 5){room.getRoomId();%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 5){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
+
                     class="table05"
                     data-tableNum="5"
                     onclick="toggleColor('table05')"
@@ -273,8 +277,8 @@
             <div class="bottom-seat-rest-table06"></div>
 
             <div
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 6){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 6){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
                     class="table06"
                     data-tableNum="6"
@@ -286,10 +290,10 @@
         <!--table7-->
         <div class="table07-container">
             <div
-                    class="table07"
-                    id="<% for (Room room : roomList) {if(room.getRoomId() == 7){room.getRoomId();} }%>"
-                    data-tableStatus="<%room.getAvailability();} }%>"
+                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 7){foodOrder.getAvailability();%>"
+                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
 
+                    class="table07"
                     data-tableNum="7"
                     onclick="toggleColor('table07')"
             ></div>
