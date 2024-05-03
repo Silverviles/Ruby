@@ -128,14 +128,14 @@ public class EmployeeManagementController extends BaseController {
 //			return "EmployeeManagement/AdminLogin";
 //		}
 //	}
-
+/*
 	// Mapping for displaying the login form
-	@GetMapping("/admin/login")
+	@GetMapping("/admin")
 	public String showLoginForm() {
-		return "employeeManagement/AdminLogin"; // Assuming "admin/login.html" is your login form
+		return "admin/AdminLogin"; // Assuming "admin/login.html" is your login form
 	}
 
-	// Mapping for handling login form submission
+	*//*// Mapping for handling login form submission
 	@PostMapping("/login")
 	public String processLogin(
 			@RequestParam("username") String username,
@@ -157,7 +157,7 @@ public class EmployeeManagementController extends BaseController {
 			model.addAttribute("error", "Invalid credentials. Please try again.");
 			return "home/Home"; // Return to login form with error message
 		}
-	}
+	}*/
 }
 
 

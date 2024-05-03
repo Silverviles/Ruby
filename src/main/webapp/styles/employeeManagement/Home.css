@@ -302,7 +302,7 @@ img {vertical-align: middle;}
 
 .btn101 {
     position: absolute;
-    top: 65%; /* Adjust vertical spacing as needed */
+    top: -80%; /* Adjust vertical spacing as needed */
     left: 50%;
     transform: translateX(-50%);
     background-color: #f1f1f1;

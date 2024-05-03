@@ -75,10 +75,11 @@
 <%--                </div>--%>
 
                 <div class="input-container">
-                    <input type="text" id="shift" name="shift"
-                           value="<%= employee != null ? employee.getShiftCategory() : ""%>" class="input"/>
-
-                    <label for="shift">Shift(Day[1]/Night[2]): </label>
+                    <select id="shift" name="shift" class="input selectArea">
+                        <option value="1" >Day</option>
+                        <option value="2">Night</option>
+                    </select>
+                    <label for="shift">Type: </label>
                     <span>Shift</span>
                 </div>
 
