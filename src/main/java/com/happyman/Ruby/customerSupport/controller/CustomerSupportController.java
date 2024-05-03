@@ -70,4 +70,9 @@ public class CustomerSupportController extends BaseController {
 		masterService.saveComplaint(cmp);
 		return "redirect:/success";
 	}
+
+	@GetMapping("/complaint")
+	public String authenticate2() {
+		return "customerSupportSystem/complain";
+	}
 }
