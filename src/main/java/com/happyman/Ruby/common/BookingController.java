@@ -83,7 +83,7 @@ public class BookingController extends BaseController {
 	@PostMapping("/generateBill")
 	public String generateBill(PaymentDTO paymentDTO, Model model) {
 		Payment payment = new Payment();
-		payment.setPaymentStatus((byte) 1); // Payment done is 1
+		payment.setPaymentStatus((byte) 0); // Payment done is 1
 		payment.setBillAmount(paymentDTO.getTotal());
 		payment.setCustomerName(paymentDTO.getName());
 		payment.setCustomerEmail(paymentDTO.getEmail());
