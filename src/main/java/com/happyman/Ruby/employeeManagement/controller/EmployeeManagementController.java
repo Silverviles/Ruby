@@ -35,14 +35,20 @@
 //}
 package com.happyman.Ruby.employeeManagement.controller;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 import com.happyman.Ruby.transportation.dto.DriverDTO;
 import com.happyman.Ruby.transportation.utils.DriverAuthentication;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -115,24 +121,6 @@ public class EmployeeManagementController extends BaseController {
 	}
 
 
-//	@PostMapping("/login")
-//	public String getLogin(
-//			@ModelAttribute EmployeeDTO employeeDTO,
-//			HttpServletResponse response,
-//			Model model
-//	) {
-//		try {
-//			if (DriverAuthentication.verifyLogin(employeeDTO, masterService)) {
-//				return getPortalString(employeeDTO, model);
-//			} else {
-//				response.setHeader("Error", "Invalid username or password");
-//				return "EmployeeManagement/AdminLogin";
-//			}
-//		} catch (Exception e) {
-//			response.setHeader("Error", "Unknown error occurred. Please contact system administrator");
-//			return "EmployeeManagement/AdminLogin";
-//		}
-//	}
 
 	// Mapping for displaying the login form
 	@GetMapping("/admin/login")
@@ -163,6 +151,102 @@ public class EmployeeManagementController extends BaseController {
 			return "employeeManagement/Home"; // Return to login form with error message
 		}
 	}
+
+//
+//    @GetMapping("/employeeManagement/generateEmployeePdf")
+//    public ResponseEntity<byte[]> generateEmployeeReportPdf() {
+//        // Retrieve employee data
+//        List<Employee> employees = masterService.getAllEmployees();
+//
+//        // Generate PDF
+//        byte[] pdfBytes = generateEmployeeReportPdfContent(employees);
+//
+//        // Prepare HTTP headers for download
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_PDF);
+//        headers.setContentDispositionFormData("filename", "employee_report.pdf");
+//
+//        // Return PDF as a byte array in ResponseEntity
+//        return ResponseEntity.ok()
+//                .headers(headers)
+//                .contentLength(pdfBytes.length)
+//                .body(pdfBytes);
+//    }
+//
+//    private byte[] generateEmployeeReportPdfContent(List<Employee> employees) {
+//        try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//			 PDDocument document = new PDDocument()) {
+//            PDPage page = new PDPage();
+//            document.addPage(page);
+//
+//            PDPageContentStream contentStream = new PDPageContentStream(document, page);
+//            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+//            contentStream.beginText();
+//            contentStream.newLineAtOffset(100, 700);
+//            contentStream.showText("Employee Report");
+//            contentStream.newLineAtOffset(0, -20);
+//
+//            for (Employee employee : employees) {
+//                contentStream.showText("ID: " + employee.getId());
+//                contentStream.newLineAtOffset(0, -20);
+//                contentStream.showText("Name: " + employee.getFirstName() + " " + employee.getLastName());
+//                contentStream.newLineAtOffset(0, -20);
+//                contentStream.showText("Email: " + employee.getEmail());
+//                contentStream.newLineAtOffset(0, -20);
+//                contentStream.showText("Contact: " + employee.getContact());
+//                contentStream.newLineAtOffset(0, -20);
+//                contentStream.showText("Salary: " + employee.getSalary());
+//                contentStream.newLineAtOffset(0, -20);
+//                contentStream.newLineAtOffset(0, -20); // Add space between employees
+//            }
+//
+//            contentStream.endText();
+//            contentStream.close();
+//
+//            document.save(baos);
+//            return baos.toByteArray();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return new byte[0];
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+//
+//	@GetMapping("/generatePDF")
+//	public void generatePDF(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//		List<Employee> employeeList = (List<Employee>) request.getAttribute("employees");
+//
+//		try (PDDocument document = new PDDocument()) {
+//			PDPage page = new PDPage();
+//			document.addPage(page);
+//
+//			PDPageContentStream contentStream = new PDPageContentStream(document, page);
+//			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+//			contentStream.beginText();
+//			contentStream.newLineAtOffset(100, 700);
+//			contentStream.showText("Employee List");
+//			contentStream.newLineAtOffset(0, -20);
+//
+//			for (Employee employee : employeeList) {
+//				contentStream.showText(employee.getId() + ": " + employee.getFirstName() + " " + employee.getLastName());
+//				contentStream.newLineAtOffset(0, -20);
+//			}
+//
+//			contentStream.endText();
+//			contentStream.close();
+//
+//			response.setContentType("application/pdf");
+//			response.setHeader("Content-Disposition", "attachment; filename=\"employee_list.pdf\"");
+//			document.save(response.getOutputStream());
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+
+
 }
 
 

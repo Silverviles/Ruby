@@ -24,7 +24,7 @@ function searchEmployee() {
     document.getElementById('generatePdfButton').addEventListener('click', function() {
     // Send AJAX request to generate PDF
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '${pageContext.request.contextPath}/employeeManagement/generatePdf', true);
+    xhr.open('GET', '${pageContext.request.contextPath}/employeeManagement/generatePDF', true);
     xhr.responseType = 'blob'; // Set response type to blob for binary data (PDF)
 
     xhr.onload = function() {
