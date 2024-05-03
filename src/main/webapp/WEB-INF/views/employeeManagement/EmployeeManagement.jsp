@@ -12,6 +12,9 @@
         <input type="text" class="searchInput" aria-label="Search Input" id="searchEmployeeInput" placeholder="Search by First Name">
     </div>
 
+
+
+
     <table id="employeeTable" class="adminTable">
         <thead class="tableHead">
         <tr>
@@ -50,4 +53,6 @@
         <% } %>
         </tbody>
     </table>
+</div>
+
 </div>
