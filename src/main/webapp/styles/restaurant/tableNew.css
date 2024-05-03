@@ -7,19 +7,27 @@
 }
 
 .available {
-    background-color: #008000;
+    border: 3px #008000 solid;
+    color: #008000;
 }
 
 .reserved {
-    background-color: #ffff00;
+    background-color: #8B8000;
+    border: 3px #8B8000 solid;
+    color: #8B8000;
 }
 
 .selected {
-    background-color: #0000ff;
+    background-color: #00008B;
+    border: 3px #00008B solid;
+    color: #00008B;
 }
 
 .not-available {
-    background-color: #ff0000;
+    border: 3px grey solid;
+    background-color: grey;
+    color: black;
+
 }
 
 .btn {
@@ -1092,7 +1100,7 @@
     top: 64px;
     position: absolute;
     border-radius: 9999px;
-    border: 1px black solid;
+    border: 3px #008000 solid;
 }
 
 .top-seat-table07 {
