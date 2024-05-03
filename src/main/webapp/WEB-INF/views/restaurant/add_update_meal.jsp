@@ -35,19 +35,26 @@
                     <span id="foodNameError" style="color: red;"></span>
                 </div>
                 <div class="input-container">
-                    <input type="text" id="dishType" name="dishType"
-                           value="<%= menu != null ? menu.getDishType() : "" %>" class="input" required/>
+
+                    <select id="dishType" name="dishType" required>
+<%--                        <option value="">Select Dish Type</option>--%>
+                        <option value="main_course" <%=menu != null && menu.getDishType().equals("main_course") ? "selected" : ""%>>Main Course</option>
+                        <option value="drinks" <%=menu != null && menu.getDishType().equals("drinks") ? "selected" : ""%>>Drinks</option>
+                        <option value="desserts" <%=menu != null && menu.getDishType().equals("drinks") ? "selected" : ""%>>Desserts</option></select>
+
+<%--                    <input type="text" id="dishType" name="dishType"--%>
+<%--                           value="<%= menu != null ? menu.getDishType() : "" %>" class="input" required/>--%>
                     <label for="dishType">Dish Type: </label>
                     <span>Dish Type</span>
                 </div>
                 <div class="input-container">
 
 
-                    <select id="mealType" name="mealType" value="<%= menu != null ? menu.getMealType() : "" %>" class="input" required>
-                        <option value="">Select Meal Type</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="lunch">Lunch</option>
-                        <option value="dinner">Dinner</option></select>
+                    <select id="mealType" name="mealType" class="input" required>
+                        <option value="breakfast" <%=menu != null && menu.getMealType().equals("breakfast") ? "selected" : ""%>>Breakfast</option>
+                        <option value="lunch" <%=menu != null && menu.getMealType().equals("lunch") ? "selected" : ""%>>Lunch</option>
+                        <option value="dinner" <%=menu != null && menu.getMealType().equals("dinner") ? "selected" : ""%>>Dinner</option></select>
+                    <label for="mealType">Meal Type: </label>
                     <span>Meal Type</span>
 
 <%--                    <input type="text" id="mealType" name="mealType"--%>
