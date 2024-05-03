@@ -22,23 +22,20 @@
 <header class="section_container header_container">
     <h2 class="booking_heading">Confirm Your Booking</h2>
     <div class="booking_container">
-        <form method="post" action="${pageContext.request.contextPath}/event_booking/book_events">
+        <form method="post" action="${pageContext.request.contextPath}/eventBooking/bookEvents">
             <div class="form_group">
 
                 <div class="input-container">
-                    <input type="hidden" name="eventId" class="input"
-                           value="<%= eventbook != null ? eventbook.getId() : "" %>"/>
+                    <input type="hidden" name="eventId" class="input" />
                 </div>
                 <div class="input_group">
-                    <input type="text" name="customerName"
-                           value="<%= eventbook != null ? eventbook.getCustomerName() : "" %>" required>
+                    <input type="text" name="customerName" required>
                     <label>Customer Name :</label>
                 </div>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="date" name="bookingDate" id="bookingDate"
-                           value="<%= eventbook != null ? eventbook.getDate() : "" %>" required oninput="
+                    <input type="date" name="bookingDate" id="bookingDate" required oninput="
                                 const today = new Date().toISOString().split('T')[0];
                                 this.setAttribute('min', today);">
                     <label>Date :</label>
@@ -47,8 +44,7 @@
             <div class="form_group">
                 <div class="input_group">
                     <label>Event Type :</label>
-                    <select id="eventType" name="eventType"
-                            value="<%= eventbook != null ? eventbook.getEventType() : "" %>" required>
+                    <select id="eventType" name="eventType" required>
                         <option value=""></option>
                         <option value="paypal">PayPal</option>
                         <option value="bankTransfer">Bank Transfer</option>
@@ -61,8 +57,7 @@
                 <div class="input_group">
                     <label>Location:</label>
 
-                    <select id="location" name="location"
-                            value="<%= eventbook != null ? eventbook.getLocation() : "" %>" required>
+                    <select id="location" name="location" required>
                         <option value=""></option>
                         <option value="paypal">Lake Front</option>
                         <option value="bankTransfer">Indoor</option>
@@ -72,8 +67,7 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" id="noOfMembers" name="noOfMembers"
-                           value="<%= eventbook != null ? eventbook.getNoOfMembers() : "" %>" required oninput="
+                    <input type="text" id="noOfMembers" name="noOfMembers" required oninput="
                                     let value = this.value;
                                     value = value.replace(/\D/g, '').replace(/^0+/, '');
                                     this.value = value;">
@@ -82,8 +76,7 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="description"
-                           value="<%= eventbook != null ? eventbook.getCustomerDescription() : "" %>" required>
+                    <input type="text" name="description" id="description" required>
                     <label>Description</label>
                 </div>
             </div>

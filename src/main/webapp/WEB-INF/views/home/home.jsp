@@ -29,8 +29,8 @@
     <button data-action="employeeManagement/managementHome">Employee Management</button>
     <button data-action="packages/pack">packageUpdateDelete</button>
     <button data-action="room/rooms">Book Now</button>
-    <button data-action="event_booking/eventHome">Events</button>
-    <button data-action="event_booking/eventBookingForm">Booking form</button>
+    <button data-action="eventBooking/eventHome">Events</button>
+    <button data-action="eventBooking/eventBookingForm">Booking form</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 

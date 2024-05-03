@@ -45,13 +45,6 @@
                 </div>
 
                 <div class="input-container">
-                    <input type="file" id="imageName" name="ImageName"
-                           value="<%= event != null ? event.getImage() : "" %>" class="input" accept="image/*"/>
-                    <label for="imageName">Image: </label>
-                    <span>Image</span>
-                </div>
-
-                <div class="input-container">
                     <input type="text" id="price" name="price" value="<%= event != null ? event.getPrice() : ""%>" class="input" required oninput="
                                     let value = this.value;
                                     value = value.replace(/\D/g, '').replace(/^0+/, '');

@@ -62,6 +62,6 @@ public class EventBookingServiceImpl implements EventBookingService {
 
     @Override
     public EventBook save(EventBook eventBook) {
-        return null;
+        return eventBookRepository.save(eventBook);
     }
 }

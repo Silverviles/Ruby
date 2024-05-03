@@ -13,7 +13,7 @@ import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.masterService.dao.EventBook;
 
 @Controller
-@RequestMapping("/event_booking")
+@RequestMapping("/eventBooking")
 public class EventBookingController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(EventBookingController.class);
@@ -27,29 +27,21 @@ public class EventBookingController extends BaseController {
     public String goEventsbooking() {
         return "events/booking_events";
     }
-    @PostMapping("/book_events")
+    @PostMapping("/bookEvents")
     public String bookEvent(@ModelAttribute EventBookDTO eventBookDTO, Model model) {
-        EventBook eventBook = null;
-
-        if (eventBookDTO.getId() != null) {
-            eventBook = masterService.getEventBookById(eventBook.getId());
-        }
-
-        if (eventBookDTO == null) {
-            eventBook = new EventBook();
-        }
+        EventBook eventBook = new EventBook();
 
         eventBook.setId(eventBookDTO.getId());
         eventBook.setCustomerName(eventBookDTO.getCustomerName());
         eventBook.setEventType(eventBookDTO.getEventType());
-        eventBook.setDate(eventBookDTO.getDate());
+        eventBook.setBookingDate(eventBookDTO.getDate());
         eventBook.setLocation(eventBookDTO.getLocation());
         eventBook.setNoOfMembers(eventBookDTO.getNoOfMembers());
         eventBookDTO.setCustomerDescription(eventBookDTO.getCustomerDescription());
 
         masterService.bookEvent(eventBook);
         model.addAttribute("allEventbooking", masterService.getAllbookingEvents());
-        return "redirect:/event_booking/eventHome?showDiv";
+        return "redirect:/event_booking/eventHome?showDiv=eventHome";
     }
 
     @PostMapping("/delete_book_event")
