@@ -22,13 +22,13 @@ To change this template use File | Settings | File Templates.
             <div class="Final Bill">
                 <div class="info">
                     <div class="information">
-                        <h2>Customer Name:></h2>
+                        <h2>Customer Name:</h2>
                         <p id="customer-name"><%= reservation.getPayment().getCustomerName()%></p>
                     </div>
 
                     <div class="information">
                         <h2><E-mail>E-mail:</E-mail> </h2>
-                        <p id="e-mail"><%=reservation.getPayment().getCustomerEmail()%><</p>
+                        <p id="e-mail"><%=reservation.getPayment().getCustomerEmail()%></p>
                     </div>
 
                     <div class="information">
