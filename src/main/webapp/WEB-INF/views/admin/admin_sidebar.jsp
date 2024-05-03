@@ -42,7 +42,7 @@
         <div class="nav">
             <div class="menu">
                 <ul>
-                    <li class="active">
+                    <li id="dashboard_button" class="active">
                         <a href="#">
                             <i class='bx bx-home-alt-2'></i>
                             <span class="text">Dashboard</span>
@@ -239,6 +239,10 @@
 
     <!--content-->
     <div class="contents">
+
+        <div id="dashboard" class="sub-contents">
+            <jsp:include page="dashboard.jsp" />
+        </div>
 
         <div id="update_room" class="sub-contents">
             <jsp:include page="../roomReservation/add_update_room.jsp" />
