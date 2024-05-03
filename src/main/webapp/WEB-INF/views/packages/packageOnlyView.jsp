@@ -1,17 +1,15 @@
-<%@ page import="java.util.List" %>
-<%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
-<%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
-<%@ page import="com.happyman.Ruby.masterService.dao.Package" %>
-<% List<PackageDTO> packageAll = (List<PackageDTO>) request.getAttribute("Packages"); %>
-<% List<Addon> addonAll = (List<Addon>) request.getAttribute("Addons"); %>
-<% Package suggestedPackage = (Package) request.getAttribute("suggestedPackage");%>
 <%--
   Created by IntelliJ IDEA.
   User: sdilr
-  Date: 3/14/2024
-  Time: 9:49 PM
+  Date: 5/3/2024
+  Time: 7:28 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
+
+<% List<PackageDTO> packageAll = (List<PackageDTO>) request.getAttribute("Packages"); %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,16 +72,6 @@
 </div>
 
 
-<div class="suggestion-container">
-    <div class="suggestion">
-        Struggling to search?
-    </div>
-
-    <div>
-        <p class="suggestion-quote">Based on the information you provided, we suggest you <span style="font-size: xx-large;font-family:'Libre Baskerville';"><%=suggestedPackage.getName()%>></span><i class="fas fa-arrow-right" style="margin-left: 7px" href="#<%=suggestedPackage.getId()%>"></i></p>
-    </div>
-</div>
-
 <div class="body-content">
 
     <div class="filter">
@@ -106,48 +94,27 @@
     <div class="package_container" id="allPkg">
         <% if(packageAll != null && !packageAll.isEmpty()){
             for(PackageDTO pkg : packageAll) { %>
-                <div class="package-box" id="<%=pkg.getId()%>">
-                    <div class="package-name">
-                        <p><%= pkg.getPackageName()%> - <%= pkg.getPackageType()%> Package</p>
-                    </div>
-                    <div class="package-img">
-                        <img src="${pageContext.request.contextPath}/images/packages/Superior-room-Gallery-Layer-5.jpg"
-                             alt="">
-                    </div>
-                    <div class="package-description descript"><%= pkg.getPackageDescription()%>
-                    </div>
-                    <div class="no-of-nights descript">For <%=pkg.getPackageNoOfNights()%> nights</div>
-                    <div class="price descript">LKR <%=pkg.getPackagePrice()%> for maximum <%=pkg.getMaxAdults()%>
-                        Adults.
-                    </div>
-                    <% if (!pkg.getPackageType().equals("COUPLE")) {%>
-                    <div class="descript">Kids should be below 12 years of age.</div>
-                    <%}%>
-                    <div class="select-package-btn">
-                        <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
-                    </div>
-                    <div class="popup-addons">
-                        <p class="addon-list">Select Addons</p>
-                        <div class="addon-table-container">
-                            <form class="addon-form" method="post" action="#">
-                                <% if (addonAll != null && !addonAll.isEmpty()) {
-                                    for (Addon addon : addonAll) { %>
-                                <div class="checkboxes">
-                                    <input type="checkbox" id="<%=addon.getAddonId()%>" name="<%=addon.getAddonId()%>"
-                                           value="1">
-                                    <label for="<%=addon.getAddonId()%>"><%= addon.getAddonName()%>
-                                    </label>
-                                    <br>
-                                </div>
-                                <%
-                                        }
-                                    }
-                                %>
-                                <button type="submit" class="checkoutbtn">Checkout</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        <div class="package-box" id="<%=pkg.getId()%>">
+            <div class="package-name">
+                <p><%= pkg.getPackageName()%> - <%= pkg.getPackageType()%> Package</p>
+            </div>
+            <div class="package-img">
+                <img src="${pageContext.request.contextPath}/images/packages/Superior-room-Gallery-Layer-5.jpg"
+                     alt="">
+            </div>
+            <div class="package-description descript"><%= pkg.getPackageDescription()%>
+            </div>
+            <div class="no-of-nights descript">For <%=pkg.getPackageNoOfNights()%> nights</div>
+            <div class="price descript">LKR <%=pkg.getPackagePrice()%> for maximum <%=pkg.getMaxAdults()%>
+                Adults.
+            </div>
+            <% if (!pkg.getPackageType().equals("COUPLE")) {%>
+            <div class="descript">Kids should be below 12 years of age.</div>
+            <%}%>
+            <div class="select-package-btn">
+                <button class="package-select" >Select Package</button>
+            </div>
+        </div>
 
 
         <%}
@@ -173,30 +140,9 @@
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
             <div class="select-package-btn">
-                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
+                <button class="package-select" >Select Package</button>
             </div>
 
-            <div class="popup-addons">
-                <p class="addon-list">Select Addons</p>
-                <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <% if (addonAll != null && !addonAll.isEmpty()) {
-                            for (Addon addon : addonAll) { %>
-                        <div class="checkboxes">
-                            <input type="checkbox" id="<%=addon.getAddonId()%>" name="<%=addon.getAddonId()%>"
-                                   value="1">
-                            <label for="<%=addon.getAddonId()%>"><%= addon.getAddonName()%>
-                            </label>
-                            <br>
-                        </div>
-                        <%
-                                }
-                            }
-                        %>
-                        <button type="submit" class="checkoutbtn">Checkout</button>
-                    </form>
-                </div>
-            </div>
         </div>
 
 
@@ -225,29 +171,7 @@
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
             <div class="select-package-btn">
-                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
-            </div>
-
-            <div class="popup-addons">
-                <p class="addon-list">Select Addons</p>
-                <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <% if (addonAll != null && !addonAll.isEmpty()) {
-                            for (Addon addon : addonAll) { %>
-                        <div class="checkboxes">
-                            <input type="checkbox" id="<%=addon.getAddonId()%>" name="<%=addon.getAddonId()%>"
-                                   value="1">
-                            <label for="<%=addon.getAddonId()%>"><%= addon.getAddonName()%>
-                            </label>
-                            <br>
-                        </div>
-                        <%
-                                }
-                            }
-                        %>
-                        <button type="submit" class="checkoutbtn">Checkout</button>
-                    </form>
-                </div>
+                <button class="package-select" >Select Package</button>
             </div>
         </div>
 
@@ -278,30 +202,9 @@
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
             <div class="select-package-btn">
-                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
+                <button class="package-select" >Select Package</button>
             </div>
 
-            <div class="popup-addons">
-                <p class="addon-list">Select Addons</p>
-                <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <% if (addonAll != null && !addonAll.isEmpty()) {
-                            for (Addon addon : addonAll) { %>
-                        <div class="checkboxes">
-                            <input type="checkbox" id="<%=addon.getAddonId()%>" name="<%=addon.getAddonId()%>"
-                                   value="1">
-                            <label for="<%=addon.getAddonId()%>"><%= addon.getAddonName()%>
-                            </label>
-                            <br>
-                        </div>
-                        <%
-                                }
-                            }
-                        %>
-                        <button type="submit" class="checkoutbtn">Checkout</button>
-                    </form>
-                </div>
-            </div>
         </div>
 
 
@@ -331,30 +234,9 @@
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
             <div class="select-package-btn">
-                <button class="package-select" onclick="document.querySelector('.package-select-btn').style.display = 'none'">Select Package</button>
+                <button class="package-select" >Select Package</button>
             </div>
 
-            <div class="popup-addons">
-                <p class="addon-list">Select Addons</p>
-                <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <% if (addonAll != null && !addonAll.isEmpty()) {
-                            for (Addon addon : addonAll) { %>
-                        <div class="checkboxes">
-                            <input type="checkbox" id="<%=addon.getAddonId()%>" name="<%=addon.getAddonId()%>"
-                                   value="1">
-                            <label for="<%=addon.getAddonId()%>"><%= addon.getAddonName()%>
-                            </label>
-                            <br>
-                        </div>
-                        <%
-                                }
-                            }
-                        %>
-                        <button type="submit" class="checkoutbtn">Checkout</button>
-                    </form>
-                </div>
-            </div>
         </div>
 
 
@@ -438,4 +320,5 @@
 
 </body>
 </html>
+
 
