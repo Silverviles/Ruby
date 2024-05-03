@@ -17,15 +17,15 @@
         <legend>Customer Details</legend>
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
             <label for="address">Address:</label>
-            <input type="text" id="address" name="address">
+            <input type="text" id="address" name="address" required>
         </div>
         <div class="form-group">
             <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
         </div>
     </fieldset>
     <fieldset>
