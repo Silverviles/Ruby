@@ -1,8 +1,10 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %>
 <%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %>
 <% List<PackageDTO> packageAll = (List<PackageDTO>) request.getAttribute("Packages"); %>
 <% List<Addon> addonAll = (List<Addon>) request.getAttribute("Addons"); %>
+<% Reservation reservation = (Reservation) request.getAttribute("reservation"); %>
 
 <%--
   Created by IntelliJ IDEA.

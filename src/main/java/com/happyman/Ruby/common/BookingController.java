@@ -45,6 +45,14 @@ public class BookingController extends BaseController {
 		masterService.saveReservation(reservation);
 
 		model.addAttribute("reservation", reservation);
+		model.addAttribute("Packages", masterService.getPackageDTOList());
+		model.addAttribute("Addons", masterService.getAllAddons());
+
+		return "packages/package";
+	}
+
+	@PostMapping
+	public String processPackage(){
 
 		return "transportation/transportForm";
 	}
