@@ -66,6 +66,22 @@
                     <span>Salary</span>
                 </div>
 
+<%--                <div class="input-container" id="">--%>
+<%--                <p>--%>
+<%--                    <strong>Day Shift:</strong> 1.--%>
+<%--                    <br>--%>
+<%--                    <strong>Night Shift:</strong> 2.--%>
+<%--                </p>--%>
+<%--                </div>--%>
+
+                <div class="input-container">
+                    <input type="text" id="shift" name="shift"
+                           value="<%= employee != null ? employee.getShiftCategory() : ""%>" class="input"/>
+
+                    <label for="shift">Shift(Day[1]/Night[2]): </label>
+                    <span>Shift</span>
+                </div>
+
                 <input type="submit" value="Submit" class="btn"/>
             </form>
         </div>

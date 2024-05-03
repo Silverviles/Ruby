@@ -101,7 +101,8 @@ public class EmployeeManagementController extends BaseController {
 		employeeTemp.setEmail(employee.getEmail());
 		employeeTemp.setMobileNo(employee.getContactNo());
 		employeeTemp.setBaseSalary(employee.getSalary());
-		employeeTemp.setShiftCategory(1);
+//		employeeTemp.setShiftCategory(1);
+		employeeTemp.setShiftCategory(employee.getShift());
 		masterService.addEmployee(employeeTemp);
 		log.info("Employee registered: {}", employee);
 		return "redirect:/admin/adminHome?showDiv=emp_updateDelete";
