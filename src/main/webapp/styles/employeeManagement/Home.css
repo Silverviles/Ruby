@@ -302,7 +302,7 @@ img {vertical-align: middle;}
 
 .btn101 {
     position: absolute;
-    top: 50%; /* Adjust vertical spacing as needed */
+    top: 65%; /* Adjust vertical spacing as needed */
     left: 50%;
     transform: translateX(-50%);
     background-color: #f1f1f1;
@@ -311,7 +311,7 @@ img {vertical-align: middle;}
     padding: 20px 30px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
     z-index: 1; /* Ensure button is above text */
 }
 
