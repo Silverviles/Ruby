@@ -37,16 +37,11 @@ package com.happyman.Ruby.employeeManagement.controller;
 
 import java.util.List;
 
-import com.happyman.Ruby.transportation.dto.DriverDTO;
-import com.happyman.Ruby.transportation.utils.DriverAuthentication;
-import jakarta.servlet.http.HttpServletResponse;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,7 +60,7 @@ public class EmployeeManagementController extends BaseController {
 
 	@GetMapping("/StartHome")
 	public String goHome() {
-		return "employeeManagement/Home";
+		return "home/Home";
 	}
 
 
@@ -160,7 +155,7 @@ public class EmployeeManagementController extends BaseController {
 		} else {
 			// Authentication failed
 			model.addAttribute("error", "Invalid credentials. Please try again.");
-			return "employeeManagement/Home"; // Return to login form with error message
+			return "home/Home"; // Return to login form with error message
 		}
 	}
 }
