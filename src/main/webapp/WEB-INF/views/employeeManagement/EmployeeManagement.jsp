@@ -12,6 +12,9 @@
         <input type="text" class="searchInput" aria-label="Search Input" id="searchEmployeeInput" placeholder="Search by First Name">
     </div>
 
+    <button id="generatePdfButton">Generate PDF</button>
+
+
     <table id="employeeTable" class="adminTable">
         <thead class="tableHead">
         <tr>
@@ -34,6 +37,7 @@
             <td><%= employee.getMobileNo()%></td>
             <td><%= employee.getShiftCategory()%></td>
             <td><%= employee.getBaseSalary()%></td>
+            <td><%= employee.getShiftCategory()%></td>
             <td>
                 <form method="post" action="${pageContext.request.contextPath}/employeeManagement/navigateToUpdate">
                     <input type="hidden" value="<%= employee.getId()%>" name="employeeId"/>
@@ -49,4 +53,6 @@
         <% } %>
         </tbody>
     </table>
+</div>
+
 </div>

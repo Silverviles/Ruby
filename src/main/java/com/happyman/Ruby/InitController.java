@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class InitController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String getLogin() {
-		return "/home/home";
+		return "/home/Home";
 	}
 }

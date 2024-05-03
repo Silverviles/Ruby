@@ -3,6 +3,7 @@ package com.happyman.Ruby.masterService.service;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -66,4 +67,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Employee getEmployeeById(Integer employeeID) {
 		return employeeRepository.findById(employeeID).orElse(null);
 	}
+
+//	@Override
+//	public Employee getEmployeeByEmail(String email) {
+////		return getAllEmployees().stream().filter(driver -> Employee.getEmail().equals(email)).findFirst().orElse(null);
+//		{
+//			return employeeRepository.findById(email).orElse(null);
+//		}
+//	}
 }

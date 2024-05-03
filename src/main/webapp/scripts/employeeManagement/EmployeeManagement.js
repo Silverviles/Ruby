@@ -19,3 +19,29 @@ function searchEmployee() {
         }
     }
 }
+
+
+    document.getElementById('generatePdfButton').addEventListener('click', function() {
+    // Send AJAX request to generate PDF
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '${pageContext.request.contextPath}/employeeManagement/generatePdf', true);
+    xhr.responseType = 'blob'; // Set response type to blob for binary data (PDF)
+
+    xhr.onload = function() {
+    if (this.status === 200) {
+    var blob = new Blob([xhr.response], {type: 'application/pdf'});
+    var url = URL.createObjectURL(blob);
+
+    // Create a temporary link element to download the PDF
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'employee_list.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+};
+
+    xhr.send();
+});
+

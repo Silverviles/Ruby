@@ -21,13 +21,13 @@ import java.util.Date;
 public class Trip {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "trip_Id", nullable = false) private Integer id;
 
-	@OneToOne(fetch = FetchType.LAZY, optional = true) @JoinColumn(name = "driver_Id", nullable = false) private Driver driver;
+	@OneToOne(fetch = FetchType.LAZY) @JoinColumn(name = "driver_Id") private Driver driver;
 
 	@Column(name = "trip_Status", nullable = false) private Byte tripStatus;
 
 	@Column(name = "trip_Destination", nullable = false) private String tripDestination;
 
-	@Column(name = "total_Cost", nullable = false) private Long totalCost;
+	@Column(name = "total_Cost", nullable = false) private Float totalCost;
 
-	@Column(name = "finished_Date", nullable = true) private Date finishedDate;
+	@Column(name = "finished_Date") private Date finishedDate;
 }

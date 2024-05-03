@@ -5,7 +5,7 @@ function initAutocomplete() {
 	const input = document.getElementById("pac-input");
 	const searchBox = new google.maps.places.SearchBox(input);
 
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+	//map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 	map.addListener("bounds_changed", () => {
 		searchBox.setBounds(map.getBounds());
 	});
@@ -84,6 +84,8 @@ function initAutocomplete() {
 				$("#distance").val(distanceStr);
 				$("#duration").val(durationStr);
 
+				calculatePrice(duration / 60, distance / 1000);
+
 				console.log(distance, distanceStr, duration, durationStr);
 				console.log('Distance and duration:', response);
 			},
@@ -93,6 +95,19 @@ function initAutocomplete() {
 		});
 	});
 
+}
+
+function calculatePrice(duration, distance) {
+	var vehicleType = document.getElementById("vehicleDropdown").value;
+	const pricePerKilometer = {
+		car: 150,
+		van: 300,
+		bus: 500
+	};
+
+	duration = parseFloat(duration);
+	distance = parseFloat(distance);
+	document.getElementById("pricePerKilometer").value = ((duration * 10) + (distance * pricePerKilometer[vehicleType])).toFixed(2);
 }
 
 window.initAutocomplete = initAutocomplete;

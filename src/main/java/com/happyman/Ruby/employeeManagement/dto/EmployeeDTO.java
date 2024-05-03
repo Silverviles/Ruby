@@ -12,6 +12,7 @@ public class EmployeeDTO {
 	private String email;
 	private String contactNo; // Changed from 'contact' to 'contactNo'
 	private Double salary;
+	private Integer shift;
 	// Changed from 'double' to 'Double'
 
 	// Getters and setters

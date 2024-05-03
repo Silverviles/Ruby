@@ -37,13 +37,11 @@ package com.happyman.Ruby.employeeManagement.controller;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,6 +56,13 @@ import com.happyman.Ruby.masterService.dao.Employee;
 public class EmployeeManagementController extends BaseController {
 
 	private static final Logger log = LoggerFactory.getLogger(EmployeeManagementController.class);
+
+
+	@GetMapping("/StartHome")
+	public String goHome() {
+		return "home/Home";
+	}
+
 
 	@GetMapping("/managementHome")
 	public String showManagementHome(Model model) {
@@ -91,7 +96,8 @@ public class EmployeeManagementController extends BaseController {
 		employeeTemp.setEmail(employee.getEmail());
 		employeeTemp.setMobileNo(employee.getContactNo());
 		employeeTemp.setBaseSalary(employee.getSalary());
-		employeeTemp.setShiftCategory(1);
+//		employeeTemp.setShiftCategory(1);
+		employeeTemp.setShiftCategory(employee.getShift());
 		masterService.addEmployee(employeeTemp);
 		log.info("Employee registered: {}", employee);
 		return "redirect:/admin/adminHome?showDiv=emp_updateDelete";
@@ -101,6 +107,56 @@ public class EmployeeManagementController extends BaseController {
 	public String showRegistrationPage(Model model) {
 		model.addAttribute("employees", masterService.getAllEmployees());
 		return "employeeManagement/EmployeeManagement";
+	}
+
+
+//	@PostMapping("/login")
+//	public String getLogin(
+//			@ModelAttribute EmployeeDTO employeeDTO,
+//			HttpServletResponse response,
+//			Model model
+//	) {
+//		try {
+//			if (DriverAuthentication.verifyLogin(employeeDTO, masterService)) {
+//				return getPortalString(employeeDTO, model);
+//			} else {
+//				response.setHeader("Error", "Invalid username or password");
+//				return "EmployeeManagement/AdminLogin";
+//			}
+//		} catch (Exception e) {
+//			response.setHeader("Error", "Unknown error occurred. Please contact system administrator");
+//			return "EmployeeManagement/AdminLogin";
+//		}
+//	}
+
+	// Mapping for displaying the login form
+	@GetMapping("/admin/login")
+	public String showLoginForm() {
+		return "employeeManagement/AdminLogin"; // Assuming "admin/login.html" is your login form
+	}
+
+	// Mapping for handling login form submission
+	@PostMapping("/login")
+	public String processLogin(
+			@RequestParam("username") String username,
+			@RequestParam("password") String password,
+			Model model,
+			RedirectAttributes redirectAttributes
+	) {
+		// Simulated admin credentials (replace with actual authentication logic)
+		String expectedUsername = "admin";
+		String expectedPassword = "password";
+
+		// Validate credentials
+		if (username.equals(expectedUsername) && password.equals(expectedPassword)) {
+			// Authentication successful
+			// Redirect to admin dashboard or home page
+			return "admin/admin_sidebar"; // Assuming "/admin/dashboard" is the admin dashboard URL
+		} else {
+			// Authentication failed
+			model.addAttribute("error", "Invalid credentials. Please try again.");
+			return "home/Home"; // Return to login form with error message
+		}
 	}
 }
 

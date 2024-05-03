@@ -1,10 +1,11 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %><%--
   Created by IntelliJ IDEA.
   User: tharindu
   Date: 18/04/2024
   Time: 17:48
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Reservation reservation = (Reservation) request.getAttribute("reservation"); %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,41 +19,50 @@
     <script type="module" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
 </head>
 
-<body>
-
+<body style="background-image: url('${pageContext.request.contextPath}/images/transportation/transportBackground.jpg')">
 <div class="container">
     <div class="inner-container">
         <div class="left">
-            <form>
+            <form method="post" action="${pageContext.request.contextPath}/booking/transport">
+                <input type="hidden" id="bookingId" name="bookingId" value="<%= reservation.getBookingId()%>">
                 <div class="input-container">
                     <div>
-                        <input type="text" id="destination" name="destination" placeholder="Destination"/>
+                        <label for="pac-input">Destination:</label><br>
+                        <input type="text" id="pac-input" name="destination" placeholder="Destination"
+                               aria-label="destination" required/>
                     </div>
                     <div>
-                        <input type="text" id="distance" name="distance" placeholder="Distance" disabled/>
+                        <label for="distance">Distance:</label><br>
+                        <input type="text" id="distance" name="distance" placeholder="Distance" readonly
+                               aria-label="distance"/>
                     </div>
                     <div>
-                        <input type="text" id="duration" name="duration" placeholder="Duration" disabled/>
+                        <label for="duration">Duration:</label><br>
+                        <input type="text" id="duration" name="duration" placeholder="Duration" readonly
+                               aria-label="duration"/>
                     </div>
                     <div>
-                        <select aria-label="vehicles" id="vehicleDropdown" name="vehicle">
+                        <label for="vehicleDropdown">Select Vehicle:</label><br>
+                        <select id="vehicleDropdown" name="vehicle" aria-label="vehicles">
                             <option value="car">Car</option>
-                            <option value="bike">Bike</option>
+                            <option value="van">Van</option>
                             <option value="bus">Bus</option>
                         </select>
                     </div>
                     <div>
-                        <input aria-label="pricePerKilometer" type="text" id="pricePerKilometer" name="pricePerKilometer">
+                        <label for="pricePerKilometer">Total Cost:</label><br>
+                        <input type="text" id="pricePerKilometer" name="totalCost"
+                               aria-label="pricePerKilometer"/>
                     </div>
-                    <div>
-                        <button id="myButton">Continue</button>
+                    <div class="buttonDiv">
+                        <button class="transportButton" id="skip" name="action" value="Skip">Skip</button>
+                        <button class="transportButton" id="continue" name="action" value="Continue">Book a Vehicle</button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="right">
             <div class="map-div">
-                <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
                 <div id="map"></div>
             </div>
         </div>

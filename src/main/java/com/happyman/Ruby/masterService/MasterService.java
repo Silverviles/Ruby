@@ -1,5 +1,6 @@
 package com.happyman.Ruby.masterService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
@@ -99,6 +100,8 @@ public interface MasterService {
 	Boolean deleteEmployee(Integer employeeID);
 
 	Employee getEmployeeById(Integer employeeID);
+
+//	Driver getEmployeeByEmail(String email);
 
 	// Payment Implementation
 	List<Payment> getAllPayments();
@@ -248,6 +251,18 @@ public interface MasterService {
 	Reservation saveReservation(Reservation reservation);
 
 	List<Reservation> findAllReservations();
+
+	void saveRoomReservation(RoomReservation roomReservation);
+
+	RoomReservation getRoomReservationById(Integer roomReservationId);
+
+	List<RoomReservation> getAllRoomReservationsByRoomId(String roomId);
+
+	List<RoomReservation> getAllRoomReservationsByStartDate(LocalDate startDate);
+
+	List<RoomReservation> getAllRoomReservationsByEndDate(LocalDate endDate);
+
+	List<RoomReservation> getAllRoomReservationsByStartEndDate(LocalDate startDate, LocalDate endDate);
 
 	List<Reservation> findAllCompletedReservations();
 

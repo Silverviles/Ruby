@@ -12,6 +12,6 @@ public class TripDTO {
 	private Driver driver;
 	private Byte tripStatus;
 	private String tripDestination;
-	private Long totalCost;
+	private Float totalCost;
 	private String finishedDate;
 }
