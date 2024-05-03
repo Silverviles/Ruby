@@ -58,7 +58,7 @@
 
                 <div class="input-container">
                     <input id="customerName" type="text" name="name" class="input" />
-                    <label for="customerName">Name: </label>
+                    <label for="customerName">Name</label>
                     <span>Name</span>
                 </div>
 
