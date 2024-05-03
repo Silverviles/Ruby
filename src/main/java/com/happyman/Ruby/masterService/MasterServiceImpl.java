@@ -321,6 +321,11 @@ public class MasterServiceImpl implements MasterService {
 		return employeeService.getEmployeeById(employeeID);
 	}
 
+//	@Override
+//	public Employee getEmployeeByEmail(String email) {
+//		return employeeService.getDriverByEmail(email);
+//	}
+
 	@Override
 	public void saveRoom(Room room) {
 		roomService.saveRoom(room);
