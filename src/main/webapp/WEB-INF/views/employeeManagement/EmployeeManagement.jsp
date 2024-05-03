@@ -12,7 +12,7 @@
         <input type="text" class="searchInput" aria-label="Search Input" id="searchEmployeeInput" placeholder="Search by First Name">
     </div>
 
-    <button id="generatePdfButton">Generate PDF</button>
+
 
 
     <table id="employeeTable" class="adminTable">
