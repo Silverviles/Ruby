@@ -36,6 +36,7 @@ public class EventController extends BaseController {
 		event.setPrice(eventAddDTO.getPrice());
 		event.setAvailability(eventAddDTO.getAvailability() != null ? eventAddDTO.getAvailability() : false);
 		event.setDescription(eventAddDTO.getDescription());
+		event.setImage(eventAddDTO.getImage());
 
 		masterService.addEvent(event);
 		model.addAttribute("allEvent", masterService.getAllEvents());
