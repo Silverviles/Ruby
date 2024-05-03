@@ -37,7 +37,7 @@
                 <% if (payment.getPayment().getPaymentStatus() == 0) { %>
                 <form method="post" action="${pageContext.request.contextPath}/payments/updatePayment">
                     <input type="hidden" value="<%= payment.getPayment().getId()%>" name="paymentId"/>
-                    <button class="accept-button">Complete Payment</button>
+                    <button class="accept-button" style="height: fit-content">Complete Payment</button>
                 </form>
                 <% } %>
                 <% if (payment.getRefund() != null && payment.getRefund().getRefundStatus() == 0) { %>
