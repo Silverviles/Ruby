@@ -111,9 +111,6 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn">
-                <button class="package-select" >Select Package</button>
-            </div>
         </div>
 
 
@@ -139,9 +136,6 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn">
-                <button class="package-select" >Select Package</button>
-            </div>
 
         </div>
 
@@ -170,9 +164,6 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn">
-                <button class="package-select" >Select Package</button>
-            </div>
         </div>
 
 
@@ -201,9 +192,6 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn">
-                <button class="package-select" >Select Package</button>
-            </div>
 
         </div>
 
@@ -233,9 +221,6 @@
             <% if (!pkg.getPackageType().equals("COUPLE")) {%>
             <div class="descript">Kids should be below 12 years of age.</div>
             <%}%>
-            <div class="select-package-btn">
-                <button class="package-select" >Select Package</button>
-            </div>
 
         </div>
 

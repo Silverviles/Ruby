@@ -81,5 +81,10 @@ public class PackageController extends BaseController {
 		return "packages/packages_updateDelete";
 	}
 
+	@GetMapping("/view")
+	public String viewOnlyPackages(Model model) {
+		model.addAttribute("Packages", masterService.getPackageDTOList());
+		return "packages/packageOnlyView";
+	}
 
 }
