@@ -263,17 +263,7 @@
 </head>
 <body>
 
-
-
-<header class="header">
-    <a href="#" class="logo">Happy Man Village</a>
-    <nav class="nav-items">
-        <a href="#">Home</a>
-        <a href="#">Rooms</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-</header>
+<jsp:include page="../common/header.jsp"/>
 <!-- <nav>
   <div class="nav__bar">
     <div class="nav__header">
@@ -516,23 +506,7 @@
         <img src="${pageContext.request.contextPath}/images/employeeManagement/about.jpeg" alt="Hotel ">
     </div>
 </main>
-<footer class="footer">
-    <div class="copy">&copy;Happy Man Village</div>
-    <div class="bottom-links">
-        <div class="links">
-            <span>More Info</span>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
-        <div class="links">
-            <span>Social Links</span>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
-</footer>
+<jsp:include page="../common/footer.jsp"/>
 
 <script src="${pageContext.request.contextPath}/scripts/employeeManagement/Home.js"></script>
 </body>

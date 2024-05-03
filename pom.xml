@@ -93,7 +93,17 @@
 			<artifactId>google-maps-services</artifactId>
 			<version>2.2.0</version>
 		</dependency>
+
+		<!--newly added by nethaki-->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>html2pdf</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
