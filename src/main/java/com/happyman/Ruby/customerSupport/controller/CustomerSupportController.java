@@ -40,7 +40,6 @@ public class CustomerSupportController extends BaseController {
 	@PostMapping("/deleteFeedback")
 	public String deleteFeedback(Integer feedbackId, Model model) {
 		masterService.deleteFeedbackById(feedbackId);
-		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
 		return "redirect:/admin/adminHome?showDiv=feedback";
 	}
 
@@ -49,7 +48,6 @@ public class CustomerSupportController extends BaseController {
 		Feedback feedback = masterService.getFeedbackById(feedbackId);
 		feedback.setActive(true);
 		masterService.addFeedback(feedback);
-		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
 		return "redirect:/admin/adminHome?showDiv=feedback";
 	}
 

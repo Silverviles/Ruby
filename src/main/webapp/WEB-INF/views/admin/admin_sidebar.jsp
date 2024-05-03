@@ -201,7 +201,7 @@
                                     <span class="text1">Feedback</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="complaint_button">
                                 <a href="#">
                                     <span class="text1">Complaint</span>
                                 </a>
@@ -296,6 +296,10 @@
 
         <div id="feedback" class="sub-contents">
             <jsp:include page="../customerSupportSystem/feedbackAdmin.jsp" />
+        </div>
+
+        <div id="complaint" class="sub-contents">
+            <jsp:include page="../customerSupportSystem/complaintAdmin.jsp" />
         </div>
 
     </div>
