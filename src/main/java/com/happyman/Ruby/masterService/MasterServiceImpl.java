@@ -69,24 +69,24 @@ public class MasterServiceImpl implements MasterService {
 
 	@Autowired
 	public MasterServiceImpl(
-		DriverService driverService,
-		VehicleService vehicleService,
-		TripService tripService,
-		FoodService foodService,
-		PaymentService paymentService,
-		EmployeeService employeeService,
-		AddonService addonService,
-		PackageService packageService,
-		PackageToAddonService packageToAddonService,
-		SeatService seatService,
-		EventService eventService,
-		EventToAddOnService eventAddon,
-		RoomService roomService,
-		FeedbackService feedbackService,
-		ReservationService reservationService,
-		RefundService refundService,
-		MenuService menuService,
-		ComplaintService complaintService
+			DriverService driverService,
+			VehicleService vehicleService,
+			TripService tripService,
+			FoodService foodService,
+			PaymentService paymentService,
+			EmployeeService employeeService,
+			AddonService addonService,
+			PackageService packageService,
+			PackageToAddonService packageToAddonService,
+			SeatService seatService,
+			EventService eventService,
+			EventToAddOnService eventAddon,
+			RoomService roomService,
+			FeedbackService feedbackService,
+			ReservationService reservationService,
+			RefundService refundService,
+			MenuService menuService,
+			ComplaintService complaintService
 	) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
@@ -159,7 +159,7 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public Vehicle getVehicleByNumber(String vehicleNumber) {
 		return vehicleService.getAllVehicles().stream().filter(
-			vehicle -> vehicle.getVehicleNumber().equals(vehicleNumber)).findFirst().orElse(null);
+				vehicle -> vehicle.getVehicleNumber().equals(vehicleNumber)).findFirst().orElse(null);
 	}
 
 	@Override
@@ -466,7 +466,7 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public List<Payment> getPaymentStatus(Byte Status) {
 		return paymentService.getAllPayments().stream().filter(payment ->
-			payment.getPaymentStatus().equals(Status)).toList();
+				payment.getPaymentStatus().equals(Status)).toList();
 	}
 
 	@Override
@@ -516,20 +516,19 @@ public class MasterServiceImpl implements MasterService {
 		pkg.setAvailability(packageDTO.getPackageAvailability());
 		pkg.setType(packageDTO.getPackageType());
 		pkg.setMaxAdults(packageDTO.getMaxAdults());
+		pkg.setNoOfNights(packageDTO.getPackageNoOfNights());
 
 		packageService.addPackage(pkg);
 
 		List<Addon> addons = packageDTO.getAddonList();
 		if (addons!= null && !addons.isEmpty()) {
 			for (Addon addon : addons) {
-				PackageToAddonId packageToAddonId = new PackageToAddonId();
-				packageToAddonId.setPackageId(pkg.getId());
-				packageToAddonId.setAddonId(addon.getId());
-
 				PackageToAddon packageToAddon = new PackageToAddon();
+				PackageToAddonId packageToAddonId = new PackageToAddonId(pkg.getId(),addon.getAddonId());
 				packageToAddon.setId(packageToAddonId);
-				packageToAddon.setPackageField(pkg);
+				packageToAddon.setPkg(pkg);
 				packageToAddon.setAddon(addon);
+
 				packageToAddonService.addPackageToAddon(packageToAddon);
 			}
 		}
@@ -548,6 +547,7 @@ public class MasterServiceImpl implements MasterService {
 			packageDTO.setPackageAvailability(p.getAvailability());
 			packageDTO.setPackageType(p.getType());
 			packageDTO.setMaxAdults(p.getMaxAdults());
+			packageDTO.setPackageNoOfNights(p.getNoOfNights());
 			packageDTO.setAddonList(addonService.getAddonByPackageId(p.getId()));
 			packageDTOList.add(packageDTO);
 		}
@@ -631,19 +631,22 @@ public class MasterServiceImpl implements MasterService {
 
 	@Override
 	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
-		List<Integer> list1 = packageDTO.getAddonList().stream().map(Addon::getId).toList();
-		List<Integer> list2 = this.getPackageToAddonsByPackageId(packageDTO.getId())
-			.stream().map(addon -> addon.getId().getAddonId()).toList();
+		List<Integer> list1 = packageDTO.getAddonList().stream().map(Addon::getAddonId).toList();
+		List<Integer> list2 = new ArrayList<Integer>();
+
+		for (PackageToAddon p : packageToAddonService.getPackageToAddonsByPackageId(packageDTO.getId())) {
+			Integer addonId = p.getAddon().getAddonId();
+			list2.add(addonId);
+		}
 
 		for (Integer addonId : list1) {
 			if (!list2.contains(addonId)) {
 				PackageToAddon packageToAddon = new PackageToAddon();
-				PackageToAddonId packageToAddonId = new PackageToAddonId();
-				packageToAddonId.setAddonId(addonId);
-				packageToAddonId.setPackageId(addonId);
+				PackageToAddonId packageToAddonId = new PackageToAddonId(packageDTO.getId(),addonId);
 				packageToAddon.setId(packageToAddonId);
-				packageToAddon.setPackageField(packageService.getPackageById(packageDTO.getId()));
-				packageToAddon.setAddon(addonService.getAddonById(addonId));
+				packageToAddon.setAddon(getAddonById(addonId));
+				packageToAddon.setPkg(getPackageById(packageDTO.getId()));
+
 				packageToAddonService.addPackageToAddon(packageToAddon);
 			}
 		}
@@ -651,10 +654,11 @@ public class MasterServiceImpl implements MasterService {
 		for (Integer addonId : list2) {
 			if (!list1.contains(addonId)) {
 				PackageToAddon packageToAddon = new PackageToAddon();
-				PackageToAddonId packageToAddonId = new PackageToAddonId();
-				packageToAddonId.setAddonId(addonId);
-				packageToAddonId.setPackageId(addonId);
+				PackageToAddonId packageToAddonId = new PackageToAddonId(packageDTO.getId(),addonId);
 				packageToAddon.setId(packageToAddonId);
+				packageToAddon.setAddon(getAddonById(addonId));
+				packageToAddon.setPkg(getPackageById(packageDTO.getId()));
+
 				packageToAddonService.addPackageToAddon(packageToAddon);
 			}
 		}

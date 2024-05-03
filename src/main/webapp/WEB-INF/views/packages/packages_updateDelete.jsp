@@ -20,6 +20,7 @@
             <th>Discontinue Date</th>
             <th>Availability</th>
             <th>Maximum Adults</th>
+            <th>No of Nights</th>
             <th>Addons</th>
             <th>Action</th>
         </tr>

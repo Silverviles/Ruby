@@ -31,6 +31,7 @@ public class PackageController extends BaseController {
 	@GetMapping("/packHome")
 	public String goPackages(Model model) {
 		model.addAttribute("Packages", masterService.getPackageDTOList());
+		model.addAttribute("Addons", masterService.getAllAddons());
 		return "packages/package";
 	}
 
@@ -42,7 +43,9 @@ public class PackageController extends BaseController {
 	}
 
 	@PostMapping("/addPackage")
-	public String addPackage(@ModelAttribute PackageDTO packageDTO) {
+	public String addPackage(@ModelAttribute PackageDTO packageDTO, Model model) {
+
+
 		if (packageDTO.getPackageAvailability() == null) {
 			packageDTO.setPackageAvailability(false);
 		}

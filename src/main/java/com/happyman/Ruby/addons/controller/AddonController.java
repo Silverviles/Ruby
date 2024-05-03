@@ -37,4 +37,5 @@ public class AddonController extends BaseController {
 		model.addAttribute("addons", addons);
 		return "packages/packages_updateDelete";
 	}
+
 }

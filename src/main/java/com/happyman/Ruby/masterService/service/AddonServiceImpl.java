@@ -57,9 +57,12 @@ public class AddonServiceImpl implements AddonService {
 	@Override
 	public List<Addon> getAddonByPackageId(Integer id) {
 		List<Addon> addons = new ArrayList<Addon>();
-		List<PackageToAddon> packageToAddons = pkgToAddonRepository.findAllById_PackageId(id);
+		List<PackageToAddon> packageToAddons = pkgToAddonRepository.findAll();
 		for (PackageToAddon packageToAddon : packageToAddons) {
-			addons.add(packageToAddon.getAddon());
+			if (packageToAddon.getId().getPackageId().equals(id)) {
+				Integer addonId = packageToAddon.getId().getAddonId();
+				addons.add(getAddonById(addonId));
+			}
 		}
 		return addons;
 	}
