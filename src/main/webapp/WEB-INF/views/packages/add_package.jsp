@@ -88,18 +88,6 @@
 
                 <br>
 
-                <div class="input-container">
-                    <% if (addons != null && !addons.isEmpty()) {
-                        for (Addon addon : addons) {%>
-                    <div class="addon-container-package">
-                        <input type="checkbox" id="addon<%=addon.getAddonId()%>" name="addonList" value="<%=addon.getAddonId()%>">
-                        <label for="addon<%=addon.getAddonId()%>"><%=addon.getAddonName()%></label>
-                        <br>
-                    </div>
-                    <%  }
-                    }%>
-                </div>
-
                 <input type="submit" value="Submit" class="btn"/>
             </form>
         </div>
