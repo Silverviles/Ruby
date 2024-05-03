@@ -1,24 +1,10 @@
-<%--Created by IntelliJ IDEA.
+<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %><%--Created by IntelliJ IDEA.
 User: ASUS TUF
 Date: 5/1/2024
 Time: 8:34 PM
 To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %>
-<%@ page import="com.happyman.Ruby.masterService.dao.Payment" %>
-<%@ page import="com.happyman.Ruby.billingAndReporting.dto.PaymentDTO" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-
-
-<% String customerName = request.getParameter("name"); %>
-<% String email = request.getParameter("email"); %>
-
-<% Reservation reservation = (Reservation) request.getAttribute("reservation");  %>
-<% double subTotal = Double.parseDouble(request.getParameter("subtotal")); %>
-<% double deposit = Double.parseDouble(request.getParameter("deposit")); %>
-<% double total = Double.parseDouble(request.getParameter("total")); %>
-
+<% Reservation reservation = (Reservation) request.getAttribute("bill"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,26 +23,26 @@ To change this template use File | Settings | File Templates.
                 <div class="info">
                     <div class="information">
                         <h2>Customer Name:></h2>
-                        <p id="customer-name"></p>
+                        <p id="customer-name"><%= reservation.getPayment().getCustomerName()%></p>
                     </div>
 
                     <div class="information">
                         <h2><E-mail>E-mail:</E-mail> </h2>
-                        <p id="e-mail"></p>
+                        <p id="e-mail"><%=reservation.getPayment().getCustomerEmail()%><</p>
                     </div>
 
                     <div class="information">
                         <h2>Sub Total: </h2>
-                        <p id="subtotal"></p>
+                        <p id="subtotal"><%=reservation.getPayment().getBillAmount()*100/115%></p>
                     </div>
 
                     <div class="information">
                         <h2>Advance Payment (15%):</h2>
-                        <p id="advance-payment"></p>
+                        <p id="advance-payment"><%=reservation.getPayment().getBillAmount()*15/115%></p>
                     </div>
                     <div class="information">
                         <h2>Total:</h2>
-                        <p id="total"></p>
+                        <p id="total"><%=reservation.getPayment().getBillAmount()%></p>
                     </div>
 
                     <div class="information">
