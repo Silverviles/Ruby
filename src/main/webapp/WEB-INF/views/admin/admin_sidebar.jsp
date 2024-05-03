@@ -220,12 +220,12 @@
                         <ul class="sub-menu">
                             <li id="payments_button">
                                 <a href="#">
-                                    <span class="text1">b1</span>
+                                    <span class="text1">Payments</span>
                                 </a>
                             </li>
                             <li id="refunds_button">
                                 <a href="#">
-                                    <span class="text1">b2</span>
+                                    <span class="text1">Refunds</span>
                                 </a>
                             </li>
                         </ul>

@@ -33,24 +33,23 @@ To change this template use File | Settings | File Templates.
 
                     <div class="information">
                         <h2>Sub Total: </h2>
-                        <p id="subtotal"><%=reservation.getPayment().getBillAmount()*100/115%></p>
+                        <p id="subtotal"><%=String.format("%.2f",reservation.getPayment().getBillAmount()*100/115)%></p>
                     </div>
 
                     <div class="information">
                         <h2>Advance Payment (15%):</h2>
-                        <p id="advance-payment"><%=reservation.getPayment().getBillAmount()*15/115%></p>
+                        <p id="advance-payment"><%=String.format("%.2f",reservation.getPayment().getBillAmount()*15/115)%></p>
                     </div>
                     <div class="information">
                         <h2>Total:</h2>
-                        <p id="total"><%=reservation.getPayment().getBillAmount()%></p>
+                        <p id="total"><%=String.format("%.2f",reservation.getPayment().getBillAmount())%></p>
                     </div>
 
                     <div class="information">
                         <img src="${pageContext.request.contextPath}/images/BillingAndReporting/email-2.png" class="icon" alt="">
-                        <p>happymanVilla@gmail.com</p>
+                        <p>happymanVillage@gmail.com</p>
                     </div>
 
-                    <button id="downloadPdf">Download PDF</button>
                 </div>
             </div>
         </div>

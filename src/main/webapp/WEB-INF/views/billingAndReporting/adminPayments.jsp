@@ -1,12 +1,7 @@
 <%@ page import="com.happyman.Ruby.billingAndReporting.dto.PaymentDTO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %><%--
-  Created by IntelliJ IDEA.
-  User: tharindu
-  Date: 25/04/2024
-  Time: 16:35
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %>
+
 <% @SuppressWarnings("unchecked") List<Reservation> payments = (List<Reservation>) request.getAttribute("reservations"); %>
 <div class="tableDiv">
     <div id="searchContainer" class="searchContainer">
