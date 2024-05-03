@@ -35,16 +35,6 @@ textarea {
 
 }
 
-#downloadPdf {
-    background-color: green;
-    height: fit-content;
-    padding: 10px;
-    color: white;
-    font-size: large;
-    border-radius: 10px;
-    border: none;
-}
-
 .input {
     width: 100%;
     outline:invert;
