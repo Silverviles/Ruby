@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.EventBook" %><%--
   Created by IntelliJ IDEA.
   User: Migara
   Date: 5/2/2024
@@ -16,20 +16,29 @@
     <title>Event Booking</title>
 </head>
 <body>
+<% EventBook eventbook = (EventBook) request.getAttribute("editEventbooking"); %>
+
 <div class="backgroud_eventAdd" style="background-image: url('${pageContext.request.contextPath}/images/events/villaBookingImage.jpeg');"></div>
 <header class="section_container header_container">
     <h2 class="booking_heading">Confirm Your Booking</h2>
     <div class="booking_container">
-        <form>
+        <form method="post" action="${pageContext.request.contextPath}/event_booking/book_events">
             <div class="form_group">
+
+                <div class="input-container">
+                    <input type="hidden" name="eventId" class="input"
+                           value="<%= eventbook != null ? eventbook.getId() : "" %>"/>
+                </div>
                 <div class="input_group">
-                    <input type="text" name="customerName" required>
+                    <input type="text" name="customerName"
+                           value="<%= eventbook != null ? eventbook.getCustomerName() : "" %>" required>
                     <label>Customer Name :</label>
                 </div>
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="date" name="bookingDate" id="bookingDate" required oninput="
+                    <input type="date" name="bookingDate" id="bookingDate"
+                           value="<%= eventbook != null ? eventbook.getDate() : "" %>" required oninput="
                                 const today = new Date().toISOString().split('T')[0];
                                 this.setAttribute('min', today);">
                     <label>Date :</label>
@@ -38,7 +47,8 @@
             <div class="form_group">
                 <div class="input_group">
                     <label>Event Type :</label>
-                    <select id="eventType" name="eventType" required>
+                    <select id="eventType" name="eventType"
+                            value="<%= eventbook != null ? eventbook.getEventType() : "" %>" required>
                         <option value=""></option>
                         <option value="paypal">PayPal</option>
                         <option value="bankTransfer">Bank Transfer</option>
@@ -51,7 +61,8 @@
                 <div class="input_group">
                     <label>Location:</label>
 
-                    <select id="location" name="location" required>
+                    <select id="location" name="location"
+                            value="<%= eventbook != null ? eventbook.getLocation() : "" %>" required>
                         <option value=""></option>
                         <option value="paypal">Lake Front</option>
                         <option value="bankTransfer">Indoor</option>
@@ -61,7 +72,8 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" id="noOfMembers" name="noOfMembers" required oninput="
+                    <input type="text" id="noOfMembers" name="noOfMembers"
+                           value="<%= eventbook != null ? eventbook.getNoOfMembers() : "" %>" required oninput="
                                     let value = this.value;
                                     value = value.replace(/\D/g, '').replace(/^0+/, '');
                                     this.value = value;">
@@ -70,7 +82,8 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="description" required>
+                    <input type="text" name="description"
+                           value="<%= eventbook != null ? eventbook.getCustomerDescription() : "" %>" required>
                     <label>Description</label>
                 </div>
             </div>
