@@ -34,12 +34,15 @@
             <td><%= complaint.getComplaintDesc()%></td>
 
             <td>
-                <form method="post" action="${pageContext.request.contextPath}/customerSupport/giveComplaintForm">
-                    <button class="accept-button" name="complaint_id" value="<%= complaint.getComplaintId()%>">Resolve</button>
-                </form>
+                <div class="input-container checkboxes">
+                    <input type="checkbox" id="resolved" name="availability"/>
+                    <label for="resolved">Resolved: </label>
+                </div>
+
                 <form method="post" action="${pageContext.request.contextPath}/customerSupport/deleteFeedback">
                     <button class="delete-button" name="complaint_id" value="<%= complaint.getComplaintId()%>">Delete</button>
                 </form>
+
             </td>
         </tr>
         <% } %>
