@@ -49,7 +49,12 @@ public class BookingController extends BaseController {
 		model.addAttribute("Addons", masterService.getAllAddons());
 
 		//return "packages/package";
-		return "transportation/transportForm";
+		return "restaurant/foodForm";
+	}
+
+	@PostMapping("/food")
+	public String processFood(Integer foodId, String startDate, String endDate, Integer noGuest, Model model) {
+		return null;
 	}
 
 	@PostMapping("/package")

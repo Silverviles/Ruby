@@ -136,12 +136,14 @@
         </button>
     </form>
     <div class="output">
+        <form method="post" action="${pageContext.request.contextPath}/">
         <p id="mealTypeOutput"></p>
         <p id="mainCourseOutput"></p>
         <p id="drinkOutput"></p>
         <p id="dessertOutput"></p>
         <p class="total-price" id="totalPrice">Total Price: $0.00</p>
         <button>Proceed to Payment</button>
+        </form>
     </div>
 
 </div>
