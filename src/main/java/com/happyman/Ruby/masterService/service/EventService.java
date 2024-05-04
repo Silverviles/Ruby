@@ -1,7 +1,9 @@
 package com.happyman.Ruby.masterService.service;
 
+import java.awt.*;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.happyman.Ruby.events.dto.EventAddDTO;
@@ -25,4 +27,5 @@ public interface EventService {
 	void updateEvent(Event event);
 
 	void updateEventByEventDTO(EventAddDTO eve);
+
 }
