@@ -36,9 +36,11 @@
             <td><%= complaint.getComplaintDesc()%></td>
             <td><%= complaint.getStatus() ? "Resolved" : "Pending"%></td>
             <td>
+                <% if (!complaint.getStatus()) { %>
                 <form method="post" action="${pageContext.request.contextPath}/customerSupport/resolveComplaint">
                     <button class="edit-button" name="complaintId" value="<%= complaint.getComplaintId()%>">Resolve</button>
                 </form>
+                <% } %>
 
                 <form method="post" action="${pageContext.request.contextPath}/customerSupport/deleteComplaint">
                     <button class="delete-button" name="complaintId" value="<%= complaint.getComplaintId()%>">Delete</button>
