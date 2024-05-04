@@ -15,7 +15,7 @@
 %>
 <div class="tableDiv">
     <div id="searchContainer" class="searchContainer">
-        <input type="text" class="searchInput" aria-label="Search Input" id="searchComplaintInput" placeholder="Search by Booking ID">
+        <input type="text" class="searchInput" aria-label="Search Input" id="searchComplaintInput" placeholder="Search by Customer Name">
     </div>
     <table id="complaintTable" class="adminTable">
         <thead class="tableHead">
@@ -23,6 +23,8 @@
             <th>Name</th>
             <th>Email</th>
             <th>Complaints</th>
+            <th>Status</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody class="tableBody">
@@ -32,15 +34,14 @@
             <td><%= complaint.getCustomerName()%></td>
             <td><%= complaint.getEmail()%></td>
             <td><%= complaint.getComplaintDesc()%></td>
-
+            <td><%= complaint.getStatus() ? "Resolved" : "Pending"%></td>
             <td>
-                <div class="input-container checkboxes">
-                    <input type="checkbox" id="resolved" name="availability"/>
-                    <label for="resolved">Resolved: </label>
-                </div>
+                <form method="post" action="${pageContext.request.contextPath}/customerSupport/resolveComplaint">
+                    <button class="edit-button" name="complaintId" value="<%= complaint.getComplaintId()%>">Resolve</button>
+                </form>
 
-                <form method="post" action="${pageContext.request.contextPath}/customerSupport/deleteFeedback">
-                    <button class="delete-button" name="complaint_id" value="<%= complaint.getComplaintId()%>">Delete</button>
+                <form method="post" action="${pageContext.request.contextPath}/customerSupport/deleteComplaint">
+                    <button class="delete-button" name="complaintId" value="<%= complaint.getComplaintId()%>">Delete</button>
                 </form>
 
             </td>

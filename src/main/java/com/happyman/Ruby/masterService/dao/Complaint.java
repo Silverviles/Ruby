@@ -29,4 +29,6 @@ public class Complaint {
 
 	@Column(name = "complaint_description") private String complaintDesc;
 
+	@Column(name = "status") private Boolean status = false;
+
 }
