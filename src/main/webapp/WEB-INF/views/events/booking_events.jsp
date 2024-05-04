@@ -26,8 +26,7 @@
             <div class="form_group">
 
                 <div class="input-container">
-                    <input type="hidden" name="eventId" class="input"
-                           value="<%= eventbook != null ? eventbook.getId() : "" %>"/>
+                    <input type="hidden" name="eventId" class="input" />
                 </div>
                 <div class="input_group">
                     <input type="text" name="customerName"
@@ -37,7 +36,7 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="date" name="bookingDate" id="bookingDate"
+                    <input type="date" name="data" id="data"
                            value="<%= eventbook != null ? eventbook.getDate() : "" %>" required oninput="
                                 const today = new Date().toISOString().split('T')[0];
                                 this.setAttribute('min', today);">
@@ -50,9 +49,10 @@
                     <select id="eventType" name="eventType"
                             value="<%= eventbook != null ? eventbook.getEventType() : "" %>" required>
                         <option value=""></option>
-                        <option value="paypal">PayPal</option>
-                        <option value="bankTransfer">Bank Transfer</option>
-                        <option value="cash">Cash</option>
+                        <option value="bithday">BirthDay</option>
+                        <option value="valentineDay">Valentine'Day</option>
+                        <option value="holi">Holi</option>
+                        <option value="honewYearli">New Year</option>
                     </select>
 
                 </div>
@@ -64,9 +64,9 @@
                     <select id="location" name="location"
                             value="<%= eventbook != null ? eventbook.getLocation() : "" %>" required>
                         <option value=""></option>
-                        <option value="paypal">Lake Front</option>
-                        <option value="bankTransfer">Indoor</option>
-                        <option value="cash">Roof Top</option>
+                        <option value="lakeFront">Lake Front</option>
+                        <option value="indoor">Indoor</option>
+                        <option value="roofTop">Roof Top</option>
                     </select>
                 </div>
             </div>
@@ -82,7 +82,7 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="description"
+                    <input type="text" name="customerDescription"
                            value="<%= eventbook != null ? eventbook.getCustomerDescription() : "" %>" required>
                     <label>Description</label>
                 </div>
