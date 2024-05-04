@@ -10,15 +10,16 @@ div class="tableDiv">
     <input type="text" class="searchInput" aria-label="Search Input" id="searchRoomInput" placeholder="Search by Room Name">
 </div>
 
+
 <table id="roomTable" class="adminTable">
     <thead class="tableHead">
     <tr>
-        <th>Room ID</th>
-        <th>Room Name</th>
-        <th>Room Type</th>
-        <th>Room Capacity</th>
-        <th>Room Status</th>
-        <th>Room Price</th>
+        <th>Table ID</th>
+        <th>Date</th>
+        <th>Time Slot</th>
+        <th>Main course</th>
+        <th>Drinks</th>
+        <th>Desserts</th>
         <th>Action</th>
     </tr>
     </thead>

@@ -32,12 +32,12 @@
                     <label for="menuName">Food Name: </label>
                     <span>Food Name</span>
                     <br>
-                    <span id="foodNameError" style="color: red;"></span>
-                </div>
+<%--                    <span id="foodNameError" style="color: red;"></span>--%>
+                </div>w1
                 <div class="input-container">
 
-                    <select id="dishType" name="dishType" required>
-<%--                        <option value="">Select Dish Type</option>--%>
+                    <select id="dishType" name="dishType" class="input" required>
+                        <option value=""></option>
                         <option value="main_course" <%=menu != null && menu.getDishType().equals("main_course") ? "selected" : ""%>>Main Course</option>
                         <option value="drinks" <%=menu != null && menu.getDishType().equals("drinks") ? "selected" : ""%>>Drinks</option>
                         <option value="desserts" <%=menu != null && menu.getDishType().equals("drinks") ? "selected" : ""%>>Desserts</option></select>
@@ -51,6 +51,8 @@
 
 
                     <select id="mealType" name="mealType" class="input" required>
+                        <option value=""></option>
+
                         <option value="breakfast" <%=menu != null && menu.getMealType().equals("breakfast") ? "selected" : ""%>>Breakfast</option>
                         <option value="lunch" <%=menu != null && menu.getMealType().equals("lunch") ? "selected" : ""%>>Lunch</option>
                         <option value="dinner" <%=menu != null && menu.getMealType().equals("dinner") ? "selected" : ""%>>Dinner</option></select>
