@@ -49,8 +49,6 @@ INSERT INTO package (availability, description, discontinue_date, max_adults, na
 INSERT INTO package (availability, description, discontinue_date, max_adults, name, price, type, no_of_nights) VALUES (1, 'Indulge in luxury with our VIP Experience package, featuring exclusive access and personalized services.', NULL, 2, 'VIP Experience', 499.99, 'Luxury', 2);
 INSERT INTO package (availability, description, discontinue_date, max_adults, name, price, type, no_of_nights) VALUES (1, 'Spend quality time with the family with our Family Fun package, including family-friendly activities and accommodations.', NULL, 4, 'Family Fun', 249.99, 'Family', 3);
 
-ALTER TABLE package MODIFY COLUMN description VARCHAR(1000);
-
 INSERT INTO package (package_id, availability, description, discontinue_date, max_adults, name, price, type, no_of_nights)
 VALUES
     (0, 1, 'Escape to a secluded paradise for a romantic retreat. Enjoy intimate moments together with a candlelit dinner under the stars, followed by a pampering couples'' spa treatment to relax and rejuvenate. Cap off your day with a private sunset cruise along the tranquil coast, creating memories that will last a lifetime.', '2026-11-25', 2, 'Romantic Hideaway', 22000, 'Couple', 3),
@@ -59,18 +57,18 @@ VALUES
     (0, 1, 'Gather your friends and family for a memorable celebration to cherish forever. Transform your event into a magical occasion with personalized decorations, creating a festive atmosphere that reflects your unique style and personality. Indulge in a sumptuous celebratory cake, specially crafted to mark the occasion in sweet style. Cap off the festivities with a sizzling barbecue dinner, bringing everyone together for an evening of laughter, love, and lasting memories.', '2024-10-31', 40, 'Group Celebration', 50000, 'Large_Group', 2),
     (0, 1, 'Escape with your significant other to a romantic paradise at Happy Man Village. Indulge in intimate moments with a candlelit dinner for two, relax with a couples'' spa treatment, and embark on a private sunset cruise along the picturesque coastline.', '2025-08-17', 2, 'Lovebirds Retreat', 18000, 'Couple', 3);
 
-INSERT INTO TableAvailability (table_id, seat_Availability) values (1, 'available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (2, 'available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (3, 'reserved');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (4, 'not-available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (5, 'available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (6, 'available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (7, 'available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (8, 'not-available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (9, 'available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (10, 'available');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (11, 'reserved');
-INSERT INTO TableAvailability (table_id, seat_Availability) values (12, 'reserved');
+INSERT INTO table_availability (table_id, seat_Availability) values (1, 'available');
+INSERT INTO table_availability (table_id, seat_Availability) values (2, 'available');
+INSERT INTO table_availability (table_id, seat_Availability) values (3, 'reserved');
+INSERT INTO table_availability (table_id, seat_Availability) values (4, 'not-available');
+INSERT INTO table_availability (table_id, seat_Availability) values (5, 'available');
+INSERT INTO table_availability (table_id, seat_Availability) values (6, 'available');
+INSERT INTO table_availability (table_id, seat_Availability) values (7, 'available');
+INSERT INTO table_availability (table_id, seat_Availability) values (8, 'not-available');
+INSERT INTO table_availability (table_id, seat_Availability) values (9, 'available');
+INSERT INTO table_availability (table_id, seat_Availability) values (10, 'available');
+INSERT INTO table_availability (table_id, seat_Availability) values (11, 'reserved');
+INSERT INTO table_availability (table_id, seat_Availability) values (12, 'reserved');
 
 
 INSERT INTO complaint (complaint_id, complaint_description, customer_name, email, booking_id, status)
@@ -84,20 +82,20 @@ VALUES
 
 INSERT INTO employee (employee_id, shift_type, base_salary, email, first_name, last_name, mobile_no)
 VALUES
-    (1, 'Morning', 2500, 'john.doe@example.com', 'John', 'Doe', '+1234567890'),
-    (2, 'Evening', 2600, 'jane.smith@example.com', 'Jane', 'Smith', '+1987654321'),
-    (3, 'Night', 2700, 'bob.johnson@example.com', 'Bob', 'Johnson', '+1122334455'),
-    (4, 'Morning', 2550, 'alice.wang@example.com', 'Alice', 'Wang', '+1555099887'),
-    (5, 'Evening', 2650, 'michael.brown@example.com', 'Michael', 'Brown', '+1777888999');
+    (1, 1, 2500, 'john.doe@example.com', 'John', 'Doe', '1234567890'),
+    (2, 1, 2600, 'jane.smith@example.com', 'Jane', 'Smith', '1987654321'),
+    (3, 2, 2700, 'bob.johnson@example.com', 'Bob', 'Johnson', '1122334455'),
+    (4, 2, 2550, 'alice.wang@example.com', 'Alice', 'Wang', '1555099887'),
+    (5, 1, 2650, 'michael.brown@example.com', 'Michael', 'Brown', '1777888999');
 
 
 INSERT INTO event (event_id, availability, description, event_name, price)
 VALUES
-    (1, 'Available', 'A fun-filled music concert featuring various artists.', 'Music Concert', 50.00),
-    (2, 'Sold Out', 'An exciting sports event showcasing top athletes.', 'Sports Event', 75.00),
-    (3, 'Available', 'A delightful food festival with a wide range of cuisines.', 'Food Festival', 30.00),
-    (4, 'Available', 'A thrilling adventure trek through scenic landscapes.', 'Adventure Trek', 100.00),
-    (5, 'Available', 'A captivating art exhibition displaying diverse artworks.', 'Art Exhibition', 20.00);
+    (1, true, 'A fun-filled music concert featuring various artists.', 'Music Concert', 50.00),
+    (2, true, 'An exciting sports event showcasing top athletes.', 'Sports Event', 75.00),
+    (3, true, 'A delightful food festival with a wide range of cuisines.', 'Food Festival', 30.00),
+    (4, true, 'A thrilling adventure trek through scenic landscapes.', 'Adventure Trek', 100.00),
+    (5, false, 'A captivating art exhibition displaying diverse artworks.', 'Art Exhibition', 20.00);
 
 INSERT INTO event_booking (booking_id, customer_description, customer_name, date, event_type, location, no_of_members)
 VALUES
@@ -115,36 +113,36 @@ VALUES
     (4, 104, 'michael@example.com', 'Michael Wang', 'Amazing trekking experience, breathtaking views!', 1),
     (5, 105, 'sophia@example.com', 'Sophia Wilson', 'Loved the art exhibition, so inspiring!', 1);
 
-INSERT INTO food (food_id, food_availability, food_category, food_img, food_price, food_name)
+INSERT INTO food (food_id, food_availability, food_category, food_price, food_name)
 VALUES
-    (1, 'Available', 'Appetizers', 'appetizer_img.jpg', 8.99, 'Stuffed Mushrooms'),
-    (2, 'Available', 'Main Course', 'main_course_img.jpg', 14.99, 'Grilled Salmon'),
-    (3, 'Sold Out', 'Desserts', 'dessert_img.jpg', 6.99, 'Chocolate Lava Cake'),
-    (4, 'Available', 'Appetizers', 'appetizer_img.jpg', 7.49, 'Garlic Bread'),
-    (5, 'Available', 'Main Course', 'main_course_img.jpg', 18.99, 'Filet Mignon');
+    (1, true, 'Appetizers', 8.99, 'Stuffed Mushrooms'),
+    (2, true, 'Main Course', 14.99, 'Grilled Salmon'),
+    (3, true, 'Desserts', 6.99, 'Chocolate Lava Cake'),
+    (4, true, 'Appetizers', 7.49, 'Garlic Bread'),
+    (5, true, 'Main Course', 18.99, 'Filet Mignon');
 
 
 INSERT INTO menu (menu_id, availability, menu_name, price, dish_type, meal_type)
 VALUES
-    (1, 'Available', 'Vegetarian Delight', 10.99, 'Vegetarian', 'Lunch'),
-    (2, 'Available', 'Grilled Chicken Platter', 15.99, 'Non-Vegetarian', 'Dinner'),
-    (3, 'Sold Out', 'Seafood Extravaganza', 25.99, 'Non-Vegetarian', 'Dinner'),
-    (4, 'Available', 'Pasta Paradise', 12.99, 'Vegetarian', 'Lunch'),
-    (5, 'Available', 'Sizzling Steak Special', 22.99, 'Non-Vegetarian', 'Dinner');
+    (1, 1, 'Vegetarian Delight', 10.99, 'Vegetarian', 'Lunch'),
+    (2, 1, 'Grilled Chicken Platter', 15.99, 'Non-Vegetarian', 'Dinner'),
+    (3, 1, 'Seafood Extravaganza', 25.99, 'Non-Vegetarian', 'Dinner'),
+    (4, 0, 'Pasta Paradise', 12.99, 'Vegetarian', 'Lunch'),
+    (5, 1, 'Sizzling Steak Special', 22.99, 'Non-Vegetarian', 'Dinner');
 
 
-INSERT INTO payment (payment_id, bill_amount, payment_status, customer_email, customer_name, amount)
+INSERT INTO payment (payment_id, bill_amount, payment_status, customer_email, customer_name)
 VALUES
-    (1, 100.00, 'Paid', 'alice@example.com', 'Alice Johnson', 100.00),
-    (2, 150.00, 'Paid', 'david@example.com', 'David Smith', 150.00),
-    (3, 75.00, 'Pending', 'emily@example.com', 'Emily Brown', 0.00),
-    (4, 200.00, 'Paid', 'michael@example.com', 'Michael Wang', 200.00),
-    (5, 120.00, 'Paid', 'sophia@example.com', 'Sophia Wilson', 120.00);
+    (1, 100.00, 0, 'alice@example.com', 'Alice Johnson'),
+    (2, 150.00, 0, 'david@example.com', 'David Smith'),
+    (3, 75.00, 1, 'emily@example.com', 'Emily Brown'),
+    (4, 200.00, 0, 'michael@example.com', 'Michael Wang'),
+    (5, 120.00, 1, 'sophia@example.com', 'Sophia Wilson');
 
 INSERT INTO refund (refund_id, customer_email, customer_name, referenced_booking_id, refund_amount, refund_status, refunded_date)
 VALUES
-    (1, 'john@example.com', 'John Smith', 101, 50.00, 'Processed', '2024-04-25'),
-    (2, 'emily@example.com', 'Emily Johnson', 102, 100.00, 'Pending', NULL),
-    (3, 'david@example.com', 'David Wilson', 103, 25.00, 'Processed', '2024-04-28'),
-    (4, 'sophia@example.com', 'Sophia Brown', 104, 75.50, 'Processed', '2024-05-02'),
-    (5, 'michael@example.com', 'Michael Taylor', 105, 30.00, 'Pending', NULL);
+    (1, 'john@example.com', 'John Smith', 101, 50.00, 1, '2024-04-25'),
+    (2, 'emily@example.com', 'Emily Johnson', 102, 100.00, 0, NULL),
+    (3, 'david@example.com', 'David Wilson', 103, 25.00, 1, '2024-04-28'),
+    (4, 'sophia@example.com', 'Sophia Brown', 104, 75.50, 1, '2024-05-02'),
+    (5, 'michael@example.com', 'Michael Taylor', 105, 30.00, 0, NULL);

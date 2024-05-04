@@ -72,7 +72,7 @@ public class PackageController extends BaseController {
 	@PostMapping("/updatePackage")
 	public String updatePackage(@ModelAttribute PackageDTO packageDTO) {
 		masterService.updatePackageDTO(packageDTO);
-		return "redirect:/success";
+		return "redirect:/admin/adminHome?showDiv=remove_package";
 	}
 
 	@GetMapping("/pack")

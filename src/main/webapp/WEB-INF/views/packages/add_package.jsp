@@ -26,7 +26,7 @@
                 <h3 class="title">Add Package</h3>
 
                 <div class="input-container">
-                    <input type="hidden" name="packageId" value="<%= packageDTO != null ? packageDTO.getId() : ""%>" class="input"/>
+                    <input type="hidden" name="id" value="<%= packageDTO != null ? packageDTO.getId() : ""%>" class="input"/>
                 </div>
 
                 <div class="input-container">
