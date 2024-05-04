@@ -23,12 +23,14 @@ public class TableAvailabilityServiceImpl implements TableAvailabilityService{
     }
 
     @Override
-    public TableAvailability getTableAvailabilityById() {
-        return null;
+    public TableAvailability getTableAvailabilityById(Integer id) {
+        return tableAvailabilityRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Optional<TableAvailability> getTableAvailabilityById(Integer id){
-        return tableAvailabilityRepository.findById(id);
+    public void saveSeat(TableAvailability availability) {
+        tableAvailabilityRepository.save(availability);
     }
+
+
 }

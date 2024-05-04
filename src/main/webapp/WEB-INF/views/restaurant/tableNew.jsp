@@ -1,5 +1,6 @@
 <%@ page import="com.happyman.Ruby.masterService.dao.FoodOrder" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.happyman.Ruby.masterService.dao.TableAvailability" %><%--
   Created by IntelliJ IDEA.
   User: Jola
   Date: 5/1/2024
@@ -7,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<% @SuppressWarnings("unchecked") List<FoodOrder> foodOrderList = (List<FoodOrder>) request.getAttribute("food_order"); %>
+<% List<TableAvailability> tables = (List<TableAvailability>) request.getAttribute("seatList"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
 <body>
 
 <div class="body-container">
-    <% if (foodOrderList != null && !foodOrderList.isEmpty()) { %>
+
 
     <div>
         <h1>Header</h1>
@@ -49,10 +50,9 @@
         <!--table2-->
         <div class="table02-container">
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 2){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table02"
+                    id="2"
+                    <% TableAvailability table2 = tables.stream().filter(table -> table.getId().equals(2)).findFirst().orElse(null); %>
+                    class="table02 <%=table2.getSeatAvailability() %>"
                     data-tableNum="2"
                     onclick="toggleColor('table02')"
             ></div>
@@ -75,10 +75,9 @@
         <div class="table01-container">
             <!-- table01 table -->
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 1){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table01"
+                    id="1"
+                    <% TableAvailability table1 = tables.stream().filter(table -> table.getId().equals(1)).findFirst().orElse(null); %>
+                    class="table01 <%=table2.getSeatAvailability() %>"
                     data-tableNum="1"
                     onclick="toggleColor('table01')"
             ></div>
@@ -98,10 +97,9 @@
         <!--table3-->
         <div class="table03-container">
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 3){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table03"
+                    id="3"
+                    <% TableAvailability table3 = tables.stream().filter(table -> table.getId().equals(3)).findFirst().orElse(null); %>
+                    class="table03 <%=table3.getSeatAvailability() %>"
                     data-tableNum="3"
                     onclick="toggleColor('table03')"
             ></div>
@@ -121,10 +119,9 @@
         <!--table11-->
         <div class="table11-container">
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 11){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table11"
+                    id="11"
+                    <% TableAvailability table11 = tables.stream().filter(table -> table.getId().equals(11)).findFirst().orElse(null); %>
+                    class="table11 <%=table11.getSeatAvailability() %>"
                     data-tableNum="11"
                     onclick="toggleColor('table11')"
             ></div>
@@ -144,10 +141,9 @@
         <!--table12-->
         <div class="table12-container">
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 12){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table12"
+                    id="12"
+                    <% TableAvailability table12 = tables.stream().filter(table -> table.getId().equals(12)).findFirst().orElse(null); %>
+                    class="table12 <%=table2.getSeatAvailability() %>"
                     data-tableNum="12"
                     onclick="toggleColor('table12')"
             ></div>
@@ -173,10 +169,9 @@
             <div class="bottom-seat-table04"></div>
             <div class="bottom-seat-rest-table04"></div>
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 4){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table04"
+                    id="4"
+                    <% TableAvailability table4 = tables.stream().filter(table -> table.getId().equals(4)).findFirst().orElse(null); %>
+                    class="table04 <%=table4.getSeatAvailability() %>"
                     data-tableNum="4"
                     onclick="toggleColor('table04')"
             ></div>
@@ -193,10 +188,9 @@
             <div class="bottom-seat-rest-table10"></div>
             <!-- table10 table  -->
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 10){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table10"
+                    id="10"
+                    <% TableAvailability table10 = tables.stream().filter(table -> table.getId().equals(10)).findFirst().orElse(null); %>
+                    class="table10 <%=table2.getSeatAvailability() %>"
                     data-tableNum="10"
                     onclick="toggleColor('table10')"
             ></div>
@@ -213,10 +207,9 @@
             <div class="bottom-seat-rest-table08"></div>
 
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 8){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table08"
+                    id="8"
+                    <% TableAvailability table8 = tables.stream().filter(table -> table.getId().equals(8)).findFirst().orElse(null); %>
+                    class="table08 <%=table8.getSeatAvailability() %>"
                     data-tableNum="8"
                     onclick="toggleColor('table08')"
             ></div>
@@ -235,10 +228,9 @@
             <div class="bottom-seat-rest-table09"></div>
 
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 9){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table09"
+                    id="9"
+                    <% TableAvailability table9 = tables.stream().filter(table -> table.getId().equals(9)).findFirst().orElse(null); %>
+                    class="table09 <%=table9.getSeatAvailability() %>"
                     data-tableNum="9"
                     onclick="toggleColor('table09')"
             ></div>
@@ -256,10 +248,9 @@
             <div class="bottom-seat-rest-table05"></div>
 
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 5){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table05"
+                    id="5"
+                    <% TableAvailability table5 = tables.stream().filter(table -> table.getId().equals(5)).findFirst().orElse(null); %>
+                    class="table05 <%=table5.getSeatAvailability() %>"
                     data-tableNum="5"
                     onclick="toggleColor('table05')"
             ></div>
@@ -277,10 +268,9 @@
             <div class="bottom-seat-rest-table06"></div>
 
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 6){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table06"
+                    id="6"
+                    <% TableAvailability table6 = tables.stream().filter(table -> table.getId().equals(6)).findFirst().orElse(null); %>
+                    class="table06 <%=table6.getSeatAvailability() %>"
                     data-tableNum="6"
                     onclick="toggleColor('table06')"
             ></div>
@@ -290,10 +280,9 @@
         <!--table7-->
         <div class="table07-container">
             <div
-                    id="<% for (FoodOrder foodOrder : foodOrderList) {if(foodOrder.getTableId() == 7){foodOrder.getAvailability();%>"
-                    data-tableStatus="<% foodOrder.getAvailability();} }%>"
-
-                    class="table07"
+                    id="7"
+                    <% TableAvailability table7 = tables.stream().filter(table -> table.getId().equals(7)).findFirst().orElse(null); %>
+                    class="table07 <%=table7.getSeatAvailability() %>"
                     data-tableNum="7"
                     onclick="toggleColor('table07')"
             ></div>

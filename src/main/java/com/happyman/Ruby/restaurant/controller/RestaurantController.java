@@ -3,6 +3,7 @@ package com.happyman.Ruby.restaurant.controller;
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.masterService.dao.Food;
 import com.happyman.Ruby.masterService.dao.Menu;
+import com.happyman.Ruby.masterService.dao.TableAvailability;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -102,6 +103,15 @@ public class RestaurantController extends BaseController {
     public String getNewSummaryl(){
         return "/restaurant/newSummary";
     }
+
+
+    @GetMapping("/tableAvailability")
+    public String showTableAvailability(Model model) {
+        List<TableAvailability> seatList = masterService.getAllTables();
+        model.addAttribute("seatList", seatList);
+        return "restaurant/tableNew";
+    }
+
 
 }
 

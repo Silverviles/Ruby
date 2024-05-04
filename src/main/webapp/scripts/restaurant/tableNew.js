@@ -1,3 +1,4 @@
+/*
 
 //mewa aluthen add kare
 //methanin venne backend gatta table id ekai availability ekai pass karana eka
@@ -10,6 +11,7 @@ for (var i = 1; i <= 12; i++) {
 //<p> element eka null value ekak denva mulin
 var selectedTable = document.getElementById("selectedTableDisplay");
 selectedTable = null;
+*/
 
 //me function eken venne click karama select vena scene eka
 function toggleColor(id) {

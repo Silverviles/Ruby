@@ -48,3 +48,16 @@ INSERT INTO package (availability, description, discontinue_date, max_adults, na
 INSERT INTO package (availability, description, discontinue_date, max_adults, name, price, type, no_of_nights) VALUES (1, 'Embark on a cultural journey with our Heritage Experience package, including visits to historical sites and cultural performances.', NULL, 4, 'Heritage Experience', 299.99, 'Cultural', 3);
 INSERT INTO package (availability, description, discontinue_date, max_adults, name, price, type, no_of_nights) VALUES (1, 'Indulge in luxury with our VIP Experience package, featuring exclusive access and personalized services.', NULL, 2, 'VIP Experience', 499.99, 'Luxury', 2);
 INSERT INTO package (availability, description, discontinue_date, max_adults, name, price, type, no_of_nights) VALUES (1, 'Spend quality time with the family with our Family Fun package, including family-friendly activities and accommodations.', NULL, 4, 'Family Fun', 249.99, 'Family', 3);
+
+INSERT INTO TableAvailability (table_id, seat_Availability) values (1, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (2, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (3, 'reserved');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (4, 'not-available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (5, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (6, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (7, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (8, 'not-available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (9, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (10, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (11, 'reserved');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (12, 'reserved');
