@@ -60,12 +60,12 @@
                         <ul class="sub-menu">
                             <li id="update_room_button">
                                 <a href="#">
-                                    <span class="text1">Update Room</span>
+                                    <span class="text1">Add Room</span>
                                 </a>
                             </li>
                             <li id="remove_room_button">
                                 <a href="#">
-                                    <span class="text1">Remove Room</span>
+                                    <span class="text1">All Room</span>
                                 </a>
                             </li>
                         </ul>
