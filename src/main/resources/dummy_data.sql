@@ -58,3 +58,16 @@ VALUES
     (0, 1, 'Elevate your next corporate retreat with a luxurious getaway experience. Immerse yourselves in productive meetings and team-building activities in a serene and inspiring environment. Our state-of-the-art meeting facilities are equipped with everything you need for a successful event. Enjoy catered meals crafted with care and attention to detail, fostering camaraderie and collaboration among your team.', '2024-12-31', 20, 'Executive Getaway', 50000, 'Business', 1),
     (0, 1, 'Gather your friends and family for a memorable celebration to cherish forever. Transform your event into a magical occasion with personalized decorations, creating a festive atmosphere that reflects your unique style and personality. Indulge in a sumptuous celebratory cake, specially crafted to mark the occasion in sweet style. Cap off the festivities with a sizzling barbecue dinner, bringing everyone together for an evening of laughter, love, and lasting memories.', '2024-10-31', 40, 'Group Celebration', 50000, 'Large_Group', 2),
     (0, 1, 'Escape with your significant other to a romantic paradise at Happy Man Village. Indulge in intimate moments with a candlelit dinner for two, relax with a couples'' spa treatment, and embark on a private sunset cruise along the picturesque coastline.', '2025-08-17', 2, 'Lovebirds Retreat', 18000, 'Couple', 3);
+
+INSERT INTO TableAvailability (table_id, seat_Availability) values (1, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (2, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (3, 'reserved');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (4, 'not-available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (5, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (6, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (7, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (8, 'not-available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (9, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (10, 'available');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (11, 'reserved');
+INSERT INTO TableAvailability (table_id, seat_Availability) values (12, 'reserved');

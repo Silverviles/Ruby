@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,15 +7,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/images/roomReservation/login_back.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-image: url("../../images/roomReservation/login_background.jpg"); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
     background-size: cover; /* This ensures the image covers the entire background */
     background-position: center; /* This centers the image */
 }
 
 .login-page, .register-page {
-    width: 25%;
-    height: 35%;
-    background-color: #fff;
+    width: 20%;
+    height: 40%;
+    background-color: rgb(203, 202, 255,255);
     padding: 45px;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

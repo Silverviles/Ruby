@@ -69,28 +69,31 @@ public class MasterServiceImpl implements MasterService {
 	private final ComplaintService complaintService;
 	private final RoomReservationService roomReservationService;
 
+	private final TableAvailabilityService tableAvailabilityService;
+
 	@Autowired
 	public MasterServiceImpl(
-		DriverService driverService,
-		VehicleService vehicleService,
-		TripService tripService,
-		FoodService foodService,
-		PaymentService paymentService,
-		EmployeeService employeeService,
-		AddonService addonService,
-		PackageService packageService,
-		PackageToAddonService packageToAddonService,
-		SeatService seatService,
-		EventService eventService,
-		EventToAddOnService eventAddon,
-		RoomService roomService,
-		FeedbackService feedbackService,
-		ReservationService reservationService,
-		RefundService refundService,
-		MenuService menuService,
-		ComplaintService complaintService,
-		RoomReservationService roomReservationService
-	) {
+            DriverService driverService,
+            VehicleService vehicleService,
+            TripService tripService,
+            FoodService foodService,
+            PaymentService paymentService,
+            EmployeeService employeeService,
+            AddonService addonService,
+            PackageService packageService,
+            PackageToAddonService packageToAddonService,
+            SeatService seatService,
+            EventService eventService,
+            EventToAddOnService eventAddon,
+            RoomService roomService,
+            FeedbackService feedbackService,
+            ReservationService reservationService,
+            RefundService refundService,
+            MenuService menuService,
+            ComplaintService complaintService,
+            RoomReservationService roomReservationService,
+			TableAvailabilityService tableAvailabilityService
+    ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
 		this.tripService = tripService;
@@ -110,7 +113,8 @@ public class MasterServiceImpl implements MasterService {
 		this.menuService = menuService;
 		this.complaintService = complaintService;
 		this.roomReservationService = roomReservationService;
-	}
+        this.tableAvailabilityService = tableAvailabilityService;
+    }
 
 	@Override
 	public void addDriver(Driver driver) {
@@ -234,6 +238,21 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public List<Food> getAllFoodByCategoryAndAvailability(DomainConstants.FoodCategory category, Byte availability) {
 		return foodService.getAllFoodByCategoryAndAvailability(category, availability);
+	}
+
+	@Override
+	public List<TableAvailability> getAllTables() {
+		return tableAvailabilityService.getAllSeats();
+	}
+
+	@Override
+	public TableAvailability getTableAvailabilityById(Integer id) {
+		return tableAvailabilityService.getTableAvailabilityById(id);
+	}
+
+	@Override
+	public void saveSeat(TableAvailability availability) {
+		tableAvailabilityService.saveSeat(availability);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ $(".menu > ul > li").click(function (e) {
 $(document).ready(function() {
     $('.sub-contents').hide();
 
-    $('.sub-menu > li').click(function() {
+    $('.sub-menu > li, .dashboard-button').click(function() {
         const buttonId = $(this).attr('id');
         const roomId = buttonId.replace('_button', '');
 
@@ -17,10 +17,17 @@ $(document).ready(function() {
         $('#' + roomId).css('display', 'block');
     });
 
+    document.getElementById("dashboard_button").addEventListener('click', function(e) {
+        $('.sub-contents').hide();
+        document.getElementById("dashboard").style.display = "block";
+    })
+
     const showDivId = getUrlParameter('showDiv');
 
     if (showDivId) {
         $("#" + showDivId).show();
+    } else {
+        document.getElementById("dashboard").style.display = "block";
     }
 
     history.replaceState({}, document.title, window.location.pathname);

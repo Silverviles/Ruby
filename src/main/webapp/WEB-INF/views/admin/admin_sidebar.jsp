@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_form.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_table.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/packages/add_package.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_dashboard.css">
 
     <script
             src="https://kit.fontawesome.com/64d58efce2.js"
@@ -59,12 +60,12 @@
                         <ul class="sub-menu">
                             <li id="update_room_button">
                                 <a href="#">
-                                    <span class="text1">Update Room</span>
+                                    <span class="text1">Add Room</span>
                                 </a>
                             </li>
                             <li id="remove_room_button">
                                 <a href="#">
-                                    <span class="text1">Remove Room</span>
+                                    <span class="text1">All Room</span>
                                 </a>
                             </li>
                         </ul>
@@ -194,18 +195,18 @@
                     <li>
                         <a href="#">
                             <i class='bx bx-dna'></i>
-                            <span class="text">Feedbacks</span>
+                            <span class="text">Customer Support</span>
                             <i class='arrow bx bx-chevron-down'></i>
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li id="feedback_button">
                                 <a href="#">
-                                    <span class="text1">E1</span>
+                                    <span class="text1">Feedback</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="complaint_button">
                                 <a href="#">
-                                    <span class="text1">E2</span>
+                                    <span class="text1">Complaint</span>
                                 </a>
                             </li>
                         </ul>
@@ -299,6 +300,15 @@
         <div id="refunds" class="sub-contents">
             <jsp:include page="../billingAndReporting/adminRefunds.jsp" />
         </div>
+
+        <div id="feedback" class="sub-contents">
+            <jsp:include page="../customerSupportSystem/feedbackAdmin.jsp" />
+        </div>
+
+        <div id="complaint" class="sub-contents">
+            <jsp:include page="../customerSupportSystem/complaintAdmin.jsp" />
+        </div>
+
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/scripts/jquery.js"></script>

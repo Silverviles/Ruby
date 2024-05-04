@@ -61,7 +61,7 @@
         <% if (roomList != null && !roomList.isEmpty()) { %>
         <% int i = 0; %>
         <% for (Room room : roomList) { %>
-        <% i++; if (i >= 17) i = 1; %>
+        <% i++; if (i >= 16) i = 1; %>
         <form id="room_<%=room.getRoomId()%>" class="card_link" method="post" action="${pageContext.request.contextPath}/room/serveRoom">
             <button type="submit" style="border: none">
                 <div class="popular_card">

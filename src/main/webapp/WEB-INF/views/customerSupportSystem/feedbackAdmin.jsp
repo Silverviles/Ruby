@@ -13,17 +13,12 @@
     List<Feedback> feedbackList = new ArrayList<Feedback>();
     feedbackList = (List<Feedback>) request.getAttribute("feedbacks");
 %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/customerSupport/feedbackAdmin.css">
-</head>
-<body>
-<div id="feedback" class="sub-contents"></div>
-<table>
+<div class="tableDiv">
+    <div id="searchContainer" class="searchContainer">
+        <input type="text" class="searchInput" aria-label="Search Input" id="searchFeedbackInput" placeholder="Search User Name">
+    </div>
+<table id="feedbackTable" class="adminTable">
+    <thead class="tableHead">
     <tr>
         <th>Username</th>
         <th>Email</th>
@@ -31,6 +26,8 @@
         <th>Message</th>
         <th>Action</th>
     </tr>
+    </thead>
+    <tbody class="tableBody">
     <% if (feedbackList != null && !feedbackList.isEmpty()) { %>
     <% for (Feedback feedback : feedbackList) { %>
     <tr>
@@ -52,7 +49,7 @@
     <% } else { %>
     <tr><td colspan="5">No Records</td></tr>
     <% } %>
+    </tbody>
 </table>
-</body>
-</html>
+</div>
 

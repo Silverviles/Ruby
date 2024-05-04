@@ -27,6 +27,8 @@ window.onload = function () {
 	const searchEventInput = document.getElementById("searchEventInput");
 	const searchRoomInput = document.getElementById("searchRoomInput");
 	const searchFoodInput = document.getElementById("searchFoodInput");
+	const searchComplaintInput = document.getElementById("searchComplaintInput");
+	const searchFeedbackInput = document.getElementById("searchFeedbackInput");
 	searchEmployeeInput.addEventListener("input", () => {searchTable("searchEmployeeInput", "employeeTable", 1)});
 	searchPackageInput.addEventListener("input", () => {searchTable("searchPackageInput", "packageTable", 1)});
 	searchPaymentInput.addEventListener("input", () => {searchTable("searchPaymentInput", "paymentTable", 0)});
@@ -34,4 +36,6 @@ window.onload = function () {
 	searchEventInput.addEventListener("input", () => {searchTable("searchEventInput", "eventTable", 1)});
 	searchRoomInput.addEventListener("input", () => {searchTable("searchRoomInput", "roomTable", 1)});
 	searchFoodInput.addEventListener("input", () => {searchTable("searchFoodInput", "foodTable", 1)});
+	searchComplaintInput.addEventListener("input", () => {searchTable("searchComplaintInput", "complaintTable", 0)});
+	searchFeedbackInput.addEventListener("input", () => {searchTable("searchFeedbackInput", "feedbackTable", 0)});
 };

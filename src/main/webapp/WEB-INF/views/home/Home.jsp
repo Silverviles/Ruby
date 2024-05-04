@@ -368,17 +368,17 @@
         </div>
     </div>
 
-
+<br>
 
     <div class ="room section ">
-        <h1>Rooms</h1></div>
+        <h1 style="margin-left: 50px;">Rooms</h1></div><br>
 
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_5terre.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/room4.jpg" alt="Cinque Terre" width="600" height="400" >
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">family room, Ocean view</div>
         </div>
     </div>
 
@@ -388,7 +388,7 @@
             <a target="_blank" href="img_forest.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/roomid1.jpeg" alt="Forest" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Triple room, garden view</div>
         </div>
     </div>
 
@@ -397,7 +397,7 @@
             <a target="_blank" href="img_lights.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/roomid2.jpg" alt="Northern Lights" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Double room, Pool access, garden view</div>
         </div>
     </div>
 
@@ -406,7 +406,7 @@
             <a target="_blank" href="img_mountains.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/roomid3.jpg" alt="Mountains" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Double room, Ocean view</div>
         </div>
     </div>
 
@@ -414,16 +414,16 @@
 
     <!--room types section over-->
 
-
+    <br><br>
     <!--Resturant section begin-->
-    <div class ="room section "><h1>Resturant</h1></div>
+    <div class ="room section " style="margin-left: 50px;"><h1>Resturant</h1></div><br>
 
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_5terre.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem1.jpg" alt="Cinque Terre" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Tea party</div>
         </div>
     </div>
 
@@ -433,7 +433,7 @@
             <a target="_blank" href="img_forest.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem2.jpg" alt="Forest" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Easy breakfast</div>
         </div>
     </div>
 
@@ -442,7 +442,7 @@
             <a target="_blank" href="img_lights.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem3.jpg" alt="Northern Lights" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Bakeries and Breakfast </div>
         </div>
     </div>
 
@@ -451,7 +451,7 @@
             <a target="_blank" href="img_mountains.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/breakitem4.jpg" alt="Mountains" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Fruits</div>
         </div>
     </div>
 
@@ -459,16 +459,16 @@
 
 
 
-
+<br><br>
     <!--Resturant section begin-->
-    <div class ="room section "><h1>EVENTS</h1></div>
+    <div class ="room section " style="margin-left: 50px;"><h1>EVENTS</h1></div><br>
 
     <div class="responsive">
         <div class="gallery">
             <a target="_blank" href="img_5terre.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/fes1.jpg" alt="Cinque Terre" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Outdoor wedding</div>
         </div>
     </div>
 
@@ -478,7 +478,7 @@
             <a target="_blank" href="img_forest.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/fes2.jpg" alt="Forest" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Music festival</div>
         </div>
     </div>
 
@@ -487,7 +487,7 @@
             <a target="_blank" href="img_lights.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/fes3.jpg" alt="Northern Lights" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Birthday celebrations</div>
         </div>
     </div>
 
@@ -496,13 +496,13 @@
             <a target="_blank" href="img_mountains.jpg">
                 <img src="${pageContext.request.contextPath}/images/employeeManagement/fes4.jpg" alt="Mountains" width="600" height="400">
             </a>
-            <div class="desc">Add a description of the image here</div>
+            <div class="desc">Cultural events</div>
         </div>
     </div>
 
     <div class="clearfix"></div>
 
-
+<br>
 
     <div class="about-me">
         <div class="about-me-text">
