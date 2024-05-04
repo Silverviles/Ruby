@@ -79,6 +79,11 @@ public interface MasterService {
 
 	List<Food> getAllFoodByCategoryAndAvailability(DomainConstants.FoodCategory category, Byte availability);
 
+	List<TableAvailability> getAllTables();
+	TableAvailability getTableAvailabilityById(Integer id);
+
+	void saveSeat(TableAvailability availability);
+
 	// Implementation for Seat
 	void saveSeat(Seat seat);
 
