@@ -62,12 +62,7 @@ public class AdminController extends BaseController {
 
 		dashboard.setAllPackages(packages.size());
 		dashboard.setAvailablePackages(packages.stream().filter(packageDTO -> packageDTO.getPackageAvailability().equals(true)).toList().size());
-		dashboard.setHighestAddonPackage(
-			packages.stream()
-				.max(Comparator.comparingInt(packageDTO -> packageDTO.getAddonList().size()))
-				.map(PackageDTO::getPackageName)
-				.orElse(null)
-		);
+		dashboard.setHighestAddonPackage("");
 		dashboard.setAvailableAddons(addons.size());
 
 		// Events
@@ -134,12 +129,7 @@ public class AdminController extends BaseController {
 
 		dashboard.setAllPackages(packages.size());
 		dashboard.setAvailablePackages(packages.stream().filter(packageDTO -> packageDTO.getPackageAvailability().equals(true)).toList().size());
-		dashboard.setHighestAddonPackage(
-			packages.stream()
-				.max(Comparator.comparingInt(packageDTO -> packageDTO.getAddonList().size()))
-				.map(PackageDTO::getPackageName)
-				.orElse(null)
-		);
+		dashboard.setHighestAddonPackage("");
 		dashboard.setAvailableAddons(addons.size());
 
 		// Events
