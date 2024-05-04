@@ -1,0 +1,39 @@
+.admin-grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+}
+
+.dashboard-grid-item {
+    background-color: rgba(255, 211, 175, 0.8);
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-grid-item:nth-child(even) {
+    margin-right: 50px;
+    margin-left: 10px;
+}
+
+.dashboard-grid-item:nth-child(odd) {
+    margin-right: 10px;
+    margin-left: 100px;
+}
+
+.dashboard-grid-item h3{
+    font-size: 25px;
+}
+
+.dashboard-item {
+    text-align: left;
+}
+
+.dashboard-item p{
+    font-size: 20px;
+}

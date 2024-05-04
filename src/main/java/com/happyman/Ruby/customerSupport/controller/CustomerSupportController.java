@@ -40,8 +40,7 @@ public class CustomerSupportController extends BaseController {
 	@PostMapping("/deleteFeedback")
 	public String deleteFeedback(Integer feedbackId, Model model) {
 		masterService.deleteFeedbackById(feedbackId);
-		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
-		return "common/admin_sidebar";
+		return "redirect:/admin/adminHome?showDiv=feedback";
 	}
 
 	@PostMapping("/acceptFeedback")
@@ -49,8 +48,7 @@ public class CustomerSupportController extends BaseController {
 		Feedback feedback = masterService.getFeedbackById(feedbackId);
 		feedback.setActive(true);
 		masterService.addFeedback(feedback);
-		model.addAttribute("feedbacks", masterService.getAllFeedbacks());
-		return "common/admin_sidebar";
+		return "redirect:/admin/adminHome?showDiv=feedback";
 	}
 
 	@GetMapping("/giveComplaintForm")
@@ -68,6 +66,25 @@ public class CustomerSupportController extends BaseController {
 		cmp.setComplaintDesc(complaint.getComplaintDesc());
 
 		masterService.saveComplaint(cmp);
-		return "redirect:/success";
+		return "home/Home";
+	}
+
+	@GetMapping("/complaint")
+	public String authenticate2() {
+		return "customerSupportSystem/complain";
+	}
+
+	@PostMapping("/resolveComplaint")
+	public String resolveComplaint(Integer complaintId) {
+		Complaint complaint = masterService.findComplaintById(complaintId);
+		complaint.setStatus(true);
+		masterService.saveComplaint(complaint);
+		return "redirect:/admin/adminHome?showDiv=complaint";
+	}
+
+	@PostMapping("/deleteComplaint")
+	public String deleteComplaint(Integer complaintId) {
+		masterService.deleteComplaint(complaintId);
+		return "redirect:/admin/adminHome?showDiv=complaint";
 	}
 }

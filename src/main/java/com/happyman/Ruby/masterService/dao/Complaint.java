@@ -28,4 +28,7 @@ public class Complaint {
 	@Column(name = "email") private String email;
 
 	@Column(name = "complaint_description") private String complaintDesc;
+
+	@Column(name = "status") private Boolean status = false;
+
 }

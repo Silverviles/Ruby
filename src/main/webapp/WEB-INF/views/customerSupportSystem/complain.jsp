@@ -57,8 +57,8 @@
                 <input type="hidden" id="bookingId" name="bookingId" value="">
 
                 <div class="input-container">
-                    <input id="customerName" type="text" name="name" class="input" />
-                    <label for="customerName">Name: </label>
+                    <input id="customerName" type="text" name="customerName" class="input" />
+                    <label for="customerName">Name</label>
                     <span>Name</span>
                 </div>
 
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="input-container textarea">
-                    <textarea id="complaint" name="complaintDesc" class="input"></textarea>
+                    <textarea id="complaintDesc" name="complaintDesc" class="input"></textarea>
                     <label for="complaint">Complaint</label>
                     <span>Complaint</span>
                 </div>
@@ -82,6 +82,6 @@
 
 <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>-->
-<script src="${pageContext.request.contextPath}/script/complaintJS.js.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/customerSupportSystem/complaintJS.js"></script>
 </body>
 </html>
