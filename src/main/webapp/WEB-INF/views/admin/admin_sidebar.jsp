@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_form.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_table.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/packages/add_package.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/admin/admin_dashboard.css">
 
     <script
             src="https://kit.fontawesome.com/64d58efce2.js"

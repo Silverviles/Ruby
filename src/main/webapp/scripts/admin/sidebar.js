@@ -9,13 +9,18 @@ $(".menu > ul > li").click(function (e) {
 $(document).ready(function() {
     $('.sub-contents').hide();
 
-    $('.sub-menu > li').click(function() {
+    $('.sub-menu > li, .dashboard-button').click(function() {
         const buttonId = $(this).attr('id');
         const roomId = buttonId.replace('_button', '');
 
         $('.sub-contents').hide();
         $('#' + roomId).css('display', 'block');
     });
+
+    document.getElementById("dashboard_button").addEventListener('click', function(e) {
+        $('.sub-contents').hide();
+        document.getElementById("dashboard").style.display = "block";
+    })
 
     const showDivId = getUrlParameter('showDiv');
 
