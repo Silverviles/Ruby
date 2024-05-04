@@ -14,6 +14,5 @@ public class EventBookDTO {
     private String eventType;
     private String location;
     private Integer noOfMembers;
-
     private String customerDescription;
 }

@@ -13,6 +13,8 @@ import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.events.dto.EventAddDTO;
 import com.happyman.Ruby.masterService.dao.Event;
 
+import java.io.IOException;
+
 
 @Controller
 @RequestMapping("/event")

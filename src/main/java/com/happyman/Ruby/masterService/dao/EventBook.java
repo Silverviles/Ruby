@@ -22,7 +22,7 @@ public class EventBook {
 
 	@Column(name = "customerName", nullable = false, length = 50) private String customerName;
 
-	@Column(name = "date") private LocalDate date;
+	@Column(name = "date") private LocalDate bookingDate;
 
 	@Column(name = "eventType", nullable = false, length = 50) private String eventType;
 
@@ -33,5 +33,5 @@ public class EventBook {
 	@Column(name = "image", length = 100) private String image;
 
 	@Lob
-	@Column(name = "customerDescription") private String customerDescription;
+	@Column(name = "customerDescription") private String description;
 }

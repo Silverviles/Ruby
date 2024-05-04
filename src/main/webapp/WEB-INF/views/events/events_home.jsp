@@ -21,7 +21,7 @@
         <img src="${pageContext.request.contextPath}/images/events/events.jpg" alt="Slide 1">
     </div>
     <div class="slide">
-        <img src="${pageContext.request.contextPath}/images/events/decoration.jpg" alt="Slide 2">
+        <img src="${pageContext.request.contextPath}/images/events/outdoor.cms" alt="Slide 2">
     </div>
     <div class="slide">
         <img src="${pageContext.request.contextPath}/images/events/rose.jpg" alt="Slide 3">
