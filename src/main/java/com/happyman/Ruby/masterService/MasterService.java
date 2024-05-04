@@ -283,4 +283,19 @@ public interface MasterService {
 	public List<Complaint> findAllComplaints();
 	public Complaint findComplaintByBookingId(String bookingId);
 
+	List<EventBook> getAllbookingEvents();
+
+	EventBook getEventBookById(Integer id);
+
+	EventBook getEventBookByName(String eventName);
+
+	EventBook getcustomerNameById(Integer customerName);
+
+	void bookEvent(EventBook eventBook);
+
+	void deleteBookedEvent(Integer id);
+
+	void bookEvents(EventBook eventbook);
+
+	void deleteBookById(Integer id);
 }
