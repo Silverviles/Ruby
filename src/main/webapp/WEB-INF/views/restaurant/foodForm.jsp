@@ -15,7 +15,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #b69c49;
             margin: 0;
             padding: 0;
         }
@@ -25,23 +25,30 @@
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: 8px;
+            border-radius: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #cbe9ca;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         h2 {
-            margin-top: 0;
             font-weight: bold;
             color: #333;
+            margin: 5px auto;
+            text-align: center;
+            font-size: xx-large;
         }
 
         form {
             margin-bottom: 20px;
+            margin-top: 20px;
         }
 
         label {
             font-weight: bold;
-            color: #555;
+            color: #000;
+            font-size: 19px;
         }
 
         select {
@@ -51,6 +58,7 @@
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            border: none;
         }
 
         button {
@@ -58,8 +66,12 @@
             background-color: #4caf50;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 19px;
             cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         button:hover {
@@ -67,8 +79,9 @@
         }
 
         .output {
-            margin-top: 10px;
-            font-size: 16px;
+            width: fit-content;
+            font-size: 20px;
+            margin: 40px auto;
         }
 
         .total-price {
@@ -128,8 +141,9 @@
         <p id="drinkOutput"></p>
         <p id="dessertOutput"></p>
         <p class="total-price" id="totalPrice">Total Price: $0.00</p>
+        <button>Proceed to Payment</button>
     </div>
-    <button>Proceed to Payment</button>
+
 </div>
 </body>
 </html>
