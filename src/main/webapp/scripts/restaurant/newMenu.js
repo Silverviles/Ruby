@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Burger",
             category: "Main Dishes",
             suitableFor: "Launch",
-            imgSrc: "burger.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/1b/f9/f9/1bf9f909ecceb79c29284794c2d74217.jpg",
             price: "180.00",
             quantity: "1",
         },
@@ -19,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
             quantity: "1",
         },
         {
-            name: "Hoers",
+            name: "String hoppers",
             category: "Main Dishes",
             suitableFor: "Breakfast",
             imgSrc:
-                "https://handletheheat.com/wp-content/uploads/2015/03/cake-doughnut-recipe-SQUARE.jpg",
+                "https://i.pinimg.com/564x/0f/bc/82/0fbc825e30bb0f28b925badd1090b87e.jpg",
             price: "280.00",
             quantity: "1",
         },
@@ -31,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Pizza",
             category: "Main Dishes",
             suitableFor: "Dinner",
-            imgSrc: "pizza.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/1d/28/c5/1d28c51cfab73dfcd0e3fad6824f4e86.jpg",
             price: "380.00",
             quantity: "1",
         },
@@ -39,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Cola",
             category: "Drinks",
             suitableFor: "Launch",
-            imgSrc: "cola.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/74/ed/61/74ed61457db38643a8b75c163ca2164b.jpg",
             price: "80.00",
             quantity: "1",
         },
@@ -47,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Coffee",
             category: "Drinks",
             suitableFor: "Breakfast",
-            imgSrc: "coffee.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/50/f1/7c/50f17c380525acf16c5ad8df185b1554.jpg",
             price: "580.00",
             quantity: "1",
         },
@@ -55,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Ice Cream",
             category: "Desserts",
             suitableFor: "Dinner",
-            imgSrc: "ice-cream.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/3c/51/b6/3c51b6cbe2dd56cca60033c616d54b83.jpg",
             price: "480.00",
             quantity: "1",
         },
@@ -72,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Pasta",
             category: "Main Dishes",
             suitableFor: "Dinner",
-            imgSrc: "pasta.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/25/94/92/2594928b6f79c9f83ef68edce7b4fd93.jpg",
             price: "180.00",
             quantity: "1",
         },
@@ -80,7 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Smoothie",
             category: "Drinks",
             suitableFor: "Breakfast",
-            imgSrc: "smoothie.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/17/b2/1d/17b21db69a6fba40d42f97d4cbf1488e.jpg",
             price: "580.00",
             quantity: "1",
         },
@@ -88,7 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Lemonade",
             category: "Drinks",
             suitableFor: "Lunch",
-            imgSrc: "lemonade.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/b4/53/81/b4538182ae4ebbd10948437a48ae4e5d.jpg",
             price: "280.00",
             quantity: "1",
         },
@@ -96,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Cheesecake",
             category: "Desserts",
             suitableFor: "Dinner",
-            imgSrc: "cheesecake.jpg",
+            imgSrc:
+                "https://i.pinimg.com/564x/80/35/60/803560020f0f772bb12862e1eb2f50c0.jpg",
             price: "180.00",
             quantity: "1",
         },
