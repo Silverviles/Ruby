@@ -7,11 +7,11 @@ for (var i = 1; i <= 12; i++) {
     var tableIdStatus = shapeId.getAttribute("data-tableStatus");
     shapeId.classList.add(tableIdStatus)
 }
-
+*/
 //<p> element eka null value ekak denva mulin
 var selectedTable = document.getElementById("selectedTableDisplay");
 selectedTable = null;
-*/
+
 
 //me function eken venne click karama select vena scene eka
 function toggleColor(id) {
