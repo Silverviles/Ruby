@@ -35,6 +35,7 @@
             <li><a href="">Experience</a></li>
             <li><a href="">Event</a></li>
             <li><a href="">Transport</a></li>
+            <li><a href="">Feedback</a></li>
         </ul>
 
     </div>
@@ -54,7 +55,7 @@
     </div>
 
     <div id="fitem5" class="middle-item">
-        <a href="www.facebook.com"><i class="fa-brands fa-facebook-f"></i></i></a>
+        <a href="www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
         <a href="www.instargram.com"><i class="fa-brands fa-instagram"></i></a>
     </div>
