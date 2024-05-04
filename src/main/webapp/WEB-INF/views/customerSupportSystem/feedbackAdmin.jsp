@@ -15,7 +15,7 @@
 %>
 <div class="tableDiv">
     <div id="searchContainer" class="searchContainer">
-        <input type="text" class="searchInput" aria-label="Search Input" id="searchFeedbackInput" placeholder="Search by Booking ID">
+        <input type="text" class="searchInput" aria-label="Search Input" id="searchFeedbackInput" placeholder="Search User Name">
     </div>
 <table id="feedbackTable" class="adminTable">
     <thead class="tableHead">
