@@ -94,7 +94,7 @@
 </head>
 <body>
 <div class="container">
-    <h2>Choose a dish</h2>
+    <h2>Choose a Dish</h2>
     <form>
         <label for="mealType">Meal Type:</label>
         <select id="mealType">
