@@ -48,8 +48,8 @@ public class BookingController extends BaseController {
 		model.addAttribute("Packages", masterService.getPackageDTOList());
 		model.addAttribute("Addons", masterService.getAllAddons());
 
-		//return "packages/package";
-		return "restaurant/foodForm";
+		return "packages/package";
+		//return "restaurant/foodForm";
 	}
 
 	@PostMapping("/food")
@@ -58,8 +58,11 @@ public class BookingController extends BaseController {
 	}
 
 	@PostMapping("/package")
-	public String processPackage(){
-
+	public String processPackage(Integer packageId, String bookingId, Model model){
+		Reservation reservation = masterService.findReservationById(bookingId);
+		reservation.setPackageField(masterService.getPackageById(packageId));
+		masterService.saveReservation(reservation);
+		model.addAttribute("reservation", reservation);
 		return "transportation/transportForm";
 	}
 
