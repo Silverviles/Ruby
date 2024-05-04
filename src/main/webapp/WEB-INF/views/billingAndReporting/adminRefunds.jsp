@@ -39,7 +39,7 @@
                     <input type="hidden" value="<%= payment.getPayment().getId()%>" name="paymentId"/>
                     <button class="accept-button">Complete Payment</button>
                 </form>
-                <% } %>
+                <% } %>+
                 <% if (payment.getRefund() != null && payment.getRefund().getRefundStatus() == 0) { %>
                 <form method="post" action="${pageContext.request.contextPath}/payments/refund">
                     <input type="hidden" value="<%= payment.getBookingId()%>" name="bookingId"/>
