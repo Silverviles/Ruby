@@ -20,6 +20,4 @@ public class PackageDTO {
 	private String packageType;
 	private Integer maxAdults;
 	private Integer packageNoOfNights;
-	private List<Addon> addonList;
-
 }

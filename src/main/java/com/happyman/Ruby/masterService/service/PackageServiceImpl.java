@@ -87,7 +87,8 @@ public class PackageServiceImpl implements PackageService {
 		p.setAvailability(pkg.getPackageAvailability());
 		p.setType(pkg.getPackageType());
 		p.setMaxAdults(pkg.getMaxAdults());
-		packageRepository.save(p);
+		p.setNoOfNights(pkg.getPackageNoOfNights());
 	}
+
 }
 

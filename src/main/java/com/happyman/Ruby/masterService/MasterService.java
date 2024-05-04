@@ -168,8 +168,6 @@ public interface MasterService {
 
 	void updatePackageDTO(PackageDTO packageDTO);
 
-	void updatePackageToAddonByPackageDTO(PackageDTO packageDTO);
-
 	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
 
 	List<Event> getAllEvents();
