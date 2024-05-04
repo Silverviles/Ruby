@@ -38,7 +38,6 @@
             <a href="">Experience</a>
             <a href="">Event</a>
             <a href="">Transport</a>
-            <a href="">Admin</a>
         </div>
     </section>
 </div>
