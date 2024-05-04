@@ -15,6 +15,7 @@
     <title>Event Home</title>
 </head>
 <body>
+<jsp:include page="../common/header.jsp"/>
 <div class="background-overlay" style="background-image: url('${pageContext.request.contextPath}/images/events/villa.jpg');"></div>
 <div class="slideshow-container">
     <div class="slide">
@@ -38,56 +39,80 @@
     </div>
 </div>
 <div class="home-text">
-    <h2>Available Events</h2>
+    <p>Available Events</p>
 </div>
 <div class="event-content">
 
     <div class="bitems">
         <div class="item-img">
-            <img src="${pageContext.request.contextPath}/images/events/villa.jpg">
+            <img src="${pageContext.request.contextPath}/images/events/birthday.jpg">
         </div>
         <div class="item-info">
-            <p>Description for Event 1</p>
+            <h1  style="color: black">BirthDay Event</h1>
+            <p>"Enjoy a fancy birthday party at our villa! Have delicious food, live music, and custom decorations in a lovely place. Make lasting memories with us!"</p>
+            <form method="post" action="${pageContext.request.contextPath}/eventBooking/eventBookingForm">
+                <button class="select-button">Book Now</button>
+            </form>
+
         </div>
     </div>
 
     <div class="bitems">
         <div class="item-img">
-            <img src="${pageContext.request.contextPath}/images/events/rose.jpg">
+            <img src="${pageContext.request.contextPath}/images/events/holi.jpg">
         </div>
         <div class="item-info">
-            <p>Description for Event 1</p>
+            <h1  style="color: black">Holi Event</h1>
+            <p>"Celebrate Holi at our villa! Enjoy vibrant colors, traditional music, and delectable treats in a festive atmosphere. Create joyful memories with friends and family!"</p>
+
+            <form method="post" action="${pageContext.request.contextPath}/eventBooking/eventBookingForm">
+                <button class="select-button">Book Now</button>
+            </form>
         </div>
     </div>
 
     <div class="bitems">
         <div class="item-img">
-            <img src="${pageContext.request.contextPath}/images/events/food.jpg">
+            <img src="${pageContext.request.contextPath}/images/events/valentine.jpg">
         </div>
         <div class="item-info">
-            <p>Description for Event 1</p>
+            <h1  style="color: black">Valentine Event</h1>
+            <p> "Experience Valentine's Day at our villa! Delight in romantic ambiance, exquisite cuisine, and heartfelt decor in a charming setting. Cherish special moments with your beloved!"</p>
+            <form method="post" action="${pageContext.request.contextPath}/eventBooking/eventBookingForm">
+                <button class="select-button">Book Now</button>
+            </form>
         </div>
     </div>
 
     <div class="bitems">
         <div class="item-img">
-            <img src="${pageContext.request.contextPath}/images/events/events.jpg">
+            <img src="${pageContext.request.contextPath}/images/events/newyear.jpg">
         </div>
         <div class="item-info">
-            <p>Description forhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh Event 1</p>
+            <h1  style="color: black">New Year Event</h1>
+            <p>"Ring in the New Year at our villa! Revel in festive cheer, gourmet delights, and dazzling decorations in a luxurious environment. Welcome the new beginnings in style!"</p>
+            <form method="post" action="${pageContext.request.contextPath}/eventBooking/eventBookingForm">
+                <button class="select-button">Book Now</button>
+            </form>
         </div>
     </div>
 
     <div class="bitems">
         <div class="item-img">
-            <img src="${pageContext.request.contextPath}/images/events/decoration.jpg">
+            <img src="${pageContext.request.contextPath}/images/events/wedding.jpg">
         </div>
         <div class="item-info">
-            <p>Description for Event 1</p>
+            <h1  style="color: black">Wedding Event</h1>
+            <p>"Say 'I do' at our villa! Exchange vows amidst elegance, enjoy gourmet feasts, and dance to live music in a picturesque setting. Begin your forever with cherished memories!"</p>
+            <form method="post" action="${pageContext.request.contextPath}/eventBooking/eventBookingForm">
+                <button class="select-button">Book Now</button>
+            </form>
+
         </div>
     </div>
 </div>
-<script src="${pageContext.request.contextPath}/scripts/events/event_slideshow.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/events/event_slideshow.js"></script
+<jsp:include page="../common/footer.jsp"/>
 </body>
 </html>
 

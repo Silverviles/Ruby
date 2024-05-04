@@ -16,6 +16,7 @@
     <title>Event Booking</title>
 </head>
 <body>
+<jsp:include page="../common/header.jsp"/>
 <% EventBook eventbook = (EventBook) request.getAttribute("editEventbooking"); %>
 
 <div class="backgroud_eventAdd" style="background-image: url('${pageContext.request.contextPath}/images/events/villaBookingImage.jpeg');"></div>
@@ -35,7 +36,7 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="date" name="bookingDate" id="bookingDate" required oninput="
+                    <input type="date" name="date" id="date" required oninput="
                                 const today = new Date().toISOString().split('T')[0];
                                 this.setAttribute('min', today);">
                     <label>Date :</label>
@@ -77,13 +78,19 @@
             </div>
             <div class="form_group">
                 <div class="input_group">
-                    <input type="text" name="description" id="description" required>
+                    <input type="text" name="customerDescription" id="customerDescription" required>
                     <label>Description</label>
                 </div>
             </div>
 
             <button class="btn">Confirm</button>
         </form>
+        <script>
+            function showAlert() {
+                alert("Booking confirmed!");
+                return true;
+            }
+        </script>
     </div>
 </header>
 </body>

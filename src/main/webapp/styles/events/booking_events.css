@@ -54,7 +54,12 @@ body{
     filter: blur(2px);
     z-index: -1;
 }
-
+.select-button {
+    background-color: #4caf50;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+}
 .header_container{
     padding: 1rem 1rem 5rem 1rem;
 }

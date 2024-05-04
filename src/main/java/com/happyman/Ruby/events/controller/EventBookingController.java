@@ -23,7 +23,7 @@ public class EventBookingController extends BaseController {
         return "events/events_home";
     }
 
-    @GetMapping("/eventBookingForm")
+    @PostMapping("/eventBookingForm")
     public String goEventsbooking() {
         return "events/booking_events";
     }
@@ -34,14 +34,14 @@ public class EventBookingController extends BaseController {
         eventBook.setId(eventBookDTO.getId());
         eventBook.setCustomerName(eventBookDTO.getCustomerName());
         eventBook.setEventType(eventBookDTO.getEventType());
-        eventBook.setBookingDate(eventBookDTO.getDate());
+        eventBook.setDate(eventBookDTO.getDate());
         eventBook.setLocation(eventBookDTO.getLocation());
         eventBook.setNoOfMembers(eventBookDTO.getNoOfMembers());
-        eventBookDTO.setCustomerDescription(eventBookDTO.getCustomerDescription());
+        eventBook.setCustomerDescription(eventBookDTO.getCustomerDescription());
 
         masterService.bookEvent(eventBook);
         model.addAttribute("allEventbooking", masterService.getAllbookingEvents());
-        return "redirect:/event_booking/eventHome?showDiv=eventHome";
+        return "/events/events_home";
     }
 
     @PostMapping("/delete_book_event")
