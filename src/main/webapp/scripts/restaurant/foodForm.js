@@ -19,14 +19,14 @@ function calculateTotal() {
     var dessertPrice = parseFloat(document.getElementById("dessert").value);
     var totalPrice = mainCoursePrice + drinkPrice + dessertPrice;
 
-    document.getElementById("mealTypeOutput").innerHTML =
+    document.getElementById("mealTypeOutput").value =
         "Meal Type: " + mealType;
-    document.getElementById("mainCourseOutput").innerHTML =
+    document.getElementById("mainCourseOutput").value =
         "Main Course: " + mainCourse + " - $" + mainCoursePrice.toFixed(2);
-    document.getElementById("drinkOutput").innerHTML =
+    document.getElementById("drinkOutput").value =
         "Drink: " + drink + " - $" + drinkPrice.toFixed(2);
-    document.getElementById("dessertOutput").innerHTML =
+    document.getElementById("dessertOutput").value =
         "Dessert: " + dessert + " - $" + dessertPrice.toFixed(2);
-    document.getElementById("totalPrice").innerHTML =
+    document.getElementById("totalPrice").value =
         "Total Price: $" + totalPrice.toFixed(2);
 }

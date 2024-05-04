@@ -82,6 +82,8 @@
             width: fit-content;
             font-size: 20px;
             margin: 40px auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .total-price {
@@ -136,11 +138,12 @@
         </button>
     </form>
     <div class="output">
-        <p id="mealTypeOutput"></p>
-        <p id="mainCourseOutput"></p>
-        <p id="drinkOutput"></p>
-        <p id="dessertOutput"></p>
-        <p class="total-price" id="totalPrice">Total Price: $0.00</p>
+        <input type="text" id="mealTypeOutput" readonly />
+        <input type="text" id="mainCourseOutput" readonly />
+        <input type="text" id="drinkOutput" readonly />
+        <input type="text" id="dessertOutput" readonly />
+        <input type="text" class="total-price" id="totalPrice" readonly />
+        <br />
         <button>Proceed to Payment</button>
     </div>
 
