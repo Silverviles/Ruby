@@ -34,7 +34,7 @@
     font-size: 2rem;
     font-weight: bold;
     color: #323367;
-    margin-top: 1rem;
+    margin-top: 0.3rem;
 }
 .a{
     text-transform: none;
@@ -121,7 +121,7 @@ nav{
 }
 
 .booking_container {
-    margin-top: 2rem;
+    margin-top: 0.8rem;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
