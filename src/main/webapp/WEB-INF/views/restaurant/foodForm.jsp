@@ -136,7 +136,7 @@
         <button type="button" onclick="calculateTotal()">
             Calculate Total
         </button>
-    </form>
+    </form >
     <div class="output">
         <input type="text" id="mealTypeOutput" readonly />
         <input type="text" id="mainCourseOutput" readonly />
