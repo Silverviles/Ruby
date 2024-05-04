@@ -13,6 +13,8 @@ import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.events.dto.EventAddDTO;
 import com.happyman.Ruby.masterService.dao.Event;
 
+import java.io.IOException;
+
 
 @Controller
 @RequestMapping("/event")
@@ -36,6 +38,7 @@ public class EventController extends BaseController {
 		event.setPrice(eventAddDTO.getPrice());
 		event.setAvailability(eventAddDTO.getAvailability() != null ? eventAddDTO.getAvailability() : false);
 		event.setDescription(eventAddDTO.getDescription());
+		event.setImage(eventAddDTO.getImage());
 
 		masterService.addEvent(event);
 		model.addAttribute("allEvent", masterService.getAllEvents());

@@ -68,6 +68,7 @@ public class MasterServiceImpl implements MasterService {
 	private final MenuService menuService;
 	private final ComplaintService complaintService;
 	private final RoomReservationService roomReservationService;
+	private final EventBookingService eventBookingService;
 
 	private final TableAvailabilityService tableAvailabilityService;
 
@@ -92,7 +93,8 @@ public class MasterServiceImpl implements MasterService {
             MenuService menuService,
             ComplaintService complaintService,
             RoomReservationService roomReservationService,
-			TableAvailabilityService tableAvailabilityService
+			TableAvailabilityService tableAvailabilityService,
+			EventBookingService eventBookingService
     ) {
 		this.driverService = driverService;
 		this.vehicleService = vehicleService;
@@ -114,6 +116,7 @@ public class MasterServiceImpl implements MasterService {
 		this.complaintService = complaintService;
 		this.roomReservationService = roomReservationService;
         this.tableAvailabilityService = tableAvailabilityService;
+        this.eventBookingService = eventBookingService;
     }
 
 	@Override
@@ -777,5 +780,45 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public Complaint findComplaintByBookingId(String bookingId) {
 		return complaintService.findComplaintByBookingId(bookingId);
+	}
+
+	@Override
+	public List<EventBook> getAllbookingEvents() {
+		return eventBookingService.findAll();
+	}
+
+	@Override
+	public EventBook getEventBookById(Integer id) {
+		return eventBookingService.findById(id);
+	}
+
+	@Override
+	public EventBook getEventBookByName(String eventName) {
+		return null;
+	}
+
+	@Override
+	public EventBook getcustomerNameById(Integer customerName) {
+		return null;
+	}
+
+	@Override
+	public void bookEvent(EventBook eventBook) {
+		eventBookingService.save(eventBook);
+	}
+
+	@Override
+	public void deleteBookedEvent(Integer id) {
+		eventBookingService.deleteById(id);
+	}
+
+	@Override
+	public void bookEvents(EventBook eventbook) {
+
+	}
+
+	@Override
+	public void deleteBookById(Integer id) {
+
 	}
 }

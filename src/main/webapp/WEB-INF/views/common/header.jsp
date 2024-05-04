@@ -32,13 +32,12 @@
         <div class="nav">
             <a href="">Home</a>
             <a href="">Gallery</a>
-            <a href="">Dinning</a>
+            <a href="../restaurant/newStartBooking.jsp">Dinning</a>
             <a href="">Rooms</a>
             <a href="">Packages</a>
             <a href="">Experience</a>
             <a href="">Event</a>
             <a href="">Transport</a>
-            <a href="">Admin</a>
         </div>
     </section>
 </div>

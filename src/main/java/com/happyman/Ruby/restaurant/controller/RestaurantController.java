@@ -90,7 +90,8 @@ public class RestaurantController extends BaseController {
     }
 
     @GetMapping(value = "/newseatmap")
-    public String getNewSeatMap(){
+    public String getNewSeatMap(Model model){
+        model.addAttribute("seatList", masterService.getAllTables());
         return "/restaurant/tableNew";
     }
 

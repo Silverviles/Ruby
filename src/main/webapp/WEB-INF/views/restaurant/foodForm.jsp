@@ -1,10 +1,11 @@
-<%--
+<%@ page import="com.happyman.Ruby.masterService.dao.Reservation" %><%--
   Created by IntelliJ IDEA.
   User: Jola
   Date: 5/3/2024
   Time: 9:11 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Reservation reservation = (Reservation) request.getAttribute("reservation"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,13 +139,16 @@
         </button>
     </form >
     <div class="output">
+        <form method="post" action="${pageContext.request.contextPath}/booking/food">
+            <input type="hidden" name="bookingId" value="<%=reservation.getBookingId()%>" />
         <input type="text" id="mealTypeOutput" readonly />
         <input type="text" id="mainCourseOutput" readonly />
         <input type="text" id="drinkOutput" readonly />
         <input type="text" id="dessertOutput" readonly />
-        <input type="text" class="total-price" id="totalPrice" readonly />
+        <input type="text" class="total-price" id="totalPrice" value="totalPrice" readonly />
         <br />
         <button>Proceed to Payment</button>
+        </form>
     </div>
 
 </div>

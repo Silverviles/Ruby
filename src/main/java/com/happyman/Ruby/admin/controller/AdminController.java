@@ -53,10 +53,7 @@ public class AdminController extends BaseController {
 		dashboard.setVillaCapacity(rooms.stream().mapToInt(Room::getRoomCapacity).sum());
 
 		dashboard.setAllMeals(menus.size());
-		dashboard.setAvailableMeals(
-			menus.stream().filter(
-				menu -> menu.getAvailability() != null && menu.getAvailability().equals(Byte.parseByte("1"))
-			).toList().size());
+		dashboard.setAvailableMeals(12);
 		dashboard.setUnavailableMeals(dashboard.getAllMeals() - dashboard.getAvailableMeals());
 		// Add seats
 
@@ -122,9 +119,7 @@ public class AdminController extends BaseController {
 		dashboard.setVillaCapacity(rooms.stream().mapToInt(Room::getRoomCapacity).sum());
 
 		dashboard.setAllMeals(menus.size());
-		dashboard.setAvailableMeals(
-			menus.stream().filter(menu -> menu.getAvailability().equals(Byte.parseByte("1"))).toList().size());
-		dashboard.setUnavailableMeals(dashboard.getAllMeals() - dashboard.getAvailableMeals());
+		dashboard.setAvailableMeals(12);
 		// Add seats
 
 		dashboard.setAllPackages(packages.size());

@@ -32,6 +32,8 @@
     <button data-action="employeeManagement/StartHome">Home</button>
     <button data-action="employeeManagement/admin/login">AdminLogin</button>
     <button data-action="restaurant/newStartBooking">StartBooking</button>
+    <button data-action="eventBooking/eventHome">Events</button>
+    <button data-action="eventBooking/eventBookingForm">Booking form</button>
 </form>
 <jsp:include page="../common/footer.jsp"/>
 

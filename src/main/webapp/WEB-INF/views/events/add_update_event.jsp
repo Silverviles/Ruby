@@ -33,13 +33,6 @@
                     <span>Event Name</span>
                 </div>
 
-                <div class="input-container checkboxes">
-                    <input type="checkbox" id="availability" name="availability"
-                           value="<%= event != null ? event.getAvailability() : ""%>" class="input"/>
-                    <label for="availability">Availability: </label>
-                    <span>Availability</span>
-                </div>
-
                 <div class="input-container textarea">
                     <textarea id="description" name="description" class="input">
                         <%= event != null ? event.getDescription() : ""%>
@@ -49,9 +42,20 @@
                 </div>
 
                 <div class="input-container">
-                    <input type="number" id="price" name="price" value="<%= event != null ? event.getPrice() : ""%>" class="input"/>
+                    <input type="text" id="price" name="price" value="<%= event != null ? event.getPrice() : ""%>" class="input" required oninput="
+                                    let value = this.value;
+                                    value = value.replace(/\D/g, '').replace(/^0+/, '');
+                                    this.value = value;"/>
                     <label for="price">Price: </label>
                     <span>Price</span>
+                </div>
+
+                <div class="input-container checkboxes">
+                    <input type="checkbox" id="availability" name="availability"
+                            <% if (event != null && event.getAvailability()) { %> checked <% } %>
+                           class="input"/>
+                    <label for="availability">Availability: </label>
+                    <span>Availability</span>
                 </div>
 
                 <input type="submit" value="Submit" class="btn"/>
