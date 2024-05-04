@@ -85,12 +85,12 @@
         </div>
     </div>
 
-    <div>
-        <label  style="font-size: 1.5em; font-weight: bold"
-        >Enter number of guests:
-        </label>
-        <input type="number" name="" id="noGuests" />
-    </div>
+<%--    <div>--%>
+<%--        <label  style="font-size: 1.5em; font-weight: bold"--%>
+<%--        >Enter number of guests:--%>
+<%--        </label>--%>
+<%--        <input type="number" name="" id="noGuests" />--%>
+<%--    </div>--%>
 
     <div>
         <form action="${pageContext.request.contextPath}/restaurant/newseatmap" method="get">
