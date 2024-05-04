@@ -543,18 +543,6 @@ public class MasterServiceImpl implements MasterService {
 
 		packageService.addPackage(pkg);
 
-		List<Addon> addons = packageDTO.getAddonList();
-		if (addons!= null && !addons.isEmpty()) {
-			for (Addon addon : addons) {
-				PackageToAddon packageToAddon = new PackageToAddon();
-				PackageToAddonId packageToAddonId = new PackageToAddonId(pkg.getId(),addon.getAddonId());
-				packageToAddon.setId(packageToAddonId);
-				packageToAddon.setPkg(pkg);
-				packageToAddon.setAddon(addon);
-
-				packageToAddonService.addPackageToAddon(packageToAddon);
-			}
-		}
 	}
 
 	public List<PackageDTO> getPackageDTOList() {
@@ -571,7 +559,6 @@ public class MasterServiceImpl implements MasterService {
 			packageDTO.setPackageType(p.getType());
 			packageDTO.setMaxAdults(p.getMaxAdults());
 			packageDTO.setPackageNoOfNights(p.getNoOfNights());
-			packageDTO.setAddonList(addonService.getAddonByPackageId(p.getId()));
 			packageDTOList.add(packageDTO);
 		}
 		return packageDTOList;
@@ -653,43 +640,7 @@ public class MasterServiceImpl implements MasterService {
 	}
 
 	@Override
-	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
-		List<Integer> list1 = packageDTO.getAddonList().stream().map(Addon::getAddonId).toList();
-		List<Integer> list2 = new ArrayList<Integer>();
-
-		for (PackageToAddon p : packageToAddonService.getPackageToAddonsByPackageId(packageDTO.getId())) {
-			Integer addonId = p.getAddon().getAddonId();
-			list2.add(addonId);
-		}
-
-		for (Integer addonId : list1) {
-			if (!list2.contains(addonId)) {
-				PackageToAddon packageToAddon = new PackageToAddon();
-				PackageToAddonId packageToAddonId = new PackageToAddonId(packageDTO.getId(),addonId);
-				packageToAddon.setId(packageToAddonId);
-				packageToAddon.setAddon(getAddonById(addonId));
-				packageToAddon.setPkg(getPackageById(packageDTO.getId()));
-
-				packageToAddonService.addPackageToAddon(packageToAddon);
-			}
-		}
-
-		for (Integer addonId : list2) {
-			if (!list1.contains(addonId)) {
-				PackageToAddon packageToAddon = new PackageToAddon();
-				PackageToAddonId packageToAddonId = new PackageToAddonId(packageDTO.getId(),addonId);
-				packageToAddon.setId(packageToAddonId);
-				packageToAddon.setAddon(getAddonById(addonId));
-				packageToAddon.setPkg(getPackageById(packageDTO.getId()));
-
-				packageToAddonService.addPackageToAddon(packageToAddon);
-			}
-		}
-	}
-
-	@Override
 	public void updatePackageDTO(PackageDTO packageDTO) {
-		this.updatePackageToAddonByPackageDTO(packageDTO);
 		this.updatePackageByPackageDTO(packageDTO);
 	}
 

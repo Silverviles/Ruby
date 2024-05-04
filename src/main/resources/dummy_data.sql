@@ -49,6 +49,16 @@ INSERT INTO package (availability, description, discontinue_date, max_adults, na
 INSERT INTO package (availability, description, discontinue_date, max_adults, name, price, type, no_of_nights) VALUES (1, 'Indulge in luxury with our VIP Experience package, featuring exclusive access and personalized services.', NULL, 2, 'VIP Experience', 499.99, 'Luxury', 2);
 INSERT INTO package (availability, description, discontinue_date, max_adults, name, price, type, no_of_nights) VALUES (1, 'Spend quality time with the family with our Family Fun package, including family-friendly activities and accommodations.', NULL, 4, 'Family Fun', 249.99, 'Family', 3);
 
+ALTER TABLE package MODIFY COLUMN description VARCHAR(1000);
+
+INSERT INTO package (package_id, availability, description, discontinue_date, max_adults, name, price, type, no_of_nights)
+VALUES
+    (0, 1, 'Escape to a secluded paradise for a romantic retreat. Enjoy intimate moments together with a candlelit dinner under the stars, followed by a pampering couples'' spa treatment to relax and rejuvenate. Cap off your day with a private sunset cruise along the tranquil coast, creating memories that will last a lifetime.', '2026-11-25', 2, 'Romantic Hideaway', 22000, 'Couple', 3),
+    (0, 1, 'Treat your family to an exciting adventure filled with laughter and joy. Spend a fun-filled day at the nearby amusement park, creating unforgettable memories on thrilling rides and attractions. Wind down in the evening with a family-friendly movie night, complete with popcorn and snacks. Gather together for a pizza party, bonding over delicious food and shared experiences.', '2025-12-31', 4, 'Family Adventure', 30000, 'Family', 3),
+    (0, 1, 'Elevate your next corporate retreat with a luxurious getaway experience. Immerse yourselves in productive meetings and team-building activities in a serene and inspiring environment. Our state-of-the-art meeting facilities are equipped with everything you need for a successful event. Enjoy catered meals crafted with care and attention to detail, fostering camaraderie and collaboration among your team.', '2024-12-31', 20, 'Executive Getaway', 50000, 'Business', 1),
+    (0, 1, 'Gather your friends and family for a memorable celebration to cherish forever. Transform your event into a magical occasion with personalized decorations, creating a festive atmosphere that reflects your unique style and personality. Indulge in a sumptuous celebratory cake, specially crafted to mark the occasion in sweet style. Cap off the festivities with a sizzling barbecue dinner, bringing everyone together for an evening of laughter, love, and lasting memories.', '2024-10-31', 40, 'Group Celebration', 50000, 'Large_Group', 2),
+    (0, 1, 'Escape with your significant other to a romantic paradise at Happy Man Village. Indulge in intimate moments with a candlelit dinner for two, relax with a couples'' spa treatment, and embark on a private sunset cruise along the picturesque coastline.', '2025-08-17', 2, 'Lovebirds Retreat', 18000, 'Couple', 3);
+
 INSERT INTO TableAvailability (table_id, seat_Availability) values (1, 'available');
 INSERT INTO TableAvailability (table_id, seat_Availability) values (2, 'available');
 INSERT INTO TableAvailability (table_id, seat_Availability) values (3, 'reserved');

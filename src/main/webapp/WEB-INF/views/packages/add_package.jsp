@@ -1,5 +1,4 @@
-<%@ page import="com.happyman.Ruby.masterService.dao.Addon" %>
-<%@ page import="java.util.List" %>
+
 <%@ page import="com.happyman.Ruby.packages.dto.PackageDTO" %><%--
   Created by IntelliJ IDEA.
   User: sdilr
@@ -7,7 +6,6 @@
   Time: 1:35 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%  List<Addon> addons = (List<Addon>) request.getAttribute("addonsPkg");%>
 <% PackageDTO packageDTO = (PackageDTO) request.getAttribute("editPackage"); %>
 
 <div class="formContainer">
@@ -38,9 +36,7 @@
                 </div>
 
                 <div class="input-container textarea">
-                    <textarea id="packageDescription" name="packageDescription" class="input textArea" required>
-                        <%= packageDTO != null ? packageDTO.getPackageDescription() : ""%>
-                    </textarea>
+                    <textarea id="packageDescription" name="packageDescription" class="input textArea" required><%= packageDTO != null ? packageDTO.getPackageDescription() : ""%></textarea>
                     <label for="packageDescription">Description: </label>
                     <span>Description</span>
                 </div>

@@ -10,12 +10,12 @@
         <input type="text" class="searchInput" aria-label="Search Input" id="searchPackageInput" placeholder="Search by Package Name">
     </div>
 
-    <table id="packageTable" class="adminTable">
+    <table id="packageTable" class="adminTable" style="width: 1100px;">
         <thead class="tableHead">
         <tr>
             <th>Package ID</th>
             <th>Package Name</th>
-            <th>Package Description</th>
+            <th style="width: 500px;">Package Description</th>
             <th>Price</th>
             <th>Discontinue Date</th>
             <th>Availability</th>

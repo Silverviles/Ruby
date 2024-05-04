@@ -129,9 +129,9 @@
                     <div class="popup-addons">
                         <p class="addon-list">Select Addons</p>
                         <div class="addon-table-container">
-                            <form class="addon-form" method="post" action="#">
-
-                                <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
+                            <form class="addon-form" method="post" action="${pageContext.request.contextPath}/booking/package">
+                                <input type="hidden" id="bookingId" name="bookingId" value="<%=reservation.getBookingId()%>">
+                                <input type="hidden" id="<%=pkg.getId()%>" name="packageId" value="<%=pkg.getId()%>">
                                 <% if (addonAll != null && !addonAll.isEmpty()) {
                                     for (Addon addon : addonAll) { %>
                                 <div class="checkboxes">
@@ -181,8 +181,9 @@
             <div class="popup-addons">
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
+                    <form class="addon-form" method="post" action="${pageContext.request.contextPath}/booking/package">
+                        <input type="hidden" id="bookingId" name="bookingId" value="<%=reservation.getBookingId()%>">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="packageId" value="<%=pkg.getId()%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
@@ -234,8 +235,9 @@
             <div class="popup-addons">
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
+                    <form class="addon-form" method="post" action="${pageContext.request.contextPath}/booking/package">
+                        <input type="hidden" id="bookingId" name="bookingId" value="<%=reservation.getBookingId()%>">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="packageId" value="<%=pkg.getId()%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
@@ -288,8 +290,9 @@
             <div class="popup-addons">
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
+                    <form class="addon-form" method="post" action="${pageContext.request.contextPath}/booking/package">
+                        <input type="hidden" id="bookingId" name="bookingId" value="<%=reservation.getBookingId()%>">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="packageId" value="<%=pkg.getId()%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
@@ -342,8 +345,9 @@
             <div class="popup-addons">
                 <p class="addon-list">Select Addons</p>
                 <div class="addon-table-container">
-                    <form class="addon-form" method="post" action="#">
-                        <input type="hidden" id="<%=pkg.getId()%>" name="<%=pkg.getId()%>" value="<%=pkg%>">
+                    <form class="addon-form" method="post" action="${pageContext.request.contextPath}/booking/package">
+                        <input type="hidden" id="bookingId" name="bookingId" value="<%=reservation.getBookingId()%>">
+                        <input type="hidden" id="<%=pkg.getId()%>" name="packageId" value="<%=pkg.getId()%>">
                         <% if (addonAll != null && !addonAll.isEmpty()) {
                             for (Addon addon : addonAll) { %>
                         <div class="checkboxes">
