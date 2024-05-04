@@ -55,7 +55,7 @@ public class AdminController extends BaseController {
 		dashboard.setAllMeals(menus.size());
 		dashboard.setAvailableMeals(
 			menus.stream().filter(
-				menu -> menu != null && menu.getAvailability().equals(Byte.parseByte("1"))
+				menu -> menu.getAvailability() != null && menu.getAvailability().equals(Byte.parseByte("1"))
 			).toList().size());
 		dashboard.setUnavailableMeals(dashboard.getAllMeals() - dashboard.getAvailableMeals());
 		// Add seats
