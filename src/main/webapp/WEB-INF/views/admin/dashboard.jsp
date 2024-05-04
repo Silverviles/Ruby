@@ -1,14 +1,15 @@
-<%--
+<%@ page import="com.happyman.Ruby.admin.dto.DashboardDTO" %><%--
   Created by IntelliJ IDEA.
   User: tharindu
   Date: 03/05/2024
   Time: 19:57
 --%>
+<% DashboardDTO dashboard = (DashboardDTO) request.getAttribute("summary"); %>
 <div class="admin-grid-container">
     <div class="dashboard-grid-item">
         <h3>Room Summary</h3>
         <div class="dashboard-item">
-            <p>Total number of rooms: </p>
+            <p>Total number of rooms: <%=dashboard.getTotalRooms()%></p>
             <p>Available Rooms: </p>
             <p>Unavailable Rooms: </p>
             <p>Total Villa Capacity: </p>
