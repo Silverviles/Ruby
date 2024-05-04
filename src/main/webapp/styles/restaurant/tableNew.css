@@ -209,7 +209,7 @@
     width: 157px;
     height: 260px;
     left: 26px;
-    top: 19px;
+    top: 25px;
     position: absolute;
 }
 
@@ -308,7 +308,7 @@
     width: 157px;
     height: 260px;
     left: 1343px;
-    top: 279px;
+    top: 290px;
     position: absolute;
     transform: rotate(360deg);
     transform-origin: 0 0;
@@ -442,7 +442,7 @@
 .left-seat-table11 {
     width: 50px;
     height: 50px;
-    left: 0px;
+    left: -9px;
     top: -25px;
     position: absolute;
     transform: rotate(-90deg);
@@ -455,7 +455,7 @@
 .left-seat-rest-table11 {
     width: 50px;
     height: 10px;
-    left: -17px;
+    left: -28px;
     top: -25px;
     position: absolute;
     transform: rotate(-90deg);
@@ -554,7 +554,7 @@
 .left-seat-table12 {
     width: 50px;
     height: 50px;
-    left: 0px;
+    left: -9px;
     top: -25px;
     position: absolute;
     transform: rotate(-90deg);
@@ -567,7 +567,7 @@
 .left-seat-rest-table12 {
     width: 50px;
     height: 10px;
-    left: -17px;
+    left: -28px;
     top: -25px;
     position: absolute;
     transform: rotate(-90deg);
