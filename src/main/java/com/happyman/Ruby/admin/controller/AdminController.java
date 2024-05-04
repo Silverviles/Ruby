@@ -72,12 +72,20 @@ public class AdminController extends BaseController {
 		// Events
 		dashboard.setAllEvents(events.size());
 		dashboard.setAvailableEvents(events.stream().filter(event -> event.getAvailability().equals(true)).toList().size());
-		dashboard.setHighestEventPackage(events.get(1).getEventName());
+		dashboard.setHighestEventPackage("");
 		dashboard.setAvailableAddons(addons.size());
 
 		// Customer
 		dashboard.setFeedbackCount(feedbacks.size());
-		dashboard.setPendingComplaints(complaints.stream().filter(complaint -> complaint.));
+		dashboard.setPendingComplaints(complaints.stream().filter(complaint -> complaint.getStatus().equals(false)).toList().size());
+		dashboard.setResolvedComplaints(complaints.stream().filter(complaint -> complaint.getStatus().equals(true)).toList().size());
+
+		// Employee
+		dashboard.setAllEmployees(employees.size());
+		dashboard.setDayShift(employees.stream().filter(employee -> employee.getShiftCategory().equals(1)).toList().size());
+		dashboard.setNightShift(dashboard.getAllEmployees() - dashboard.getDayShift());
+		dashboard.setAverageSalary((float) (employees.stream().mapToDouble(Employee::getBaseSalary).sum() / employees.size()));
+		dashboard.setHighestSalary((float) employees.stream().mapToDouble(Employee::getBaseSalary).max().orElse(1000.0));
 
 		if (username.equals(expectedUsername) && password.equals(expectedPassword)) {
 			model.addAttribute("employees", employees);
@@ -90,6 +98,7 @@ public class AdminController extends BaseController {
 			model.addAttribute("feedbacks", feedbacks);
 			model.addAttribute("complaints", complaints);
 			model.addAttribute("addonsPkg", addons);
+			model.addAttribute("summary", dashboard);
 			return "admin/admin_sidebar";
 		} else {
 			model.addAttribute("error", "Invalid credentials. Please try again.");
@@ -110,6 +119,47 @@ public class AdminController extends BaseController {
 		List<Complaint> complaints = masterService.findAllComplaints();
 		List<Addon> addons = masterService.getAllAddons();
 
+		DashboardDTO dashboard = new DashboardDTO();
+		dashboard.setTotalRooms(rooms.size());
+		dashboard.setAvailableRooms(rooms.stream().filter(room -> room.getRoomStatus().equals(true)).toList().size());
+		dashboard.setUnavailableRooms(dashboard.getTotalRooms() - dashboard.getAvailableRooms());
+		dashboard.setVillaCapacity(rooms.stream().mapToInt(Room::getRoomCapacity).sum());
+
+		dashboard.setAllMeals(menus.size());
+		dashboard.setAvailableMeals(
+			menus.stream().filter(menu -> menu.getAvailability().equals(Byte.parseByte("1"))).toList().size());
+		dashboard.setUnavailableMeals(dashboard.getAllMeals() - dashboard.getAvailableMeals());
+		// Add seats
+
+		dashboard.setAllPackages(packages.size());
+		dashboard.setAvailablePackages(packages.stream().filter(packageDTO -> packageDTO.getPackageAvailability().equals(true)).toList().size());
+		dashboard.setHighestAddonPackage(
+			packages.stream()
+				.max(Comparator.comparingInt(packageDTO -> packageDTO.getAddonList().size()))
+				.map(PackageDTO::getPackageName)
+				.orElse(null)
+		);
+		dashboard.setAvailableAddons(addons.size());
+
+		// Events
+		dashboard.setAllEvents(events.size());
+		dashboard.setAvailableEvents(events.stream().filter(event -> event.getAvailability().equals(true)).toList().size());
+		dashboard.setHighestEventPackage("");
+		dashboard.setAvailableAddons(addons.size());
+
+		// Customer
+		dashboard.setFeedbackCount(feedbacks.size());
+		dashboard.setPendingComplaints(complaints.stream().filter(complaint -> complaint.getStatus().equals(false)).toList().size());
+		dashboard.setResolvedComplaints(complaints.stream().filter(complaint -> complaint.getStatus().equals(true)).toList().size());
+
+		// Employee
+		dashboard.setAllEmployees(employees.size());
+		dashboard.setDayShift(employees.stream().filter(employee -> employee.getShiftCategory().equals(1)).toList().size());
+		dashboard.setNightShift(dashboard.getAllEmployees() - dashboard.getDayShift());
+		dashboard.setAverageSalary((float) (employees.stream().mapToDouble(Employee::getBaseSalary).sum() / employees.size()));
+		dashboard.setHighestSalary((float) employees.stream().mapToDouble(Employee::getBaseSalary).max().orElse(1000.0));
+
+
 		model.addAttribute("employees", employees);
 		model.addAttribute("allPackages", packages);
 		model.addAttribute("reservations", reservations);
@@ -120,6 +170,7 @@ public class AdminController extends BaseController {
 		model.addAttribute("feedbacks", feedbacks);
 		model.addAttribute("complaints", complaints);
 		model.addAttribute("addonsPkg", addons);
+		model.addAttribute("summary", dashboard);
 		return "admin/admin_sidebar";
 	}
 

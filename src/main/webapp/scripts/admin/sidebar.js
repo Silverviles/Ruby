@@ -26,6 +26,8 @@ $(document).ready(function() {
 
     if (showDivId) {
         $("#" + showDivId).show();
+    } else {
+        document.getElementById("dashboard").style.display = "block";
     }
 
     history.replaceState({}, document.title, window.location.pathname);
