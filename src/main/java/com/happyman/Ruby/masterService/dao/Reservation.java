@@ -32,7 +32,7 @@ public class Reservation {
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) @JoinColumn(name = "payment_Id") private Payment payment;
 
-	@ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "refund_id") private Refund refund;
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) @JoinColumn(name = "refund_id") private Refund refund;
 
 	@Column(name = "discontinue_Date") private LocalDate discontinueDate;
 

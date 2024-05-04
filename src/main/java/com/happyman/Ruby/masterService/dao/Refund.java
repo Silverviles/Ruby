@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "refund")
 public class Refund {
-	@Id @Column(name = "refund_id", nullable = false) private Integer id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "refund_id") private Integer id;
 
 	@Column(name = "referenced_booking_id") private String referencedBookingId;
 
@@ -24,7 +24,7 @@ public class Refund {
 
 	@Column(name = "customer_email", nullable = false) private String customerEmail;
 
-	@Column(name = "refund_amount", nullable = false) private Double refundAmount;
+	@Column(name = "refund_amount", nullable = false) private Float refundAmount;
 
 	@Column(name = "refunded_date") private LocalDate refundedDate;
 

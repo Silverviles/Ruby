@@ -1,23 +1,20 @@
 package com.happyman.Ruby.billingAndReporting.controller;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
 import com.happyman.Ruby.billingAndReporting.dto.PaymentDTO;
 import com.happyman.Ruby.common.BaseController;
 import com.happyman.Ruby.masterService.dao.Payment;
 import com.happyman.Ruby.masterService.dao.Refund;
 import com.happyman.Ruby.masterService.dao.Reservation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/payments")
@@ -25,26 +22,26 @@ import com.happyman.Ruby.masterService.dao.Reservation;
 
 public class PaymentController extends BaseController {
 
-	private static final Logger log = LoggerFactory.getLogger(PaymentController.class);
+    private static final Logger log = LoggerFactory.getLogger(PaymentController.class);
 
-	@GetMapping("/paymentHome")
-	public String paymentHome() {
-		return "paymentHome";
-	}
+    @GetMapping("/paymentHome")
+    public String paymentHome() {
+        return "paymentHome";
+    }
 
-	@GetMapping("/getCustomerDetails")
-	public String displayPaymentData(Model model) {
-		List<PaymentDTO> payment = masterService.getPaymentsDTOList();
-		model.addAttribute("allPayments", payment);
-		return "/payment_updateDelete";
-	}
+    @GetMapping("/getCustomerDetails")
+    public String displayPaymentData(Model model) {
+        List<PaymentDTO> payment = masterService.getPaymentsDTOList();
+        model.addAttribute("allPayments", payment);
+        return "/payment_updateDelete";
+    }
 
-	@PostMapping("/addPaymentStatus")
-	public String addPaymentStatus(@ModelAttribute PaymentDTO paymentDTO) {
-		// TODO: Fix payment update
-		masterService.addPayment(paymentDTO);
-		return "redirect:/success";
-	}
+    @PostMapping("/addPaymentStatus")
+    public String addPaymentStatus(@ModelAttribute PaymentDTO paymentDTO) {
+        // TODO: Fix payment update
+        masterService.addPayment(paymentDTO);
+        return "redirect:/success";
+    }
 
 	/*@PostMapping("/deletePayment")
 	public String deletePayment(Integer paymentId, Model model) {
@@ -53,22 +50,22 @@ public class PaymentController extends BaseController {
 		return "billingAndReporting/paymentsAdmin";
 	}*/
 
-	@PostMapping("/updatePayment")
-	public String updatePayment(Integer paymentId, Model model) {
-		Payment payment = masterService.getPaymentById(paymentId);
-		payment.setPaymentStatus((byte) 1);
-		masterService.addPayment(payment);
-		return "redirect:/admin/adminHome?showDiv=payments";
-	}
+    @PostMapping("/updatePayment")
+    public String updatePayment(Integer paymentId, Model model) {
+        Payment payment = masterService.getPaymentById(paymentId);
+        payment.setPaymentStatus((byte) 1);
+        masterService.addPayment(payment);
+        return "redirect:/admin/adminHome?showDiv=payments";
+    }
 
-	@PostMapping("/refund")
-	public String getRefund(String bookingId) {
-		Refund refund = masterService.findReservationById(bookingId).getRefund();
-		refund.setRefundStatus((byte) 1);
-		masterService.saveRefund(refund);
-		masterService.deleteReservationById(bookingId);
-		return "redirect:/admin/adminHome?showDiv=refunds";
-	}
+    @PostMapping("/refund")
+    public String getRefund(String bookingId) {
+        Refund refund = masterService.findReservationById(bookingId).getRefund();
+        refund.setRefundStatus((byte) 1);
+        masterService.saveRefund(refund);
+        masterService.deleteReservationById(bookingId);
+        return "billingAndReporting/refundRequest";
+    }
 
 	/*@PostMapping("/generateBill")
 	public String generateBill(@ModelAttribute PaymentDTO paymentDTO) {
@@ -100,14 +97,45 @@ public class PaymentController extends BaseController {
 	}*/
 
 
-	@GetMapping("/billing")
-	public String billing(Model model) {
-		model.addAttribute("payments", masterService.getAllPayments());
-		return "billingAndReporting/paymentsAdmin";
-	}
+    @GetMapping("/billing")
+    public String billing(Model model) {
+        model.addAttribute("payments", masterService.getAllPayments());
+        return "billingAndReporting/paymentsAdmin";
+    }
 
-	@GetMapping("/billingHome")
-	public String billingHome(Model model) {
-		return "billingAndReporting/billingHome";
-	}
+    @GetMapping("/billingHome")
+    public String billingHome(Model model) {
+        return "billingAndReporting/billingHome";
+    }
+
+    @PostMapping("/refundRequest")
+    public String Home(String bookingId, Model model) {
+        Reservation reservation = masterService.findReservationById(bookingId);
+        Refund refund = new Refund();
+        refund.setRefundStatus((byte) 0);
+        refund.setCustomerName(reservation.getPayment().getCustomerName());
+        refund.setCustomerEmail(reservation.getPayment().getCustomerEmail());
+        refund.setRefundAmount(reservation.getPayment().getBillAmount());
+        refund = masterService.saveRefund(refund);
+        reservation.setRefund(refund);
+        masterService.saveReservation(reservation);
+        model.addAttribute("reservation", reservation);
+        return "/home/Home";
+    }
+
+    @GetMapping("/refundButton")
+    public String refundButton(Model model) {
+        return "admin/customerSupportandRefund";
+    }
+
+    @GetMapping("/refundPage")
+    public String refundPage(Model model) {
+        return "billingAndReporting/refundRequest";
+    }
+
+    @GetMapping("/refundPayment")
+    public String refundPayment(Model model) {
+        return "billingAndReporting/adminPayments";
+    }
+
 }

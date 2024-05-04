@@ -35,6 +35,10 @@
             <li><a href="">Experience</a></li>
             <li><a href="">Event</a></li>
             <li><a href="">Transport</a></li>
+            <form method="get" action="${pageContext.request.contextPath}/payments/refundButton">
+<%--                <input type="hidden" value="<%= employee.getId()%>" name="employeeId"/>--%>
+                <button class="refund-button">Customer Support And Refund</button>
+            </form>
         </ul>
 
     </div>
@@ -54,7 +58,7 @@
     </div>
 
     <div id="fitem5" class="middle-item">
-        <a href="www.facebook.com"><i class="fa-brands fa-facebook-f"></i></i></a>
+        <a href="www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
         <a href="www.instargram.com"><i class="fa-brands fa-instagram"></i></a>
     </div>
@@ -85,6 +89,8 @@
 <%--        <a href="">Experience</a>--%>
 <%--        <a href="">Event</a>--%>
 <%--        <a href="">Transport</a>--%>
+<%--        <a href="">Customer Support & Refund</a>--%>
+
 
 <%--    </div>--%>
 
