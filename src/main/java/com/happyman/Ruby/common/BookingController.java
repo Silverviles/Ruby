@@ -52,8 +52,13 @@ public class BookingController extends BaseController {
 	}
 
 	@PostMapping("/food")
-	public String processFood(Integer foodId, String startDate, String endDate, Integer noGuest, Model model) {
-
+	public String processFood(String bookingId, Model model) {
+		Reservation reservation = masterService.findReservationById(bookingId);
+		reservation.setMenu(masterService.getAllMenus().stream().findFirst().orElse(null));
+		masterService.saveReservation(reservation);
+		model.addAttribute("reservation", reservation);
+		model.addAttribute("Packages", masterService.getPackageDTOList());
+		model.addAttribute("Addons", masterService.getAllAddons());
 		return "packages/package";
 	}
 
