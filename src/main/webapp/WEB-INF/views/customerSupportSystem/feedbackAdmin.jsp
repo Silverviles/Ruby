@@ -38,7 +38,7 @@
 
         <td>
             <form method="post" action="${pageContext.request.contextPath}/customerSupport/acceptFeedback">
-                <button class="accept-button" name="feedbackId" value="<%= feedback.getId()%>">Accept</button>
+                <button id="<%= feedback.getId()%>" class="accept-button" name="feedbackId" value="<%= feedback.getId()%>" onclick="document.getElementById('<%= feedback.getId()%>').style.display='none'">Accept</button>
             </form>
             <form method="post" action="${pageContext.request.contextPath}/customerSupport/deleteFeedback">
                 <button class="delete-button" name="feedbackId" value="<%= feedback.getId()%>">Delete</button>

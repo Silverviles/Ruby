@@ -27,7 +27,7 @@
         <tbody class="tableBody">
         <% if (packagesList != null && !packagesList.isEmpty()) { %>
         <% for (PackageDTO packageDTO : packagesList) { %>
-        <tr>
+        <tr >
             <td><%= packageDTO.getId()%></td>
             <td><%= packageDTO.getPackageName()%></td>
             <td><%= packageDTO.getPackageDescription()%></td>
@@ -37,7 +37,7 @@
             <td><%= packageDTO.getMaxAdults()%></td>
             <td><%= packageDTO.getPackageNoOfNights()%></td>
 
-            <td>
+            <td >
                 <form method="post" action="${pageContext.request.contextPath}/packages/navigateToUpdate">
                     <input type="hidden" value="<%= packageDTO.getId()%>" name="packageId"/>
                     <button class="edit-button">Edit</button>

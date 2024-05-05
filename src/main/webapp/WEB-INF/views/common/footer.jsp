@@ -35,11 +35,8 @@
             <li><a href="">Experience</a></li>
             <li><a href="">Event</a></li>
             <li><a href="">Transport</a></li>
-            <form method="get" action="${pageContext.request.contextPath}/payments/refundButton">
-<%--                <input type="hidden" value="<%= employee.getId()%>" name="employeeId"/>--%>
-                <button class="refund-button">Customer Support And Refund</button>
-            </form>
-            <li><a href="">Feedback</a></li>
+            <li><a href="${pageContext.request.contextPath}/payments/refundButton">Customer Support And Refund</a></li>
+            <li><a href="${pageContext.request.contextPath}/customerSupport/feedbackPage">Feedback</a></li>
 
         </ul>
 

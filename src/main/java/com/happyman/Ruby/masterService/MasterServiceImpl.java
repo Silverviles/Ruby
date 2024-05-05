@@ -685,6 +685,11 @@ public class MasterServiceImpl implements MasterService {
 	}
 
 	@Override
+	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
+
+	}
+
+	@Override
 	public List<Feedback> getAllFeedbacks() {
 		return feedbackService.getAllFeedbacks();
 	}
