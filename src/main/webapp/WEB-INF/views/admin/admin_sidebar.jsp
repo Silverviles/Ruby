@@ -27,6 +27,8 @@
             src="https://kit.fontawesome.com/64d58efce2.js"
             crossorigin="anonymous"
     ></script>
+    <script src="${pageContext.request.contextPath}/scripts/admin/pdf.js"></script>
+    <script src="${pageContext.request.contextPath}/scripts/admin/jsPdf.js"></script>
     <title>Sidebar</title>
 </head>
 

@@ -61,7 +61,7 @@
                     <form action="${pageContext.request.contextPath}/transport/accept" method="post">
                         <input type="hidden" name="jobId" value="<%= job.getId() %>">
                         <input type="hidden" name="driverId" value="<%= driver.getId()%>">
-                        <button type="submit">Accept</button>
+                        <button type="submit" class="accept-button">Accept</button>
                     </form>
                 </td>
             </tr>
@@ -93,12 +93,12 @@
                     <form action="${pageContext.request.contextPath}/transport/complete" method="post">
                         <input type="hidden" name="jobId" value="<%= job.getId() %>">
                         <input type="hidden" name="driverId" value="<%= driver.getId()%>">
-                        <button type="submit">Complete</button>
+                        <button type="submit" class="accept-button">Complete</button>
                     </form>
                     <form action="${pageContext.request.contextPath}/transport/cancel" method="post">
                         <input type="hidden" name="jobId" value="<%= job.getId() %>">
                         <input type="hidden" name="driverId" value="<%= driver.getId()%>">
-                        <button type="submit">Cancel</button>
+                        <button type="submit" class="delete-button">Cancel</button>
                     </form>
                 </td>
             </tr>

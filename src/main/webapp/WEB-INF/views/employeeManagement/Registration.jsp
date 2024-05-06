@@ -59,7 +59,7 @@
 
                 <div class="input-container">
                     <input type="text" id="salary" name="salary"
-                           value="<%= employee != null ? employee.getBaseSalary() : ""%>" class="input"/>
+                           value="<%= employee != null ? employee.getBaseSalary() : ""%>" class="input" pattern="[0-9]+" title="Salary must be a number"/>
                     <label for="salary">Salary: </label>
                     <span>Salary</span>
                 </div>

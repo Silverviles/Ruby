@@ -1,3 +1,16 @@
+:root {
+    --primary-table-color: #ac6a3e;
+    --table-row-1-color: #ddb399;
+    --table-row-2-color: #ddc8b9;
+    --button-delete-color: #ff1a1a;
+    --button-delete-hover-color: #bd0303;
+    --button-edit-color: #ffd000;
+    --button-edit-hover-color: #e0b700;
+    --button-accept-color: #099409;
+    --button-accept-hover-color: #017201;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -56,4 +69,53 @@ th {
 .driver_portal_navigate p:hover {
     background-color: #a5a5a5;
     color: black;
+}
+
+.accept-button {
+    padding: 5px 10px;
+    background-color: var(--button-accept-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80px;
+    height: 35px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.accept-button:hover {
+    background-color: var(--button-accept-hover-color);
+    color: white;
+}
+
+.edit-button {
+    padding: 5px 10px;
+    background-color: var(--button-edit-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80px;
+    height: 35px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.edit-button:hover {
+    background-color: var(--button-edit-hover-color);
+    color: white;
+}
+
+.delete-button {
+    margin-left: 20px;
+    padding: 5px 10px;
+    background-color: var(--button-delete-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 80px;
+    height: 35px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.delete-button:hover {
+    background-color: var(--button-delete-hover-color);
+    color: white;
 }

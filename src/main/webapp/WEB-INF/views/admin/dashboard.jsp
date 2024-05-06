@@ -7,13 +7,16 @@
 <% DashboardDTO dashboard = (DashboardDTO) request.getAttribute("summary"); %>
 <div class="admin-grid-container">
     <div class="dashboard-grid-item">
-        <h3>Room Summary</h3>
-        <div class="dashboard-item">
-            <p>Total number of rooms: <%=dashboard.getTotalRooms()%></p>
-            <p>Available Rooms:<%=dashboard.getAvailableRooms()%> </p>
-            <p>Unavailable Rooms:<%=dashboard.getUnavailableRooms()%> </p>
-            <p>Total Villa Capacity:<%=dashboard.getVillaCapacity()%> </p>
+        <div id="room_report">
+            <h3>Room Summary</h3>
+            <div class="dashboard-item">
+                <p>Total number of rooms: <%=dashboard.getTotalRooms()%></p>
+                <p>Available Rooms:<%=dashboard.getAvailableRooms()%> </p>
+                <p>Unavailable Rooms:<%=dashboard.getUnavailableRooms()%> </p>
+                <p>Total Villa Capacity:<%=dashboard.getVillaCapacity()%> </p>
+            </div>
         </div>
+        <button onclick="generatePDF()">Generate</button>
     </div>
     <div class="dashboard-grid-item">
         <h3>Restaurant Summary</h3>
@@ -64,4 +67,33 @@
             <p>Highest Employee Salary:<%=dashboard.getHighestSalary()%> </p>
         </div>
     </div>
+
+    <script>
+	    function generatePDF() {
+		    const element = document.getElementById('room_report');
+
+		    html2canvas(element).then(canvas => {
+			    const imgData = canvas.toDataURL('image/png');
+
+			    const imgWidth = 210;
+			    const pageHeight = 295;
+			    const imgHeight = canvas.height * imgWidth / canvas.width;
+			    let heightLeft = imgHeight;
+			    let position = 0;
+
+			    const pdf = new jsPDF('p', 'mm');
+			    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+			    heightLeft -= pageHeight;
+
+			    while (heightLeft >= 0) {
+				    position = heightLeft - imgHeight;
+				    pdf.addPage();
+				    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+				    heightLeft -= pageHeight;
+			    }
+
+			    pdf.save('generated.pdf');
+		    });
+	    }
+    </script>
 </div>

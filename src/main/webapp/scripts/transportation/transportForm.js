@@ -52,6 +52,12 @@ function initAutocomplete() {
 		map.fitBounds(bounds);
 	});
 
+	const marker = new google.maps.Marker({
+		position: {lat: 6.34, lng: 80.038},
+		map: map,
+		title: 'Happy Man Villa'
+	});
+
 	map.addListener('click', function(event) {
 		const latitude = event.latLng.lat();
 		const longitude = event.latLng.lng();

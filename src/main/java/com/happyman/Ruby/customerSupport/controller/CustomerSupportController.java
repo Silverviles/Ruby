@@ -34,7 +34,7 @@ public class CustomerSupportController extends BaseController {
 	@PostMapping("/addFeedback")
 	public String addFeedback(@ModelAttribute Feedback feedback) {
 		masterService.addFeedback(feedback);
-		return "redirect:/success";
+		return "home/Home";
 	}
 
 	@PostMapping("/deleteFeedback")

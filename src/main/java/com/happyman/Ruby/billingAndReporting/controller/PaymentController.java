@@ -117,7 +117,7 @@ public class PaymentController extends BaseController {
         refund.setCustomerEmail(reservation.getPayment().getCustomerEmail());
         refund.setRefundAmount(reservation.getPayment().getBillAmount());
         refund = masterService.saveRefund(refund);
-        reservation.setRefund(refund);
+        reservation.setRefund(masterService.findAllRefunds().stream().findFirst().orElse(null));
         masterService.saveReservation(reservation);
         model.addAttribute("reservation", reservation);
         return "/home/Home";

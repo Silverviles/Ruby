@@ -47,11 +47,10 @@ public class DriverAuthentication {
 	}
 
 	public static String encodePassword(String password) {
-		String salt = BCrypt.gensalt();
-		return BCrypt.hashpw(password, salt);
+		return password;
 	}
 
 	public static boolean checkPassword(String candidatePassword, String hashedPassword) {
-		return BCrypt.checkpw(candidatePassword, hashedPassword);
+		return candidatePassword.equals(hashedPassword);
 	}
 }
