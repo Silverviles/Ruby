@@ -34,7 +34,7 @@
             <a href="">Gallery</a>
             <a href="../restaurant/newStartBooking.jsp">Dinning</a>
             <a href="">Rooms</a>
-            <a href="">Packages</a>
+            <a href="${pageContext.request.contextPath}/packages/view">Packages</a>
             <a href="">Experience</a>
             <a href="">Event</a>
             <a href="">Transport</a>
@@ -54,25 +54,4 @@
 </script>
 </body>
 </html>
-<%--<div id="header">--%>
-<%--    <div is="logoNname">--%>
-<%--        <div class="div1">--%>
-<%--            <a href=""><img src="images/.png" alt="logo_image"></a>--%>
-<%--        </div>--%>
-<%--        <h5>Happy Man Village</h5>--%>
-<%--    </div>--%>
-
-<%--    <section>--%>
-<%--        <div class="nav">--%>
-<%--                <a href="">Home</a>--%>
-<%--                <a href="">Gallery</a>--%>
-<%--                <a href="">Dinning</a>--%>
-<%--                <a href="">Rooms</a>--%>
-<%--                <a href="">Packages</a>--%>
-<%--                <a href="">Experience</a>--%>
-<%--                <a href="">Event</a>--%>
-<%--                <a href="">Transport</a>--%>
-<%--        </div>--%>
-<%--    </section>--%>
-<%--</div>--%>
 

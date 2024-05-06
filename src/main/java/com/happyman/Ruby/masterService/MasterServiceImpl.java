@@ -47,6 +47,8 @@ import com.happyman.Ruby.masterService.service.TripService;
 import com.happyman.Ruby.masterService.service.VehicleService;
 import com.happyman.Ruby.packages.dto.PackageDTO;
 
+import static java.lang.Boolean.TRUE;
+
 @Service
 public class MasterServiceImpl implements MasterService {
 	private final DriverService driverService;
@@ -69,7 +71,6 @@ public class MasterServiceImpl implements MasterService {
 	private final ComplaintService complaintService;
 	private final RoomReservationService roomReservationService;
 	private final EventBookingService eventBookingService;
-
 	private final TableAvailabilityService tableAvailabilityService;
 
 	@Autowired
@@ -642,9 +643,50 @@ public class MasterServiceImpl implements MasterService {
 		return packageToAddonService.getPackageToAddonsByPackageId(packageId);
 	}
 
+
+	/*@Override
+	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
+		List<Integer> list1 = packageDTO.getAddonList().stream().map(Addon::getAddonId).toList();
+		List<Integer> list2 = new ArrayList<Integer>();
+
+		for (PackageToAddon p : packageToAddonService.getPackageToAddonsByPackageId(packageDTO.getId())) {
+			Integer addonId = p.getAddon().getAddonId();
+			list2.add(addonId);
+		}
+
+		for (Integer addonId : list1) {
+			if (!list2.contains(addonId)) {
+				PackageToAddon packageToAddon = new PackageToAddon();
+				PackageToAddonId packageToAddonId = new PackageToAddonId(packageDTO.getId(),addonId);
+				packageToAddon.setId(packageToAddonId);
+				packageToAddon.setAddon(getAddonById(addonId));
+				packageToAddon.setPkg(getPackageById(packageDTO.getId()));
+
+				packageToAddonService.addPackageToAddon(packageToAddon);
+			}
+		}
+
+		for (Integer addonId : list2) {
+			if (!list1.contains(addonId)) {
+				PackageToAddon packageToAddon = new PackageToAddon();
+				PackageToAddonId packageToAddonId = new PackageToAddonId(packageDTO.getId(),addonId);
+				packageToAddon.setId(packageToAddonId);
+				packageToAddon.setAddon(getAddonById(addonId));
+				packageToAddon.setPkg(getPackageById(packageDTO.getId()));
+
+				packageToAddonService.addPackageToAddon(packageToAddon);
+			}
+		}
+	}*/
+
 	@Override
 	public void updatePackageDTO(PackageDTO packageDTO) {
 		this.updatePackageByPackageDTO(packageDTO);
+	}
+
+	@Override
+	public void updatePackageToAddonByPackageDTO(PackageDTO packageDTO) {
+
 	}
 
 	@Override
@@ -820,5 +862,22 @@ public class MasterServiceImpl implements MasterService {
 	@Override
 	public void deleteBookById(Integer id) {
 
+	}
+
+
+	@Override
+	public Package getSuitablePackage(RoomReservation roomReservation) {
+		List<Package> packages= packageService.getAllPackages();
+		Package suitablePackage = new Package();
+
+		for(Package p:packages){
+			if(p.getDiscontinueDate().isAfter(roomReservation.getEndDate()) && p.getAvailability()==TRUE ){
+				if(roomReservation.getNoGuest()<=p.getMaxAdults()){
+					suitablePackage = p;
+					break;
+				}
+			}
+		}
+		return suitablePackage;
 	}
 }

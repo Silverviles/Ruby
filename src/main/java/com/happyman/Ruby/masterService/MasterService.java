@@ -173,7 +173,11 @@ public interface MasterService {
 
 	void updatePackageDTO(PackageDTO packageDTO);
 
+	void updatePackageToAddonByPackageDTO(PackageDTO packageDTO);
+
 	List<PackageToAddon> getPackageToAddonsByPackageId(Integer packageId);
+
+	Package getSuitablePackage(RoomReservation roomReservation);
 
 	List<Event> getAllEvents();
 
