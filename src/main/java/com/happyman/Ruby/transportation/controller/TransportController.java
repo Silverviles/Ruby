@@ -60,10 +60,6 @@ public class TransportController extends BaseController {
 	}
 
 	private String getPortalString(@ModelAttribute DriverDTO driverDTO, Model model) {
-		Driver driver = masterService.getDriverByEmail(driverDTO.getEmail());
-		model.addAttribute("driver", driver);
-		model.addAttribute("allJobs", DriverJobList.getAllTrips(masterService, driver.getId()));
-
 		return "transportation/driver_portal";
 	}
 
